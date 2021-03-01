@@ -7,14 +7,19 @@
 body,html{
     height: 100%;
 }
+.clear{
+    clear: both;
+}
 
 /*acima reseta a pagina*/
 
 .center{
     width: 1200px;
     margin: 0 auto;
+    padding: 0 2%;
 }
 .header{
+    min-width: 1200px;
     width: 100%;
     height: 60px;
     background-color: #212343;
@@ -23,6 +28,7 @@ body,html{
      margin: 19px;
  }
  .container-banner{
+     min-width: 1200px;
      width: 100%;
      height: 557px;
      background-image: url("../img/header_bg.png");
@@ -94,6 +100,7 @@ body,html{
     margin: 20px;
 }
 .container-2{
+    min-width: 1200px;
      padding: 40px 0;
      background-color: rgb(200, 200, 200);
      text-align: center;
@@ -122,3 +129,33 @@ body,html{
     margin-left: -20px;
 }
 
+.section-1{
+    padding: 90px 0;
+}
+.section-1 h2{
+    text-align: center;
+    color: #462663;
+    font-weight: normal;
+}
+.container-section{
+    margin-top: 40px;
+    text-align: center;
+}
+.container-single{
+    float: left;
+    width: 33.333%;
+    padding: 30px;
+}
+.container-single p{
+    padding: 10px 25px;
+    text-align: justify;
+}
+.container-single img{
+    width: 70px;
+}
+.footer{
+    border-top: 4px solid #888 ;
+    padding: 30px 0;
+    text-align: center;
+    color: #888;
+}
