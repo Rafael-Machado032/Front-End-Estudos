@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -19,6 +20,7 @@ body,html{
 }
 .imgLeft{
     float: left;
+    
 }
 
 .imgRight{
@@ -34,13 +36,20 @@ body,html{
 .imgTela{
     width: 100%;
     height: 520px;
+    background-image: url("../img/bg-form.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    padding-right: 20px;
 }
 .formulario{
     float: right;
     width: 400px;
-    height: 520px;
+    height: 540px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(238, 238, 238);
+    position: relative;
+    top: -10px;
     
-    background-color: rgba(255, 255, 255,0.7);
 }
 .formulario h2{
     background-color: #b6b6b6;
@@ -48,4 +57,58 @@ body,html{
     font-size: 13pt;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
+    
+}
+
+.boxForm{
+    padding: 20px 0 0 5%;
+    color: rgb(78, 78, 78);
+}
+
+.formulario input[type=text], [type=email], [type=tel]{
+    width: 95%;
+    height: 45px;
+    border: 1px solid rgb(175, 174, 174);
+    padding-left: 10px;
+    
+}
+input[type=submit]{
+    width: 95%;
+    height: 45px;
+    margin-top: 30px;
+    background-color: blue;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white;
+    font-size: 18pt;
+}
+input[type=submit]:active{     /*Ao clicar muda cor*/
+    background-color: rgb(94, 94, 255); 
+}
+
+
+.formulario p{
+    margin-top: 30px;
+    font-size: 11pt;
+    font-weight: bold;
+}
+.formulario p:first-child, p:last-child { /*pega o primero e o ultimo elemento e aplica a função*/
+    margin-top: 10px;
+}
+
+
+/*Corpo*/
+
+
+@media screen and (max-width: 510px) {
+    .imgRight, .imgLeft{
+        text-align: center;
+        float: none;       
+    }
+    .cabeca{
+        background-color: #DCDCDC;
+        height: 200px;
+    }
+    
 }
