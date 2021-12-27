@@ -110,5 +110,18 @@ input[type=submit]:active{     /*Ao clicar muda cor*/
         background-color: #DCDCDC;
         height: 200px;
     }
+
+    .imgTela{
+        height: 600px;
+        padding: 30px;
+    }
+    .formulario{
+        float: none;        
+        position:static;
+        margin: 0 auto;
+        
+    
+        
+    }
     
 }
