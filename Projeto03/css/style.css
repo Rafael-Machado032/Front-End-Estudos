@@ -2,7 +2,9 @@
 *{
     padding: 0;
     margin: 0;
+    border: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 body,html{
     height: 100%;
@@ -30,7 +32,7 @@ body,html{
     width: 160px;
     margin: 20px;
 }
-/*Cabecalho*/
+/*Cabeçalho*/
 
 /*Corpo*/
 .imgTela{
@@ -45,7 +47,6 @@ body,html{
     float: right;
     width: 400px;
     height: 540px;
-    font-family: 'Open Sans', sans-serif;
     background-color: rgb(238, 238, 238);
     position: relative;
     top: -10px;
@@ -97,8 +98,98 @@ input[type=submit]:active{     /*Ao clicar muda cor*/
     margin-top: 10px;
 }
 
+.pingo{
+    position: relative;
+    top: -30px;
+    left: 20%;
+
+}
+
+.boxmeio{
+    background-color: #29526D;
+    color: white;
+    text-align: center;
+    
+    padding-bottom: 40px;
+    font-size: 14pt;
+}
+.boxmeio h2{
+    font-size: 17pt;
+    padding: 10px;
+    font-style: normal;
+}
+
+/*Galeria*/
+
+.container{
+    width: 100%;
+    
+    background-color: #4683AB;
+    overflow: hidden; /*verifica se o elemento esta flutuando e recalcula o espaço da flutuação */
+}
+.foto{
+    width: 60%;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;  /*Inline é o comportamento de se alinhar na mesma linha e block é comportamento de ser alterar a dimensão se coloca direto no filho e não no pai*/
+    
+}
+.descricao{
+    width: 33%;
+    position: relative;
+    display: inline-block;
+    
+    color: white;
+    margin: 80px 0 0 3%;
+}
+
+/*Galeria*/
 
 /*Corpo*/
+
+/*Rodape*/
+
+.rodape{
+    height: 100px;
+    background-color: #DCDCDC;
+    text-align: center; /*Centralizar os elementos se insere text-align no pai*/
+}
+.boxRodape img{
+    width: 140px;
+    margin-top: 30px;
+}
+/*Rodape*/
+
+@media screen and (max-width: 1024px) {
+    .imgTela{
+        height: 700px;
+        padding:90px 10px 0 0;
+    }
+    .formulario{
+        float: none;        
+        position:static;
+        margin: 0 auto;       
+    }
+    .pingo{  
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 728px) {
+    .foto{
+        width: 100%;
+        height: 350px;
+        background-size: cover;
+        background-position: center;
+          /*Inline é o comportamento de se alinhar na mesma linha e block é comportamento de ser alterar a dimensão se coloca direto no filho e não no pai*/
+        
+    }
+    .descricao{
+        width: 80%;       
+        margin: 90px 10%;
+    }
+}
 
 
 @media screen and (max-width: 510px) {
@@ -111,17 +202,13 @@ input[type=submit]:active{     /*Ao clicar muda cor*/
         height: 200px;
     }
 
-    .imgTela{
-        height: 600px;
-        padding: 30px;
-    }
     .formulario{
-        float: none;        
-        position:static;
-        margin: 0 auto;
+        width: 99%;
+        height: 540px;
+        margin-left: 2%;
         
-    
         
     }
+
     
 }
