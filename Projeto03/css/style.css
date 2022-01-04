@@ -51,7 +51,7 @@ body,html{
     position: relative;
     top: -10px;
     -webkit-box-shadow: 9px 11px 14px 4px rgba(0,0,0,0.47); 
-    box-shadow: 9px 11px 14px 4px rgba(0,0,0,0.47);
+    box-shadow: 9px 11px 14px 4px rgba(0,0,0,0.47);    /*sombra atrás do formulário*/
     
 }
 .formulario h2{
