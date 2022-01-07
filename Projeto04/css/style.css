@@ -1,3 +1,59 @@
 @import url(reset.css);
 
 
+/*cabeça*/
+.cabeca{
+    background-image: url(/Projeto04/img/capa.png);
+    background-size:cover;
+    background-position: center;
+    height: 750px;
+}
+.cabecalho img{
+    width: 160px;
+    margin: 40px 20px;
+    
+}
+.alinhado{
+    display: inline-block;
+}
+
+.menu{
+    float:right;
+    margin: 20px;
+    
+}
+.menu li{
+    display: inline-block;
+    padding: 20px;
+    color: white;
+    cursor: pointer;
+    
+}
+.chamada{
+    color: white;   
+    max-width: 650px;   
+    float: right;
+    margin: 150px 100px;   
+    
+}
+.chamada h1{
+    margin: 0 10px 10px 0;
+    font-size: 30pt;
+    font-weight: normal;
+}
+
+/*cabeça*/
+
+@media screen and (max-width:830px){
+
+    
+    .chamada{
+        text-align: center;
+        float:none;
+        margin: 150px 10px; 
+        max-width: 100%;
+    }
+    .chamada h1{
+        font-size: 22pt;
+    }
+}
