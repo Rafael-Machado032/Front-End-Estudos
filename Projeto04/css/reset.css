@@ -5,6 +5,7 @@
     border: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
 }
 body,html{
     height: 100%;

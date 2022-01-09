@@ -39,10 +39,118 @@
 .chamada h1{
     margin: 0 10px 10px 0;
     font-size: 30pt;
-    font-weight: normal;
 }
 
 /*cabeça*/
+
+/*corpo*/
+
+/*chamada1*/
+.mensagem1{
+    height: 400px;
+    background-color: #472562;
+
+}
+.box{
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 10px;
+}
+.informacao{
+    padding: 60px 0 0 0;
+    list-style-position: inside;
+    color: white;
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    left: 150px;
+}
+.informacao h2{
+    margin-bottom: 10px;
+}
+.informacao li{
+    margin: 6px 0;
+}
+.informacao [type=button]{
+    color: white;
+    background-color: #FF703D;
+    padding: 15px 30px;
+    margin-top: 30px;
+    border-radius: 50px;
+}
+.celular{
+    background-image: url(/Projeto04/img/device.png);
+    background-size: 100% 100%;
+    width: 50%;
+    height: 450px;
+    float: right;
+    position: relative;
+    top: -50px;
+    right: 10px;
+    overflow: visible;
+    
+    
+}
+/*chamada1*/
+/*chamada2*/
+
+.msgbox{
+    text-align: center;
+    clear: both;
+    margin-bottom: 80px;
+    padding:0 20px;
+    z-index: 1;
+}
+.msgbox h2{
+    margin-bottom: 30px;
+}
+
+.tela img{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+/*chamada2*/
+
+/*chamada3*/
+.mensagem3{
+    width: 100%;
+    height: 400px;
+    background-color: aqua;
+    padding: 0;
+    position: relative;
+    top: -80px;
+    z-index: 1;
+    
+}
+.mensagem3 img{
+    width: 50px;
+}
+.todos{
+    width: 50%;
+    background-color: #835FA7;
+    float: left;
+    height: 100%;
+    color: white;
+    
+}
+.eu{
+    width: 50%;
+    background-color: chartreuse;
+    display: inline-block;
+    height: 100%;
+}
+.eu p:first-line and h2{
+    background-color: black
+}
+.centralizar{
+    padding: 100px;
+}
+
+/*chamada3*/
+/*corpo*/
+
 
 @media screen and (max-width:830px){
 
