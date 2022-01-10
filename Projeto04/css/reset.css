@@ -3,7 +3,7 @@
     padding: 0;
     margin: 0;
     border: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /*serve para alterar a largura e altura quando aplicada padding ou border*/
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
 }

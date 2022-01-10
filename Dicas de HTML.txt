@@ -1,0 +1,24 @@
+*display: inline-block //Alinanha os elementos porem se comporta como frase com espaço entre eles inline = alinhado block = redimencionar padrão dos elementos
+exemplo:
+   <div><dic/><!--
+--><div><dic/><!--
+--><div><dic/>
+Remove o espaço do "display: inline-block;"
+*text-align: center; Tambem usado para alinhar os elementos e usa no pai e os filhos usando "display: inline-block;"
+*margin-left: auto; Empurra o elemento para direita preenchedo a esquerda mais a largura tem que esta setada
+*margin: 0 auto; Centraliza o elemento mais a largura tem que esta setada
+text-aling: justify; Distribui o elementos porem se for uma linha nao acontece nada para resolver isso usa uma propriedade do css
+.example::after{
+	content: ''; 		adiciona no html um conteudo
+	display: inline-block; 	comportamento de palavra
+	width: 100%; 		ocupa a linha toda
+}
+Assim ele distribui o elemento lembrando que o "text-aling: justify;" coloca no pai
+*overflow: hidden; Ele verifica os elementos que estão flutuando e recalcula considerado os elementos flutuando nele e caso setado a altura dele esconde os elementos flutuando
+*clear: both; Verifica se ah elementos flutuando em ambos os lados e o conteudo pula pra linha de baixo
+*line-height: 35px; Espaços entre linhas
+*position: relative; Posiciona onde ele foi criado mais nao deixa seu contexto
+*z-index: 1; o eixo z eh o que determina quem esta na frente mais para isso tem que setar o position relative pois o padrão eh static "z-index: 0;" eh o padrão
+*position: absolute; Cria um novo contexto como float e a referencia para deslocamento eh a tela, se tiver um elemento detro do outro para respeitar o pai o mesmo tem que estar diferente de static(o pai diferente de position static)
+*transform: translate(-50%,-50%); Para centralizar o elemento do seu eixo caso use "position: absolute;" ex: transform: translate(X,Y);
+*position: fixed; Cria um novo contexto e fica fixa tem que setar sua largura
