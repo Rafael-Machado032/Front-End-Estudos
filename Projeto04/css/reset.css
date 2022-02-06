@@ -10,3 +10,16 @@
 body,html{
     height: 100%;
 }
+.alinhado{
+    display: inline-block;
+}
+.centralizado{
+    margin: 0 auto;
+}
+.box{
+    max-width: 1000px;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+}

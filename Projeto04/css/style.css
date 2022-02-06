@@ -1,43 +1,49 @@
 @import url(reset.css);
+@import url(button.css);
 
 
 /*cabeça*/
+
+
 .cabeca{
     background-image: url(/Projeto04/img/capa.png);
     background-size:cover;
     background-position: center;
+    width: 100%;
     height: 750px;
 }
-.cabecalho img{
+.logo img{
     width: 160px;
-    margin: 40px 20px;
-    
+    margin: 30px 0 10px 20px;
 }
-.alinhado{
-    display: inline-block;
-}
-
 .menu{
     float:right;
-    margin: 20px;
-    
+    margin: 20px;   
 }
 .menu li{
     display: inline-block;
     padding: 20px;
-    color: white;
     cursor: pointer;
     
+}
+.menu a{
+    color: white;
+}
+.menucel a{
+    color: black;
+}
+.menucel{
+    display: none;
 }
 .chamada{
     color: white;   
     max-width: 650px;   
     float: right;
-    margin: 150px 100px;   
+    margin: 150px 150px;   
     
 }
 .chamada h1{
-    margin: 0 10px 10px 0;
+    margin-bottom: 10px;
     font-size: 30pt;
 }
 
@@ -47,18 +53,14 @@
 
 /*chamada1*/
 .mensagem1{
+    width: 100%;
     height: 400px;
     background-color: #472562;
 
 }
-.box{
-    max-width: 1000px;
-    margin: 0 auto;
-    height: 100%;
-    padding: 10px;
-}
+
 .informacao{
-    padding: 60px 0 0 0;
+    margin-top: 80px;
     list-style-position: inside;
     color: white;
     width: 50%;
@@ -69,15 +71,8 @@
 .informacao h2{
     margin-bottom: 10px;
 }
-.informacao li{
-    margin: 6px 0;
-}
-.informacao [type=button]{
-    color: white;
-    background-color: #FF703D;
-    padding: 15px 30px;
-    margin-top: 30px;
-    border-radius: 50px;
+.informacao li, h1{
+    margin-bottom: 5px;
 }
 .celular{
     background-image: url(/Projeto04/img/device.png);
@@ -94,11 +89,14 @@
 }
 /*chamada1*/
 /*chamada2*/
+.mensagem2{
+    width: 100%;
+}
 
 .msgbox{
     text-align: center;
     clear: both;
-    padding:0 20px;
+    max-width: 900px;
 
 }
 .msgbox h2{
@@ -113,46 +111,41 @@
 /*chamada2*/
 
 /*chamada3*/
+
 .mensagem3{
     width: 100%;
-    height: 400px;
-    
 }
-.mensagem3 img{
-    width: 40px;
-}
+
 .todos{
-    background-color: #835FA7;
-    height: 100%;
+    width: 50%;
     color: white;
-    
+    float: left;
+    line-height: 35px;
+    background-color:#835FA7;
+}
+.eu{  
+    width: 50%;   
+    float: left;   
+}
+
+.box1{
+    max-width: 600px;
+    float: right;
+    padding: 100px 30px;
+}
+.box2{
+    max-width: 600px;
+    padding: 100px 20px;
 }
 .todos h2{
     font-style: italic;
 }
-.eu{  
-    height: 100%;   
-}
+
 .eu p:first-line and h2{
     background-color: black
 }
-.centralizar{
-    float: left;
-    width: 50%;
-    padding-top: 130px; 
-}
-
-.box1{   
-    max-width: 580px;
-    float: right;
-    line-height: 35px;
-    margin-right: 20px;
-    padding-left: 30px;
-}
-.box2{
-    max-width: 580px;
-    float: left;
-    margin-left: 20px;
+.mensagem3 img{
+    width: 40px;
 }
 
 .box2>p{
@@ -167,21 +160,35 @@
     overflow: hidden;
     margin-right: 20px;
 }
+span{
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: rgb(200, 200, 200);
+    float: left;
+    margin: 10px 8px 0 0;
+    cursor: pointer;
+}
 
 /*chamada3*/
 /*contato*/
 .contato{
-    height: 100%;
+    width: 100%;
     background-color: #472563;
     overflow: hidden;
     color: white;
     padding-left: 10px;
+    padding-top:80px;
+}
+.contatobox, .mapabox{
+    width: 50%;
+    float: left;
 }
 
 form{
+    
     max-width: 580px;
     margin: 0 auto;
-    
 }
 form p{
     max-width: 400px;
@@ -194,25 +201,20 @@ form input[type=text], input[type=email], textarea{
     margin-top: 10px;
     resize: none; /*desabilita o redirecionamento da textarea*/
 }
-input[type=button]{
-    display: block;
-    padding: 10px;
-    width: 160px;
-    border-radius: 50px;
-    background-color:#FF703D;
-    color: white;
-    margin: 20px 0 80px 0;
-}
+
 /*contato*/
 /*mapa*/
 .mapabox{
-    height: 764px;
+    height: 600px;
+    padding-right: 20px;
 }
 .mapabox h2{
     margin-bottom: 10px;
 }
 .mapas{
     border: 5px solid rgba(255, 255, 255, 0.5);
+    max-width: 500px;
+    width: 100%;
 }  
 /*mapa*/
 
@@ -239,14 +241,143 @@ footer div{
 
 @media screen and (max-width:830px){
 
+    .cabeca{
+        height: 600px;
+    }
     
     .chamada{
         text-align: center;
         float:none;
         margin: 150px 10px; 
         max-width: 100%;
+    
     }
     .chamada h1{
         font-size: 22pt;
+    }
+    .contato{
+        padding: 0;
+    }
+
+    .mapabox, .contatobox{
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+        
+    }
+    form{
+        padding: 50px 10px;
+    }
+    form p{
+        margin: 10px auto;
+        
+    }
+    .mapabox{
+        padding: 50px 0;
+        height: auto;
+    }
+    .mapas{
+        width: 80%;
+        height: 500px;
+    }
+    
+   
+
+    
+}
+
+@media screen and (max-width:768px){
+
+    .celular{
+        display: none;
+    }
+    .mapas{
+        height: 400px;
+    } 
+    .informacao{
+        text-align: center;
+        position: static;
+        width: 100%;
+        margin: 36px auto;
+        display: inline-block;
+    }
+    .mensagem1{
+        height: auto;
+    }
+    .informacao ul{
+        display: inline-block;
+
+    }
+    .informacao li{
+        text-align: left; 
+    }
+    .informacao input[type=button]{
+        display: block;
+        margin: 25px auto;
+    }
+    
+    .menu nav{
+        display: none;
+    }
+    .hamburguer{
+        background-image: url(/Projeto04/img/menu.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        float: right;
+        margin-top: 30px;
+    }
+    .hamburguer:hover + .menucel{
+        transition: 1s;
+        opacity: 1;
+    }
+    .menucel:hover{
+        opacity: 1;
+    }
+    .menucel{
+        width: 100%;
+        background-color: rgb(221, 250, 250);
+        text-align: center;
+        display: block;
+        float: left;
+        opacity: 0;
+        transition: 1s;
+    }
+    .menucel li {
+        border: 1px solid #5c5d5eef;
+        padding: 5px;
+        cursor: pointer;
+        color: black;
+    }
+    
+    .mensagem2{
+        padding-top: 50px;
+    }
+
+
+}
+@media screen and (max-width:580px){
+   
+    .mapas{
+        height: 300px;
+    } 
+    .todos, .eu{
+        width: 100%;
+        float: none;
+        display: inline-block;
+    }
+    
+    .tela img{
+        top: 50px;
+    }
+    footer{
+        text-align: center;
+    }
+    .frase, .last{
+        float: none;
+        width: 100%;
     }
 }

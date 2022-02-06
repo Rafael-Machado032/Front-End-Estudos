@@ -1,4 +1,4 @@
-*display: inline-block; /*Alinha os elementos porem se comporta como frase com espaço entre eles inline = alinhado block = redimencionar padrão dos elementos
+*display: inline-block; /*Alinha os elementos porem se comporta como frase com espaço entre eles inline = alinhado block = redimensionar padrão dos elementos
 exemplo:
    <div><dic/><!--
 --><div><dic/><!--
@@ -23,3 +23,5 @@ Assim ele distribui o elemento lembrando que o "text-align: justify;" coloca no 
 *transform: translate(-50%,-50%); /*Para centralizar o elemento do seu eixo caso use "position: absolute;" ex: transform: translate(X,Y);*/
 *position: fixed; /*Cria um novo contexto e fica fixa tem que setar sua largura*/
 *resize: none; /*desabilita o redirecionamento da textarea*/
+
+*div p:nth-of-type(1){ /*Seleciona o elemento que quiser alterar no exemplo selecionou o paragrafo 1*/
