@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box; /*serve para alterar a largura e altura quando aplicada padding ou border*/
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    list-style: none;
+}
+body,html{
+    height: 100%;
+}
+.alinhado{
+    display: inline-block;
+}
+.centralizado{
+    margin: 0 auto;
+}
+.box{
+    max-width: 1000px;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+}
