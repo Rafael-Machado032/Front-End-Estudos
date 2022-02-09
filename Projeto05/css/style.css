@@ -33,3 +33,57 @@ header{
 }
 
 /*Cabeçalho*/
+/*mosaico*/
+
+.mosaico{
+    max-width: 1200px;
+    width: 100%;
+}
+.mosaicobox{
+    width: calc(100% / 6);
+    float: left;
+    
+}
+.mosaicoimg{
+    background-color: #ccc;
+    border: 5px solid white;
+    padding-top: 100%;
+}
+
+/*mosaico*/
+/*mensagem*/
+
+.mensagem{
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    height: 200px;
+    align-items: center;
+    position: relative;
+    bottom: 20px;
+}
+
+.box{
+    background-color: #576975; 
+    width: 30%;
+    padding: 30px 20px;
+}
+.box p{
+    margin-top: 10px;
+}
+.box img{
+    margin-top: 20px;
+}
+
+
+.mensagem2{
+    background-color: #688293;
+    width: 40%;  
+    padding: 80px 30px;
+}
+
+
+/*mensagem*/
