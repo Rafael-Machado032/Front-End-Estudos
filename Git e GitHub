@@ -16,3 +16,4 @@ Crie uma pasta e dentro da basta clique com mouse direito na opção "Git Bash H
 >git add "arquivo.css": Adicionar arquivo no controle de versionamento
 >git add .: Adiciona todos os arquivos dentro da pasta
 >git commit -m "Descrição do commit": Grava a versão do código
+>git push: Envia para diretório remoto (GitHub)
