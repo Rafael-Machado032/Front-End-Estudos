@@ -17,3 +17,8 @@ Crie uma pasta e dentro da basta clique com mouse direito na opção "Git Bash H
 >git add .: Adiciona todos os arquivos dentro da pasta
 >git commit -m "Descrição do commit": Grava a versão do código
 >git push: Envia para diretório remoto (GitHub)
+
+  Configurar Usuário no github
+
+  >git config --global user.email "you@example.com.br" Email do GitHub
+  >git config --global.name "you Name" Seu nome para atrelar ao seu código
