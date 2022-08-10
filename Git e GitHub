@@ -1,24 +1,44 @@
 Funcionamento do Git
 
 Clone: Baixar arquivo para repositório local
-Commit: Pacotes de arquivos alterados do repositório local
+Commit: Pacotes de arquivos alterados do repositório local (Versão)
 Push: Envia os pacotes para repositório remoto
 Pull: Baixa os arquivos alterados do repositório remoto
+branch: Versões de código de forma separada
 
 
 
 Comandos de Git
+
 Criando repositório
 
 Crie uma pasta e dentro da basta clique com mouse direito na opção "Git Bash Here" e vai abrir terminal do Git
->git init: Comando para criar um repositório local 
->git status: Mostra o status da pasta se existe commit
->git add "arquivo.css": Adicionar arquivo no controle de versionamento
->git add .: Adiciona todos os arquivos dentro da pasta
->git commit -m "Descrição do commit": Grava a versão do código
->git push: Envia para diretório remoto (GitHub)
+    >git init: Comando para criar um repositório local 
+    >git status: Mostra o status da pasta se existe commit
+    >git add "arquivo.css": Adicionar arquivo no controle de versionamento
+    >git add .: Adiciona todos os arquivos dentro da pasta
+    >git commit -m "Descrição do commit": Grava a versão do código
+    >git push: Envia para diretório remoto (GitHub)
 
-  Configurar Usuário no github
+Configurar Usuário no github
 
-  >git config --global user.email "you@example.com.br" Email do GitHub
-  >git config --global.name "you Name" Seu nome para atrelar ao seu código
+    >git config --global user.email "you@example.com.br": Email do GitHub
+    >git config --global.name "you Name": Seu nome para atrelar ao seu código
+
+    >git remote add origin "https://github.com/Rafael-Machado032/Curso-DankiCode-Front-End": Seta onde vai ser seu repositório no git hub
+    >git push --set-upstream origin master: Envia para o master
+
+Criando novas versões
+
+    >git add .
+    >git commit -m "Nova versão"
+    >git push
+
+Histórico das versões
+
+    >git reflog: Mostrar o histórico das versões
+    >git reset --hard 123456: 123456 é o id da versão com esse comando volta para outra versão
+
+Trabalhando com branch
+
+    >git branch: Mostra quais branch esta disponíveis no repositório
