@@ -35,4 +35,8 @@ Assim ele distribui o elemento lembrando que o "text-align: justify;" coloca no 
 *div p:nth-of-type(1){/*Seleciona o elemento que quiser alterar no exemplo selecionou o paragrafo 1*/
 	width: 100%;
 }
-
+@media screen and (max-width: 320px) { /*Usado para mudar a tela no modo responsivo*/
+	.box{
+		width: 100%;
+	}
+}
