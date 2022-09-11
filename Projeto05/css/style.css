@@ -66,15 +66,15 @@ header{
     bottom: 20px;
 }
 
-.box{
+.boxm{
     background-color: #576975; 
     width: 30%;
     padding: 30px 20px;
 }
-.box p{
+.boxm p{
     margin-top: 10px;
 }
-.box img{
+.boxm img{
     margin-top: 20px;
 }
 
@@ -87,3 +87,22 @@ header{
 
 
 /*mensagem*/
+/* Profissional */
+.perfil{
+    width: 40%;
+    height: 450px;
+}
+
+.profissionaltext{
+    width: 58%;
+    padding-left: 30px;
+    font-size: 10pt;
+    color:#757575;
+    position: relative;
+    bottom: 40px; 
+}
+.prfissionaltext h2{
+    
+}
+
+/* Profissional */

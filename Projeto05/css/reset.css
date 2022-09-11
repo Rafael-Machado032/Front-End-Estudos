@@ -18,9 +18,19 @@ body,html{
     margin: 0 auto;
 }
 .box{
-    max-width: 1000px;
+    max-width: 920px;
     padding: 10px;
+    
 }
 a{
     text-decoration: none;
+}
+.teste1{
+    background-color: blue;
+}
+.teste2{
+    background-color: red;
+}
+.teste3{
+    background-color: green;
 }
