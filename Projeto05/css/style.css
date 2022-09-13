@@ -60,7 +60,6 @@ header{
     color: white;
     text-align: center;
     font-size: 12px;
-    height: 200px;
     align-items: center;
     position: relative;
     bottom: 20px;
@@ -90,7 +89,6 @@ header{
 /* Profissional */
 .perfil{
     width: 40%;
-    height: 450px;
 }
 
 .profissionaltext{
@@ -101,8 +99,39 @@ header{
     position: relative;
     bottom: 40px; 
 }
-.prfissionaltext h2{
-    
-}
+
 
 /* Profissional */
+
+/* Modo Mobile */
+
+@media screen and (max-width: 830px) {
+    .mensagem{
+        flex-direction: column;
+    }
+    .boxm{
+        max-width: 350px;
+        width: 80%;
+        padding: 20px 10px;
+    }
+    .mensagem2{
+        width: 90%;
+        max-width: 380px; 
+        padding: 40px 10px;
+    }
+    .profissionalbox{
+        width: 100%;
+        text-align: center;
+    }
+    .perfil{
+        width: 60%;
+        display: inline-block;
+    }
+    .profissionaltext{
+        width: 100%;
+        padding: 50px 10px 0 10px;
+        text-align: justify;
+    }
+}
+
+/* Modo Mobile */ 
