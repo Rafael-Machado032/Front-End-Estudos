@@ -26,12 +26,28 @@ Assim ele distribui o elemento lembrando que o "text-align: justify;" coloca no 
 *transform: translate(-50%,-50%); /*Para centralizar o elemento do seu eixo caso use "position: absolute;" ex: transform: translate(X,Y);*/
 *position: fixed; /*Cria um novo contexto e fica fixa tem que setar sua largura*/
 *resize: none; /*desabilita o redirecionamento da textarea*/
-*display: flex; /* Torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens*/
-*align-items: center; /*Centraliza os intens no filho*/
 *background-clip: padding-box; /*Ajuste do fundo a partir da borda*/
 *background-origin: border-box;/*Mesmo efeito do background-clip porem é para imagens*/
-*flex-direction: row-reverse;/*inverte o sentido da tabela "Display: flex;" */
-*order: 1; /*Ordem de execuções*/
+
+
+}
+
+.FlexBox{
+	*display: flex; /* Torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens*/
+	*flex-direction: row-reverse;/*inverte o sentido da linha de itens do display flex */
+	*flex-direction: column;/*fica em coluna os itens do display flex */
+	*flex-wrap: wrap; /* Quebra linha dos itens do display flex */
+	*justify-content: center; /* Centraliza os itens no meio do contêiner "eixo horizontal"*/
+	*justify-content: space-between;  /*distribui os elementos do inicio e no final "eixo horizontal"*/;
+	*justify-content: space-around; /* distribui com o mesmo espaçamento da esquerda para direita "eixo horizontal"*/
+	*align-items: center; /*Centraliza os itens no contêiner com espaçamento iguais"eixo vertical"*/
+	*align-items: flex-start; /*os itens fica em cima no contêiner com espaçamento iguais "eixo vertical"*/
+	*align-items: flex-end; /*os itens fica em baixo no contêiner com espaçamento iguais"eixo vertical"*/
+	*align-content: center; /*Centraliza os itens no contêiner sem espaçamento "eixo vertical"*/
+	*align-content: flex-start; /*os itens fica em cima no contêiner sem espaçamento iguais "eixo vertical"*/
+	*flex-grow: 2; /*Mexe com o tamanho do item de 0 a infinito quanto maior mais tem prioridade de tamanho "flex item"*/
+	*order: 3; /*Ordem de execuções "flex item"*/
+	*align-self: start; /* Alinha so um item dentro de um grupo de itens*/
 }
 
 *div p:nth-of-type(1){/*Seleciona o elemento que quiser alterar no exemplo selecionou o paragrafo 1*/
