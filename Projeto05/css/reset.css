@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+/* Reset do html */
 *{
     padding: 0;
     margin: 0;
@@ -11,8 +12,13 @@
 body,html{
     height: 100%;
 }
+
+/* Posição dos elementos */
 .alinhado{
     display: inline-block;
+}
+.flex{
+    display: flex;
 }
 .centralizado{
     margin: 0 auto;
@@ -25,12 +31,13 @@ body,html{
 a{
     text-decoration: none;
 }
-.teste1{
+/* Teste para localização dos elementos */
+.t1{
     background-color: blue;
 }
-.teste2{
+.t2{
     background-color: red;
 }
-.teste3{
+.t3{
     background-color: green;
 }

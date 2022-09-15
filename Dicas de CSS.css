@@ -28,7 +28,7 @@ Assim ele distribui o elemento lembrando que o "text-align: justify;" coloca no 
 *resize: none; /*desabilita o redirecionamento da textarea*/
 *background-clip: padding-box; /*Ajuste do fundo a partir da borda*/
 *background-origin: border-box;/*Mesmo efeito do background-clip porem é para imagens*/
-
+*text-transform: uppercase; /*Todo texto em maiúscula*/
 
 }
 
