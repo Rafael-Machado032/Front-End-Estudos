@@ -18,6 +18,67 @@ span {
 }
 
 
+*div p:nth-of-type(1){/*Seleciona o elemento que quiser alterar no exemplo selecionou o paragrafo 1*/
+	width: 100%;
+}
+@media screen and (max-width: 320px) { /*Usado para mudar a tela no modo responsivo*/
+	.box{
+		width: 100%;
+	}
+}
+
+div.box{
+	width: 300px;
+	height: 100px;
+	animation-name: animacao_1; /*Nome da animação e reproduz no keyframe*/
+	animation-duration: 0.1s;	/*Tempo de duração da animação*/
+	animation-iteration-count: infinite;	/*Contador da animação*/
+}
+@keyframes animacao_1 { /*animação automático*/
+	from{
+		background-color: blue;
+	}
+	to{
+		background-color: red;
+	}
+}
+.box1{
+	width: 300px;
+	height: 100px;
+	animation-name: animacao_2; /*Nome da animação e reproduz no keyframe*/
+	animation-duration: 0.1s;	/*Tempo de duração da animação*/
+	animation-iteration-count: infinite;	/*Contador da animação*/
+}
+@keyframes animacao_2 { /*animação automático*/
+	10%{
+		background-color: blue;
+	}
+	50%{
+		background-color: red;
+	}
+	75%{
+		background-color: black;
+	}
+	100%{
+		background-color: blue;
+	}
+}
+.box:hover,.box1:hover{ /*passa o mouse por cima*/
+	animation-duration: 3s;
+}
+
+/* Pelo calculo da largura a altura e calculado automaticamente inserindo um espaço de 100% no topo fazendo um quadrado*/
+
+.teste1{
+	width: calc(100%/8);
+}
+.teste{
+	background-color: red;
+	padding-top: 100%;
+	border: 1px solid black;
+}
+
+
 .aula{
 
 	
@@ -201,64 +262,4 @@ span {
 	background-attachment:scroll; /*A imagem de fundo rolará com a página. Isso é padrão*/
 	background-attachment:fixed; /*A imagem de fundo não rolará com a página*/
 	background-attachment:local; /*A imagem de fundo irá rolar com o conteúdo do elemento*/
-}
-
-*div p:nth-of-type(1){/*Seleciona o elemento que quiser alterar no exemplo selecionou o paragrafo 1*/
-	width: 100%;
-}
-@media screen and (max-width: 320px) { /*Usado para mudar a tela no modo responsivo*/
-	.box{
-		width: 100%;
-	}
-}
-
-div.box{
-	width: 300px;
-	height: 100px;
-	animation-name: animacao_1; /*Nome da animação e reproduz no keyframe*/
-	animation-duration: 0.1s;	/*Tempo de duração da animação*/
-	animation-iteration-count: infinite;	/*Contador da animação*/
-}
-@keyframes animacao_1 { /*animação automático*/
-	from{
-		background-color: blue;
-	}
-	to{
-		background-color: red;
-	}
-}
-.box1{
-	width: 300px;
-	height: 100px;
-	animation-name: animacao_2; /*Nome da animação e reproduz no keyframe*/
-	animation-duration: 0.1s;	/*Tempo de duração da animação*/
-	animation-iteration-count: infinite;	/*Contador da animação*/
-}
-@keyframes animacao_2 { /*animação automático*/
-	10%{
-		background-color: blue;
-	}
-	50%{
-		background-color: red;
-	}
-	75%{
-		background-color: black;
-	}
-	100%{
-		background-color: blue;
-	}
-}
-.box:hover,.box1:hover{ /*passa o mouse por cima*/
-	animation-duration: 3s;
-}
-
-/* Pelo calculo da largura a altura e calculado automaticamente inserindo um espaço de 100% no topo fazendo um quadrado*/
-
-.teste1{
-	width: calc(100%/8);
-}
-.teste{
-	background-color: red;
-	padding-top: 100%;
-	border: 1px solid black;
 }
