@@ -1,53 +1,206 @@
+/* "initial" palavra-chave é usada para definir uma propriedade CSS para seu valor padrão. 
+Pode ser usada para qualquer propriedade CSS e em qualquer elemento HTML.*/
+div {
+	color: red;
+}
+	  
+h1 {
+	color: initial;
+}
+/* "inherit" palavra-chave especifica que uma propriedade deve herdar seu valor de seu elemento pai.
+Pode ser usada para qualquer propriedade CSS e em qualquer elemento HTML */
+span {
+	color: blue;
+	}
+	  
+.extra span {
+	color: inherit;
+}
+
+
 .aula{
 
+	
+	display: inline-block; /*Alinha os elementos porem se comporta como frase com espaço entre eles inline = alinhado block = redimensionar padrão dos elementos
+	exemplo:
+	<div><dic/><!--
+	--><div><dic/><!--
+	--><div><dic/>
+	Remove o espaço do "display: inline-block;"*/
+	text-align: center; /*Também usado para alinhar os elementos e usa no pai e os filhos usando "display: inline-block;"*/
+	margin-left: auto; /*Empurra o elemento para direita preenchendo a esquerda mais a largura tem que esta setada*/
+	margin: 0 auto; /*Centraliza o elemento mais a largura tem que esta setada*/
+	text-align: justify; /*Distribui o elementos porem se for uma linha nao acontece nada para resolver isso usa uma propriedade do css
+	.example::after{
+		content: ''; 		adiciona no html um conteúdo
+		display: inline-block; 	comportamento de palavra
+		width: 100%; 		ocupa a linha toda
+	}
+	Assim ele distribui o elemento lembrando que o "text-align: justify;" coloca no pai*/
+	overflow: hidden; /*Ele verifica os elementos que estão flutuando e recalcula considerado os elementos flutuando nele e caso setado a altura dele esconde os elementos flutuando*/
+	clear: both; /*Verifica se ah elementos flutuando em ambos os lados e o conteúdo pula pra linha de baixo*/
+	line-height: 35px; /*Espaços entre linhas*/
+	position: relative; /*Posiciona onde ele foi criado mais nao deixa seu contexto*/
+	z-index: 1; /*o eixo z eh o que determina quem esta na frente mais para isso tem que setar o position relative pois o padrão eh static "z-index: 0;" eh o padrão*/
+	position: absolute; /*Cria um novo contexto como float e a referencia para deslocamento eh a tela, se tiver um elemento dentro do outro para respeitar o pai o mesmo tem que estar diferente de static(o pai diferente de position static)*/
+	transform: translate(-50%,-50%); /*Para centralizar o elemento do seu eixo caso use "position: absolute;" ex: transform: translate(X,Y);*/
+	position: fixed; /*Cria um novo contexto e fica fixa tem que setar sua largura*/
+	resize: none; /*desabilita o redirecionamento da textarea*/
+	background-clip: padding-box; /*Ajuste do fundo a partir da borda*/
+	background-origin: border-box;/*Mesmo efeito do background-clip porem é para imagens*/
+	text-transform: uppercase; /*Todo texto em maiúscula*/
 
-*display: inline-block; /*Alinha os elementos porem se comporta como frase com espaço entre eles inline = alinhado block = redimensionar padrão dos elementos
-exemplo:
-   <div><dic/><!--
---><div><dic/><!--
---><div><dic/>
-Remove o espaço do "display: inline-block;"*/
-*text-align: center; /*Também usado para alinhar os elementos e usa no pai e os filhos usando "display: inline-block;"*/
-*margin-left: auto; /*Empurra o elemento para direita preenchendo a esquerda mais a largura tem que esta setada*/
-*margin: 0 auto; /*Centraliza o elemento mais a largura tem que esta setada*/
-*text-align: justify; /*Distribui o elementos porem se for uma linha nao acontece nada para resolver isso usa uma propriedade do css
-.example::after{
-	content: ''; 		adiciona no html um conteúdo
-	display: inline-block; 	comportamento de palavra
-	width: 100%; 		ocupa a linha toda
 }
-Assim ele distribui o elemento lembrando que o "text-align: justify;" coloca no pai*/
-*overflow: hidden; /*Ele verifica os elementos que estão flutuando e recalcula considerado os elementos flutuando nele e caso setado a altura dele esconde os elementos flutuando*/
-*clear: both; /*Verifica se ah elementos flutuando em ambos os lados e o conteúdo pula pra linha de baixo*/
-*line-height: 35px; /*Espaços entre linhas*/
-*position: relative; /*Posiciona onde ele foi criado mais nao deixa seu contexto*/
-*z-index: 1; /*o eixo z eh o que determina quem esta na frente mais para isso tem que setar o position relative pois o padrão eh static "z-index: 0;" eh o padrão*/
-*position: absolute; /*Cria um novo contexto como float e a referencia para deslocamento eh a tela, se tiver um elemento dentro do outro para respeitar o pai o mesmo tem que estar diferente de static(o pai diferente de position static)*/
-*transform: translate(-50%,-50%); /*Para centralizar o elemento do seu eixo caso use "position: absolute;" ex: transform: translate(X,Y);*/
-*position: fixed; /*Cria um novo contexto e fica fixa tem que setar sua largura*/
-*resize: none; /*desabilita o redirecionamento da textarea*/
-*background-clip: padding-box; /*Ajuste do fundo a partir da borda*/
-*background-origin: border-box;/*Mesmo efeito do background-clip porem é para imagens*/
-*text-transform: uppercase; /*Todo texto em maiúscula*/
 
+.Display{
+	display: inline; /*Exibe um elemento como um elemento embutido (como <span>). Quaisquer propriedades de altura e largura não terão efeito*/
+	display: block; /*Exibe um elemento como um elemento de bloco (como <p>). Começa em uma nova linha e ocupa toda a largura*/
+	display: contents; /*Faz o container desaparecer, tornando os elementos filhos filhos do elemento do próximo nível no DOM*/
+	display: flex; /*Exibe um elemento como um contêiner flexível de nível de bloco*/
+	display: grid; /*Exibe um elemento como um contêiner de grade em nível de bloco*/
+	display: inline-block; /*Exibe um elemento como um contêiner de bloco de nível embutido. O próprio elemento é formatado como um elemento embutido, mas você pode aplicar valores de altura e largura*/
+	display: inline-flex; /*Exibe um elemento como um contêiner flex de nível embutido*/
+	display: inline-grid; /*Exibe um elemento como um contêiner de grade em nível embutido*/
+	display: inline-table; /*O elemento é exibido como uma tabela de nível embutido*/
+	display: list-item; /*Deixe o elemento se comportar como um elemento <li>*/
+	display: run-in; /*Exibe um elemento como bloco ou embutido, dependendo do contexto*/
+	display: table; /*Deixe o elemento se comportar como um elemento <table>*/
+	display: table-caption; /*Deixe o elemento se comportar como um elemento <caption>*/
+	display: table-column-group; /*Deixe o elemento se comportar como um elemento <colgroup>*/
+	display: table-header-group; /*Deixe o elemento se comportar como um elemento <thead>*/
+	display: table-footer-group; /*Deixe o elemento se comportar como um elemento <tfoot>*/
+	display: table-row-group; /*Deixe o elemento se comportar como um elemento <tbody>*/
+	display: table-cell; /*Deixe o elemento se comportar como um elemento <td>*/
+	display: table-column; /*Deixe o elemento se comportar como um elemento <col>*/
+	display: table-row; /*Deixe o elemento se comportar como um elemento <tr>*/
+	display: none; /*O elemento é completamente removido*/
 }
 
 .FlexBox{
-	*display: flex; /* Torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens*/
-	*flex-direction: row-reverse;/*inverte o sentido da linha de itens do display flex */
-	*flex-direction: column;/*fica em coluna os itens do display flex */
-	*flex-wrap: wrap; /* Quebra linha dos itens do display flex */
-	*justify-content: center; /* Centraliza os itens no meio do contêiner "eixo horizontal"*/
-	*justify-content: space-between;  /*distribui os elementos do inicio e no final "eixo horizontal"*/;
-	*justify-content: space-around; /* distribui com o mesmo espaçamento da esquerda para direita "eixo horizontal"*/
-	*align-items: center; /*Centraliza os itens no contêiner com espaçamento iguais"eixo vertical"*/
-	*align-items: flex-start; /*os itens fica em cima no contêiner com espaçamento iguais "eixo vertical"*/
-	*align-items: flex-end; /*os itens fica em baixo no contêiner com espaçamento iguais"eixo vertical"*/
-	*align-content: center; /*Centraliza os itens no contêiner sem espaçamento "eixo vertical"*/
-	*align-content: flex-start; /*os itens fica em cima no contêiner sem espaçamento iguais "eixo vertical"*/
-	*flex-grow: 2; /*Mexe com o tamanho do item de 0 a infinito quanto maior mais tem prioridade de tamanho "flex item"*/
-	*order: 3; /*Ordem de execuções "flex item"*/
-	*align-self: start; /* Alinha so um item dentro de um grupo de itens*/
+	display: flex; /* Torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens*/
+
+	/* A flex-direction propriedade especifica a direção dos itens flexíveis. */
+
+	flex-direction: row; /*Valor padrão. Os itens flexíveis são exibidos horizontalmente, como uma linha*/
+	flex-direction: row-reverse;/*Igual à linha, mas na ordem inversa*/
+	flex-direction: column;/*Os itens flexíveis são exibidos verticalmente, como uma coluna */
+	flex-direction: column-reverse; /*Igual à coluna, mas em ordem inversa*/
+
+	/* A flex-wrap propriedade especifica se os itens flexíveis devem ser agrupados ou não. */
+
+	flex-wrap: nowrap;/*Valor padrão. Especifica que os itens flexíveis não serão agrupados*/	
+	flex-wrap: wrap; /* Quebra linha dos itens do display flex Especifica que os itens flexíveis serão agrupados se necessário */
+	flex-wrap: wrap-reverse;/*Especifica que os itens flexíveis serão agrupados, se necessário, na ordem inversa*/	
+
+	/* A justify-content propriedade alinha os itens do container flexível quando os itens não utilizam todo o espaço disponível no eixo principal (horizontal). */
+	
+	justify-content: flex-start; /*Valor padrão. Os itens são posicionados no início do contêiner*/
+	justify-content: flex-end;	/*Os itens são posicionados no final do contêiner*/
+	justify-content: center; /*Centraliza os itens no meio do contêiner "eixo horizontal"*/
+	justify-content: space-between;  /*distribui os elementos do inicio e no final "eixo horizontal"*/;
+	justify-content: space-around; /*distribui com o mesmo espaçamento da esquerda para direita "eixo horizontal"*/
+	justify-content: space-evenly; /*Os itens terão espaço igual ao redor deles*/
+	
+	/* A align-items propriedade especifica o alinhamento padrão para itens dentro do contêiner flexível. */
+
+	align-items: stretch; /*Valor Padrão. Os itens são esticados para caber no recipiente*/
+	align-items: center; /*Centraliza os itens no contêiner com espaçamento iguais "eixo vertical"*/
+	align-items: flex-start; /*os itens fica em cima no contêiner com espaçamento iguais "eixo vertical"*/
+	align-items: flex-end; /*os itens fica em baixo no contêiner com espaçamento iguais"eixo vertical"*/
+	align-items: baseline; /*Os itens são posicionados na linha de base do contêiner*/
+
+	/* A align-content propriedade modifica o comportamento da propriedade flex-wrap . É semelhante a align-items , mas em vez de alinhar itens flexíveis, ele alinha linhas flexíveis. */
+	
+	align-content: stretch; /*Valor padrão. As linhas se estendem para ocupar o espaço restante*/
+	align-content: center; /*Centraliza os itens no contêiner sem espaçamento "eixo vertical"*/
+	align-content: flex-start; /*os itens fica em cima no contêiner sem espaçamento iguais "eixo vertical"*/
+	align-content: flex-end; /*As linhas são embaladas no final do contêiner flexível*/
+	align-content: space-between; /*As linhas são distribuídas uniformemente no contêiner flexível*/
+	align-content: space-around; /*As linhas são distribuídas uniformemente no contêiner flexível, com espaços de metade do tamanho em cada extremidade*/
+	align-content: space-evenly; /*As linhas são distribuídas uniformemente no contêiner flexível, com espaço igual ao redor delas*/
+
+	/* A flex-grow propriedade especifica quanto o item crescerá em relação ao restante dos itens flexíveis dentro do mesmo contêiner. */
+
+	flex-grow: 2; /*Mexe com o tamanho do item de 0 a infinito quanto maior mais tem prioridade de tamanho "flex item". Um número que especifica quanto o item crescerá em relação ao restante dos itens flexíveis. O valor padrão é 0*/
+	
+	/* A order propriedade especifica a ordem de um item flexível em relação ao restante dos itens flexíveis dentro do mesmo contêiner. */
+	
+	order: 3; /*Valor padrão 0. Especifica a ordem do item flexível*/
+
+	/* A align-self propriedade especifica o alinhamento do item selecionado dentro do contêiner flexível. */
+
+	align-self: auto; /*Valor Padrão. O elemento herda a propriedade align-items de seu contêiner pai, ou "stretch" se não tiver um contêiner pai*/
+	align-self: stretch; /*O elemento é posicionado para caber no recipiente*/
+	align-self: center; /*O elemento está posicionado no centro do recipiente*/
+	align-self: flex-start; /*O elemento está posicionado no início do contêiner*/
+	align-self: flex-end; /*O elemento é posicionado no final do contêiner*/
+	align-self: baseline; /*O elemento está posicionado na linha de base do contêiner*/
+}
+
+.Background{
+	/* A background-colorpropriedade define a cor de fundo de um elemento. */
+	background-color:blue; /*Especifica a cor de fundo. Consulte CSS Color Values ​​para obter uma lista completa de valores de cores possíveis.*/
+
+	/* A background-image propriedade define uma ou mais imagens de plano de fundo para um elemento. */
+
+	background-image:url(/imgvideo/bandeira-do-brasil.jpeg); /*O URL para a imagem. Para especificar mais de uma imagem, separe os URLs com uma vírgula*/
+	background-image:url(/imgvideo/bandeira-do-brasil.jpeg), url(/imgvideo/pngwing.com.png);/*Uma imagem no fundo e outra na frente*/
+	background-image:none; /*Nenhuma imagem de fundo será exibida. Isso é padrão*/ 
+	background-image:conic-gradient(red, yellow, green); /*Define um gradiente cônico como imagem de fundo. Defina pelo menos duas cores*/
+	background-image:linear-gradient(red, yellow, green); /*Define um gradiente linear como imagem de fundo. Defina pelo menos duas cores (de cima para baixo)*/
+	background-image:radial-gradient(red, yellow, green); /*Define um gradiente radial como imagem de fundo. Defina pelo menos duas cores (centro para bordas)*/
+	background-image:repeating-conic-gradient(yellow 10%, green 20%); /*Repete um gradiente cônico*/
+	background-image:repeating-linear-gradient(red, yellow 10%, green 20%); /*Repete um gradiente linear*/
+	background-image:repeating-radial-gradient(red, yellow 10%, green 20%); /*Repete um gradiente radial*/
+	
+	/* A background-position propriedade define a posição inicial de uma imagem de fundo. */
+	
+	background-position:left top; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:left center; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:left bottom; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:right top; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:right center; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:right bottom; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:center top; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:center center; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:center bottom; /*Se você especificar apenas uma palavra-chave, o outro valor será "centro"*/
+	background-position:80% 50%; /*O primeiro valor é a posição horizontal e o segundo valor é a vertical. O canto superior esquerdo é 0% 0%. O canto inferior direito é 100% 100%. Se você especificar apenas um valor, o outro valor será 50%. O valor padrão é: 0% 0%*/
+	background-position: 20px 30px; /*O primeiro valor é a posição horizontal e o segundo valor é a vertical. O canto superior esquerdo é 0 0. As unidades podem ser pixels (0px 0px) ou qualquer outra unidade CSS. Se você especificar apenas um valor, o outro valor será 50%. Você pode misturar % e posições*/
+	
+	/*Especifique o tamanho de uma imagem de fundo com "auto" e em pixels*/
+	
+	background-size:auto; /*Valor padrão. A imagem de fundo é exibida em seu tamanho original*/
+	background-size:contain;/*Redimensione a imagem de fundo para garantir que a imagem esteja totalmente visível*/
+	background-size:cover;/*Redimensione a imagem de fundo para cobrir todo o container, mesmo que tenha que esticar a imagem ou cortar um pouco de uma das bordas*/
+	background-size:50%; /*Define a largura e a altura da imagem de fundo em porcentagem do elemento pai. O primeiro valor define a largura, o segundo valor define a altura. Se apenas um valor for fornecido, o segundo será definido como "auto"*/
+	background-size:20px; /*Define a largura e a altura da imagem de fundo. O primeiro valor define a largura, o segundo valor define a altura. Se apenas um valor for fornecido, o segundo será definido como "auto"*/
+	
+	/* A background-repeat propriedade define se/como uma imagem de fundo será repetida */
+
+	background-repeat:repeat; /*A imagem de fundo é repetida verticalmente e horizontalmente. A última imagem será cortada se não couber. Isso é padrão*/
+	background-repeat:no-repeat; /*A imagem de fundo não é repetida. A imagem será mostrada apenas uma vez*/
+	background-repeat:repeat-x; /*A imagem de fundo é repetida apenas horizontalmente*/
+	background-repeat:repeat-y; /*A imagem de fundo é repetida apenas verticalmente*/
+	background-repeat:space; /*A imagem de fundo é repetida o máximo possível sem recorte. A primeira e a última imagem são fixadas em cada lado do elemento e o espaço em branco é distribuído uniformemente entre as imagens*/
+	background-repeat:round; /*A imagem de fundo é repetida e comprimida ou esticada para preencher o espaço (sem lacunas)*/
+	
+	/* A background-origin propriedade especifica a posição de origem (a área de posicionamento do plano de fundo) de uma imagem de plano de fundo. */
+
+	background-origin:padding-box; /*Valor padrão. A imagem de fundo começa no canto superior esquerdo da borda de preenchimento*/
+	background-origin:border-box; /*A imagem de fundo começa no canto superior esquerdo da borda*/
+	background-origin:content-box; /*A imagem de fundo começa no canto superior esquerdo do conteúdo*/
+	
+	/* A background-clip propriedade define até onde o fundo (cor ou imagem) deve se estender dentro de um elemento. */
+	
+	background-clip: padding-box; /*O plano de fundo se estende até a borda interna da borda*/
+	background-clip: border-box; /*Valor padrão. O fundo se estende por trás da fronteira*/
+	background-clip: content-box; /*O plano de fundo se estende até a borda da caixa de conteúdo*/
+
+	/* A background-attachment propriedade define se uma imagem de plano de fundo rola com o restante da página ou é fixa. */
+
+	background-attachment:scroll; /*A imagem de fundo rolará com a página. Isso é padrão*/
+	background-attachment:fixed; /*A imagem de fundo não rolará com a página*/
+	background-attachment:local; /*A imagem de fundo irá rolar com o conteúdo do elemento*/
 }
 
 *div p:nth-of-type(1){/*Seleciona o elemento que quiser alterar no exemplo selecionou o paragrafo 1*/
@@ -97,4 +250,15 @@ div.box{
 }
 .box:hover,.box1:hover{ /*passa o mouse por cima*/
 	animation-duration: 3s;
+}
+
+/* Pelo calculo da largura a altura e calculado automaticamente inserindo um espaço de 100% no topo fazendo um quadrado*/
+
+.teste1{
+	width: calc(100%/8);
+}
+.teste{
+	background-color: red;
+	padding-top: 100%;
+	border: 1px solid black;
 }

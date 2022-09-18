@@ -7,15 +7,15 @@
     <meta name="description" content="Exemplo de descrição para o meu site.">
     <meta name="keywords" content="palavras-chaves,separados,por,virgula">
     <meta name="author" content="Rafael Machado">
-    <title>Dicas de HTML</title><!--Titulo da pagina que aparece na aba do navegador-->
+    <link rel="stylesheet" href="Dicas de CSS.css"><!--Chamado de css em outro arquivo-->
+    <title>Dicas de HTML</title><!--Titulo da pagina que aparece na aba do navegador-->  
+</head>
+<body>
     <style type="text/css">/*chamado do css na própria pagina*/
         input[type=file]{
             display: none;
         }
     </style>
-    <link rel="stylesheet" href="Dicas de CSS.css"><!--Chamado de css em outro arquivo-->
-</head>
-<body>
     <input type="file" id="Enviar">
     <label for="Enviar">Atributo "for" serve para reverenciar outro objeto no exemplo o input file</label>
     <!--Cometário no html-->
@@ -54,5 +54,9 @@
     <footer>
         <p>Rodapé</p>
     </footer>
+
+    <div class="teste1">
+        <div class="teste"></div>   
+    </div>
 </body>
 </html>
