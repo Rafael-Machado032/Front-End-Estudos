@@ -38,6 +38,7 @@ header{
 .mosaico{
     width: 100%;
     display: flex;
+    background-color: rgb(201, 201, 201);
 }
 .mosaicobox{
     width: calc(100%/6); 
@@ -46,7 +47,77 @@ header{
     width: 100%;
     padding-top: 100%; /* Pelo calculo da largura a altura e calculado automaticamente inserindo um espaço de 100% no topo fazendo um quadrado*/
     border: 5px solid white;
-} 
+}
+
+/* Mensagem mosaico */
+
+.mensagem{
+    max-width: 800px;
+    align-items: center;
+    position: relative;
+    bottom: 25px;
+}
+.box{
+    width: calc(100%/3);
+    padding: 30px 10px;
+    text-align: center;
+    background-color: #576975;
+    color: white;
+    font-size: 8pt;
+    box-shadow: 10px 10px 15px black;
+    
+}
+.box p{
+    margin: 10px 0 20px;
+}
+.mensagem2{
+    width: 100%;
+    max-width: 300px;
+    padding: 60px 30px;
+    background-color: #688293;
+}
+
+/* Profissional */
+
+.profissionalbox{
+    max-width: 800px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.profissionalbox img{
+    width: 50%;
+    height: 100%;
+}
+
+.profissionaltext{
+    margin: 20px;
+    font-size: 10pt;
+    text-align: justify;
+    color: #4b4b4b;
+}
+
+.profissionaltext h2{
+    color: #698293;
+}
+
+/* Videos */
+
+.videos{
+    max-width: 1280px;
+}
+.video{
+    width: calc(100%/3);
+    padding-top: calc(56.25%/3);
+    border: 1px solid black;
+    margin: 0 10px;
+}
+.video iframe{
+    width: 100%;
+    height: 100%;
+}
+
+
 
 /* Versão Mobile */
 @media screen and (max-width: 720px){
@@ -60,7 +131,43 @@ header{
     .menu{
         display: none;
     }
+
+    /* mensagem mosaico */
+
+    .mensagem{
+        flex-direction: column;
+        max-width: 420px;
+        padding: 0 5px;
+    }
+    .box{
+        width: 90%;  
+        padding: 20px 10px; 
+        box-shadow: 0px 10px 20px 5px black;
+    }
+    .mensagem2{
+        width: 100%;
+        max-width: 800px;
+        padding: 50px 30px;
+        
+    }
+    .mensagem2 p{
+        margin: 10px 0 0;
+    }
     
+    /* Profissional */
+    
+    .profissionalbox{
+        flex-direction: column;
+    }
+
+    .profissionaltext{
+        margin: 10px 30px;
+    }
+
+    .profissionaltext h2{
+        text-align: center;
+    }
+
 
 }
 
@@ -69,4 +176,12 @@ header{
         display: inline-block;
         width: 80%;
     }
+
+    /* profissional */
+
+    .profissionalbox img{
+        width: 90%;
+        height: 100%;
+    }
+
 }

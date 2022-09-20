@@ -14,29 +14,21 @@ body,html{
 }
 
 /* Posição dos elementos */
-.alinhado{
-    display: inline-block;
-}
 .flex{
     display: flex;
 }
 .centralizado{
     margin: 0 auto;
 }
-.box{
-    max-width: 920px;
-    padding: 10px;
-    
-}
 a{
     text-decoration: none;
 }
 /* Teste para localização dos elementos */
 .t1{
-    background-color: blue;
+    background-color: red;
 }
 .t2{
-    background-color: red;
+    background-color: yellow;
 }
 .t3{
     background-color: green;
