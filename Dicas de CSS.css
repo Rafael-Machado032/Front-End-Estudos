@@ -104,10 +104,12 @@ Regra de 3
 	max-width: 700px;
 }
 .video{
+	position: relative;
 	width: 100%;
-	padding-top: 56,25%; /*Aqui insere o porcentagem da proporção*/
+	padding-bottom: 56,25%; /*Aqui insere o porcentagem da proporção*/
 }
 .video iframe{
+	position: absolute;
 	width: 100%;
 	height: 100%;
 }
