@@ -2,27 +2,31 @@
 
 /*Cabeçalho*/
 
-header{
+header {
     width: 100%;
     height: 85px;
     align-items: center;
 }
-.cabeçalho{
+
+.cabeçalho {
     width: 100%;
     max-width: 1280px;
     justify-content: space-between;
     align-items: center;
 }
-.logo{
+
+.logo {
     margin-left: 2%;
     display: inline;
 }
-.menu>ul>li{
+
+.menu>ul>li {
     display: inline;
     margin: 0 10px;
     text-transform: uppercase;
 }
-.menu-mobile{
+
+.menu-mobile {
     width: 30px;
     height: 30px;
     background-image: url(/Projeto05/img/menu-mobile.png);
@@ -35,29 +39,33 @@ header{
 
 /* Mosaico */
 
-.mosaico{
+.mosaico {
     width: 100%;
     display: flex;
     background-color: rgb(201, 201, 201);
 }
-.mosaicobox{
-    width: calc(100%/6); 
+
+.mosaicobox {
+    width: calc(100%/6);
 }
-.mosaicoimg{
+
+.mosaicoimg {
     width: 100%;
-    padding-top: 100%; /* Pelo calculo da largura a altura e calculado automaticamente inserindo um espaço de 100% no topo fazendo um quadrado*/
+    padding-top: 100%;
+    /* Pelo calculo da largura a altura e calculado automaticamente inserindo um espaço de 100% no topo fazendo um quadrado*/
     border: 5px solid white;
 }
 
 /* Mensagem mosaico */
 
-.mensagem{
+.mensagem {
     max-width: 800px;
     align-items: center;
     position: relative;
     bottom: 25px;
 }
-.box{
+
+.box {
     width: calc(100%/3);
     padding: 30px 10px;
     text-align: center;
@@ -65,15 +73,18 @@ header{
     color: white;
     font-size: 8pt;
     box-shadow: 10px 10px 15px black;
-    
+
 }
-.box p{
+
+.box p {
     margin: 10px 0 20px;
 }
-.box h2{
+
+.box h2 {
     color: white;
 }
-.mensagem2{
+
+.mensagem2 {
     width: 100%;
     max-width: 300px;
     padding: 60px 30px;
@@ -82,41 +93,43 @@ header{
 
 /* Profissional */
 
-.profissionalbox{
+.profissionalbox {
     max-width: 800px;
     align-items: center;
     margin-top: 30px;
 }
 
-.profissionalbox img{
+.profissionalbox img {
     width: 50%;
     height: 100%;
 }
 
-.profissionaltext{
+.profissionaltext {
     margin: 20px;
     font-size: 10pt;
     text-align: justify;
     color: #4b4b4b;
 }
 
-.profissionaltext h2{
+.profissionaltext h2 {
     color: #698293;
 }
 
 /* Videos */
 
-.videos{
+.videos {
     width: 100%;
     margin: 70px auto;
 }
-.video{
+
+.video {
     width: calc(100%/3);
-    padding-bottom: calc(56.25%/3) ;
+    padding-bottom: calc(56.25%/3);
     margin: 0 10px;
     position: relative;
 }
-.video iframe{
+
+.video iframe {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -124,7 +137,7 @@ header{
 
 /* Tratamento */
 
-.tratamento{
+.tratamento {
     max-width: 1400px;
     width: 100%;
     text-align: center;
@@ -133,133 +146,247 @@ header{
     color: #737373;
 }
 
-.tratamentogroup{
+.tratamentogroup {
     text-align: justify;
     margin: 50px 0;
     width: 100%;
 }
 
-.tratamentotext{
+.tratamentotext {
     padding: 0 20px;
     color: #b4b4b4;
 
 }
-.tratamentotext h2{
+
+.tratamentotext h2 {
     margin: 20px 0;
     color: #737373;
 }
 
 /* Depoimento */
 
-.depoimento{
+.depoimento {
     max-width: 400px;
     width: 100%;
     text-align: center;
     color: #b4b4b4;
 }
-.depoimento h2{
+
+.depoimento h2 {
     margin: 50px 0;
 }
 
-.perfil{
+.perfil {
     justify-content: center;
     align-items: center;
 }
-.perfil p{
+
+.perfil p {
     margin: 30px 10px;
+}
+
+/* Redes Sociais */
+
+.rede-social {
+    color: white;
+    text-align: center;
+    font-size: 10pt;
+    margin-top: 60px;
+}
+
+.instagram {
+    background-color: #98a5ae;
+}
+
+.facebook {
+    background-color: #576975;
+}
+
+.instagrambox,
+.facebookbox {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.instagrambox p,
+.facebookbox p {
+    margin: 15px 0;
+}
+
+.fotos {
+    color: black;
+    background-color: white;
+
+}
+
+.fotos-mosaico {
+    width: calc(100%/9);
+    padding-bottom: calc(100%/9);
+    background-color: rgb(210, 210, 210);
+    border: 6px solid white;
+}
+
+/* Formulário */
+
+.formulario {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #b4b4b4;
+    text-align: center;
+    
+}
+.ipt, .ipt1{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0 10px;
+}
+.ipt1 input[type=email], .ipt1 input[type=tel],.ipt input[type=text], .ipt textarea{
+    border: 1px solid #dadada;
+    margin: 10px 0;
+}
+.ipt1{
+    width: 50%;
+    
+}
+.ipt textarea{
+    width: 100%;
+}
+.ipt input[type=submit]{
+    background-color: #688293;
+    width: 100px;
+    padding: 10px;
+    color: white;
+    margin: 20px auto;
 }
 
 
 /* Versão Mobile */
-@media screen and (max-width: 720px){
-    .menu-mobile{
+
+@media screen and (max-width: 1024px) {
+
+    /* Redes Sociais */
+    .fotos-mosaico {
+        width: calc(100%/6);
+        padding-bottom: calc(100%/6);
+    }
+
+    .fotos-mosaico:nth-of-type(1n+7) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .menu-mobile {
         display: inline-block;
         margin: 0 10px;
     }
-    .menu-mobile>ul{
+
+    .menu-mobile>ul {
         display: none;
     }
-    .menu{
+
+    .menu {
         display: none;
     }
 
     /* mensagem mosaico */
 
-    .mensagem{
+    .mensagem {
         flex-direction: column;
         max-width: 420px;
         padding: 0 5px;
     }
-    .box{
-        width: 90%;  
-        padding: 20px 10px; 
+
+    .box {
+        width: 90%;
+        padding: 20px 10px;
         box-shadow: 0px 10px 20px 5px black;
     }
-    .mensagem2{
+
+    .mensagem2 {
         width: 100%;
         max-width: 800px;
         padding: 50px 30px;
-        
+
     }
-    .mensagem2 p{
+
+    .mensagem2 p {
         margin: 10px 0 0;
     }
-    
+
     /* Profissional */
-    
-    .profissionalbox{
+
+    .profissionalbox {
         flex-direction: column;
     }
 
-    .profissionaltext{
+    .profissionaltext {
         margin: 10px 30px;
     }
 
-    .profissionaltext h2{
+    .profissionaltext h2 {
         text-align: center;
     }
 
     /* videos */
 
-    .videos{
+    .videos {
         flex-direction: column;
         margin: 0;
         justify-content: center;
         padding: 0 10px;
     }
-    .video{
+
+    .video {
         width: 100%;
         padding-bottom: 56.25%;
-        margin: 10px 0;   
+        margin: 10px 0;
     }
+
     /* Tratamento */
-    .tratamentotext{
+    .tratamentotext {
         padding: 0 10px;
         text-align: left;
+    }
+
+    /* Redes Sociais */
+
+    .fotos-mosaico {
+        width: calc(100%/3);
+        padding-bottom: calc(100%/3);
+    }
+
+    .fotos-mosaico:nth-of-type(1n+4) {
+        display: none;
     }
 
 
 }
 
-@media screen and (max-width: 480px){
-    .logo>img{
+@media screen and (max-width: 480px) {
+    .logo>img {
         display: inline-block;
         width: 80%;
     }
 
     /* profissional */
 
-    .profissionalbox img{
+    .profissionalbox img {
         width: 90%;
         height: 100%;
     }
+
     /* Tratamento */
 
-    .tratamento{
+    .tratamento {
         font-size: 8pt;
     }
-    .tratamentotext{ 
+
+    .tratamentotext {
         padding: 0 5px;
     }
+
 
 }
