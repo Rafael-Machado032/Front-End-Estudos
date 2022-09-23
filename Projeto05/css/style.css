@@ -258,6 +258,7 @@ input[type=submit]{
     padding: 10px;
     color: white;
     background-color: #688293;
+    cursor: pointer;
 }
 
 /* Rodape */
