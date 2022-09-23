@@ -229,37 +229,52 @@ header {
 
 /* Formulário */
 
-.formulario {
-    max-width: 500px;
-    margin: 0 auto;
-    color: #b4b4b4;
+.formulario{
+    max-width: 600px;
+    margin: 50px auto;
     text-align: center;
-    
 }
-.ipt, .ipt1{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin: 0 10px;
-}
-.ipt1 input[type=email], .ipt1 input[type=tel],.ipt input[type=text], .ipt textarea{
-    border: 1px solid #dadada;
-    margin: 10px 0;
-}
-.ipt1{
-    width: 50%;
-    
-}
-.ipt textarea{
+.ipt1, .ipt{
     width: 100%;
+    text-align: left;
+    color: #b4b4b4;
 }
-.ipt input[type=submit]{
-    background-color: #688293;
+.ipt{
+    padding: 10px;
+}
+.ipt1 div{
+    width: 50%;
+    padding: 10px;   
+}
+.ipt input[type=text], .ipt textarea, .ipt1 input[type=email], .ipt1 input[type=tel]{
+    width: 100%;
+    border: 1px solid #dadada;
+    padding: 10px;
+    margin-top: 10px;
+    resize: none;
+}
+input[type=submit]{
     width: 100px;
     padding: 10px;
     color: white;
-    margin: 20px auto;
+    background-color: #688293;
 }
+
+/* Rodape */
+
+footer{
+    width: 100%;
+    background-color: #688293;
+    color: white;
+    display: flex;
+    padding: 60px;
+    justify-content: space-around;
+    font-size: 10pt;
+}
+.rodape{
+    margin: 0 10px;
+}
+
 
 
 /* Versão Mobile */
@@ -362,6 +377,26 @@ header {
         display: none;
     }
 
+    /* Formulario */
+    .ipt1{
+        flex-direction: column;
+
+    }
+    .ipt1 div{
+        width: 100%;
+    }
+
+    /* Rodape */
+    
+    footer{
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 15px 0;
+    }
+    .rodape{
+        margin: 30px 0;
+    }
 
 }
 
