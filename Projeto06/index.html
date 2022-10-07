@@ -9,19 +9,22 @@
     <meta name="description" content="Exemplo de descrição para o meu site.">
     <meta name="keywords" content="palavras-chaves,separados,por,virgula">
     <meta name="author" content="Rafael Machado">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
 
     <header>
-        <div class="container">
+        <div class="container flex ">
 
-            <div class="Logo">
+            <div class="Logo ">
                 <img src="/Projeto06/img/logo.jpg" alt="Logo">
             </div>
 
-            <div class="menu">
+            <div class="menu ">
                 <nav>
                     <li><a href="http://" target="_blank" rel="noopener noreferrer">Home</a></li>
                     <li><a href="http://" target="_blank" rel="noopener noreferrer">Venda</a></li>
@@ -34,7 +37,7 @@
     </header>
 
     <section>
-        <div class="banner">
+        <div class="banner flex t1">
             <div class="chamado">
                 <div class="palavra1">
                     <h2>CONSULTORIA</h2>
@@ -110,7 +113,8 @@
             <div class="box">
                 <div class="depoimento">
                     <h2>Depoimentos</h2>
-                    <q>O Rafael foi muito atencioso, me buscou no aeroporto e garantiu toda comodidade e conforto no almoço, no transfer, na visita ao veículo e durante o test-drive</q>
+                    <q>O Rafael foi muito atencioso, me buscou no aeroporto e garantiu toda comodidade e conforto no
+                        almoço, no transfer, na visita ao veículo e durante o test-drive</q>
                 </div>
                 <button>
                     <img src="/Projeto06/img/arrow-left.png" alt="Esquerda">
@@ -123,17 +127,31 @@
         </div>
 
     </section>
-    <section>
 
-    </section>
     <section>
-
-    </section>
-    <section>
+        <div class="formulario">
+            <form action="" method="get">
+                <input type="text" name="Nome" id="" placeholder="Nome*" required>
+                <input type="email" name="Email" id="" placeholder="Email*" required>
+                <input type="tel" name="Telefone" id="" placeholder="Telefone*" required>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Mensagem*" required></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
 
     </section>
 
     <footer>
+        <div class="container">
+            <nav>
+                <li><a href="http://" target="_blank" rel="noopener noreferrer">Home</a></li>
+                <li><a href="http://" target="_blank" rel="noopener noreferrer">Venda</a></li>
+                <li><a href="http://" target="_blank" rel="noopener noreferrer">Sobre</a></li>
+                <li><a href="http://" target="_blank" rel="noopener noreferrer">Contato</a></li>
+            </nav>
+            <h3>Todos os Direitos Reservados</h3>
+
+        </div>
 
     </footer>
 
