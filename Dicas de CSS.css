@@ -234,7 +234,7 @@ Regra de 3
 }
 
 .Background{
-	/* A background-colorpropriedade define a cor de fundo de um elemento. */
+	/* A background-color propriedade define a cor de fundo de um elemento. */
 	background-color:blue; /*Especifica a cor de fundo. Consulte CSS Color Values ​​para obter uma lista completa de valores de cores possíveis.*/
 
 	/* A background-image propriedade define uma ou mais imagens de plano de fundo para um elemento. */
@@ -303,5 +303,5 @@ Regra de 3
 	padding: 10px; /*Todos os lados tem espaço de 10px*/
 	padding: 10px 20px; /*Em cima e baixo tem 10px e o lado esquerdo e direito tem 20px*/
 	padding: 10px 20px 30px; /*Em cima tem 10px, lado direito e esquerdo tem 20px e em baixo tem 30px*/
-	padding: 10px 20px 30px 40px; /*Em cima 10px, Direto 20px, Baixo 30px e Esquerdo 40px*/
+	padding: 10px 20px 30px 40px; /*Em cima 10px, Esquerdo 20px, Baixo 30px e Direito 40px*/
 }

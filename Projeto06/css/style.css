@@ -1,16 +1,104 @@
 @import url(reset.css);
 
-
+/* Cabeçalho */
 .menu nav li{
     display: inline-block;
     margin: 20px;
     font-size: 20pt;
-    font-style: italic;   
+    font-style: italic;  
 }
+a{
+    color: black;
+}
+
+/* Banner */
 .banner{
     background-image: url(/Projeto06/img/bg.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    padding: 50px;
+    background-size: contain;
+    background-color: black;
+    background-position: right bottom;
+    height: 650px; 
+}
+.chamado{
+   margin: 50px 40px; 
+   padding: 10px;
+   width: 380px;
+   font-size: 18pt;
+}
+
+.faixa{
+    background-image: url(/Projeto06/img/box-text.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: white;
+    margin: 30px 0 30px 30px;
+    padding: 20px 50px;
+}
+.w60{
+    width: 60%;
+    margin-left: 20px;
+}
+.w50{
+    width: 50%;
+    margin-left: 10px;
+}
+
+.email{
+    background-image: url(/Projeto06/img/box-white-text.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 20px 50px;
+}
+
+/* Veículos em destaque */
+
+.linha{
+    width: 100%;
+    border: 1px solid black;
+    position: relative;
+    top: 100px;
+    z-index: -1;
+}
+.soblinha{
+    text-align: center;
+    margin: 80px auto;
     
+   
+}
+.soblinha h2{
+    background-color: white;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+/* Galeria */
+
+.carro{
+    margin: 0 10px;
+    width: calc(100%/3);
+}
+.foto img{
+    width: 100%;
+}
+.link{
+    margin: 20px 0;
+}
+.link a{
+    background-color: red;
+    padding: 10px 30px;
+    color: white;
+}
+
+/* Mensagem */
+
+.box{
+    width: calc(100%/2);
+    color: white;
+}
+.servbox{
+    background-color: rgb(30, 30, 30);
+}
+.depobox{
+    background-color: rgb(255, 30, 30);
 }

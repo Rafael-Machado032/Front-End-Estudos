@@ -8,7 +8,6 @@
     box-sizing: border-box; /*serve para alterar a largura e altura quando aplicada padding ou border*/
     font-weight: normal;
     list-style: none;
-    color: rgb(50, 50, 50);
 }
 body,html{
     height: 100%;
