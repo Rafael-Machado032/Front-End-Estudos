@@ -95,10 +95,29 @@ a{
 .box{
     width: calc(100%/2);
     color: white;
+    
 }
 .servbox{
     background-color: rgb(30, 30, 30);
 }
 .depobox{
     background-color: rgb(255, 30, 30);
+}
+.box ul{
+    margin: 30px 30px 0 0;
+    
+}
+.box li{
+    list-style:disc;
+    list-style-position: inside;
+}
+.mensagemflex{
+    display: flex;
+    align-items: flex-end;
+    max-width: 500px;
+    margin: 100px auto;
+}
+.depoimento{
+    max-width: 500px;
+    margin: 100px auto;
 }
