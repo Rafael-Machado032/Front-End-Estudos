@@ -8,6 +8,7 @@
     box-sizing: border-box; /*serve para alterar a largura e altura quando aplicada padding ou border*/
     font-weight: normal;
     list-style: none;
+    font-style: italic;
 }
 body,html{
     height: 100%;
