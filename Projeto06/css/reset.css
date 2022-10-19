@@ -39,3 +39,6 @@ a{
 .t3{
     background-color: green;
 }
+.dist{
+    justify-content: space-between;
+}

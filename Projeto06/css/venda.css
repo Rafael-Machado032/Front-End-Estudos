@@ -1,0 +1,29 @@
+.venda{
+    justify-content: space-between;
+}
+.filtro{
+    width: 100%;
+    max-width: 400px;
+}
+.saidebar{
+    border: 1px solid rgb(121, 121, 121);
+    border-radius: 10px;
+    position: relative;
+}
+.preenchido{
+    border-radius: 10px;
+    width: 30%;
+    background-image: linear-gradient(rgba(240, 240, 240), rgb(150, 150, 150) );
+    padding: 10px;
+}
+.ponto{
+    width: 30px;
+    height: 30px;
+    background-image: linear-gradient(rgb(240, 240, 240), rgb(150, 150, 150) );
+    border-radius: 20px;
+    position: absolute;
+    left: 25%;
+    top: -4px;
+    cursor: pointer;
+    border: 0.5px solid rgb(102, 102, 102);
+}
