@@ -27,3 +27,15 @@
     cursor: pointer;
     border: 0.5px solid rgb(102, 102, 102);
 }
+.preco{
+    margin-bottom: 30px;
+}
+.preco h2{
+    margin-bottom: 20px;
+}
+.ano h2{
+    margin-bottom: 10px;
+} 
+.ano input{
+    margin: 10px 10px 10px 0;
+}

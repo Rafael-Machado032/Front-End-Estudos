@@ -1,5 +1,8 @@
 @import url(reset.css);
 @import url(venda.css);
+@import url(sobre.css);
+@import url(contato.css);
+@import url(veiculo.css);
 
 /* Cabeçalho */
 .menu nav li {
