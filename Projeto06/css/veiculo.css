@@ -1,3 +1,12 @@
-.fotocarro{
-    background-image: url(/Projeto06/img/carro1.jpg);
+.contvenda{
+    justify-content: center;   
+}
+.contveiculo{
+    width: 50%;
+}
+.textcarro{
+    width: 20%;
+}
+.carroamostra{
+    
 }
