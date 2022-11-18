@@ -2,11 +2,25 @@
     justify-content: center;   
 }
 .contveiculo{
-    width: 50%;
+    width: 58%;
+    margin-right: 30px;
 }
 .textcarro{
-    width: 20%;
+    width: 230px;
 }
 .carroamostra{
-    
+    margin: 20px 0;
+}
+.fotocarro{
+   background-image: url(/Projeto06/img/carro1.jpg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   padding-top: 600px;  
+}
+.textcarro{
+    padding-top: 40px;
+}
+.textcarro p{
+    margin: 10px 0;
+    padding-top: 30px;
 }
