@@ -9,13 +9,15 @@
     width: 230px;
 }
 .carroamostra{
-    margin: 20px 0;
+    
 }
 .fotocarro{
    background-image: url(/Projeto06/img/carro1.jpg);
    background-size: contain;
    background-repeat: no-repeat;
-   padding-top: 600px;  
+   width: 100%;
+   padding-top: 80%;
+   
 }
 .textcarro{
     padding-top: 40px;
@@ -24,3 +26,5 @@
     margin: 10px 0;
     padding-top: 30px;
 }
+
+

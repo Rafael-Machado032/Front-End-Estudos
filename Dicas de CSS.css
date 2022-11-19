@@ -21,6 +21,10 @@ span {
 div p:nth-of-type(1){/*Seleciona o elemento que quiser alterar no exemplo selecionou o paragrafo 1*/
 	width: 100%;
 }
+
+p:nth-of-type(3n+1) { /*Seleciona o elemento com formula no exemplo multiplica por 3 (3n) e começa no primeiro elemento (1)*/
+	background: red;
+}
 @media screen and (max-width: 320px) { /*Usado para mudar a tela no modo responsivo*/
 	.box{
 		width: 100%;
