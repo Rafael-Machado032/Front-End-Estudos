@@ -8,8 +8,11 @@
 .textcarro{
     width: 230px;
 }
+.trilha a{
+    margin: 10px;
+}
 .carroamostra{
-    
+    margin-top: 20px;
 }
 .fotocarro{
    background-image: url(/Projeto06/img/carro1.jpg);
@@ -19,12 +22,42 @@
    padding-top: 80%;
    
 }
+.mosaicoveiculo{
+    justify-content: space-between;
+    align-items: center;
+}
+.mosaicoveiculo img{
+    cursor: pointer;
+}
 .textcarro{
     padding-top: 40px;
 }
 .textcarro p{
     margin: 10px 0;
     padding-top: 30px;
+}
+.contimg{
+    width: 90%;
+    justify-content: space-between;
+    
+}
+.contimg img{
+    width: calc(100%/3);
+    border: 10px solid rgba(146, 146, 146, 0);  
+}
+
+@media screen and (max-width: 770px) { /*Usado para mudar a tela no modo responsivo*/
+	.contvenda{
+        display: inline-block;
+    }
+    .contveiculo{
+        width: 100%;
+        
+    }
+    .textcarro{
+        width: 100%;
+        text-align: center;
+    }
 }
 
 
