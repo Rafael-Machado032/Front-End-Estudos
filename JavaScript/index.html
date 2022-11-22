@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function(){ //Função quando termina de carregar a pagina
+            
+            //Declarações de variáveis
+            
+            var nome; //Variáveis comuns
+            var idade;
+            var cor = []; //Variáveis tipo array
+            var animal = {}; //Variáveis tipo objeto
+
+
+            //Usando variáveis
+
+            nome = "Rafael Machado";
+            idade = 33;
+
+            cor[0] = "Rosa";
+            cor[2] = "Verde"
+            cor[5] = "Laranja"
+
+            animal.nome = "Amora"
+            animal["peso"] = "24Kg"
+
+            //Mostrando o resultado com popup
+
+            alert("Ola "+ nome);
+            alert("Voce tem "+idade+" anos!");
+
+            alert("A cor é " + cor[5]);
+
+            alert("O nome do cachorro é "+animal.nome+" e pesa "+animal["peso"]);
+
+
+        }
+    </script>
+</body>
+</html>
