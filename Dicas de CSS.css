@@ -176,6 +176,7 @@ Regra de 3
 	display: none; /*O elemento é completamente removido*/
 }
 
+
 .FlexBox{
 	display: flex; /* Torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens*/
 
