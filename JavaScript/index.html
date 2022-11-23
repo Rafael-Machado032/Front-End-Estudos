@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Document</title>
 </head>
 <body>
+    <script src="function.js"></script>
     <script>
         window.onload = function(){ //Função quando termina de carregar a pagina
             
@@ -24,22 +26,41 @@
             idade = 33;
 
             cor[0] = "Rosa";
-            cor[2] = "Verde"
+            cor[2] = "Azul"
             cor[5] = "Laranja"
 
             animal.nome = "Amora"
-            animal["peso"] = "24Kg" //Outra forma de declarar objeto
+            animal["genero"] = "Femeá" //Outra forma de declarar objeto
 
             //Mostrando o resultado com popup
 
             alert("Ola "+ nome);
             alert("Voce tem "+idade+" anos!");
 
-            alert("A cor é " + cor[5]);
+            alert("A cor é do seu olho é " + cor[2]);
 
-            alert("O nome do cachorro é "+animal.nome+" e pesa "+animal["peso"]);
+            alert("O nome do seu cachorro é "+animal.nome+" e seu gênero é "+animal["genero"]);
 
+            alert("Tipo da variável nome é do tipo "+typeof(nome)); //typeof() Mostra o tipo de variável
 
+            //Condições
+
+            //  ==      Valor Igual
+            //  ===     Valor Igual e Tipo
+            //  !=      Valor Diferente
+            //  !==     Valor Deferente e Tipo
+            //  >=      Valor Maior ou Igual que
+            //  <=      Valor Menor ou Igual que
+            //  >       Valor Maior que
+            //  <       Valor Menor que
+
+            if(cor[0] == "Roxo"){
+                alert("A cor é "+cor[0]);
+            }else if(cor[0] == "Rosa"){
+                alert("A cor é "+cor[0]);
+            }else{
+                alert("Sem cor");
+            }
         }
     </script>
 </body>
