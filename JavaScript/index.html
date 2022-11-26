@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Document</title>
 </head>
+
 <body>
     <script src="function.js"></script>
     <script>
-        window.onload = function(){ //Função quando termina de carregar a pagina
-            
+        window.onload = function () { //Função quando termina de carregar a pagina
+
             //Declarações de variáveis
-            
+
             var nome; //Variáveis comuns
             var idade;
             var cor = []; //Variáveis tipo array
@@ -41,7 +43,7 @@
 
             //alert("O nome do seu cachorro é "+animal.nome+" e seu gênero é "+animal["genero"]);
 
-           // alert("Tipo da variável nome é do tipo "+typeof(nome)); //typeof() Mostra o tipo de variável
+            // alert("Tipo da variável nome é do tipo "+typeof(nome)); //typeof() Mostra o tipo de variável
 
             //Condições
 
@@ -54,30 +56,45 @@
             //  >       Valor Maior que
             //  <       Valor Menor que
 
-            if(cor[0] == "Roxo"){
+            if (cor[0] == "Roxo") {
                 //alert("A cor é "+cor[0]);
-            }else if(cor[0] == "Rosa"){
-               // alert("A cor é "+cor[0]);
-            }else{
+            } else if (cor[0] == "Rosa") {
+                // alert("A cor é "+cor[0]);
+            } else {
                 //alert("Sem cor");
             }
-            
+
 
             //Laços de repetição
             var cont = 0;
-            while (cont<2) {
+            while (cont < 2) {
                 console.log("oi");
                 cont++;
             }
-            
+
             do {
                 console.log("tchau")
                 cont++;
-            } while (cont<4);
+            } while (cont < 4);
 
             for (var num = 1; num <= 4; num++) {
                 console.log(num)
-                
+
+            }
+
+            //Ação
+
+            var key = 3;
+            switch (key) {
+                case 3:
+                    console.log("deu 3");
+                    break;
+                case 4:
+                    console.log("deu 4");
+                    break;
+
+                default:
+                    break;
             }
 
 
@@ -87,15 +104,16 @@
                 console.log("oi ola")
             }
 
-            function somar(num1,num2) { //Função com parâmetros
-                return num1+num2;  //retorna o valor da soma
+            function somar(num1, num2) { //Função com parâmetros
+                return num1 + num2;  //retorna o valor da soma
             }
 
             imprimiroi();
-            console.log(somar(10,20));
+            console.log(somar(10, 20));
 
-            
+
         }
     </script>
 </body>
+
 </html>
