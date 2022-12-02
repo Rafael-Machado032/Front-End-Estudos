@@ -1,7 +1,4 @@
-"use strict"
-const { Console } = require("console");
-
- //Modo restrito para corrigir as variáveis
+"use strict"  //Modo restrito para corrigir as variáveis
 
 console.log("Ola Mundo"); //Imprime no Console
 
@@ -37,3 +34,60 @@ const curso = "JavaScript"  //CONST Depois de declarada e inserida o valor não 
 let num1=2,num2=15,res=0;
 res=num2%num1;
 console.log("A resposta é "+res) //A resposta é 1
+
+//Operadores lógicos
+
+/*
+&& End E
+|| Or  OU
+!  Not Negação
+
+    AND                         OR
+ V | V | VERDADEIRO         V | V | VERDADEIRO   
+ V | F | FALSO              V | F | VERDADEIRO   
+ F | V | FALSO              F | V | VERDADEIRO       
+ F | F | FALSO              F | F | FALSO  
+ 
+*/
+
+//Operadores BitWise
+
+let n1 = 10;
+let n2 = 12;
+let result;
+result = n1 & n2; //Compara equivalência dos bits que os números representa
+
+/*
+EX:
+
+         1010 = 10 Compara com o bit de baixa e faz relação "AND"
+         ||||
+         1100 = 12 
+result = 1000 = 8
+
+*/
+
+result = n1 | n2; //Compara equivalência dos bits que os números representa
+
+/*
+EX:
+
+         1010 = 10 Compara com o bit de baixa e faz relação "OU"
+         ||||
+         1100 = 12 
+result = 1110 = 14
+
+*/
+
+
+result = n1 ^ n2; //Compara equivalência dos bits que os números representa
+
+/*
+EX:
+
+         1010 = 10 Compara com o bit de baixa e faz relação "AND NOT"
+         ||||
+         1100 = 12 
+result = 0110 = 3
+
+*/
