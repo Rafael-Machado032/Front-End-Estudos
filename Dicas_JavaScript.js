@@ -12,7 +12,7 @@ if (true) { //Um escopo
     var nome2 = "Rafael";  //VAR É uma variável que pode ser usada fora do escopo
     let nome3 = "Graziele";  //LET É uma variável qu não pode ser usado fora do escopo
 }
-console.log(nome2 + nome3);  //O nome3 vai apresentar erro
+//console.log(nome2 + nome3);  //O nome3 vai apresentar erro
 
 const curso = "JavaScript"  //CONST Depois de declarada e inserida o valor não pode ser mudado
 
@@ -31,9 +31,9 @@ const curso = "JavaScript"  //CONST Depois de declarada e inserida o valor não 
 */
 
 //Ex:
-let num1=2,num2=15,res=0;
-res=num2%num1;
-console.log("A resposta é "+res) //A resposta é 1
+let num1 = 2, num2 = 15, res = 0;
+res = num2 % num1;
+console.log("A resposta é " + res) //A resposta é 1
 
 //Operadores lógicos
 
@@ -139,3 +139,79 @@ EX:
 result = 0101 = 5
 Se deslocar o bit em "1" para DIREITA ele reduz pela METADE
 */
+
+//Ternário
+
+/*
+Teste Logico ? Verdadeiro : Falso
+1 = True
+0 = False
+*/
+let a = 5;
+let b = 10;
+
+let res1 = ((a > b) ? "A maior que B" : "B maior que A");
+//ou
+let res2 = (!(a > b) ? "B maior que A" : "A maior que B"); //"!" Nega o resultado
+console.log(res1);
+console.log(res2);
+
+//Typeof
+
+//Retorna o tipo da variável
+
+let c = "oi";
+
+console.log("A variável 'c' é do tipo " + typeof (c));
+
+//Spread
+
+//Spread ele quebra um conjunto elemento (array) e devolve elemento por elemento
+//EX1:
+let a1 = [10, 20, 30];
+let a2 = [11, 12, 13, 14];
+let a3 = [...a1, ...a2]; //Usando spread "..." ele espalha os elementos dentro do "a3"
+
+console.log(a3);
+console.log("Tipo da variável 'a3' é " + typeof (a3)); // Faz a concatenação dos valores
+
+//EX2:
+const jogador1 = { nome: "Rafael", energia: 100, vidas: 3, magia: 150 };
+const jogador2 = { nome: "Graziele", energia: 100, vidas: 5, velocidade: 80 };
+const jogador3 = { ...jogador1, ...jogador2 }
+
+
+console.log(jogador3)  //Se tiver os mesmo dados sempre prevalece o ultimo valor e dados diferentes concatena(junta)
+
+//EX3:
+//Operando em função
+
+const soma = (v1, v2, v3) => {
+    return v1 + v2 + v3;
+}
+
+let valores = [1, 5, 4];
+
+console.log("A soma é " + soma(...valores)); //Espalha os valores para cada propriedade da função
+
+
+//EX4:
+
+const objs = document.getElementsByClassName("java"); //Ele retorna uma coleção de elementos html
+const objs2 = [...document.getElementsByClassName("java")]; //Retorna um array de elementos html
+
+/*
+Quando eu tenho html collection essa coleção so recebe elementos HTML
+Quando tenho um array de elementos eu posso adicionar outros tipos de elementos diferentes de HTML como valores string etc 
+*/
+
+console.log(objs); //No node não reconhece o "Document" so no navegador pois ele e´uma implementação do DOM
+console.log(objs2); 
+
+objs2.forEach(element => {  //Percorre os elementos do array. Não reconhece HTML Collection
+    console.log(element);  //retorna os elementos do array
+    element.innerHTML="Curso"; //Troca todos os conteúdos da coleção do array
+});
+
+
+
