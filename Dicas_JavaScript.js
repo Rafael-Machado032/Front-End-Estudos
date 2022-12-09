@@ -6,7 +6,7 @@ let nome = "Rafael Machado";
 
 console.log("Meu nome é " + nome + " e sou programador!");
 
-//Tipo de variáveis
+//*Tipo de variáveis
 
 if (true) { //Um escopo
     var nome2 = "Rafael";  //VAR É uma variável que pode ser usada fora do escopo
@@ -18,16 +18,16 @@ const curso = "JavaScript"  //CONST Depois de declarada e inserida o valor não 
 
 //Operadores Matemático
 
-/*              
-+  Soma
--  Subtração
-*  Multiplição
-/  Divisão
-%  Resto
-++ Incremento
--- Decremento
-+= Incremento
--= Decremento
+/**            
+*    +  Soma
+*    -  Subtração
+*    *  Multiplição
+*    /  Divisão
+*    %  Resto
+*    ++ Incremento
+*    -- Decremento
+*    += Incremento
+*    -= Decremento
 */
 
 //Ex:
@@ -35,7 +35,7 @@ let num1 = 2, num2 = 15, res = 0;
 res = num2 % num1;
 console.log("A resposta é " + res) //A resposta é 1
 
-//Operadores lógicos
+//*Operadores lógicos
 
 /*
 && End E
@@ -50,7 +50,7 @@ console.log("A resposta é " + res) //A resposta é 1
  
 */
 
-//Operadores BitWise
+//*Operadores BitWise
 
 /*
 Decimal para Binário
@@ -140,12 +140,12 @@ result = 0101 = 5
 Se deslocar o bit em "1" para DIREITA ele reduz pela METADE
 */
 
-//Ternário
+//*Ternário
 
-/*
-Teste Logico ? Verdadeiro : Falso
-1 = True
-0 = False
+/**
+*   Teste Logico ? Verdadeiro : Falso
+*   1 = True
+*   0 = False
 */
 let a = 5;
 let b = 10;
@@ -156,7 +156,7 @@ let res2 = (!(a > b) ? "B maior que A" : "A maior que B"); //"!" Nega o resultad
 console.log(res1);
 console.log(res2);
 
-//Typeof
+//*Typeof
 
 //Retorna o tipo da variável
 
@@ -164,7 +164,7 @@ let c = "oi";
 
 console.log("A variável 'c' é do tipo " + typeof (c));
 
-//Spread
+//*Spread
 
 //Spread ele quebra um conjunto elemento (array) e devolve elemento por elemento
 //EX1:
@@ -197,6 +197,7 @@ console.log("A soma é " + soma(...valores)); //Espalha os valores para cada pro
 
 //EX4:
 
+/*
 const objs = document.getElementsByClassName("java"); //Ele retorna uma coleção de elementos html
 const objs2 = [...document.getElementsByClassName("java")]; //Retorna um array de elementos html
 
@@ -204,7 +205,7 @@ const objs2 = [...document.getElementsByClassName("java")]; //Retorna um array d
 Quando eu tenho html collection essa coleção so recebe elementos HTML
 Quando tenho um array de elementos eu posso adicionar outros tipos de elementos diferentes de HTML como valores string etc 
 */
-
+/*
 console.log(objs); //No node não reconhece o "Document" so no navegador pois ele e´uma implementação do DOM
 console.log(objs2); 
 
@@ -212,6 +213,90 @@ objs2.forEach(element => {  //Percorre os elementos do array. Não reconhece HTM
     console.log(element);  //retorna os elementos do array
     element.innerHTML="Curso"; //Troca todos os conteúdos da coleção do array
 });
+*/
+
+//*IF e IF ELSE
+
+let nu=4;
+
+if (nu>10)  //Se a instrução for uma linha não precisa de colchetes
+    console.log("Maior que 10");
+
+
+if (nu<=5) {
+    console.log("Menor ou igual a 5"); //Verdadeiro
+} else {
+    console.log("Maior que 5"); //Falso
+}
+
+
+//*SWITCH CASE
+
+let ponto=2;
+
+switch (ponto) {
+    case 10:
+        console.log("10 pontos")
+        break;
+        case 5:
+        console.log("5 pontos")
+        break;
+
+
+    default:
+        console.log("Nenhum ponto");
+        break;
+}
+
+//* LOOP FOR, WHILE e DO WHILE
+
+/**     
+ *  
+ *          Definido -> FOR //Quando soubermos quantas vezes sera repetido
+ *  Loop<
+ *          Indefinido ->WHILE
+ *                     ->DO WHILE //Quando não sabemos quantas vezes sera repetido
+ */
+
+//*FOR
+
+for (let i = 0; i <= 10; i++) { //Repete 10 vezes
+    console.log("Repetiu " + i);  
+}
+
+//*FOR IN e FOR OF
+
+
+let f = [10,20,30,40]
+for (let a = 0; a < f.length; a++) { //length é o numero de elementos dentro desse array
+    const element = 0[a];
+    console.log(f[a]);
+}
+
+for (const posição in f) { //No 'for in' a primeira variável recebe o numero de elementos do array "f"
+    console.log(f[posição]);
+}
+
+for (const conteúdo of f) { //No 'for of' a primeira variável recebe o conteúdo do array "f"
+    console.log(conteúdo);
+}
+
+
+//*WHILE
+
+let num3 = 0
+
+while (num3<5) { //No while executa ate quando for falso
+    console.log(num3);
+    num3++
+}
+
+//* DO WHILE
+
+do {  //No 'do while' garante a execução e depois testa 
+    console.log(num3);
+    num3++
+} while (num3<5);
 
 
 
