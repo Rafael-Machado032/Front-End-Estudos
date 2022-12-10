@@ -298,5 +298,52 @@ do {  //No 'do while' garante a execução e depois testa
     num3++
 } while (num3<5);
 
+//*FUNÇÕES
+// Funções sao bloco de comandos que são executados quando chamado
 
+function chamada() { //Declaração da função
+    console.log("Chamou a função");
+}
+
+chamada(); //chamada da função
+
+//*FUNÇÕES COM RETORNO
+
+function retorno() {
+    return "Retornou a função"  //Retorna o resultado da função
+}                               //Não pode ter mais de um 'return' na função pois executa o primeiro e para
+
+res = retorno() //O resultado é inserido em uma variável
+
+console.log(res);
+
+//*FUNÇÕES COM PARÂMETROS
+
+function parametro(p1) { //com parâmetro inicia com uma variável
+    console.log(p1);
+}
+
+parametro("Chamou com parâmetro") //no chamado insere valor dentro do chamado
+
+//EX2:
+function iniciavalor(n1=0,n2=1) { //Se iniciar com valores no parâmetros não precisa chamar a função com parâmetro
+    res=n1+n2
+    return res
+}
+res2=iniciavalor(10) //Na função exite dois valores mais foi inserido direto no parâmetro
+console.log(res2);
+
+//*FUNÇÕES COM PARÂMETROS REST
+
+function soma1(...p) { //Função que não sabe o numero de parâmetros, usando spread
+    res=0
+    for (let v of p) { //Executa a soma dos valores dentro do array 'p'
+        res+=v
+    }
+    return res
+}
+
+console.log(soma1(10,20));
+
+//*FUNÇÕES ANONIMAS
 
