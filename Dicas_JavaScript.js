@@ -347,3 +347,36 @@ console.log(soma1(10,20));
 
 //*FUNÇÕES ANONIMAS
 
+//São funções que não tem nome nelas e sao criadas somente no momento da execução da função
+
+const func = function (v1,v2) {
+    return v1+v2
+}
+
+console.log(func(10,40));
+
+//EX2:
+//FUNÇÃO CONSTRUTOR ANONIMA serve para funções simples digitado na mesma linha
+
+ const func1 = new Function ("v1","v2","return v1 + v2") //Toda construção se utiliza um operador 'new' e o 'Function" com letra maiúscula
+                                                        //Também é obrigatório aspas nos parâmetros e corpo da função, lembrando que o corpo é sempre a ultima aspas
+console.log(func1(10,30));
+
+//*ARROW FUNCTION
+
+//São funções LAMBIDA que representa funções anonimas de outra forma
+
+const soma2 = (v1,v2) => {return v1+v2}
+console.log(soma2(10,15));
+
+//EX2:
+
+const nome1=n=>n; //Primeiro o parâmetro e depois da seta o corpo
+console.log(nome1("Rafael"));
+
+//EX3:
+
+const add = n =>n+10 //caso seja mais complexas ou seja mais de uma linha utiliza-se 'return'
+console.log(add(50));
+
+//*FUNÇÃO DENTRO DE O
