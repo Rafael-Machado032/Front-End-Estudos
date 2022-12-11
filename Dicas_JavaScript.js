@@ -217,13 +217,13 @@ objs2.forEach(element => {  //Percorre os elementos do array. Não reconhece HTM
 
 //*IF e IF ELSE
 
-let nu=4;
+let nu = 4;
 
-if (nu>10)  //Se a instrução for uma linha não precisa de colchetes
+if (nu > 10)  //Se a instrução for uma linha não precisa de colchetes
     console.log("Maior que 10");
 
 
-if (nu<=5) {
+if (nu <= 5) {
     console.log("Menor ou igual a 5"); //Verdadeiro
 } else {
     console.log("Maior que 5"); //Falso
@@ -232,13 +232,13 @@ if (nu<=5) {
 
 //*SWITCH CASE
 
-let ponto=2;
+let ponto = 2;
 
 switch (ponto) {
     case 10:
         console.log("10 pontos")
         break;
-        case 5:
+    case 5:
         console.log("5 pontos")
         break;
 
@@ -261,13 +261,13 @@ switch (ponto) {
 //*FOR
 
 for (let i = 0; i <= 10; i++) { //Repete 10 vezes
-    console.log("Repetiu " + i);  
+    console.log("Repetiu " + i);
 }
 
 //*FOR IN e FOR OF
 
 
-let f = [10,20,30,40]
+let f = [10, 20, 30, 40]
 for (let a = 0; a < f.length; a++) { //length é o numero de elementos dentro desse array
     const element = 0[a];
     console.log(f[a]);
@@ -286,7 +286,7 @@ for (const conteúdo of f) { //No 'for of' a primeira variável recebe o conteú
 
 let num3 = 0
 
-while (num3<5) { //No while executa ate quando for falso
+while (num3 < 5) { //No while executa ate quando for falso
     console.log(num3);
     num3++
 }
@@ -296,7 +296,7 @@ while (num3<5) { //No while executa ate quando for falso
 do {  //No 'do while' garante a execução e depois testa 
     console.log(num3);
     num3++
-} while (num3<5);
+} while (num3 < 5);
 
 //*FUNÇÕES
 // Funções sao bloco de comandos que são executados quando chamado
@@ -319,64 +319,134 @@ console.log(res);
 
 //*FUNÇÕES COM PARÂMETROS
 
-function parametro(p1) { //com parâmetro inicia com uma variável
+function parâmetro(p1) { //com parâmetro inicia com uma variável
     console.log(p1);
 }
 
-parametro("Chamou com parâmetro") //no chamado insere valor dentro do chamado
+parâmetro("Chamou com parâmetro") //no chamado insere valor dentro do chamado
 
 //EX2:
-function iniciavalor(n1=0,n2=1) { //Se iniciar com valores no parâmetros não precisa chamar a função com parâmetro
-    res=n1+n2
+function iniciaValor(n1 = 0, n2 = 1) { //Se iniciar com valores no parâmetros não precisa chamar a função com parâmetro
+    res = n1 + n2
     return res
 }
-res2=iniciavalor(10) //Na função exite dois valores mais foi inserido direto no parâmetro
+res2 = iniciaValor(10) //Na função exite dois valores mais foi inserido direto no parâmetro
 console.log(res2);
 
 //*FUNÇÕES COM PARÂMETROS REST
 
 function soma1(...p) { //Função que não sabe o numero de parâmetros, usando spread
-    res=0
+    res = 0
     for (let v of p) { //Executa a soma dos valores dentro do array 'p'
-        res+=v
+        res += v
     }
     return res
 }
 
-console.log(soma1(10,20));
+console.log(soma1(10, 20));
 
 //*FUNÇÕES ANONIMAS
 
 //São funções que não tem nome nelas e sao criadas somente no momento da execução da função
 
-const func = function (v1,v2) {
-    return v1+v2
+const func = function (v1, v2) {
+    return v1 + v2
 }
 
-console.log(func(10,40));
+console.log(func(10, 40));
 
 //EX2:
 //FUNÇÃO CONSTRUTOR ANONIMA serve para funções simples digitado na mesma linha
 
- const func1 = new Function ("v1","v2","return v1 + v2") //Toda construção se utiliza um operador 'new' e o 'Function" com letra maiúscula
-                                                        //Também é obrigatório aspas nos parâmetros e corpo da função, lembrando que o corpo é sempre a ultima aspas
-console.log(func1(10,30));
+const func1 = new Function("v1", "v2", "return v1 + v2") //Toda construção se utiliza um operador 'new' e o 'Function" com letra maiúscula
+//Também é obrigatório aspas nos parâmetros e corpo da função, lembrando que o corpo é sempre a ultima aspas
+console.log(func1(10, 30));
 
 //*ARROW FUNCTION
 
 //São funções LAMBIDA que representa funções anonimas de outra forma
 
-const soma2 = (v1,v2) => {return v1+v2}
-console.log(soma2(10,15));
+const soma2 = (v1, v2) => { return v1 + v2 }
+console.log(soma2(10, 15));
 
 //EX2:
 
-const nome1=n=>n; //Primeiro o parâmetro e depois da seta o corpo
+const nome1 = n => n; //Primeiro o parâmetro e depois da seta o corpo
 console.log(nome1("Rafael"));
 
 //EX3:
 
-const add = n =>n+10 //caso seja mais complexas ou seja mais de uma linha utiliza-se 'return'
+const add = n => n + 10 //caso seja mais complexas ou seja mais de uma linha utiliza-se 'return'
 console.log(add(50));
 
-//*FUNÇÃO DENTRO DE O
+//*FUNÇÃO DENTRO DE OUTRA FUNÇÃO
+
+const soma3 = (...valores) => { // 2º A soma3 usa uma variável rest quando nao sabemos quantos valores vai entrar no array
+    const somar = val => { // 4º Os valores da variável 'valores' vão dentro da variável 'val'
+        let res3 = 0;
+        for (let v of val) { // 5º Como 'val' é um array ele insere cada valor no 'v' e soma no comando de baixo
+            res3 += v
+        }
+        return res3 // 6º retorna a resposta pra quem chamou no caso o return de baixo
+    }
+    return somar(valores) // 3º O return chama a função somar e insere os valores da variável 'valores'
+}                         // 7º O valor retornado retorna para quem chamou nesse caso o console.log
+
+console.log(soma3(20, 20, 40)) // 1º Chama a função soma3
+// 8º Com o valor retornado imprime no console a resposta do res3
+
+//*FUNÇÕES GERADORAS
+
+//Funções geradoras são funções que retorna resultados controlados ou seja a cada chamado obtém outra resposta, diferente da primeira resposta
+
+function* cores() { //Para declarar a função geradora coloca-se '*' do lado do 'function' ficando 'function*'
+    yield 'Vermelho'//'yield' quando executada retorna essa resposta e para
+    yield 'Verde'  // Quando chamar de novo executa o proxima 'yield' e mostra o seu resultado
+    yield 'Azul'
+}
+
+const itc = cores(); //Coloca-se a função dentro de uma variável
+console.log(itc.next().value); //Ao chamar a função coloca-se 'next().value' que sempre vai chamar a proxima 'yield'
+console.log(itc.next().value);
+console.log(itc.next().value); //Caso venha outra chamada sem ter mais 'yield' vai retorna undefined (indefinido)
+
+//EX2:
+
+function* perguntas() {
+    const nom = yield 'Qual o seu nome?'
+    const esporte = yield 'Qual seu esporte favorito?'
+    return "Seu nome é " + nom + ", e seu esporte favorita é " + esporte
+}
+
+const itp = perguntas();
+console.log(itp.next().value);  //Imprime primeiro yeld
+console.log(itp.next("Rafael").value); //Coloca o valor no primeiro yield e imprime o segundo
+console.log(itp.next("Futebol").value); //Coloca o valor no segundo yield e retorna o que esta no 'return'
+
+//EX3:
+
+function* contator() { // Gerador com loop
+    let i = 0;
+    while (true) { //loop infinito
+        yield i++; //sempre acrescenta mais um quando a função for chamada
+        if (i > 5) {  //Quando chegar ate 5 executa o fim do loop
+            break
+        }
+    }
+}
+const itc1 = contator();
+for (let c of itc1) { //Fica executando ate quando a função encontrar o break
+    console.log(c);
+}
+
+//*MAP
+
+//O map percorre todo o array e ajuda a consultar o alterar em determinada posição
+
+const curso1 = ['HTML', 'CSS', 'Javascript', 'PHP', 'React'] //Criado de array
+curso1.map((el, i) => { //Primeiro parâmetro é os elemento da coleção e o segundo é a posição dos elementos
+    console.log("Curso:" + el + " - Posição do curso:" + i); //Foi usada uma ARROW FUNCTION para manipular os elementos
+})
+
+
+
