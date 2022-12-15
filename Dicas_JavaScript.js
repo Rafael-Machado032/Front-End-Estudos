@@ -441,12 +441,30 @@ for (let c of itc1) { //Fica executando ate quando a função encontrar o break
 
 //*MAP
 
-//O map percorre todo o array e ajuda a consultar o alterar em determinada posição
+//O map percorre todo o array e sem precisar do 'for' e retorna os valores no parâmetro
 
 const curso1 = ['HTML', 'CSS', 'Javascript', 'PHP', 'React'] //Criado de array
 curso1.map((el, i) => { //Primeiro parâmetro é os elemento da coleção e o segundo é a posição dos elementos
     console.log("Curso:" + el + " - Posição do curso:" + i); //Foi usada uma ARROW FUNCTION para manipular os elementos
 })
 
+
+//EX2:
+
+const dobrar=(e)=>e*2; //Função de dobrar
+const num = [1,2,3,4,5].map(dobrar); //criei um array com a função no map
+console.log(num);
+
+//*THIS
+
+function aluno(nomeb,notaA) {
+    this.nomeb=nomeb  //'this' serve para separa a variável do parâmetro da função com o mesmo nome
+    this.notaA=notaA // "this.nome" Variável "nome" Parâmetro
+
+    console.log(nomeb);
+    console.log(notaA);
+}
+
+aluno("Rafael",100);
 
 
