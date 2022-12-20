@@ -488,6 +488,6 @@ console.log(dc1.innerHTML); //Mostra o conteúdo do elemento "Curso"
 
 //querySelectorAll
 
-//Serve para chamar todos os elemento especificando nos parametros
+//Serve para chamar todos os elemento especificando nos parâmetros
 const query_divTodas=[...document.querySelectorAll("div>p")] //Especificação idêntico ao do CSS
 const query_cursosTodos=[...document.querySelectorAll(".curso")]
