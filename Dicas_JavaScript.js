@@ -457,14 +457,37 @@ console.log(num);
 
 //*THIS
 
-function aluno(nomeb,notaA) {
-    this.nomeb=nomeb  //'this' serve para separa a variável do parâmetro da função com o mesmo nome
-    this.notaA=notaA // "this.nome" Variável "nome" Parâmetro
+// function aluno(nome,nota) {
+//     this.nome=nome  //'this' serve para separa a variável do parâmetro da função com o mesmo nome
+//     this.nota=nota // "this.nome" Variável "nome" Parâmetro
 
-    console.log(nomeb);
-    console.log(notaA);
-}
+//     console.log(nome);
+//     console.log(nota);
+// }
 
-aluno("Rafael",100);
+// aluno("Rafael",100);
+//Esse código apresenta erro por causa do "use strict"
 
 
+/**Manipulação dos elementos DOM 
+ * O NodeJs não reconhece esse comandos e são executados somente no console do navegador
+*/
+
+//*getElementById. getElementsByTagName. getElementsByClassName.
+//Serve para selecionar elementos especificado
+
+const dc1=document.getElementById("c1"); //Guarda dentro da variável o elemento HTML ex: <div id="c1">Curso</div>
+const divTodos=[...document.getElementsByTagName("div")] //Como retorna um HTMLCollections para transformar em u array faz um spread para espalhar os elementos
+const cursoTodos=[...document.getElementsByClassName("curso")]
+
+
+console.log(dc1); //Mostra o elemento completo em HTML "<div id="c1">Curso</div>"
+console.log(dc1.id); //Mostra o "id" do elemento "c1"
+console.log(dc1.innerHTML); //Mostra o conteúdo do elemento "Curso"
+
+
+//querySelectorAll
+
+//Serve para chamar todos os elemento especificando nos parametros
+const query_divTodas=[...document.querySelectorAll("div>p")] //Especificação idêntico ao do CSS
+const query_cursosTodos=[...document.querySelectorAll(".curso")]
