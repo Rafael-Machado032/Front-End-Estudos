@@ -451,8 +451,8 @@ curso1.map((el, i) => { //Primeiro parâmetro é os elemento da coleção e o se
 
 //EX2:
 
-const dobrar=(e)=>e*2; //Função de dobrar
-const num = [1,2,3,4,5].map(dobrar); //criei um array com a função no map
+const dobrar = (e) => e * 2; //Função de dobrar
+const num = [1, 2, 3, 4, 5].map(dobrar); //criei um array com a função no map
 console.log(num);
 
 //*THIS
@@ -476,9 +476,9 @@ console.log(num);
 //*getElementById. getElementsByTagName. getElementsByClassName.
 //Serve para selecionar elementos especificado
 
-const dc1=document.getElementById("c1"); //Guarda dentro da variável o elemento HTML ex: <div id="c1">Curso</div>
-const divTodos=[...document.getElementsByTagName("div")] //Como retorna um HTMLCollections para transformar em u array faz um spread para espalhar os elementos
-const cursoTodos=[...document.getElementsByClassName("curso")]
+const dc1 = document.getElementById("c1"); //Guarda dentro da variável o elemento HTML ex: <div id="c1">Curso</div>
+const divTodos = [...document.getElementsByTagName("div")] //Como retorna um HTMLCollections para transformar em u array faz um spread para espalhar os elementos
+const cursoTodos = [...document.getElementsByClassName("curso")]
 
 
 console.log(dc1); //Mostra o elemento completo em HTML "<div id="c1">Curso</div>"
@@ -489,5 +489,63 @@ console.log(dc1.innerHTML); //Mostra o conteúdo do elemento "Curso"
 //querySelectorAll
 
 //Serve para chamar todos os elemento especificando nos parâmetros
-const query_divTodas=[...document.querySelectorAll("div>p")] //Especificação idêntico ao do CSS
-const query_cursosTodos=[...document.querySelectorAll(".curso")]
+const query_divTodas = [...document.querySelectorAll("div>p")] //Especificação idêntico ao do CSS
+const query_cursosTodos = [...document.querySelectorAll(".curso")]
+
+//Eventos
+
+//addEventListener
+
+/**Podemos ler eventos a partir da tag HTML exemplo "onclick" que dispara ao clicar
+ * 
+ * <div id="c1 class="curso c1" onclick="alert("Olá mundo!")">HTML</div>
+ * 
+ * Também pode chamar função ao clicar
+ * 
+ * <div id="c2 class="curso c2" onclick="msg()">PHP</div>
+ * 
+ * <script>
+ *      const msg =()=>{
+ *          alert("Olá mundo!")
+ *      }
+ * </script>
+ */
+
+//Agora para fazer a leitura de evento direto no java script usamos "addEventListener" que eh um escutador de eventos
+
+//EX1:
+const c1 = document.querySelector("#c1"); //Seleciona a tag que vai monitorar o evento
+
+const msg = () => {     //Criação da função
+    alert("Olá mundo!");
+}
+
+c1.addEventListener("click", msg);  //O primero parâmetro é o tipo de evento e o segundo é a função não precisa de parenteses
+
+//EX2:
+
+c1.addEventListener("click", () => { //Posso chamar uma função direto no escutador também
+
+    alert("Olá mundo!");
+
+})
+
+//EX3:
+
+c1.addEventListener("click", (evt) => { //Posso chamar uma função direto no escutador também
+    //"evt" é uma variável que recebe o elemento
+    let el = evt.target;  //"target mostra o elemento"
+    el.classList.add("destaque"); //Insere outa classe chamado "destaque" Estilizado no css
+})
+//EX4:
+const cursos = [...document.querySelectorAll(".cursos")]  //Distribui todos os elementos selecionado no array
+
+cursos.map((el) => { //adiciona o escutador em todas as tag com a classe "cursos"
+    el.addEventListener("click", (evt) => {
+        const el = evt.target
+        el.classList.add("destaque")
+        console.log(el.id + " foi clicado e o conteúdo é " + el.innerHTML); //mostra o id da tag
+    })
+})
+ //A cada clique na tag fica destacado
+
