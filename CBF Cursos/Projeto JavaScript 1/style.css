@@ -29,7 +29,7 @@ button{
     cursor: pointer;
 }
 .selecionado{
-    background-color: #800 !important;
+    background-color: #800 !important; /*!important Serve para força a prioridade no css*/
     color: #fcc !important;
     border-color: #f00 !important;
 }

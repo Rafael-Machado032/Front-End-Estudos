@@ -1,4 +1,4 @@
-const caixa1=document.querySelector("#caixa1");
+const caixa1=document.querySelector("#caixa1"); //Seleciona  
 const caixa2=document.querySelector("#caixa2");
 const btn=document.querySelector("#btn_copiar");
 const todosCursos=[...document.querySelectorAll(".curso")]
