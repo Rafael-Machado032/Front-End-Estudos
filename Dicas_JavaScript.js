@@ -549,3 +549,9 @@ cursos.map((el) => { //adiciona o escutador em todas as tag com a classe "cursos
 })
  //A cada clique na tag fica destacado
 
+ //stopPropagation
+//Esse comando serve para bloquear o evento caso o contêiner pai estiver escultando click pois ele esculta todos, tanto pai quanto os filhos
+c1.addEventListener("click",(evt)=>{
+    evt.stopPropagation() //Esse comando eh uma função, necessário inserir na variável o parâmetro do elemento
+ })
+
