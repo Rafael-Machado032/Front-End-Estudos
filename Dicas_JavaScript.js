@@ -555,3 +555,30 @@ c1.addEventListener("click",(evt)=>{
     evt.stopPropagation() //Esse comando eh uma função, necessário inserir na variável o parâmetro do elemento
  })
 
+ //*Relações
+
+console.log(caixa1.hasChildNodes()); //Retorna True o False se o elemento tem filhos
+console.log(caixa1.ChildNodes); //Retorna os elementos filho
+console.log(caixa1.children[1]); //Retorna uma lista de filhos, caso use o [] retornara a posição escolhida
+console.log(caixa1.parentNode); //Retorna o Pai do elemento
+console.log(caixa1.parentNode.parentNode); //Retorna o AVÔ do elemento
+console.log(caixa1.parentNode.parentNode.children[4]); //Retorna o filho do AVÔ especifico
+
+//Criação de elementos no java script
+const cursos11=["HTML","CSS","JavaScript","PHP","React","MySQL"];
+cursos11.map((el,chave)=>{  //No map percorre todo o array e na variável "el" insere o elemento e na "chave" a posição do elemento 
+    const novoElemento=document.createElement("div"); //Declara a criação do elemento e armazena na memoria
+    novoElemento.setAttribute("id","c"+chave);  //Seta os atributos da div com id dinâmico que começa com 0 caso queira começar com 1 insere +1
+    novoElemento.setAttribute("class","curso c1"); //Seta a classe na div
+    novoElemento.innerHTML=el; //Insere o conteúdo do array no html
+    //Remoção do elemento 
+    novoElemento.addEventListener("click",(evt)=>{ //Esse é um escultador de click e insere o elemento clicado no evt
+        caixa1.removeChild(evt.target) //exclui o elemento clicado
+    })
+    caixa1.appendChild(novoElemento);//Adiciona no elemento pai
+
+})
+
+
+
+
