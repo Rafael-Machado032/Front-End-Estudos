@@ -4,24 +4,24 @@ const c1_2=document.querySelector("#c1_2")
 const cursos=["HTML","CSS","Javascript","PHP","React","MySQL","ReactNative"]
 const btnCursoSelecionado=document.getElementById("btnCursoSelecionado")
 
-cursos.map((el,chave)=>{
-    const novoElemento=document.createElement("div")
-    novoElemento.setAttribute("id","c"+chave)
-    novoElemento.setAttribute("class","curso c1")
-    novoElemento.innerHTML=el
+cursos.map((el,chave)=>{ //percorre o array cursos
+    const novoElemento=document.createElement("div") //Criação de elementos div
+    novoElemento.setAttribute("id","c"+chave)  //seta o id c0 ate c6 que em o tamanho do array cursos
+    novoElemento.setAttribute("class","curso c1")  //seta o classe curso c1 até o tamanho do array cursos
+    novoElemento.innerHTML=el //Insere o cursos no html
 
-    const comandos=document.createElement("div")
-    comandos.setAttribute("class","comandos")
+    const comandos=document.createElement("div") //Criação de elementos div
+    comandos.setAttribute("class","comandos")   //seta o classe comandos até o tamanho do array cursos
     
-    const rb=document.createElement("input")
-    rb.setAttribute("type","radio")
-    rb.setAttribute("name","rb_curso")
+    const rb=document.createElement("input") //Criação de elementos input
+    rb.setAttribute("type","radio")     //seta o tipo de input que é radio até o tamanho do array cursos
+    rb.setAttribute("name","rb_curso")     //seta o nome rb_cursos até o tamanho do array cursos
 
-    comandos.appendChild(rb)
+    comandos.appendChild(rb)  //adiciona o filho rb no pai comandos
 
-    novoElemento.appendChild(comandos)
+    novoElemento.appendChild(comandos) //adiciona o filho comandos no pai novoElemento
 
-    caixaCursos.appendChild(novoElemento)
+    caixaCursos.appendChild(novoElemento) //adiciona o filho novoElemento no pai caixaCursos
     
 })
 
