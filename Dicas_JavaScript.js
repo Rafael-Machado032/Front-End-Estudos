@@ -547,15 +547,15 @@ cursos.map((el) => { //adiciona o escutador em todas as tag com a classe "cursos
         console.log(el.id + " foi clicado e o conteúdo é " + el.innerHTML); //mostra o id da tag
     })
 })
- //A cada clique na tag fica destacado
+//A cada clique na tag fica destacado
 
- //stopPropagation
+//stopPropagation
 //Esse comando serve para bloquear o evento caso o contêiner pai estiver escultando click pois ele esculta todos, tanto pai quanto os filhos
-c1.addEventListener("click",(evt)=>{
+c1.addEventListener("click", (evt) => {
     evt.stopPropagation() //Esse comando eh uma função, necessário inserir na variável o parâmetro do elemento
- })
+})
 
- //*Relações
+//*Relações
 
 console.log(caixa1.hasChildNodes()); //Retorna True o False se o elemento tem filhos
 console.log(caixa1.ChildNodes); //Retorna os elementos filho
@@ -565,14 +565,14 @@ console.log(caixa1.parentNode.parentNode); //Retorna o AVÔ do elemento
 console.log(caixa1.parentNode.parentNode.children[4]); //Retorna o filho do AVÔ especifico
 
 //Criação de elementos no java script
-const cursos11=["HTML","CSS","JavaScript","PHP","React","MySQL"];
-cursos11.map((el,chave)=>{  //No map percorre todo o array e na variável "el" insere o elemento e na "chave" a posição do elemento 
-    const novoElemento=document.createElement("div"); //Declara a criação do elemento e armazena na memoria
-    novoElemento.setAttribute("id","c"+chave);  //Seta os atributos da div com id dinâmico que começa com 0 caso queira começar com 1 insere +1
-    novoElemento.setAttribute("class","curso c1"); //Seta a classe na div
-    novoElemento.innerHTML=el; //Insere o conteúdo do array no html
+const cursos11 = ["HTML", "CSS", "JavaScript", "PHP", "React", "MySQL"];
+cursos11.map((el, chave) => {  //No map percorre todo o array e na variável "el" insere o elemento e na "chave" a posição do elemento 
+    const novoElemento = document.createElement("div"); //Declara a criação do elemento e armazena na memoria
+    novoElemento.setAttribute("id", "c" + chave);  //Seta os atributos da div com id dinâmico que começa com 0 caso queira começar com 1 insere +1
+    novoElemento.setAttribute("class", "curso c1"); //Seta a classe na div
+    novoElemento.innerHTML = el; //Insere o conteúdo do array no html
     //Remoção do elemento 
-    novoElemento.addEventListener("click",(evt)=>{ //Esse é um escultador de click e insere o elemento clicado no evt
+    novoElemento.addEventListener("click", (evt) => { //Esse é um escultador de click e insere o elemento clicado no evt
         caixa1.removeChild(evt.target) //exclui o elemento clicado
     })
     caixa1.appendChild(novoElemento);//Adiciona no elemento pai
@@ -580,5 +580,58 @@ cursos11.map((el,chave)=>{  //No map percorre todo o array e na variável "el" i
 })
 
 
+//*Filter
+//Serve para filtrar os elementos retorna um array
+btnCursoSelecionado.addEventListener("click", (evt) => {
+    const todosRadios = [...document.querySelectorAll("input[type=radio]")]
+    let radioSelecionado = todosRadios.filter((ele, ind, arr) => {
+        return ele.checked //retorna um array
+    })
+    radioSelecionado = radioSelecionado[0]//retorna so o input
+    const cursoSelecionado = radioSelecionado.parentNode.previousSibling.textContent
+    alert("Curso selecionado: " + cursoSelecionado)
+})
 
+//*Remover Elemento
+btnRemoverCurso.addEventListener("click", (evt) => {
+    const rs = radioSelecionado()//Chama a função de selecionado
+    const cursoSelecionado = rs.parentNode.parentNode //Seleciona todo o elemento
+    cursoSelecionado.remove()//Remove o elemento
+})
+
+//*Adicionar Antes
+btnAdicionarCursoAntes.addEventListener("click", (evt) => {
+    const rs = radioSelecionado()
+    try {
+        if (nomeCurso.value = "") {//Testa se o valor não vem vazio
+            const cursoSelecionado = rs.parentNode.parentNode//Pega toda a estrutura da div
+            const novoCurso = criarNovoCurso(nomeCurso.value)//Pega o valor no novoCurso
+            caixaCursos.insertBefore(novoCurso, cursoSelecionado)//Insere o valor do novoCurso ANTES do CursoSelecionado
+        } else {
+            alert("Selecione um curso")
+        }
+    }
+    catch (ex) {
+        alert("Selecione um curso")
+    }
+})
+
+//*Adicionar Depois
+//Não existe insertAfter
+btnAdicionarCursoDepois.addEventListener("click", (evt) => {
+    const rs = radioSelecionado() //Chama a função Selecionado
+    try {
+        if (nomeCurso.value = "") {
+            const cursoSelecionado = rs.parentNode.parentNode //Pega toda a estrutura da div
+            const novoCurso = criarNovoCurso(nomeCurso.value) //Pega o valor no novoCurso
+            caixaCursos.insertBefore(novoCurso, cursoSelecionado.nextSibling) //Insere o valor do novoCurso DEPOIS do CursoSelecionado pois pega o irmão do elemento
+        } else {
+            alert("Selecione um curso")
+        }
+    }
+
+    catch (ex) {
+        alert("Selecione um curso")
+    }
+})
 

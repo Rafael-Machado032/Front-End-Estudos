@@ -24,13 +24,16 @@ cursos.map((el,chave)=>{ //percorre o array cursos
     caixaCursos.appendChild(novoElemento) //adiciona o filho novoElemento no pai caixaCursos
     
 })
-
-btnCursoSelecionado.addEventListener("click",(evt)=>{  //Esculta do evento de click
+const cursoSelecionado=()=>{
     const todosRadios=[...document.querySelectorAll("input[type=radio]")]  //Lista de todos os elemento 'input' do tipo radio
-    let radioSelecionado=todosRadios.filter((ele,ind,arr)=>{ //No filter ele escolhe no primeiro ELEMENTO segundo ÍNDICE terceiro o próprio ARRAY não obrigatório todos os parâmetros so se for usar
+    cons radioSelecionado=todosRadios.filter((ele,ind,arr)=>{ //No filter ele escolhe no primeiro ELEMENTO segundo ÍNDICE terceiro o próprio ARRAY não obrigatório todos os parâmetros so se for usar
         return ele.checked //Retorna o input selecionado
     })
-    radioSelecionado=radioSelecionado[0] //retorna somente o selecionado e não a coleção
+    return radioSelecionado[0] //retorna somente o selecionado e não a coleção
+}
+
+btnCursoSelecionado.addEventListener("click",(evt)=>{  //Esculta do evento de click
+    
     //const cursoSelecionado=radioSelecionado.parentNode.parentNode.firstChild.textContent
     const cursoSelecionado=radioSelecionado.parentNode.previousSibling.textContent //Essa eh a segunda maneira para pegar o texto do selecionado
     alert("Curso selecionado: " + cursoSelecionado) //Popup na tela com resultado
