@@ -635,3 +635,62 @@ btnAdicionarCursoDepois.addEventListener("click", (evt) => {
     }
 })
 
+
+//*Novo método de selecionar
+
+novoElemento.addEventListener("click",(evt)=>{
+    tirarSelecao()
+    evt.target.classList.toggle(".selecionado") //Ao clicar no elemento insere a classe selecionado
+})
+const tirarSelecao=()=>{
+    const cursoSelecionados=[...document.querySelectorAll(".selecionado")]
+    cursoSelecionados.map((el)=>{
+        el.classList.remove(".selecionado") //Remove a classe .Selecionados
+    })
+}
+const cursoSelecionado=()=>{
+    const cursosSelecionados=[...document.querySelectorAll(".selecionado")]//Vai ter so um curso selecionado
+    return cursosSelecionado[0] //Retorna o único que tem a classe .selecionado      
+}
+
+//*Pesquisar com Find
+
+btnPesquisar.addEventListener("click",(evt)=>{ //Criado o escultador de evento do botão
+    resultado.innerHTML="Valor não encontrado" //Caso não encontrado escreve na div o texto 
+    const ret=elementos_array.find((e,i)=>{ //Pesquisa os elementos
+        if(e.toUpperCase()==txt_pesquisar.value.toUpperCase()){ //Testa os elementos e transforma todos os valore em maiúsculas para não diferenciar de minuscula e maiúscula
+            resultado.innerHTML="Valor encontrado "+ e + " na posição "+ i //Troca o valor não encontrado para valor encontrado
+            return e //return não tem importância
+        }
+    })
+})
+
+//Conforme ou não conforme com every (Todos)
+//Retorna verdadeiro se todos atender a especificação
+
+btnVerificar.addEventListener("click",(evt)=>{
+    const ret=elementos_array.every((e,i)=>{ //Compara os elementos
+        if(e<18){ //testa se menor que 18
+            resultado.innerHTML="Array não conforme na posição "+i
+        }
+        return e>=18//Retorna verdadeiro  ou falso se atende essa condição
+    })
+    if (ret) { //se o resultado for verdadeiro imprime ok
+        resultado.innerHTML="OK"
+    }
+})
+
+//Conforme ou não conforme com every (No mínimo um)
+//Diferente do every ele retorna verdadeiro se encontrar pelo menos um for verdadeiro
+
+btnVerificar.addEventListener("click",(evt)=>{
+    const ret=elementos_array.some((e,i)=>{ //Compara os elementos
+        if(e<18){ //testa se menor que 18
+            resultado.innerHTML="Array não conforme na posição "+i
+        }
+        return e>=18//Retorna verdadeiro  ou falso se atende essa condição
+    })
+    if (ret) { //se o resultado for verdadeiro imprime ok
+        resultado.innerHTML="OK"
+    }
+})
