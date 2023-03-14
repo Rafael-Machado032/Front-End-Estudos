@@ -5,7 +5,7 @@ Commit: Pacotes de arquivos alterados do repositório local (Versão)
 Push: Envia os pacotes para repositório remoto
 Pull: Baixa os arquivos alterados do repositório remoto
 branch: Versões de código de forma separada
-Merge:Unir branch
+Merge: Unir branch
 Pull Request: Requerimento para outra pessoa posa aprovar seu pull ou não
 
 
