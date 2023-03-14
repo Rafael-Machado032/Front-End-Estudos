@@ -665,7 +665,7 @@ btnPesquisar.addEventListener("click",(evt)=>{ //Criado o escultador de evento d
     })
 })
 
-//Conforme ou não conforme com every (Todos)
+//*Conforme ou não conforme com every (Todos)
 //Retorna verdadeiro se todos atender a especificação
 
 btnVerificar.addEventListener("click",(evt)=>{
@@ -680,7 +680,7 @@ btnVerificar.addEventListener("click",(evt)=>{
     }
 })
 
-//Conforme ou não conforme com every (No mínimo um)
+//*Conforme ou não conforme com every (No mínimo um)
 //Diferente do every ele retorna verdadeiro se encontrar pelo menos um for verdadeiro
 
 btnVerificar.addEventListener("click",(evt)=>{
@@ -693,4 +693,17 @@ btnVerificar.addEventListener("click",(evt)=>{
     if (ret) { //se o resultado for verdadeiro imprime ok
         resultado.innerHTML="OK"
     }
+})
+
+//*Reduce
+//Serve para reduzir um array usando seu próprio retorno ate chegar um valor
+btnReduzir.addEventListener("click",(evt)=>{
+    dobro.push(elementos_array[0]*2)
+    resultado.innerHTML=elementos_array.reduce((anterior,atual,pos)=>{
+        ant.push(anterior) //push mostra o valor em array 
+        atu.push(atual)
+        dobro.push(atual*2)
+        return atual+anterior
+    })
+
 })
