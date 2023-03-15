@@ -812,7 +812,7 @@ res3+="<br/> O tamanho da coleção é " + mapa.size
 caixa.innerHTML=res3
 
 mapa.forEach((el)=>{
-    console.log(el);
+    console.log(el); //imprime cada elemento da coleção
 })
 
 
