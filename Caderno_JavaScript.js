@@ -700,10 +700,123 @@ btnVerificar.addEventListener("click",(evt)=>{
 btnReduzir.addEventListener("click",(evt)=>{
     dobro.push(elementos_array[0]*2)
     resultado.innerHTML=elementos_array.reduce((anterior,atual,pos)=>{
-        ant.push(anterior) //push mostra o valor em array 
+        ant.push(anterior) //insere a ultima posição
         atu.push(atual)
         dobro.push(atual*2)
         return atual+anterior
     })
 
 })
+
+//*Iteradores
+//São operações ocultas que identifica o conteúdo e quando termina
+/** Tipos de elementos iteráveis
+ * Arrays
+ * String
+ * Map
+ * Sets
+ */
+//EX:
+const valor=[10,8,5,2]
+const it_valores=valor[Symbol.iterador]() //Mostra a operação do iterador
+console.log(valor)
+console.log(it_valores.next());
+console.log(it_valores.next());
+console.log(it_valores.next());
+console.log(it_valores.next());
+console.log(it_valores.next());
+
+/**Console:
+ * [10,8,5,2]
+ * { value: 10, done: false }
+ * { value: 8, done: false }
+ * { value: 5, done: false }
+ * { value: 2, done: false }
+ * { value: undefined, done: true } // O done mostra o final do array
+ */
+
+//*Array
+
+let curso2=["html","css","Javascript"] //criado um array com conteúdo
+
+curso2.push("c++") //adiciona no final do array
+curso2.push("Python") //adiciona no final do array
+curso2.pop()  //Exclui o ultimo conteúdo do array no exemplo python
+curso2.unshift("java") //adiciona no começo do array
+curso2.shift()  //Exclui o primeiro conteúdo do array no exemplo java
+
+let turno=["manha","tarde","noite",curso2] //Array dentro do array
+
+console.log(turno[3][1]); //imprime css pos selecionou o array no segundo nível
+
+//EX2:
+let valores2=[2,5]
+const op=[  //array com funções em cada posição
+    (val)=>{
+        let res=0
+        for (const v of val) {
+            res+=v
+        }
+        return res
+    },
+    (val)=>{
+        let res=1
+        for (const v of val) {
+            res*=v 
+        }
+        return res
+    },
+    (val)=>{
+        for (const v of val) {
+            console.log(v);
+        }
+    }
+]
+console.log(op[0](valores2)); //chamo a primeira função e insiro o valores entre parenteses
+
+
+//*Map
+//Parecido com array porem utilisa-se chaves para posisões
+
+/**
+ * clear   -> Limpar todo a coleção
+ * delete  -> Excluir um elemento
+ * entries -> Entradas das coleção
+ * forEach -> Loop para percorrer a coleção
+ * get     -> Obter um elemento da coleção pela chave
+ * has     -> Pesquisa a chave se tem na coleção retorna true o false
+ * keys    -> Chaves da coleção
+ * set     -> Adicionar um elemento da coleção
+ * size    -> Tamanho da coleção
+ * values  -> Valores da coleção
+ */
+
+let mapa=new Map()
+
+mapa.set("curso","javascript") //adiciona primera a chave e depois o conteudo
+mapa.set(10,"curso")
+mapa.set(1,100)
+mapa.set("canal",100)
+
+mapa.delete(1) // O delete pesquisa pela chave para exclusão
+
+let pes="teste"
+let res3=10
+if(mapa.has(pes)){ //Pesquisa se tem na coleção e testa no if
+    res3="A chave existe na coleção com o valor: " + mapa.get(pes) //Mostra o valor 
+}else{
+    res3="A chave NÂO esta na coleção"
+    
+}
+res3+="<br/> O tamanho da coleção é " + mapa.size
+caixa.innerHTML=res3
+
+mapa.forEach((el)=>{
+    console.log(el);
+})
+
+
+
+
+
+
