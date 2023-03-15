@@ -815,8 +815,45 @@ mapa.forEach((el)=>{
     console.log(el); //imprime cada elemento da coleção
 })
 
+//*Set
+//Parecido com array porem não aceita valores repetidos
+let musicas =new Set(["musica1","musica boa","musica 10"])//Posso declarar os valores direto na construção
+
+musicas.add("musica muito legal")
+musicas.add("musica1") //Valores que ja estão na coleção ele não aceita
+musicas.add("musica10")
+
+//*Template string
+const canal = "Java"
+const frase=`Este é o curso de ${curso} do ${canal}` //Utiliza-se craze para declarar variáveis de outra forma
 
 
+//*Objeto
 
+class Pessoa{
+    constructor(pNome,pIdade){ //Ao declarar o objeto se o construtor estiver parâmetro eh obrigado a inseri o valor quando chamar
+        this.nome=pNome
+        this.idade=pIdade
+    }
+    getNome(){ //obtém o valor
+        return this.nome
+    }
+    getIdade(){
+        return this.idade
+    }
+    setNome(nome){ //Insere o valor
+        this.idade=nome
+    }
+    setIdade(idade){
+        this.idade=idade
+    }
+    info(){
+        console.log(`Nome..: ${this.nome}`);
+        console.log(`Idade..: ${this.idade}`);
+        console.log(`-------------------------------------`);
 
+    }
+}
+
+const pessoa1= new Pessoa("Rafael",34)
 
