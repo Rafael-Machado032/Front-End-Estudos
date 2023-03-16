@@ -638,28 +638,28 @@ btnAdicionarCursoDepois.addEventListener("click", (evt) => {
 
 //*Novo método de selecionar
 
-novoElemento.addEventListener("click",(evt)=>{
-    tirarSelecao()
+novoElemento.addEventListener("click", (evt) => {
+    tirarSeleção()
     evt.target.classList.toggle(".selecionado") //Ao clicar no elemento insere a classe selecionado
 })
-const tirarSelecao=()=>{
-    const cursoSelecionados=[...document.querySelectorAll(".selecionado")]
-    cursoSelecionados.map((el)=>{
+const tirarSeleção = () => {
+    const cursoSelecionados = [...document.querySelectorAll(".selecionado")]
+    cursoSelecionados.map((el) => {
         el.classList.remove(".selecionado") //Remove a classe .Selecionados
     })
 }
-const cursoSelecionado=()=>{
-    const cursosSelecionados=[...document.querySelectorAll(".selecionado")]//Vai ter so um curso selecionado
+const cursoSelecionado = () => {
+    const cursosSelecionados = [...document.querySelectorAll(".selecionado")]//Vai ter so um curso selecionado
     return cursosSelecionado[0] //Retorna o único que tem a classe .selecionado      
 }
 
 //*Pesquisar com Find
 
-btnPesquisar.addEventListener("click",(evt)=>{ //Criado o escultador de evento do botão
-    resultado.innerHTML="Valor não encontrado" //Caso não encontrado escreve na div o texto 
-    const ret=elementos_array.find((e,i)=>{ //Pesquisa os elementos
-        if(e.toUpperCase()==txt_pesquisar.value.toUpperCase()){ //Testa os elementos e transforma todos os valore em maiúsculas para não diferenciar de minuscula e maiúscula
-            resultado.innerHTML="Valor encontrado "+ e + " na posição "+ i //Troca o valor não encontrado para valor encontrado
+btnPesquisar.addEventListener("click", (evt) => { //Criado o escultador de evento do botão
+    resultado.innerHTML = "Valor não encontrado" //Caso não encontrado escreve na div o texto 
+    const ret = elementos_array.find((e, i) => { //Pesquisa os elementos
+        if (e.toUpperCase() == txt_pesquisar.value.toUpperCase()) { //Testa os elementos e transforma todos os valore em maiúsculas para não diferenciar de minuscula e maiúscula
+            resultado.innerHTML = "Valor encontrado " + e + " na posição " + i //Troca o valor não encontrado para valor encontrado
             return e //return não tem importância
         }
     })
@@ -668,42 +668,42 @@ btnPesquisar.addEventListener("click",(evt)=>{ //Criado o escultador de evento d
 //*Conforme ou não conforme com every (Todos)
 //Retorna verdadeiro se todos atender a especificação
 
-btnVerificar.addEventListener("click",(evt)=>{
-    const ret=elementos_array.every((e,i)=>{ //Compara os elementos
-        if(e<18){ //testa se menor que 18
-            resultado.innerHTML="Array não conforme na posição "+i
+btnVerificar.addEventListener("click", (evt) => {
+    const ret = elementos_array.every((e, i) => { //Compara os elementos
+        if (e < 18) { //testa se menor que 18
+            resultado.innerHTML = "Array não conforme na posição " + i
         }
-        return e>=18//Retorna verdadeiro  ou falso se atende essa condição
+        return e >= 18//Retorna verdadeiro  ou falso se atende essa condição
     })
     if (ret) { //se o resultado for verdadeiro imprime ok
-        resultado.innerHTML="OK"
+        resultado.innerHTML = "OK"
     }
 })
 
 //*Conforme ou não conforme com every (No mínimo um)
 //Diferente do every ele retorna verdadeiro se encontrar pelo menos um for verdadeiro
 
-btnVerificar.addEventListener("click",(evt)=>{
-    const ret=elementos_array.some((e,i)=>{ //Compara os elementos
-        if(e<18){ //testa se menor que 18
-            resultado.innerHTML="Array não conforme na posição "+i
+btnVerificar.addEventListener("click", (evt) => {
+    const ret = elementos_array.some((e, i) => { //Compara os elementos
+        if (e < 18) { //testa se menor que 18
+            resultado.innerHTML = "Array não conforme na posição " + i
         }
-        return e>=18//Retorna verdadeiro  ou falso se atende essa condição
+        return e >= 18//Retorna verdadeiro  ou falso se atende essa condição
     })
     if (ret) { //se o resultado for verdadeiro imprime ok
-        resultado.innerHTML="OK"
+        resultado.innerHTML = "OK"
     }
 })
 
 //*Reduce
 //Serve para reduzir um array usando seu próprio retorno ate chegar um valor
-btnReduzir.addEventListener("click",(evt)=>{
-    dobro.push(elementos_array[0]*2)
-    resultado.innerHTML=elementos_array.reduce((anterior,atual,pos)=>{
+btnReduzir.addEventListener("click", (evt) => {
+    dobro.push(elementos_array[0] * 2)
+    resultado.innerHTML = elementos_array.reduce((anterior, atual, pos) => {
         ant.push(anterior) //insere a ultima posição
         atu.push(atual)
-        dobro.push(atual*2)
-        return atual+anterior
+        dobro.push(atual * 2)
+        return atual + anterior
     })
 
 })
@@ -717,8 +717,8 @@ btnReduzir.addEventListener("click",(evt)=>{
  * Sets
  */
 //EX:
-const valor=[10,8,5,2]
-const it_valores=valor[Symbol.iterador]() //Mostra a operação do iterador
+const valor = [10, 8, 5, 2]
+const it_valores = valor[Symbol.iterador]() //Mostra a operação do iterador
 console.log(valor)
 console.log(it_valores.next());
 console.log(it_valores.next());
@@ -737,7 +737,7 @@ console.log(it_valores.next());
 
 //*Array
 
-let curso2=["html","css","Javascript"] //criado um array com conteúdo
+let curso2 = ["html", "css", "Javascript"] //criado um array com conteúdo
 
 curso2.push("c++") //adiciona no final do array
 curso2.push("Python") //adiciona no final do array
@@ -745,28 +745,28 @@ curso2.pop()  //Exclui o ultimo conteúdo do array no exemplo python
 curso2.unshift("java") //adiciona no começo do array
 curso2.shift()  //Exclui o primeiro conteúdo do array no exemplo java
 
-let turno=["manha","tarde","noite",curso2] //Array dentro do array
+let turno = ["manha", "tarde", "noite", curso2] //Array dentro do array
 
 console.log(turno[3][1]); //imprime css pos selecionou o array no segundo nível
 
 //EX2:
-let valores2=[2,5]
-const op=[  //array com funções em cada posição
-    (val)=>{
-        let res=0
+let valores2 = [2, 5]
+const op = [  //array com funções em cada posição
+    (val) => {
+        let res = 0
         for (const v of val) {
-            res+=v
+            res += v
         }
         return res
     },
-    (val)=>{
-        let res=1
+    (val) => {
+        let res = 1
         for (const v of val) {
-            res*=v 
+            res *= v
         }
         return res
     },
-    (val)=>{
+    (val) => {
         for (const v of val) {
             console.log(v);
         }
@@ -776,7 +776,7 @@ console.log(op[0](valores2)); //chamo a primeira função e insiro o valores ent
 
 
 //*Map
-//Parecido com array porem utilisa-se chaves para posisões
+//Parecido com array porem utiliza-se chaves para posições
 
 /**
  * clear   -> Limpar todo a coleção
@@ -791,33 +791,33 @@ console.log(op[0](valores2)); //chamo a primeira função e insiro o valores ent
  * values  -> Valores da coleção
  */
 
-let mapa=new Map()
+let mapa = new Map()
 
-mapa.set("curso","javascript") //adiciona primera a chave e depois o conteudo
-mapa.set(10,"curso")
-mapa.set(1,100)
-mapa.set("canal",100)
+mapa.set("curso", "javascript") //adiciona primeira a chave e depois o conteúdo
+mapa.set(10, "curso")
+mapa.set(1, 100)
+mapa.set("canal", 100)
 
 mapa.delete(1) // O delete pesquisa pela chave para exclusão
 
-let pes="teste"
-let res3=10
-if(mapa.has(pes)){ //Pesquisa se tem na coleção e testa no if
-    res3="A chave existe na coleção com o valor: " + mapa.get(pes) //Mostra o valor 
-}else{
-    res3="A chave NÂO esta na coleção"
-    
-}
-res3+="<br/> O tamanho da coleção é " + mapa.size
-caixa.innerHTML=res3
+let pes = "teste"
+let res3 = 10
+if (mapa.has(pes)) { //Pesquisa se tem na coleção e testa no if
+    res3 = "A chave existe na coleção com o valor: " + mapa.get(pes) //Mostra o valor 
+} else {
+    res3 = "A chave NÂO esta na coleção"
 
-mapa.forEach((el)=>{
+}
+res3 += "<br/> O tamanho da coleção é " + mapa.size
+caixa.innerHTML = res3
+
+mapa.forEach((el) => {
     console.log(el); //imprime cada elemento da coleção
 })
 
 //*Set
 //Parecido com array porem não aceita valores repetidos
-let musicas =new Set(["musica1","musica boa","musica 10"])//Posso declarar os valores direto na construção
+let musicas = new Set(["musica1", "musica boa", "musica 10"])//Posso declarar os valores direto na construção
 
 musicas.add("musica muito legal")
 musicas.add("musica1") //Valores que ja estão na coleção ele não aceita
@@ -825,29 +825,29 @@ musicas.add("musica10")
 
 //*Template string
 const canal = "Java"
-const frase=`Este é o curso de ${curso} do ${canal}` //Utiliza-se craze para declarar variáveis de outra forma
+const frase = `Este é o curso de ${curso} do ${canal}` //Utiliza-se craze para declarar variáveis de outra forma
 
 
-//*Objeto
+//*Objeto como Classes
 
-class Pessoa{
-    constructor(pNome,pIdade){ //Ao declarar o objeto se o construtor estiver parâmetro eh obrigado a inseri o valor quando chamar
-        this.nome=pNome
-        this.idade=pIdade
+class Pessoa {
+    constructor(pNome, pIdade) { //Ao declarar o objeto se o construtor estiver parâmetro eh obrigado a inseri o valor quando chamar
+        this.nome = pNome
+        this.idade = pIdade
     }
-    getNome(){ //obtém o valor
+    getNome() { //obtém o valor
         return this.nome
     }
-    getIdade(){
+    getIdade() {
         return this.idade
     }
-    setNome(nome){ //Insere o valor
-        this.idade=nome
+    setNome(nome) { //Insere o valor
+        this.idade = nome
     }
-    setIdade(idade){
-        this.idade=idade
+    setIdade(idade) {
+        this.idade = idade
     }
-    info(){
+    info() {
         console.log(`Nome..: ${this.nome}`);
         console.log(`Idade..: ${this.idade}`);
         console.log(`-------------------------------------`);
@@ -855,5 +855,127 @@ class Pessoa{
     }
 }
 
-const pessoa1= new Pessoa("Rafael",34)
+const pessoa1 = new Pessoa("Rafael", 34)
+
+//Objeto como função
+
+function Pessoa2(pNome, pIdade) {//Ao declarar o objeto se o construtor estiver parâmetro eh obrigado a inseri o valor quando chamar
+
+    this.nome = pNome,
+        this.idade = pIdade,
+
+        this.getNome = function () { //obtém o valor
+            return this.nome
+        },
+        this.getIdade = function () {
+            return this.idade
+        },
+        this.setNome = function (nome) { //Insere o valor
+            this.idade = nome
+        },
+        this.setIdade = function (idade) {
+            this.idade = idade
+        },
+        this.info=function(){
+        console.log(`Nome..: ${this.nome}`);
+        console.log(`Idade..: ${this.idade}`);
+        console.log(`-------------------------------------`);
+    }
+}
+
+
+const pessoa2 = new Pessoa("Rafael", 34)
+
+
+//*Objeto Literal
+//Sempre aponta para a mesmo parâmetro mesmo declarado instancia diferente
+const Pessoa1 = {
+    nome,
+    idade,
+    getNome: function () {
+        return this.nome
+    },
+    getIdade: function () {
+        return this.idade
+    },
+    setNome: function (nome) {
+        this.nome = nome
+    },
+    setIdade: function (idade) {
+        this.idade = idade
+    }
+}
+
+const p2 = Pessoa1 //Instancia diferente q a de baixo
+const p3 = Pessoa1
+
+p3.nome = "Rafael"
+p2["nome"] = "Bruno"
+Pessoa.setNome("Rodrigo")
+
+console.log(Pessoa1.nome); //imprime o mesmo nome nos 3
+console.log(p2.getNome());
+console.log(p3.nome);
+
+
+//*Herança POO
+
+class Carro { //classe pai ou base
+    constructor(nome, portas) {
+        this.nome = nome
+        this.portas = portas
+        this.ligado = false
+        this.vel = 0
+        this.cor = undefined
+    }
+    ligar = function () {
+        this.ligado = true
+    }
+    desligar = function () {
+        this.ligado = false
+    }
+    setCor = function (cor) {
+        this.cor = cor
+    }
+}
+class Militar extends Carro {  //Classe filho
+    constructor(nome, portas, blindagem, munição) {
+        super(nome, portas) //O nome e portas recebido do militar são repassados para o pai
+        this.blindagem = blindagem
+        this.munição = munição
+        this.setCor("Verde")
+    }
+    atirar = function () {
+        if (this.munição > 0) {
+            this.munição--
+        }
+    }
+}
+const c2 = new Carro("Normal", 4)
+c2.ligar()
+c2.setCor("Preto")
+
+const c3 = new Militar("Tank", 1, 100, 50)
+c3.atirar()
+c3.atirar()
+c3.atirar()
+c3.atirar()
+
+console.log(`Nome: ${c2.nome}`)
+console.log(`Portas: ${c2.portas}`)
+console.log(`Ligados: ${(c2.ligado ? "Sim" : "Não")}`)
+console.log(`Velocidade: ${c2.vel}`)
+console.log(`Cor: ${c2.cor}`)
+console.log(`---------------------------`)
+
+console.log(`Nome: ${c3.nome}`)
+console.log(`Portas: ${c3.portas}`)
+console.log(`Ligados: ${(c3.ligado ? "Sim" : "Não")}`)
+console.log(`Velocidade: ${c3.vel}`)
+console.log(`Cor: ${c3.cor}`)
+console.log(`Blindagem: ${c3.blindagem}`)
+console.log(`Munição: ${c3.munição}`)
+console.log(`---------------------------`)
+
+
 
