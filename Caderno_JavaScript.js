@@ -876,11 +876,11 @@ function Pessoa2(pNome, pIdade) {//Ao declarar o objeto se o construtor estiver 
         this.setIdade = function (idade) {
             this.idade = idade
         },
-        this.info=function(){
-        console.log(`Nome..: ${this.nome}`);
-        console.log(`Idade..: ${this.idade}`);
-        console.log(`-------------------------------------`);
-    }
+        this.info = function () {
+            console.log(`Nome..: ${this.nome}`);
+            console.log(`Idade..: ${this.idade}`);
+            console.log(`-------------------------------------`);
+        }
 }
 
 
@@ -977,5 +977,184 @@ console.log(`Blindagem: ${c3.blindagem}`)
 console.log(`Munição: ${c3.munição}`)
 console.log(`---------------------------`)
 
+
+//*JSON
+//Utilizado para transferência de dados para apis
+
+const pessoa3 = {
+    nome: "Rafael",
+    canal: "YouTube",
+    curso: "JavaScript",
+    aulas: {
+        aula1: "introdução",
+        aula2: "Variáveis",
+        aula3: "Condicional"
+    }
+}
+
+const converte_objeto_para_json = JSON.stringify(pessoa3)
+/** Converte para formato JSON
+{
+   "nome": "Rafael",
+   "canal": "YouTube",
+   "curso": "JavaScript",
+   "aulas": {
+      "aula1": "introdução",
+      "aula2": "Variáveis",
+      "aula3": "Condicional"
+   }
+}
+ */
+const string_pessoa = '{"nome":"Rafael","canal":"YouTube","curso":"JavaScript","aulas":{"aula1":"introdução","aula2":"Variáveis","aula3":"Condicional"}}'
+const converte_json_para_objeto = JSON.parse(string_pessoa) //Retorna para objeto
+
+
+//*Static
+//Serve para reverenciar somente a classe
+
+class Npc {
+    static alerta = false //O alerta so eh acionado para classe e não para cada estacia
+    constructor(energia) {
+        this.energia = energia
+
+    }
+    info = function () {
+        console.log(`Energia: ${this.energia}`)
+        console.log(`Alerta: ${(Npc.alerta ? "Sim" : "Não")}`)
+        console.log("--------------------------------------");
+    }
+}
+
+const npc1 = new Npc(100)
+const npc2 = new Npc(80)
+const npc3 = new Npc(30)
+
+Npc.alerta = true
+npc1.alerta = true//com static esse comando não funciona
+
+npc1.info()
+npc2.info()
+npc3.info()
+
+//*Prototype
+//Serve para adicionar um propriedade ou método a um objeto
+
+const Nave = function (energia) {
+    this.energia = energia
+    this.disparos = 100
+}
+
+const n3 = new Nave(100)
+
+Nave.prototype.vidas = 3 //Adicionei uma propriedade na classe
+Nave.prototype.disparar = function () { //Adicionei um método
+    if (this.disparos > 0) {
+        this.disparos--
+    }
+}
+
+n3.disparar()
+n3.disparar()
+n3.disparar()
+
+console.log(Nave);
+console.log(n3);
+console.log(n3.disparar);
+
+//*Polimorfismo
+//Quando tenho a capacidade de um mesmo método ter ações diferentes
+
+
+class Carro {
+    constructor(tipo, estagioTurbo) {
+        this.turbo =new Turbo(estagioTurbo)
+        if(tipo==1){
+            this.velMax=120
+            this.nome="normal"
+        }else if(tipo==2){
+            this.velMax=160
+            this.nome="esportivo"
+        }else if(tipo==3){
+            this.velMax=200
+            this.nome="super esportivo"
+        }
+        this.velMax+=this.turbo.pot //+= eh concatenação
+    }
+    info(){
+        console.log(this.nome);
+        console.log(this.velMax);
+        console.log(this.turbo);
+        console.log("------------------------------");
+    }
+}
+
+class Turbo {
+    constructor(e) {
+        if (e == 0) {
+            this.pot = 0
+        } else if (e == 1) {
+            this.pot = 50
+        } else if (e == 2) {
+            this.pot = 75
+        } else if (e == 3) {
+            this.port = 100
+        }
+    }
+}
+
+class CarroEspecial extends Carro{
+    
+    constructor(estagioTurbo){
+        super(4, estagioTurbo)
+        this.velMax=300+this.turbo.pot
+        this.nome="Carro Especial"
+    }
+    info(){
+        console.log(`Nome.....${this.nome}`);
+        console.log(`VelMax...${this.velMax}`);
+        console.log(`Turbo....${this.turbo}`);
+        console.log("------------------------------");
+    }
+}
+
+
+const c4=new Carro(1,0)
+const c5=new Carro(1,1)
+const c6=new CarroEspecial(3)
+
+c4.info()
+c5.info()
+c6.info()
+
+//*Abstract
+//Quando tenho uma classe abstrata ela não pode ser estanciada, só como classe Base para outras classes
+
+
+class carroPadrão{
+    constructor(){
+        if(this.constructor===carroPadrão){//Tornamos a classe abstrata e não consegue ser estanciada
+            throw new TypeError("Essa classe não pode ser estanciada!") //Exceção de erro
+        }
+        if (this.ligar===undefined) { //Na outra classe vai ser obrigatório implementar o método
+            throw new TypeError("É obrigatório a implementar o método ligar!")
+        }
+        this.rodas=4
+        this.portas=4
+        this.ligado=false
+    }
+    
+}
+
+class Carro1 extends carroPadrão{ // classe exemplo
+    constructor(){
+        this.velMax
+    }
+}
+class CarroEspecial1 extends carroPadrão{
+    constructor(){
+
+    }
+
+}
 
 
