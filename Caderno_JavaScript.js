@@ -1168,4 +1168,31 @@ tcpy.addEventListener("click",(evt)=>{
     navigator.clipboard.writeText(teste.value) //Copiar a partir do input
 })
 
+//*Promise
+//Serve para aplicações que demora a processar executa depois que terminar recomendado para API
 
+const numero = document.getElementById("numero")
+
+let promessa=new Promise((resolve,rejeita)=>{
+    let resultado=true
+    let tempo=3000 //3 segundos para o tempo
+    setTimeout(() => { //Executa depois de 3 segundos
+        if (resultado) {
+            resolve("Deu tudo certo!")
+        } else {
+            rejeita("Deu tudo errado")
+        }
+    }, tempo);
+})
+promessa.then((retorno)=>{ //se for true cai no primeiro parâmetro executa esse comandos, o processando... como ja executou não executa de novo
+    numero.innerHTML=retorno
+    numero.classList.remove("erro") //insere a classe para formatação
+    numero.classList.add("ok")
+})
+promessa.catch((retorno)=>{ //se for falso cai nesse comandos
+    numero.innerHTML=retorno
+    numero.classList.add("erro")
+    numero.classList.remove("ok")
+})
+
+numero.innerHTML="Processando..."//executa antes dos 3 segundos
