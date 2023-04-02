@@ -1,2 +1,2 @@
-# Curso-DankiCode-Front-End
- Projetos do curso de Front End
+# Curso-Front-End
+ Projetos e estudos do curso de Front End

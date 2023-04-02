@@ -1252,3 +1252,31 @@ const intervalo = setInterval(relógio, 1000); //A cada um segundo atualiza o ho
  * setMilliseconds() = Define milissegundos
  * toDateString() = Retorna somente a data
  */
+
+
+//*Math
+//Função para gerar cálculos Matemático
+
+const num6 = Math.floor(Math.random()*10)+1 //Floor pega o numero inteiro e random pega um numero aleatório entre 0 e 1
+//Nesse caso o numero aleatório é de 1 a 10
+
+//Leitura de posição de mouse
+
+const olhos=[...document.getElementsByClassName("olho")]
+
+let posx_mouse=0
+let posy_mouse=0
+
+window.addEventListener("mousemove",(evt)=>{
+    posx_mouse=evt.clientX //retorna a posição do eixo x
+    posy_mouse=evt.clientY //retorna a posição do eixo y
+
+    const rot=Math.atan2(posx_mouse,posy_mouse)*180/Math.PI //atan2 retorna angulo em radianos e para transformar em graus multiplica por 180 e divide por PI
+
+    olhos.forEach((o)=>{
+        o.style.transform="rotate("+rot+"deg)"//o valor é em graus
+    })
+
+})
+
+
