@@ -1067,20 +1067,20 @@ console.log(n3.disparar);
 
 class Carro {
     constructor(tipo, estagioTurbo) {
-        this.turbo =new Turbo(estagioTurbo)
-        if(tipo==1){
-            this.velMax=120
-            this.nome="normal"
-        }else if(tipo==2){
-            this.velMax=160
-            this.nome="esportivo"
-        }else if(tipo==3){
-            this.velMax=200
-            this.nome="super esportivo"
+        this.turbo = new Turbo(estagioTurbo)
+        if (tipo == 1) {
+            this.velMax = 120
+            this.nome = "normal"
+        } else if (tipo == 2) {
+            this.velMax = 160
+            this.nome = "esportivo"
+        } else if (tipo == 3) {
+            this.velMax = 200
+            this.nome = "super esportivo"
         }
-        this.velMax+=this.turbo.pot //+= eh concatenação
+        this.velMax += this.turbo.pot //+= eh concatenação
     }
-    info(){
+    info() {
         console.log(this.nome);
         console.log(this.velMax);
         console.log(this.turbo);
@@ -1102,14 +1102,14 @@ class Turbo {
     }
 }
 
-class CarroEspecial extends Carro{
-    
-    constructor(estagioTurbo){
+class CarroEspecial extends Carro {
+
+    constructor(estagioTurbo) {
         super(4, estagioTurbo)
-        this.velMax=300+this.turbo.pot
-        this.nome="Carro Especial"
+        this.velMax = 300 + this.turbo.pot
+        this.nome = "Carro Especial"
     }
-    info(){
+    info() {
         console.log(`Nome.....${this.nome}`);
         console.log(`VelMax...${this.velMax}`);
         console.log(`Turbo....${this.turbo}`);
@@ -1118,9 +1118,9 @@ class CarroEspecial extends Carro{
 }
 
 
-const c4=new Carro(1,0)
-const c5=new Carro(1,1)
-const c6=new CarroEspecial(3)
+const c4 = new Carro(1, 0)
+const c5 = new Carro(1, 1)
+const c6 = new CarroEspecial(3)
 
 c4.info()
 c5.info()
@@ -1130,28 +1130,28 @@ c6.info()
 //Quando tenho uma classe abstrata ela não pode ser estanciada, só como classe Base para outras classes
 
 
-class carroPadrão{
-    constructor(){
-        if(this.constructor===carroPadrão){//Tornamos a classe abstrata e não consegue ser estanciada
+class carroPadrão {
+    constructor() {
+        if (this.constructor === carroPadrão) {//Tornamos a classe abstrata e não consegue ser estanciada
             throw new TypeError("Essa classe não pode ser estanciada!") //Exceção de erro
         }
-        if (this.ligar===undefined) { //Na outra classe vai ser obrigatório implementar o método
+        if (this.ligar === undefined) { //Na outra classe vai ser obrigatório implementar o método
             throw new TypeError("É obrigatório a implementar o método ligar!")
         }
-        this.rodas=4
-        this.portas=4
-        this.ligado=false
+        this.rodas = 4
+        this.portas = 4
+        this.ligado = false
     }
-    
+
 }
 
-class Carro1 extends carroPadrão{ // classe exemplo
-    constructor(){
+class Carro1 extends carroPadrão { // classe exemplo
+    constructor() {
         this.velMax
     }
 }
-class CarroEspecial1 extends carroPadrão{
-    constructor(){
+class CarroEspecial1 extends carroPadrão {
+    constructor() {
 
     }
 
@@ -1160,11 +1160,11 @@ class CarroEspecial1 extends carroPadrão{
 //*Clipboard
 //Eh uma area de transferência tipo copiar e cola
 
-tcpy.addEventListener("click",(evt)=>{
+tcpy.addEventListener("click", (evt) => {
     navigator.clipboard.writeText(display.innerHTML)//Copia conteudo do display
     //Para versão mobile necessário usar select e selectRange
     teste.select() //seleciona o texto
-    teste.setSelectionRange(0,99999) //Quantidade de caractere selecionado de 0 a 99999
+    teste.setSelectionRange(0, 99999) //Quantidade de caractere selecionado de 0 a 99999
     navigator.clipboard.writeText(teste.value) //Copiar a partir do input
 })
 
@@ -1173,9 +1173,9 @@ tcpy.addEventListener("click",(evt)=>{
 
 const numero = document.getElementById("numero")
 
-let promessa=new Promise((resolve,rejeita)=>{
-    let resultado=true
-    let tempo=3000 //3 segundos para o tempo
+let promessa = new Promise((resolve, rejeita) => {
+    let resultado = true
+    let tempo = 3000 //3 segundos para o tempo
     setTimeout(() => { //Executa depois de 3 segundos
         if (resultado) {
             resolve("Deu tudo certo!")
@@ -1184,15 +1184,71 @@ let promessa=new Promise((resolve,rejeita)=>{
         }
     }, tempo);
 })
-promessa.then((retorno)=>{ //se for true cai no primeiro parâmetro executa esse comandos, o processando... como ja executou não executa de novo
-    numero.innerHTML=retorno
+promessa.then((retorno) => { //se for true cai no primeiro parâmetro executa esse comandos, o processando... como ja executou não executa de novo
+    numero.innerHTML = retorno
     numero.classList.remove("erro") //insere a classe para formatação
     numero.classList.add("ok")
 })
-promessa.catch((retorno)=>{ //se for falso cai nesse comandos
-    numero.innerHTML=retorno
+promessa.catch((retorno) => { //se for falso cai nesse comandos
+    numero.innerHTML = retorno
     numero.classList.add("erro")
     numero.classList.remove("ok")
 })
 
-numero.innerHTML="Processando..."//executa antes dos 3 segundos
+numero.innerHTML = "Processando..."//executa antes dos 3 segundos
+
+//*Data e Hora
+
+const data = new Date()
+console.log(data); //retorna data hora 
+console.log(Date.now); //retorna o código do Timestamp
+
+const dia = getDate()
+dia = dia < 10 ? "0" + dia : dia //Formatação para preencher com o zero quando for um digito
+
+const mes = getMonth()
+mes = mes < 10 ? "0" + mes : mes
+
+const data_resumo = dia + "/" + mes + "/" + data.getFullYear()
+
+//Exemplo de Relógio
+
+const relógio = ()=>{
+    const data1 = new Date
+
+    let hora=data.getHours()
+    hora=hora<10?"0"+hora:hora
+
+    let minuto=data.getHours()
+    minuto=minuto<10?"0"+minuto:minuto
+
+    let segundo=data.getHours()
+    segundo=segundo<10?"0"+segundo:segundo
+
+    const hora_completa=hora+":"+minuto+":"+segundo
+}
+
+const intervalo = setInterval(relógio, 1000); //A cada um segundo atualiza o horário
+
+/**
+ * getDate() = Dia do mes
+ * getDay() = Dia da Semana (numero) 
+ * getMonth() = Mes
+ * getFullYear() = Ano com 4 dígitos
+ * getHours() = Horas
+ * getMinutes() = Minutos
+ * getSeconds() = Segundos
+ * getMilliseconds() = Milissegundos
+ * getTimezoneOffset() = Timezone da localidade
+ * getTime() = Timestamp (milissegundos desde 1 de janeiro de 1970, 00:00:00 UTC)
+ * Date.now() = Timestamp (milissegundos desde 1 de janeiro de 1970, 00:00:00 UTC)
+ * 
+ * setDate() = Definem um dia do mes para data
+ * setMonth() = Define um mes para data
+ * setFullYear() = Define um ano para data
+ * setHours() = Define horas
+ * setMinutes() = Define minutos
+ * setSeconds() = Define segundos
+ * setMilliseconds() = Define milissegundos
+ * toDateString() = Retorna somente a data
+ */
