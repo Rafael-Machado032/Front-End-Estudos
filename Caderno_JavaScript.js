@@ -581,13 +581,13 @@ cursos11.map((el, chave) => {  //No map percorre todo o array e na variável "el
 
 
 //*Filter
-//Serve para filtrar os elementos retorna um array
+//Serve para filtrar os elementos de um array e retorna um outro array filtrado
 btnCursoSelecionado.addEventListener("click", (evt) => {
     const todosRadios = [...document.querySelectorAll("input[type=radio]")]
-    let radioSelecionado = todosRadios.filter((ele, ind, arr) => {
-        return ele.checked //retorna um array
+    let radioSelecionado = todosRadios.filter((ele, ind, arr) => { //radioSelecionado é um novo array
+        return ele.checked //retorna para o array novo
     })
-    radioSelecionado = radioSelecionado[0]//retorna so o input
+    radioSelecionado = radioSelecionado[0]//retorna o primeiro cheked
     const cursoSelecionado = radioSelecionado.parentNode.previousSibling.textContent
     alert("Curso selecionado: " + cursoSelecionado)
 })
