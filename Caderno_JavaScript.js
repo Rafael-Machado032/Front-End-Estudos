@@ -16,7 +16,7 @@ if (true) { //Um escopo
 
 const curso = "JavaScript"  //CONST Depois de declarada e inserida o valor não pode ser mudado
 
-//Operadores Matemático
+//*Operadores Matemático
 
 /**            
 *    +  Soma
@@ -469,9 +469,9 @@ console.log(num);
 //Esse código apresenta erro por causa do "use strict"
 
 
-/**Manipulação dos elementos DOM 
+//*Manipulação dos elementos DOM 
  * O NodeJs não reconhece esse comandos e são executados somente no console do navegador
-*/
+    * /
 
 //*getElementById. getElementsByTagName. getElementsByClassName.
 //Serve para selecionar elementos especificado
@@ -486,15 +486,15 @@ console.log(dc1.id); //Mostra o "id" do elemento "c1"
 console.log(dc1.innerHTML); //Mostra o conteúdo do elemento "Curso"
 
 
-//querySelectorAll
+//*querySelectorAll
 
 //Serve para chamar todos os elemento especificando nos parâmetros
 const query_divTodas = [...document.querySelectorAll("div>p")] //Especificação idêntico ao do CSS
 const query_cursosTodos = [...document.querySelectorAll(".curso")]
 
-//Eventos
+//*Eventos
 
-//addEventListener
+//*addEventListener
 
 /**Podemos ler eventos a partir da tag HTML exemplo "onclick" que dispara ao clicar
  * 
@@ -549,7 +549,7 @@ cursos.map((el) => { //adiciona o escutador em todas as tag com a classe "cursos
 })
 //A cada clique na tag fica destacado
 
-//stopPropagation
+//*stopPropagation
 //Esse comando serve para bloquear o evento caso o contêiner pai estiver escultando click pois ele esculta todos, tanto pai quanto os filhos
 c1.addEventListener("click", (evt) => {
     evt.stopPropagation() //Esse comando eh uma função, necessário inserir na variável o parâmetro do elemento
@@ -857,7 +857,7 @@ class Pessoa {
 
 const pessoa1 = new Pessoa("Rafael", 34)
 
-//Objeto como função
+//*Objeto como função
 
 function Pessoa2(pNome, pIdade) {//Ao declarar o objeto se o construtor estiver parâmetro eh obrigado a inseri o valor quando chamar
 
@@ -1213,19 +1213,19 @@ const data_resumo = dia + "/" + mes + "/" + data.getFullYear()
 
 //Exemplo de Relógio
 
-const relógio = ()=>{
+const relógio = () => {
     const data1 = new Date
 
-    let hora=data.getHours()
-    hora=hora<10?"0"+hora:hora
+    let hora = data.getHours()
+    hora = hora < 10 ? "0" + hora : hora
 
-    let minuto=data.getHours()
-    minuto=minuto<10?"0"+minuto:minuto
+    let minuto = data.getHours()
+    minuto = minuto < 10 ? "0" + minuto : minuto
 
-    let segundo=data.getHours()
-    segundo=segundo<10?"0"+segundo:segundo
+    let segundo = data.getHours()
+    segundo = segundo < 10 ? "0" + segundo : segundo
 
-    const hora_completa=hora+":"+minuto+":"+segundo
+    const hora_completa = hora + ":" + minuto + ":" + segundo
 }
 
 const intervalo = setInterval(relógio, 1000); //A cada um segundo atualiza o horário
@@ -1257,26 +1257,89 @@ const intervalo = setInterval(relógio, 1000); //A cada um segundo atualiza o ho
 //*Math
 //Função para gerar cálculos Matemático
 
-const num6 = Math.floor(Math.random()*10)+1 //Floor pega o numero inteiro e random pega um numero aleatório entre 0 e 1
+const num6 = Math.floor(Math.random() * 10) + 1 //Floor pega o numero inteiro e random pega um numero aleatório entre 0 e 1
 //Nesse caso o numero aleatório é de 1 a 10
 
-//Leitura de posição de mouse
+//*Leitura de posição de mouse
 
-const olhos=[...document.getElementsByClassName("olho")]
+const olhos = [...document.getElementsByClassName("olho")]
 
-let posx_mouse=0
-let posy_mouse=0
+let posx_mouse = 0
+let posy_mouse = 0
 
-window.addEventListener("mousemove",(evt)=>{
-    posx_mouse=evt.clientX //retorna a posição do eixo x
-    posy_mouse=evt.clientY //retorna a posição do eixo y
+window.addEventListener("mousemove", (evt) => {
+    posx_mouse = evt.clientX //retorna a posição do eixo x
+    posy_mouse = evt.clientY //retorna a posição do eixo y
 
-    const rot=Math.atan2(posx_mouse,posy_mouse)*180/Math.PI //atan2 retorna angulo em radianos e para transformar em graus multiplica por 180 e divide por PI
+    const rot = Math.atan2(posx_mouse, posy_mouse) * 180 / Math.PI //atan2 retorna angulo em radianos e para transformar em graus multiplica por 180 e divide por PI
 
-    olhos.forEach((o)=>{
-        o.style.transform="rotate("+rot+"deg)"//o valor é em graus
+    olhos.forEach((o) => {
+        o.style.transform = "rotate(" + rot + "deg)"//o valor é em graus
     })
 
 })
+
+//*Redirecionamento de Pagina
+//Comandos para navegar nas paginas web
+
+btn_url.addEventListener("click", (evt) => {
+    window.location = "aula.html"  //Acessa a pagina local
+    window.location = "https://www.google.com.br"  //Acessa a pagina na internet
+    window.location.replace("https://www.google.com.br") //Acessa a pagina na internet e apaga o histórico da pagina anterior
+    window.location.assign("https://www.google.com.br")  //Acessa a pagina na internet e manteiem o histórico da pagina anterior
+    window.location.reload() //Recarrega a pagina
+    window.history.back()  //Retorna a pagina anterior
+    window.history.forward()  //Vai para proxima pagina
+    console.log(window.history.length);  //Retorna a quantidade de paginas no historico
+    window.history.go(2) //Acessa a pagina na posição do histórico (números negativo retorna as paginas anterior)
+
+
+    /**
+     * <!--Para consegui acessar o site digitado, necessário inserir onsubmit="event.preventDefault()" no form-->
+     * 
+     * <form onsubmit="event.preventDefault()"> 
+     *      <input type="url" name="url" id="url" placeholder="Digite o site aqui!" pattern="https://.*" size="30" required />
+     *      <button id="btn_url">Navegar</button>
+     * </form>
+     *   
+     */
+    window.location = url.value //Com o comando no form, consegue pegar o valor do input e acessar o site
+})
+
+
+//*Caixa de dialogo
+//Servr
+alert("Olá mundo!") //caixa de mensagem com um botão ok
+const res4 = confirm("Você esta feliz?") //Retorno verdadeiro se clicar OK ou falso se clicar CANCELAR
+const nome3=prompt("Digite seu nome:","digite seu nome aqui") //Retorna ou o valor digitado ou se nao escrever nada retorna null. O segundo parâmetro eh o pre digitado
+
+//*Criando conteúdo para impressão ou pdf
+//Para nao imprimir tudo da tela criamos outra janela so com a tabela sem os botoes
+
+btn_imprime.addEventListener("click",(evt)=>{
+    const conteúdo = document.getElementById('tabela').innerHTML  //Copiou o conteúdo da tabela
+
+    let estilo = "<style>"  //criado estilo para a nova janela e colocado na variavel
+    estilo += "table{width: 100%; font:25px; Calíbri}"
+    estilo += "table, th, td, {border: solid 2px #888; border-collapse: collapse; padding: 4px 8px; text-align: center;}"
+    estilo += "</style>"
+
+    const win = window.open('','','height=700, width=700')  //criado uma nova janela
+    //Primeiro parâmetro url Segundo parâmetro target se abre uma nova janela ou nao (default abre nova janela) Terceiro parâmetro configuração
+
+    win.document.write('<html><head>') //Criação do html da pagina
+    win.document.write('<title>Tabela</title>')
+    win.document.write(estilo)
+    win.document.write('</head><body>')
+    win.document.write(conteúdo)
+    win.document.write('</body></html>')
+
+
+    //window.print()
+    win.print() //janela da impressão
+})
+
+
+
 
 
