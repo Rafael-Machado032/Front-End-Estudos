@@ -470,8 +470,7 @@ console.log(num);
 
 
 //*Manipulação dos elementos DOM 
- * O NodeJs não reconhece esse comandos e são executados somente no console do navegador
-    * /
+//**O NodeJs não reconhece esse comandos e são executados somente no console do navegador
 
 //*getElementById. getElementsByTagName. getElementsByClassName.
 //Serve para selecionar elementos especificado
@@ -1308,15 +1307,15 @@ btn_url.addEventListener("click", (evt) => {
 
 
 //*Caixa de dialogo
-//Servr
+//Um código para imprimir a pagina criada em outro html
 alert("Olá mundo!") //caixa de mensagem com um botão ok
 const res4 = confirm("Você esta feliz?") //Retorno verdadeiro se clicar OK ou falso se clicar CANCELAR
-const nome3=prompt("Digite seu nome:","digite seu nome aqui") //Retorna ou o valor digitado ou se nao escrever nada retorna null. O segundo parâmetro eh o pre digitado
+const nome3 = prompt("Digite seu nome:", "digite seu nome aqui") //Retorna ou o valor digitado ou se nao escrever nada retorna null. O segundo parâmetro eh o pre digitado
 
 //*Criando conteúdo para impressão ou pdf
 //Para nao imprimir tudo da tela criamos outra janela so com a tabela sem os botoes
 
-btn_imprime.addEventListener("click",(evt)=>{
+btn_imprime.addEventListener("click", (evt) => {
     const conteúdo = document.getElementById('tabela').innerHTML  //Copiou o conteúdo da tabela
 
     let estilo = "<style>"  //criado estilo para a nova janela e colocado na variavel
@@ -1324,7 +1323,7 @@ btn_imprime.addEventListener("click",(evt)=>{
     estilo += "table, th, td, {border: solid 2px #888; border-collapse: collapse; padding: 4px 8px; text-align: center;}"
     estilo += "</style>"
 
-    const win = window.open('','','height=700, width=700')  //criado uma nova janela
+    const win = window.open('', '', 'height=700, width=700')  //criado uma nova janela
     //Primeiro parâmetro url Segundo parâmetro target se abre uma nova janela ou nao (default abre nova janela) Terceiro parâmetro configuração
 
     win.document.write('<html><head>') //Criação do html da pagina
@@ -1338,6 +1337,73 @@ btn_imprime.addEventListener("click",(evt)=>{
     //window.print()
     win.print() //janela da impressão
 })
+
+//*Objeto literal
+
+
+const computador = { //declaração do objeto literal
+    cpu: "i9",  //Propriedade
+    ram: "8gb",
+    hd: "2tb",
+    info: function () {  //Metodo
+        console.log(`CPU:${this.cpu}`); 
+        console.log(`RAM:${this.ram}`);
+        console.log(`HD:${this.hd}`);
+    }
+}
+
+computador["monitor"]="22pol" //Adicionar propriedade no objeto computador
+computador.placaVideo="rtx" //Outra forma de adicionar propriedade
+delete(computador.hd) //excluiu a propriedade hd
+
+const com = Object.assign({},computador) //Clonou o objeto computador
+com.info()
+
+const o1={obj1:'1'}
+const o2={obj2:'1'}
+const o3={obj3:'1'}
+const o4=Object.assign(o1,o2,o3) //Aqui mesclou o objeto
+
+
+const computadores = [ //Declaração do objeto dentro de um array
+    {
+        cpu: "i9",
+        ram: "64gb",
+        hd: "2tb"
+    },
+    {
+        cpu: "i7",
+        ram: "32gb",
+        hd: "2tb"
+    },
+    {
+        cpu: "i5",
+        ram: "12gb",
+        hd: "1tb"
+    }
+]
+
+converte_objeto_para_json.innerHTML = JSON.stringify(computador) //Converte para formato json
+
+computador.info() //chama o método do objeto computador
+
+const computador1 = { //declaração do objeto literal mais como base
+    cpu: "",  //Propriedade
+    ram: "",
+    hd: "",
+    info: function () {  //Metodo
+        console.log(`CPU:${this.cpu}`); 
+        console.log(`RAM:${this.ram}`);
+        console.log(`HD:${this.hd}`);
+    }
+}
+
+const c11=Object.create(computador1) //criação do objeto a partir da base
+c11.cpu="Pentium 4" 
+c11.ram="8gb"
+c11.hd="500mb"
+c11.info()
+
 
 
 
