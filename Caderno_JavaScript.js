@@ -1346,23 +1346,23 @@ const computador = { //declaração do objeto literal
     ram: "8gb",
     hd: "2tb",
     info: function () {  //Metodo
-        console.log(`CPU:${this.cpu}`); 
+        console.log(`CPU:${this.cpu}`);
         console.log(`RAM:${this.ram}`);
         console.log(`HD:${this.hd}`);
     }
 }
 
-computador["monitor"]="22pol" //Adicionar propriedade no objeto computador
-computador.placaVideo="rtx" //Outra forma de adicionar propriedade
-delete(computador.hd) //excluiu a propriedade hd
+computador["monitor"] = "22pol" //Adicionar propriedade no objeto computador
+computador.placaVideo = "rtx" //Outra forma de adicionar propriedade
+delete (computador.hd) //excluiu a propriedade hd
 
-const com = Object.assign({},computador) //Clonou o objeto computador
+const com = Object.assign({}, computador) //Clonou o objeto computador
 com.info()
 
-const o1={obj1:'1'}
-const o2={obj2:'1'}
-const o3={obj3:'1'}
-const o4=Object.assign(o1,o2,o3) //Aqui mesclou o objeto
+const o1 = { obj1: '1' }
+const o2 = { obj2: '1' }
+const o3 = { obj3: '1' }
+const o4 = Object.assign(o1, o2, o3) //Aqui mesclou o objeto
 
 
 const computadores = [ //Declaração do objeto dentro de um array
@@ -1392,20 +1392,58 @@ const computador1 = { //declaração do objeto literal mais como base
     ram: "",
     hd: "",
     info: function () {  //Metodo
-        console.log(`CPU:${this.cpu}`); 
+        console.log(`CPU:${this.cpu}`);
         console.log(`RAM:${this.ram}`);
         console.log(`HD:${this.hd}`);
     }
 }
 
-const c11=Object.create(computador1) //criação do objeto a partir da base
-c11.cpu="Pentium 4" 
-c11.ram="8gb"
-c11.hd="500mb"
+const c11 = Object.create(computador1) //criação do objeto a partir da base
+c11.cpu = "Pentium 4"
+c11.ram = "8gb"
+c11.hd = "500mb"
 c11.info()
 
+//*Módulos
+//São arquivos js separado como modulo para facilitar organização
+
+//Em HTML
+//<script src="style.js" type="module"></script> 
+//<!--Declara no chamado do arquivo o tipo "module"-->
+
+//-------------------------------------------------------//---------------------------------------------------------------------//
+//No style.js
+
+import { cursos2 } from "./style2.js"; //importa a constante do outro arquivo
+import { carros as C } from "./style2.js" //Renomeai o chamado usando o "as"
+import getTodosCarros, { getTodosCursos } from "./style2.js" //Na hora de chamar um default nao insere chaves
+import * as geral from "./style2.js" //O modulo fica como objeto que usa o nome e depois suas propriedade ou métodos
+
+console.log(cursos2);
+console.log(C); //Usa o novo nome do chamado
+console.log(getTodosCursos);
+console.log(geral.cursos + geral.default); //Chamado geral e busca a proxima propriedade exportado depois do ponto e pode também chamar o método ou propriedade padrão
 
 
+//-------------------------------------------------------//---------------------------------------------------------------------//
+//No style2.js
+
+const cursos2 = ["JavaScript", "HTML", "C++", "Arduino", "C#"]
+const carros = ["Polo", "Ônix", "Argo", "Corsa", "Gol"]
+
+const getTodosCursos = () => {
+    return cursos2
+}
+const getTodosCarros = () => {
+    return carros
+}
+
+export default function getTodosCarros() { //Declaração padrão direto na função
+    return cursos
+}
+
+export { cursos2, carros, getTodosCursos2 }  //Deixa disponível para a importação
+//export default getTodosCarros  //Declaro como padrão, um modulo não pode ter vários padrões so um
 
 
 
