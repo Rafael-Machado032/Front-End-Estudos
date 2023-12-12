@@ -1446,5 +1446,3 @@ export default function getTodosCarros() { //Declaração padrão direto na fun�
 export { cursos2, carros, getTodosCursos2 }  //Deixa disponível para a importação
 //export default getTodosCarros  //Declaro como padrão, um modulo não pode ter vários padrões so um
 
-
-1
