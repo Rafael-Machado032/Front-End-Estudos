@@ -1447,4 +1447,4 @@ export { cursos2, carros, getTodosCursos2 }  //Deixa disponível para a importa�
 //export default getTodosCarros  //Declaro como padrão, um modulo não pode ter vários padrões so um
 
 
-
+1
