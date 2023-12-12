@@ -1,3 +1,4 @@
+
 "use strict"  //Modo restrito para corrigir as variáveis
 
 console.log("Ola Mundo"); //Imprime no Console
