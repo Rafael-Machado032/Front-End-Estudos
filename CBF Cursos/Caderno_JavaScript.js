@@ -1446,3 +1446,33 @@ export default function getTodosCarros() { //Declaração padrão direto na fun�
 export { cursos2, carros, getTodosCursos2 }  //Deixa disponível para a importação
 //export default getTodosCarros  //Declaro como padrão, um modulo não pode ter vários padrões so um
 
+//*Symbol
+//Retorna um objeto do tipo symbol que identificador único interno
+
+const s1=Symbol() //cada s tem um identificação diferente
+const s2=Symbol()
+const s3=Symbol()
+const s4=Symbol()
+
+console.log(s1==s2); //Imprime false
+console.log(s3===s4); //Imprime false
+
+//ex:
+
+class Jogador{ //Objeto jogador
+    constructor(nome4){
+        this.nome4=nome4
+        this.id=Symbol()
+    }
+}
+
+let jogadores=[new jogador4("j0"),new jogador4("j1"),new jogador4("j2"),new jogador4("j3")] //array dos jogadores
+
+let sy1=jogadores[2].id //sy1 recebe o id da posição 2 que eh um symbol
+
+jogadores=jogadores.filter((j)=>{
+    return j.id!=sy1 //remove o jogador da posição 2
+})
+
+console.log(jogadores) //Imprime o array dos jogadores menos o "j2"
+console.log(sy1) //Imprime Symbol()
