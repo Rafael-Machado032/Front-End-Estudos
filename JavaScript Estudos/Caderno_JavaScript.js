@@ -1476,3 +1476,160 @@ jogadores=jogadores.filter((j)=>{
 
 console.log(jogadores) //Imprime o array dos jogadores menos o "j2"
 console.log(sy1) //Imprime Symbol()
+
+//*Funções da String
+
+let nome5 = "Rafael" // Declaração normal do tipo string
+let nome6 = new String (" Machado") //Declaração da instancia da classe string
+let nome7 = new String (" Machado")
+
+console.log(nome5.charAt(0)) //Retorna o carácter da posição nesse casso R
+console.log(nome5.charCodeAt(0)) //Retorna o código do carácter (ASCII) nesse caso 82
+nome5 = nome5.concat(nome6) //concatena
+console.log(nome5) //Retorna Rafael Machado
+console.log(nome6.indexOf("M")) //Retorna a primeira posição do carácter caso nao acha retorna -1
+console.log(nome5.lastIndexOf("a")); //Retorna a ultima carácter encontrado
+
+//Comparação de objeto string
+console.log(nome6==nome7) //Retorna falso pois nao eh assim que compara objetos string so se fosse variáveis
+console.log(nome6.localeCompare(nome7)) //Retorna 0 se for Iguais e 1 se for Diferente e a primeira é maior que a segunda e -1 é Diferente e a primeira é menor que a segunda
+
+//Corte
+console.log(nome5.replace("a","o")) //Substitui a primeira letra encontra no cas "a" e troca pelo "o"
+console.log(nome6.replace(" Machado"," Silva")) //Também substitui também mais caracteres
+console.log(nome6.search("Silva")) //Retorna a primeira posição da palavra no caso 1
+console.log(nome7.slice(3,6)) //Corta as posições selecionada no caso do 3 ate 6
+console.log(nome5.split("a")) //Recorta a letra e cria um array onde cortou nesse caso "Rof" "el" " M" "ch" "do"
+console.log(nome6.substring(0,5)) //Retorna o conteúdo da posição de 0 a 4 pois nao inclui o 5
+console.log(nome7.substr(6,5)) //Retorna a partir do 6 5 posições
+
+//Transforma
+console.log(nome5.toUpperCase()) //Torna o conteúdo tudo MAIÚSCULA
+console.log(nome5.toLocaleLowerCase()) //Torna o conteúdo tudo MINUSCULO
+console.log(nome5.valueOf()) //Conteúdo da string
+console.log(nome5.toString()) //Torna o conteúdo uma string
+
+//Procura
+let nome8 = new String("Rafael Machado Fagundes")
+
+console.log(nome8.startsWith("R")) //Verifica se a string começa com "R" e retorna Verdadeiro ou falso
+console.log(nome8.startsWith("Rafael"))
+console.log(nome8.endsWith("s"))  //Verifica se a string termina com "s" e retorna Verdadeiro ou falso
+console.log(nome8.endsWith("Fagundes")) 
+console.log(nome8.includes("c"))  //Verifica se a string tem o carácter "c" e retorna Verdadeiro ou falso
+console.log(nome8.includes("Machado")) 
+console.log(nome8.repeat(3)) //imprime 3 vezes o conteúdo
+console.log(String.fromCharCode(82,97,102,97)) //Converte código (ASCII) para letra
+
+console.log(`Nome: ${nome8}`) //Template string
+
+//*RegExp (Expressões regulares)
+//São padrão de caracteres criadas para utilizar nas funções mudando seu comportamento
+//"i" Ignora letras maiúsculas e minusculas
+//"g" utiliza globalmente não so o primeiro
+
+console.log(nome8.search("rafael")) //Sem o RegExp a função não conseguiria achar a palavra pois existe case sensitive
+console.log(nome8.search(/rafael/i)) //Com RegExp a letra "i" ignora essa regra e acha a palavra
+console.log(nome8.match("a")) //Retorna so a primeira letra encontrada
+console.log(nome8.match(/a/g)) //Retorna todas a letras encontradas
+console.log(nome8.replace(/A/ig,"Teste")); //Ignora case sensitive e substitui todas as letras encontradas
+
+//Criar padrões utiliza "[ ]"
+console.log(nome8.match(/[ah]/ig)) //Retorna as letras separadamente, não juntos
+console.log(nome8.match(/[a-s]/ig)) //Retorna da primeira letra ate a ultima
+console.log(nome8.match(/[a-s|1-10]/ig)) //Pode fazer 2 o mais padrões colocando "|"
+
+//Meta caracteres
+console.log(nome8.match(/\d/ig)) //"\d" Retorna so números
+console.log(nome8.match(/\s/ig)) //"\s" Retorna espaços
+console.log(nome8.match(/\bA/ig)) //"\b+letra" Retorna Caracteres
+
+//Quantificadores
+let num10 = "1,10,100,1000"
+
+console.log(num10.match(/10/ig)) //Retorna 10,10,10 pois retorna so os 10
+console.log(num10.match(/10+/ig)) // Retorna 10,100,1000 pois ou eh o 10 ou todos junto com o 10
+console.log(num10.match(/10*/ig)) // Retorna 1,10,100,1000 pois é o primeiro carácter ou todos juntos
+console.log(num10.match(/10?/ig)) // Retorna 1,10,10,10 pois é o primeiro carácter ou os dois juntos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
