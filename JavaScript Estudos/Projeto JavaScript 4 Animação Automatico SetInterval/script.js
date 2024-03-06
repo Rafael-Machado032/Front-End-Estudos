@@ -18,12 +18,12 @@ btn_parar.addEventListener("click",()=>{
 
 btn_esquerda.addEventListener("click",()=>{
     clearInterval(anima) //para o interval e cria um novo intervalo na proxima linha
-    anima=setInterval(move,100,-1) //Chama a função move a cada 100 milissegundos e o argumento 1 que passa para o dir
+    anima=setInterval(move,100,-1) //Chama a função move a cada 100 milissegundos e o argumento 1 que passa para o dir infinitamente
 })
 
 btn_direita.addEventListener("click",()=>{
     clearInterval(anima)
-    anima=setInterval(move,100,1) //Chama a função move a cada 100 milissegundos e o argumento -1 que passa para o dir
+    anima=setInterval(move,100,1) //Chama a função move a cada 100 milissegundos e o argumento -1 que passa para o dir infinitamente
 })
 
 window.onload=init //Ao carregar a pagina chama a função
