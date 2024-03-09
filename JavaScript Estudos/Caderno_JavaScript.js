@@ -1449,29 +1449,29 @@ export { cursos2, carros, getTodosCursos2 }  //Deixa disponível para a importa�
 //*Symbol
 //Retorna um objeto do tipo symbol que identificador único interno
 
-const s1=Symbol() //cada s tem um identificação diferente
-const s2=Symbol()
-const s3=Symbol()
-const s4=Symbol()
+const s1 = Symbol() //cada s tem um identificação diferente
+const s2 = Symbol()
+const s3 = Symbol()
+const s4 = Symbol()
 
-console.log(s1==s2); //Imprime false
-console.log(s3===s4); //Imprime false
+console.log(s1 == s2); //Imprime false
+console.log(s3 === s4); //Imprime false
 
 //ex:
 
-class Jogador{ //Objeto jogador
-    constructor(nome4){
-        this.nome4=nome4
-        this.id=Symbol()
+class Jogador { //Objeto jogador
+    constructor(nome4) {
+        this.nome4 = nome4
+        this.id = Symbol()
     }
 }
 
-let jogadores=[new jogador4("j0"),new jogador4("j1"),new jogador4("j2"),new jogador4("j3")] //array dos jogadores
+let jogadores = [new jogador4("j0"), new jogador4("j1"), new jogador4("j2"), new jogador4("j3")] //array dos jogadores
 
-let sy1=jogadores[2].id //sy1 recebe o id da posição 2 que eh um symbol
+let sy1 = jogadores[2].id //sy1 recebe o id da posição 2 que eh um symbol
 
-jogadores=jogadores.filter((j)=>{
-    return j.id!=sy1 //remove o jogador da posição 2
+jogadores = jogadores.filter((j) => {
+    return j.id != sy1 //remove o jogador da posição 2
 })
 
 console.log(jogadores) //Imprime o array dos jogadores menos o "j2"
@@ -1480,8 +1480,8 @@ console.log(sy1) //Imprime Symbol()
 //*Funções da String
 
 let nome5 = "Rafael" // Declaração normal do tipo string
-let nome6 = new String (" Machado") //Declaração da instancia da classe string
-let nome7 = new String (" Machado")
+let nome6 = new String(" Machado") //Declaração da instancia da classe string
+let nome7 = new String(" Machado")
 
 console.log(nome5.charAt(0)) //Retorna o carácter da posição nesse casso R
 console.log(nome5.charCodeAt(0)) //Retorna o código do carácter (ASCII) nesse caso 82
@@ -1491,17 +1491,17 @@ console.log(nome6.indexOf("M")) //Retorna a primeira posição do carácter caso
 console.log(nome5.lastIndexOf("a")); //Retorna a ultima carácter encontrado
 
 //Comparação de objeto string
-console.log(nome6==nome7) //Retorna falso pois nao eh assim que compara objetos string so se fosse variáveis
+console.log(nome6 == nome7) //Retorna falso pois nao eh assim que compara objetos string so se fosse variáveis
 console.log(nome6.localeCompare(nome7)) //Retorna 0 se for Iguais e 1 se for Diferente e a primeira é maior que a segunda e -1 é Diferente e a primeira é menor que a segunda
 
 //Corte
-console.log(nome5.replace("a","o")) //Substitui a primeira letra encontra no cas "a" e troca pelo "o"
-console.log(nome6.replace(" Machado"," Silva")) //Também substitui também mais caracteres
+console.log(nome5.replace("a", "o")) //Substitui a primeira letra encontra no cas "a" e troca pelo "o"
+console.log(nome6.replace(" Machado", " Silva")) //Também substitui também mais caracteres
 console.log(nome6.search("Silva")) //Retorna a primeira posição da palavra no caso 1
-console.log(nome7.slice(3,6)) //Corta as posições selecionada no caso do 3 ate 6
+console.log(nome7.slice(3, 6)) //Corta as posições selecionada no caso do 3 ate 6
 console.log(nome5.split("a")) //Recorta a letra e cria um array onde cortou nesse caso "Rof" "el" " M" "ch" "do"
-console.log(nome6.substring(0,5)) //Retorna o conteúdo da posição de 0 a 4 pois nao inclui o 5
-console.log(nome7.substr(6,5)) //Retorna a partir do 6 5 posições
+console.log(nome6.substring(0, 5)) //Retorna o conteúdo da posição de 0 a 4 pois nao inclui o 5
+console.log(nome7.substr(6, 5)) //Retorna a partir do 6 5 posições
 
 //Transforma
 console.log(nome5.toUpperCase()) //Torna o conteúdo tudo MAIÚSCULA
@@ -1515,11 +1515,11 @@ let nome8 = new String("Rafael Machado Fagundes")
 console.log(nome8.startsWith("R")) //Verifica se a string começa com "R" e retorna Verdadeiro ou falso
 console.log(nome8.startsWith("Rafael"))
 console.log(nome8.endsWith("s"))  //Verifica se a string termina com "s" e retorna Verdadeiro ou falso
-console.log(nome8.endsWith("Fagundes")) 
+console.log(nome8.endsWith("Fagundes"))
 console.log(nome8.includes("c"))  //Verifica se a string tem o carácter "c" e retorna Verdadeiro ou falso
-console.log(nome8.includes("Machado")) 
+console.log(nome8.includes("Machado"))
 console.log(nome8.repeat(3)) //imprime 3 vezes o conteúdo
-console.log(String.fromCharCode(82,97,102,97)) //Converte código (ASCII) para letra
+console.log(String.fromCharCode(82, 97, 102, 97)) //Converte código (ASCII) para letra
 
 console.log(`Nome: ${nome8}`) //Template string
 
@@ -1532,7 +1532,7 @@ console.log(nome8.search("rafael")) //Sem o RegExp a função não conseguiria a
 console.log(nome8.search(/rafael/i)) //Com RegExp a letra "i" ignora essa regra e acha a palavra
 console.log(nome8.match("a")) //Retorna so a primeira letra encontrada
 console.log(nome8.match(/a/g)) //Retorna todas a letras encontradas
-console.log(nome8.replace(/A/ig,"Teste")); //Ignora case sensitive e substitui todas as letras encontradas
+console.log(nome8.replace(/A/ig, "Teste")); //Ignora case sensitive e substitui todas as letras encontradas
 
 //Criar padrões utiliza "[ ]"
 console.log(nome8.match(/[ah]/ig)) //Retorna as letras separadamente, não juntos
@@ -1555,9 +1555,9 @@ console.log(num10.match(/10?/ig)) // Retorna 1,10,10,10 pois é o primeiro cará
 //*Desestruturação
 //Extrair dados de um objeto ou array e colocar em variáveis distintas
 
-let aa,bb,cc,dd
+let aa, bb, cc, dd
 
-[aa,bb,cc,dd]=[10,20,30,40] //conceito básico no array
+[aa, bb, cc, dd] = [10, 20, 30, 40] //conceito básico no array
 //[] colchetes eh o operador do array
 
 console.log(aa); //10
@@ -1565,7 +1565,7 @@ console.log(bb); //20
 console.log(cc); //30
 console.log(dd); //40
 
-({aa,bb,cc,dd}={aa:"verde",bb:"amarelo",cc:"azul",dd:"branco"})
+({ aa, bb, cc, dd } = { aa: "verde", bb: "amarelo", cc: "azul", dd: "branco" })
 //{} chaves é o operador de objeto e obrigatório englobar entre ()
 
 console.log(aa); //verde
@@ -1573,8 +1573,8 @@ console.log(bb); //amarelo
 console.log(cc); //azul
 console.log(dd); //branco
 
-let array_números=[10,20,30,40]
-[aa,bb,cc,dd]=array_números
+let array_números = [10, 20, 30, 40]
+[aa, bb, cc, dd] = array_números
 
 console.log(aa); //10
 console.log(bb); //20
@@ -1583,7 +1583,7 @@ console.log(dd); //40
 
 //valores padrão
 
-[aa,bb=0,bb=0,cc=0,dd=0]=[50]
+[aa, bb = 0, bb = 0, cc = 0, dd = 0] = [50]
 
 console.log(aa); //50
 console.log(bb); //0
@@ -1593,39 +1593,79 @@ console.log(dd); //0
 let aa1 = 10; //nesse caso obrigatório ";"
 let bb2 = 20;
 
-[aa1,bb2]=[bb2,aa1] //O "aa" pega o valor de "bb" e vice 
+[aa1, bb2] = [bb2, aa1] //O "aa" pega o valor de "bb" e vice 
 
 console.log(aa1); //20
 console.log(bb2); //10
 
-let num_array =()=>{
-    return [10,20,30,40]
+// Por função
+let num_array = () => {
+    return [10, 20, 30, 40]
 }
 
-[aa,bb,cc,dd] = num_array()
+[aa, bb, cc, dd] = num_array()
 
 console.log(aa); //10
 console.log(bb); //20
 console.log(cc); //30
 console.log(dd); //40
 
+//Poe spread "..."
+num_array = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+let [aaa, bbb, ccc, ...ddd] = num_array
+
+console.log(aaa); //10
+console.log(bbb); //20
+console.log(ccc); //30
+console.log(ddd); //40 50 60 70 80 90
+
+let obj5 = { nome10: "Rafael", sobrenome10: "Machado" }
+let { nome10, sobrenome10 } = obj5
+
+console.log(nome10); //Rafael
+console.log(sobrenome10); //Machado
+
+//Por objeto excluindo valor
+const cores1 = () =>{
+    return [ "verde","amarelo","azul","branco"]
+}
+
+let [cc1,cc2,,cc3] = cores1 //caso nao haja a variável ele eh excluído o valor que consta nessa posição
+
+console.log(cc1); //verde
+console.log(cc2); //amarelo
+console.log(cc3); //branco
+
+//por split
+
+let texto1="Curso de javaScript"
+let [...t]=texto1.split(" ") //Cada espaço conta com uma variável
+console.log(t) //"Curso", "de", "javaScript"
+
+//*Ponto e Virgula ";"
+//JavaScript por regra coloca ";" automaticamente em comandos, mas existe comandos que o interpretador não consegue e tem a necessidade de colocar
+//Exemplo o For ou qualquer outro loop caso ele não tenha um bloco de comandos o ";" é obrigatória
+
+let ii=null
+for (let ii = 0; ii < 10; ii++) {
+    const element = array[ii]; // Se fosse um comando não precisaria mais com eh 2 é obrigatória as chaves
+    console.log(element);
+}
+
+//Porem caso queira so o calculo sem precisar executar o comando abaixo obrigatoriamente coloca-se ";" para dizer que termina ali no exemplo
+for (let iii = 0; iii < 10; iii++); //Terminou aqui e vai para outra sem executar 10 vezes o log
+
+console.log(iii)
+
+//É obrigatório também o uso do ";" sempre que a proxima linha começa com "[]" ou "()"
+//ex:
+
+let v = "OK";
+['j','a','b'].forEach(l=>console.log(l))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
