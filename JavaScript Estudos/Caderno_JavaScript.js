@@ -1552,15 +1552,62 @@ console.log(num10.match(/10+/ig)) // Retorna 10,100,1000 pois ou eh o 10 ou todo
 console.log(num10.match(/10*/ig)) // Retorna 1,10,100,1000 pois é o primeiro carácter ou todos juntos
 console.log(num10.match(/10?/ig)) // Retorna 1,10,10,10 pois é o primeiro carácter ou os dois juntos
 
+//*Desestruturação
+//Extrair dados de um objeto ou array e colocar em variáveis distintas
 
+let aa,bb,cc,dd
 
+[aa,bb,cc,dd]=[10,20,30,40] //conceito básico no array
+//[] colchetes eh o operador do array
 
+console.log(aa); //10
+console.log(bb); //20
+console.log(cc); //30
+console.log(dd); //40
 
+({aa,bb,cc,dd}={aa:"verde",bb:"amarelo",cc:"azul",dd:"branco"})
+//{} chaves é o operador de objeto e obrigatório englobar entre ()
 
+console.log(aa); //verde
+console.log(bb); //amarelo
+console.log(cc); //azul
+console.log(dd); //branco
 
+let array_números=[10,20,30,40]
+[aa,bb,cc,dd]=array_números
 
+console.log(aa); //10
+console.log(bb); //20
+console.log(cc); //30
+console.log(dd); //40
 
+//valores padrão
 
+[aa,bb=0,bb=0,cc=0,dd=0]=[50]
+
+console.log(aa); //50
+console.log(bb); //0
+console.log(cc); //0
+console.log(dd); //0
+
+let aa1 = 10; //nesse caso obrigatório ";"
+let bb2 = 20;
+
+[aa1,bb2]=[bb2,aa1] //O "aa" pega o valor de "bb" e vice 
+
+console.log(aa1); //20
+console.log(bb2); //10
+
+let num_array =()=>{
+    return [10,20,30,40]
+}
+
+[aa,bb,cc,dd] = num_array()
+
+console.log(aa); //10
+console.log(bb); //20
+console.log(cc); //30
+console.log(dd); //40
 
 
 
