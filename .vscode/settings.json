@@ -4,5 +4,8 @@
         "Kg",
         "Multiplição",
         "reflog"
+    ],
+    "cSpell.enableFiletypes": [
+        "dockercompose"
     ]
 }
