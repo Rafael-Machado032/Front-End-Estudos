@@ -2,10 +2,12 @@
     "cSpell.language": "pt,pt-BR,en,en-US",
     "cSpell.words": [
         "DATETIME",
+        "dectipocliente",
         "Kg",
         "Multiplição",
         "nasc",
         "reflog",
+        "tipocliente",
         "VARCHAR"
     ],
     "cSpell.enableFiletypes": [
