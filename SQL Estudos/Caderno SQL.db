@@ -49,13 +49,32 @@ ALTER TABLE cliente DROP i_tipo_cliente;
 
 /*Para comentário SQL*/
 
+//*Ligar 2 tabelas (Chave Primaria/Chave Estrangeira)
+
+CREATE TABLE cliente(   //Tabela Cliente
+    i_tipo_cliente INT NOT NULL;
+    i_cliente_cliente INT PRIMARY KEY NOT NULL AUTO_INCREMENT, // (tipo de dado)_(nome do campo)_(nome da tabela)
+    s_nome_cliente VARCHAR(50) NOT NILL,
+    s_cpf_cliente CHAR(11) NOT NULL,
+    d_nasc_cliente DATETIME
+);
+
+create table tipo_cliente( //Tabela Tipo Cliente
+    i_tipocliente_tipocliente INT PRIMARY KEY AUTO_INCREMENT,
+    s_dectipocliente_tipocliente VARCHAR(100) NOT NULL
+);
 
 
+/*ALTER TABLE <tabela_origem> ADD CONSTRAINT <nome_restrição> FOREIGN KEY (<campo_tabela_origem>) REFERENCES <tabela_destino> (<camp_tabela_destino>);*/
 
+//ADD CONSTRAINT    Adiciona a nome da restrição
+//FOREIGN KEY       Tipo é Chave estrangeira  
+//REFERENCES        Referencia da tabela de destino
 
+ALTER TABLE cliente ADD CONSTRAINT fk_tipocliente FOREIGN KEY (i_tipo_cliente) REFERENCES tipo_cliente (i_tipocliente_tipocliente);
 
-
-
+//fk_tipocliente = i_tipo_cliente -> i_tipocliente_tipocliente
+//Ao fazer o INSERT no i_tipo_cliente o valor tem que ser igual ao valor i_tipocliente_tipocliente para adicionar
 
 
 
