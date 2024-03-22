@@ -1,0 +1,72 @@
+MySQL
+//DDL Data Definition Language (Linguagem de Definição de dados)
+
+//*Criar Banco de Dados
+//Para criar um banco de dados seleciona "Query/New Tab to Current Serve"
+
+CREATE SCHEMA estudoSQL;
+//ou
+CREATE DATABASE estudoSQL;
+//Os dois comandos são o mesmo
+
+//*Para criar uma tabela
+
+CREATE TABLE cliente(   //cliente é o nome da tabela
+    i_cliente_cliente INT PRIMARY KEY NOT NULL AUTO_INCREMENT, // (tipo de dado)_(nome do campo)_(nome da tabela)
+    s_nome_cliente VARCHAR(50) NOT NILL,
+    s_cpf_cliente CHAR(11) NOT NULL,
+    d_nasc_cliente DATETIME
+);
+
+
+//PRIMARY KEY       Chave primaria
+//NOT NULL          Não pode ser nulo obs: Caso for chave primaria não precisa declarar NOT NULL pois e obrigatória o preenchimento
+//AUTO_INCREMENT    Banco de dados que vai administrar com o valor definido automaticamente
+
+//INT               Inteiro
+//VARCHAR(n)        O VARCHAR tem tamanho dinâmico ou seja ocupa até o limite n se não usar desocupa para outro campo 
+//CHAR(n)           O CHAR tem tamanho fixo ou seja ocupa n espaço mesmo que não esteja usando
+
+//*Deletar o banco de dados
+
+DROP SCHEMA cursos;
+
+//*Deletar tabela
+
+DROP TABLE cliente
+
+//*Alterar tabela
+
+ALTER TABLE cliente MODIFY COLUMN s_nome_cliente VARCHAR(30) NOT NULL; //Altera de 50 para 30 e não vazio
+
+//*Adicionar coluna
+
+ALTER TABLE cliente ADD i_tipo_cliente INT DEFAULT 1; Adiciona uma coluna com o valor padra 1
+
+//*Excluir coluna
+
+ALTER TABLE cliente DROP i_tipo_cliente;
+
+/*Para comentário SQL*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,12 @@
 {
     "cSpell.language": "pt,pt-BR,en,en-US",
     "cSpell.words": [
+        "DATETIME",
         "Kg",
         "Multiplição",
-        "reflog"
+        "nasc",
+        "reflog",
+        "VARCHAR"
     ],
     "cSpell.enableFiletypes": [
         "dockercompose"
