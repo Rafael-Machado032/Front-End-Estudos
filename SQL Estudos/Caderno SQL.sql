@@ -154,9 +154,16 @@ ex:
 */
 INSERT INTO cliente VALUES (01,'Rafael Machado','01010101010','2010-04-01',01);
 
+-------------------------------------------------------------------------------------------------------------
+/*Consultando tabela
 
+Comando mostra todo o conteúdo da tabela
+SELECT * FROM <tabela>;
+*/
+SELECT * FROM cliente;
+SELECT * FROM cliente_backup;
 
-
+-------------------------------------------------------------------------------------------------------------
 
 
 
