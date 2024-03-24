@@ -152,7 +152,7 @@ INSERT INTO <tabela> (colunas) values (valores);
 Quando quero inserir todas as colunas não preciso especificar a mesma
 ex:
 */
-INSERT INTO cliente values (01,'Rafael Machado','01010101010','2010-04-01',01);
+INSERT INTO cliente VALUES (01,'Rafael Machado','01010101010','2010-04-01',01);
 
 
 
