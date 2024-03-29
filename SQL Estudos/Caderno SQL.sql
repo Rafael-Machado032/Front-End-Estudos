@@ -69,7 +69,7 @@ CREATE TABLE cliente(   //Tabela Cliente
 
 create table tipo_cliente( //Tabela Tipo Cliente
     i_tipocliente_tipocliente INT PRIMARY KEY AUTO_INCREMENT,
-    s_dectipocliente_tipocliente VARCHAR(100) NOT NULL
+    s_dstipocliente_tipocliente VARCHAR(100) NOT NULL
 );
 
 /*
@@ -280,7 +280,7 @@ SELECT
     DAY(d_nasc_cliente) AS 'Dia de Aniversario' -- Separa o dia da data
 FROM cliente
 WHERE
-    MONTH(d_nasc_cliente) IN(5,4,3); -- IN Procura o mes selecionado
+    MONTH(d_nasc_cliente) IN(5,4,3); -- MONTH junto com IN Procura o mes selecionado
 
 -------------------------------------------------------------------------------------------------------------
 /*WHERE
@@ -297,23 +297,75 @@ AND -   >E
 NOT ->  NEGAÇÃO
 */
 
+-------------------------------------------------------------------------------------------------------------
+/*INNER JOIN
+Junção de duas tabelas*/
 
+SELECT 
+    c.i_cliente_cliente,
+    c.s_nome_cliente,
+    c.s_cpf_cliente,
+    c.d_nasc_cliente,
+    tc.s_dstipocliente_tipocliente -- Campo de outra tabela
+FROM cliente c
+    INNER JOIN tipo_cliente tc ON c.i_tipo_cliente = tc.i_tipoCliente_tipoCliente; -- Junta as duas tabelas
 
+-- Juntando 3 tabelas
+SELECT
+    v.i_venda_venda,
+    c.s_nome_cliente,
+    c.s_cpf_cliente,
+    v.d_data_venda,
+    v.f_valor_venda,
+    tc.s_dstipocliente_tipocliente
+FROM venda v
+    INNER JOIN cliente c ON v.i_cliente_cliente = c.i_cliente_cliente
+    INNER JOIN tipo_cliente tc ON c.i_tipo_cliente = tc.i_tipocliente_tipocliente;
 
+-------------------------------------------------------------------------------------------------------------
+/*GROUP BY
+Agrupamento de campos repedidos
+*/
+SELECT
+    tc.s_dstipocliente_tipocliente as 'Tipo Cliente',
+    COUNT(c.i_cliente_cliente) as Quantidade -- Conta o i_cliente_cliente
+FROM cliente c
+    INNER JOIN tipo_cliente tc ON tc.i_tipocliente_tipocliente = c.i_tipo_cliente
+    GROUP BY c.i_tipo_cliente; -- Separa e agrupa o i_tipo_cliente repetidos
 
+SELECT 
+    v.d_data_venda,
+    COUNT(v.i_venda_venda) AS 'Qtde vendas do dia'
+FROM venda v
+    GROUP BY v.d_data_venda;
 
+-------------------------------------------------------------------------------------------------------------
+/*HAVING
+Parecido com WHERE, O HAVING se aplica somente em GROUP BY e o WHERE em linha individual */
 
+SELECT 
+    v.d_data_venda,
+    COUNT(v.i_venda_venda) AS 'Qtde vendas do dia'
+FROM venda v
+    GROUP BY v.d_data_venda
+    HAVING v.d_data_venda > '2020-10-01';
 
+-------------------------------------------------------------------------------------------------------------
+/*ORDER BY
+Ordenação da tabela
+Por padrão é ordenado pela chave primaria*/
+SELECT
+ * 
+FROM cliente 
+    ORDER BY 
+        i_tipo_cliente, 
+        s_nome_cliente; -- Ordenação de dois níveis
 
-
-
-
-
-
-
-
-
-
+SELECT
+ * 
+FROM cliente 
+    ORDER BY 
+        2; -- Ordenação na segunda coluna
 
 
 
