@@ -164,18 +164,138 @@ SELECT * FROM cliente;
 SELECT * FROM cliente_backup;
 
 -------------------------------------------------------------------------------------------------------------
+/*Alterando Registro
+Ao utilizar o comando UPDATE é perigoso utilizar esse comando pois substitui todas as linhas do banco de dados
+Por isso utilizamos o WHERE (Quando), para selecionar a linha que queremos
+*/
+UPDATE cliente 
+SET s_nome_cliente='Rafael M. F. S.', s_cpf_cliente='21934921033' 
+WHERE i_cliente_cliente=1;
 
+-------------------------------------------------------------------------------------------------------------
+/*Deletar Registro
+Como o UPDATE é recomendado utilizar o WHERE
+*/
+DELETE FROM cliente WHERE i_cliente_cliente=3;
+SELECT * FROM cliente;
 
+-------------------------------------------------------------------------------------------------------------
+/*Clausula dos SELECT
 
+SELECT   ->  Consultar
+FROM     ->  Qual tabela vamos Utilizar
+WHERE    ->  Filtro da consulta
+GROUP BY ->  Agrupar linhas de valores comum de colunas
+HAVING   ->  Filtro de grupos indesejável
+ORDER BY ->  Indicar ordenação dos registros
 
+o '*' indica todas as colunas ou pode especificar a coluna desejada
+*/
+SELECT s_nome_cliente FROM cliente; -- Retorna so o nome
+SELECT s_nome_cliente, s_cpf_cliente FROM cliente; -- Retorna o nome eo cpf
+SELECT *, s_nome_cliente, s_cpf_cliente FROM cliente; -- Retorna tudo mais o nome e cpf
 
+/*Posso também fazer operações matemática dentro do SELECT*/
+SELECT 
+    s_nome_cliente, 
+    i_tipo_cliente * 2 -- Retorna o os números vezes 2
+FROM cliente;
 
+/*Todas as letras maiúscula usando UPPER
+*/
+SELECT 
+    UPPER(s_nome_cliente), 
+    i_tipo_cliente
+FROM cliente;
 
+-------------------------------------------------------------------------------------------------------------
+/*ALIAS Apelidos para as colunas nas colunas
+Na consulta ao invés de  mostrar o nome da coluna original mostrara o apelido que setamos   
+*/
 
+SELECT 
+    s_nome_cliente as nomeCliente, 
+    i_tipo_cliente as idCliente
+FROM cliente;
 
+/*Podemos colocar apelidos em tabelas como no exemplo*/
 
+SELECT 
+    tbc.s_nome_cliente as nomeCliente, 
+    tbc.i_tipo_cliente as idCliente
+FROM cliente tbc; -- Nesse caso não é obrigatório o comando 'as' mais o SGBD reconhece
 
+-------------------------------------------------------------------------------------------------------------
+/*DISTINCT Remover duplicidade no registro
+Usado na consulta sem repetir os dados existente
+*/
+SELECT i_cliente_cliente FROM venda; -- Nessa retorna todos os clientes repetidos
+SELECT DISTINCT i_cliente_cliente FROM venda; -- Ja nessa retorna a cada cliente sem repetir
 
+-------------------------------------------------------------------------------------------------------------
+/*SubSelect
+Método de auto incremento*/
+INSERT INTO cliente VALUES (
+     (SELECT MAX(c.i_cliente_cliente)+1 as i_cliente_cliente FROM cliente c), -- Retorna o ultimo id e soma mais 1
+     'Jorge Armando',
+     '41284348328',
+     '1986-05-12',
+     d_nasc_cliente - 2024,
+     1
+);
+SELECT * FROM cliente;
+
+-------------------------------------------------------------------------------------------------------------
+/*Cláusulas FROM
+Consulta da consulta*/
+
+SELECT 
+    c.i_cliente_cliente,
+    c.s_cpf_cliente 
+FROM (SELECT i_cliente_cliente, s_cpf_cliente FROM cliente) c;
+
+-------------------------------------------------------------------------------------------------------------
+/*VIEW
+Consulta pre salva
+Ela cria uma tabela virtual com as colunas que quero solicitar consulta*/
+CREATE VIEW cpfCliente AS -- Cria a tabela virtual e salva
+    SELECT 
+        i_cliente_cliente, s_cpf_cliente 
+    FROM cliente;
+
+SELECT * FROM cpfCliente;
+
+SELECT 
+    i_cliente_cliente,
+    s_nome_cliente,
+    DAY(d_nasc_cliente) AS 'Dia de Aniversario' -- Separa o dia da data
+FROM cliente
+WHERE
+    MONTH(d_nasc_cliente) = MONTH(CURDATE()); -- MONTH é o mes da data
+-- CURDATE() é a data de hoje
+
+SELECT 
+    i_cliente_cliente,
+    s_nome_cliente,
+    DAY(d_nasc_cliente) AS 'Dia de Aniversario' -- Separa o dia da data
+FROM cliente
+WHERE
+    MONTH(d_nasc_cliente) IN(5,4,3); -- IN Procura o mes selecionado
+
+-------------------------------------------------------------------------------------------------------------
+/*WHERE
+Clausula que é filtrado na consulta
+*/
+SELECT * FROM cliente
+WHERE
+    s_cpf_cliente='21934921033' OR 
+    s_cpf_cliente='10161053110';
+
+/*Operadores Logica
+OR  ->  OU
+AND -   >E
+NOT ->  NEGAÇÃO
+*/
 
 
 
