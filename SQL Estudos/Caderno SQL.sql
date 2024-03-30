@@ -484,11 +484,39 @@ Filtra entre valores máximo e mínimo
 SELECT * FROM cliente
 WHERE d_nasc_cliente BETWEEN '2000-01-01' and '2010-01-01';
 
-SELECT * FROM venda
+SELECT * FROM venda;
 WHERE
     (d_data_venda BETWEEN '2020-07-01' AND '2020-11-01') AND
     i_cliente_cliente NOT IN (3,10) AND
     f_valor_venda > 400;
+
+-------------------------------------------------------------------------------------------------------------   
+/*Tipos de JOIN (Junção de 2 tabelas)
+
+INNER JOIN      ->  Comum entre duas tabelas
+LEFT JOIN       ->  Toda a tabela1 mais o comum da tabela2
+RIGHT JOIN      ->  Toda a tabela2 mais o comum da tabela1
+FULL OUTER JOIN ->  Toda a tabela1 e tabela2
+*/
+
+SELECT i_cliente_cliente FROM cliente c;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
