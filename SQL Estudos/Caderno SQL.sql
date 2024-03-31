@@ -20,10 +20,13 @@ CREATE DATABASE estudoSQL;
 /*Os dois comandos são o mesmo*/
 
 -------------------------------------------------------------------------------------------------------------
-/*Para criar uma tabela*/
+/*Para criar uma tabela
+cliente é o nome da tabela
+(tipo de dado) _ (nome do campo) _ (nome da tabela)
+*/
 
 CREATE TABLE cliente (
-    / / cliente é o nome da tabela i_cliente_cliente INT PRIMARY KEY NOT NULL AUTO_INCREMENT, / / (tipo de dado) _ (nome do campo) _ (nome da tabela) s_nome_cliente VARCHAR(50) NOT NILL, s_cpf_cliente CHAR(11) NOT NULL, d_nasc_cliente DATETIME
+    i_cliente_cliente INT PRIMARY KEY NOT NULL AUTO_INCREMENT, s_nome_cliente VARCHAR(50) NOT NILL, s_cpf_cliente CHAR(11) NOT NULL, d_nasc_cliente DATETIME
 );
 
 /*
@@ -63,19 +66,16 @@ ALTER TABLE cliente DROP i_tipo_cliente;
 /*Para comentário SQL*/
 
 -------------------------------------------------------------------------------------------------------------
-/*Ligar 2 tabelas (Chave Primaria/Chave Estrangeira)*/
+/*Ligar 2 tabelas (Chave Primaria/Chave Estrangeira)
+(tipo de dado)_(nome do campo)_(nome da tabela)
+Tabela Cliente*/
 
-CREATE TABLE cliente(   //Tabela Cliente
-    i_tipo_cliente INT NOT NULL;
-
-    i_cliente_cliente INT PRIMARY KEY NOT NULL AUTO_INCREMENT, // (tipo de dado)_(nome do campo)_(nome da tabela)
-    s_nome_cliente VARCHAR(50) NOT NILL,
-    s_cpf_cliente CHAR(11) NOT NULL,
-    d_nasc_cliente DATETIME
+CREATE TABLE cliente (
+    i_tipo_cliente INT NOT NULL, i_cliente_cliente INT PRIMARY KEY NOT NULL AUTO_INCREMENT, s_nome_cliente VARCHAR(50) NOT NILL, s_cpf_cliente CHAR(11) NOT NULL, d_nasc_cliente DATETIME
 );
-
+/*Tabela Tipo Cliente*/
 create table tipo_cliente (
-    / / Tabela Tipo Cliente i_tipocliente_tipocliente INT PRIMARY KEY AUTO_INCREMENT, s_dstipocliente_tipocliente VARCHAR(100) NOT NULL
+    i_tipocliente_tipocliente INT PRIMARY KEY AUTO_INCREMENT, s_dstipocliente_tipocliente VARCHAR(100) NOT NULL
 );
 
 /*
@@ -91,9 +91,9 @@ ADD CONSTRAINT fk_tipocliente FOREIGN KEY (i_tipo_cliente) REFERENCES tipo_clien
 /*fk_tipocliente = i_tipo_cliente -> i_tipocliente_tipocliente*/
 /*Ao fazer o INSERT no i_tipo_cliente o valor tem que ser igual ao valor i_tipocliente_tipocliente para adicionar*/
 
--------------------------------------------------------------------------------------------------------------//
-
+-------------------------------------------------------------------------------------------------------------
 /*Tipos de dados
+
 |          Dados de Texto         |
 | Tipo de texto | Máximo de bytes |
 |               |                 |
@@ -133,14 +133,23 @@ ALTER TABLE cliente MODIFY i_idade_cliente TINYINT;
 -------------------------------------------------------------------------------------------------------------
 /*Relacionamentos do Banco de Dados
 Tipo de relacionamento  
+
 Uma para um:
+
 Ambas tabelas podem ter somente um registro de cada lado do relacionamento.
 Cada valor da chave primária se relaciona a nenhum ou a apenas um registro na tabela relacionada.
-A maioria dos relacionamentos de um para um são forçados por regras de negócios e não fluem naturalmente dos dados. Sem tal regra, geralmente você pode combinar as duas tabelas sem quebrar nenhuma regra de normalização.
-Uma para muitos
+A maioria dos relacionamentos de um para um são forçados por regras de negócios e não fluem naturalmente dos dados.
+Sem tal regra, geralmente você pode combinar as duas tabelas sem quebrar nenhuma regra de normalização.
+
+Uma para muitos:
+
 A tabela de chave primária contém somente um registro relacionado a nenhum, a um ou a muitos registros da tabela relacionada.
-Muitos para muitos
-Cada registro em ambas as tabelas pode se relacionar a nenhum ou a qualquer número de registros na outra tabela. Esses relacionamentos requerem uma terceira tabela, chamada de tabela associada ou de associação, pois os sistemas relacionais não podem acomodar diretamente o relacionamento.
+
+Muitos para muitos:
+
+Cada registro em ambas as tabelas pode se relacionar a nenhum ou a qualquer número de registros na outra tabela.
+Esses relacionamentos requerem uma terceira tabela, chamada de tabela associada ou de associação, pois os sistemas relacionais
+não podem acomodar diretamente o relacionamento.
 */
 
 -------------------------------------------------------------------------------------------------------------
@@ -207,8 +216,7 @@ SELECT
     i_tipo_cliente * 2 -- Retorna o os números vezes 2
 FROM cliente;
 
-/*Todas as letras maiúscula usando UPPER
-*/
+/*Todas as letras maiúscula usando UPPER*/
 
 SELECT UPPER(s_nome_cliente), i_tipo_cliente FROM cliente;
 
@@ -230,8 +238,8 @@ FROM cliente tbc;
 
 -------------------------------------------------------------------------------------------------------------
 /*DISTINCT Remover duplicidade no registro
-Usado na consulta sem repetir os dados existente
-*/
+Usado na consulta sem repetir os dados existente*/
+
 SELECT i_cliente_cliente FROM venda;
 -- Nessa retorna todos os clientes repetidos
 SELECT DISTINCT i_cliente_cliente FROM venda;
@@ -240,6 +248,7 @@ SELECT DISTINCT i_cliente_cliente FROM venda;
 -------------------------------------------------------------------------------------------------------------
 /*SubSelect
 Método de auto incremento*/
+
 INSERT INTO
     cliente
 VALUES (
@@ -267,6 +276,7 @@ FROM (
 /*VIEW
 Consulta pre salva
 Ela cria uma tabela virtual com as colunas que quero solicitar consulta*/
+
 CREATE VIEW cpfCliente AS -- Cria a tabela virtual e salva
 SELECT
     i_cliente_cliente,
@@ -292,10 +302,11 @@ FROM cliente
 WHERE
     MONTH(d_nasc_cliente) IN (5, 4, 3);
 -- MONTH junto com IN Procura o mes selecionado
+
 -------------------------------------------------------------------------------------------------------------
 /*WHERE
-Clausula que é filtrado na consulta
-*/
+Clausula que é filtrado na consulta*/
+
 SELECT *
 FROM cliente
 WHERE
@@ -325,8 +336,8 @@ FROM
 
 -------------------------------------------------------------------------------------------------------------
 /*GROUP BY
-Agrupamento de campos repedidos
-*/
+Agrupamento de campos repedidos*/
+
 SELECT tc.s_dstipocliente_tipocliente as 'Tipo Cliente', COUNT(c.i_cliente_cliente) as Quantidade -- Conta o i_cliente_cliente
 FROM cliente c
     INNER JOIN tipo_cliente tc ON tc.i_tipocliente_tipocliente = c.i_tipo_cliente
@@ -362,6 +373,7 @@ SELECT * FROM cliente ORDER BY 2;
 /*IS NULL e IS NOT NULL
 Campos vazio
 O IS é obrigatório*/
+
 SELECT * FROM cliente ORDER BY 1 DESC;
 -- Ordem decrescente
 SELECT * FROM cliente WHERE d_nasc_cliente IS NULL;
@@ -371,10 +383,10 @@ SELECT * FROM cliente WHERE d_nasc_cliente IS NOT NULL;
 
 -------------------------------------------------------------------------------------------------------------
 /*Operadores Logica
+
 OR  ->  OU
 AND ->  E
-NOT ->  NEGAÇÃO
-*/
+NOT ->  NEGAÇÃO*/
 
 SELECT *
 FROM cliente
@@ -414,8 +426,8 @@ ORDER BY v.f_valor_venda DESC
 LIMIT 3;
 
 -------------------------------------------------------------------------------------------------------------
-/*MAX e MIN
-*/
+/*MAX e MIN*/
+
 SELECT MAX(f_valor_venda) FROM venda;
 -- Valor Máximo
 SELECT MIN(f_valor_venda) FROM venda;
@@ -430,6 +442,7 @@ WHERE
         FROM venda
     );
 -- Retorna os dados da maior venda
+
 -------------------------------------------------------------------------------------------------------------
 /*Funções
 SUM   -> Soma       -> SUM(COLUNA_NUM)
@@ -650,85 +663,92 @@ IN aluno VARCHAR(50)) -- IN indicando parâmetro de entrada, nome da variável e
 BEGIN
     DECLARE x VARCHAR(50);
 --Declara uma variável "x"
-    SET x = 'MySQL';
+SET x = 'MySQL';
 -- Seta o conteúdo na variável "x"
-    SELECT x, aluno;
+SELECT x, aluno;
 -- Mostra o conteúdo de "x" e "curso"
 END $$ -- finaliza
 
-DELIMITER; -- Volta o delimitador para o padrão
-
+DELIMITER;
+-- Volta o delimitador para o padrão
 CALL curso ('Rafael Machado');
 -- chama a função
 
-
-
 DELIMITER $$
 
-CREATE PROCEDURE idade(
-    IN idCliente INT, 
-    OUT idade INT, 
-    OUT res VARCHAR(20)
-) 
+CREATE PROCEDURE idade(IN idCliente INT, OUT idade 
+INT, OUT res VARCHAR(20)) 
 BEGIN 
-    DECLARE dt DATETIME;
-    SET dt = (
-	    SELECT d_nasc_cliente
-	    FROM cliente
-	    WHERE i_cliente_cliente = idCliente
-    );
+DECLARE
+	dt DATETIME;
+	SET
+	    dt = (
+	        SELECT d_nasc_cliente
+	        FROM cliente
+	        WHERE
+	            i_cliente_cliente = idCliente
+	    );
+	SET idade = YEAR(NOW()) - YEAR(dt);
+	IF(idade > = 18) THEN SET res = 'Maior';
+	ELSE SET res = 'Menor';
+END
+	IF;
+END
+$$ 
 
-    SET idade = YEAR(NOW()) - YEAR(dt);
+DELIMITER;
 
-    IF(idade >= 18) THEN 
-        SET res = 'Maior';
-    ELSE 
-        SET res = 'Menor';
-    END	IF;
-END $$ 
-DELIMITER ;
-
-CALL idade (3, @idadecliente,@resultado);
+CALL idade (3, @idadecliente, @resultado);
 -- Variável idadecliente
-SELECT @idadecliente,@resultado;
+SELECT @idadecliente, @resultado;
 
 -------------------------------------------------------------------------------------------------------------
 /*LOOP
 Estrutura de repetição*/
 
 DELIMITER $$
-CREATE PROCEDURE loopWhile(IN max INT, OUT soma INT)
-BEGIN
-    DECLARE x INT DEFAULT 0;
 
-    WHILE(x < max)DO
-        SET x = x + 1;
-    END WHILE;
+CREATE PROCEDURE loopWhile(IN max INT, OUT soma INT
+) 
+BEGIN 
+DECLARE
+	x INT DEFAULT 0;
+	WHILE (x < max) DO SET x = x + 1;
+END
+	WHILE;
+	SET soma = x;
+END
+$$ 
 
-    SET soma = x;
-END $$
 DELIMITER;
 
-CALL loopWhile(100,@ret);
+CALL loopWhile (100, @ret);
+
 SELECT @ret;
 
-
-
 DELIMITER $$
-CREATE PROCEDURE loopWhile2(IN max INT, OUT soma INT)
-BEGIN
-    DECLARE x INT DEFAULT 0;
-    meuloop:LOOP
-        IF(x >= max)THEN
-            LEAVE meuloop; -- Sai do loop
-        END IF;
-        SET x = x + 1;
-    END LOOP;
-    SET soma = x;
+
+CREATE PROCEDURE loopWhile2(IN max INT, OUT soma INT
+) 
+BEGIN 
+DECLARE
+	x INT DEFAULT 0;
+	meuloop :LOOP IF ( x > = max ) THEN LEAVE meuloop;
+	-- Sai do loop
+END
+	IF;
+	SET x = x + 1;
+END
+LOOP; 
+
+SET soma = x;
+
 END $$
+
 DELIMITER;
 
-CALL `loopWhile2`(100,@ret);
+CALL `loopWhile2` (100, @ret);
+
 SELECT @ret;
 
 -------------------------------------------------------------------------------------------------------------
@@ -736,29 +756,145 @@ SELECT @ret;
 Navegar em entre elementos de uma consulta*/
 
 DELIMITER $$
-CREATE PROCEDURE somaVendas(OUT soma FLOAT(10,2))
-BEGIN
-    DECLARE vv FLOAT(10,2) DEFAULT 0;
-    DECLARE fimloop INT DEFAULT 0;
-    DECLARE meucursor CURSOR FOR SELECT f_valor_venda FROM venda; -- Declara o cursor com um SELECT a onde vai percorrer
-    DECLARE CONTINUE HANDLER FOR NOT FOUND SET fimloop=1; -- Quando terminar a lista da tabela o fimloop vai ser igual a 1
-    
-    SET soma=0;
-    OPEN meucursor; -- Abre o CURSOR para começar
-    
-    WHILE(fimloop != 1)DO
-        FETCH meucursor INTO vv; -- Coloca no vv e busca a proxima linha
-        SET soma = soma + vv; -- Soma os valores
-    END WHILE;
 
-END $$
+CREATE PROCEDURE somaVendas(OUT soma FLOAT(10, 2)) 
+BEGIN 
+DECLARE
+	vv FLOAT(10, 2) DEFAULT 0;
+DECLARE
+	fimloop INT DEFAULT 0;
+DECLARE
+	meucursor CURSOR FOR SELECT f_valor_venda FROM venda;
+	-- Declara o cursor com um SELECT a onde vai percorrer
+DECLARE
+	CONTINUE HANDLER FOR NOT FOUND SET fimloop = 1;
+	-- Quando terminar a lista da tabela o fimloop vai ser igual a 1
+	SET soma = 0;
+	OPEN meucursor;
+	-- Abre o CURSOR para começar
+	WHILE (fimloop ! = 1) DO FETCH meucursor INTO vv;
+	-- Coloca no vv e busca a proxima linha
+	SET soma = soma + vv;
+	-- Soma os valores
+END
+	WHILE;
+END
+$$ 
+
 DELIMITER;
 
-CALL somaVendas(@ret);
-SELECT ROUND(@ret,2);
+CALL somaVendas (@ret);
+
+SELECT ROUND(@ret, 2);
 
 -------------------------------------------------------------------------------------------------------------
-/**/
 
+/*SQL Injection
+Ao utilizar login e senha no banco de dados tem que se atentar em segurança uma delas e usar variaveis direto
+no comando pois pode logar sem cadastro.
+username => '' OR ''''=''''
+senha => '' OR ''''=''''
+*/
+SELECT *
+FROM cliente
+WHERE
+    s_usr_cliente = ''
+    OR '''' = ''''
+    AND s_senha_cliente = ''
+    OR '''' = '''';
 
+SELECT *
+FROM cliente
+WHERE
+    s_usr_cliente = 'aaa'
+    OR '''' = ''''
+    AND s_senha_cliente = '111'
+    OR '''' = '''';
+-- Os dois comandos a cima foi digitado no login e senha comando OR com condição e logou
 
+/*
+username => '1'
+senha => '000'; DROP TABLE cliente
+*/
+SELECT *
+FROM cliente
+WHERE
+    s_usr_cliente = '1'
+    AND s_senha_cliente = '000';
+
+DROP TABLE cliente_login;
+-- Nesse caso exclui a tabela
+
+-- Para resolver esse problema usamos o parâmetro
+
+SET @login = '' OR '''' = '''';
+
+SET @senha = '' OR '''' = '''';
+
+SELECT *
+FROM cliente
+WHERE
+    s_usr_cliente = @login
+    AND s_senha_cliente = @senha;
+-- Com parâmetro não roda o comando
+
+SET @login = 'brn';
+
+SET @senha = 123;
+
+SELECT *
+FROM cliente
+WHERE
+    s_usr_cliente = @login
+    AND s_senha_cliente = @senha;
+-- Com parâmetro não roda
+
+-------------------------------------------------------------------------------------------------------------
+/*Funções*/
+
+SELECT s_nome_cliente FROM cliente WHERE i_cliente_cliente = 1;
+
+#LOCATE = Pesquisa um conteúdo x em uma string e retorna a posição.
+SELECT LOCATE('a', s_nome_cliente)
+FROM cliente
+WHERE
+    i_cliente_cliente = 1;
+
+#UPPER = Converte a string para maiúscula.
+SELECT UPPER(s_nome_cliente)
+FROM cliente
+WHERE
+    i_cliente_cliente = 1;
+
+#LOWER = Converte a string para minúsculo.
+SELECT LOWER(s_nome_cliente)
+FROM cliente
+WHERE
+    i_cliente_cliente = 1;
+
+#SUBSTR = Extrai parte de uma string (str,posINI,qtde).
+SELECT SUBSTR(s_nome_cliente, 1, 4)
+FROM cliente
+WHERE
+    i_cliente_cliente = 1;
+
+#CONCAT = Concatena duas strings.
+SELECT CONCAT('Nome: ', s_nome_cliente)
+FROM cliente
+WHERE
+    i_cliente_cliente = 1;
+
+#FORMAT = Formata um numeral para o padrão #,###,###.##, com a quantidade de casas decimais informada.
+SELECT *, FORMAT(f_valor_venda, 2) FROM venda;
+
+#ASCII = Retorna o valor ASCII do primeiro caractere da string.
+SELECT ASCII(s_nome_cliente)
+FROM cliente
+WHERE
+    i_cliente_cliente = 1;
+
+#CHAR_LENGTH = Retorna o tamanho da string.
+SELECT CHAR_LENGTH(s_nome_cliente)
+FROM cliente
+WHERE
+    i_cliente_cliente = 1;
