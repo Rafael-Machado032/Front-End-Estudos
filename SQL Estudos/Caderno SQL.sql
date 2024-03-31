@@ -788,7 +788,6 @@ CALL somaVendas (@ret);
 SELECT ROUND(@ret, 2);
 
 -------------------------------------------------------------------------------------------------------------
-
 /*SQL Injection
 Ao utilizar login e senha no banco de dados tem que se atentar em segurança uma delas e usar variaveis direto
 no comando pois pode logar sem cadastro.
