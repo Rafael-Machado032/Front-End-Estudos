@@ -58,7 +58,7 @@ MODIFY COLUMN s_nome_cliente VARCHAR(30) NOT NULL;
 
 ALTER TABLE cliente ADD i_tipo_cliente INT DEFAULT 1;
 
-Adiciona uma coluna com o valor padra 1
+-- Adiciona uma coluna com o valor padra 1
 /*Excluir coluna*/
 
 ALTER TABLE cliente DROP i_tipo_cliente;
@@ -158,11 +158,14 @@ INSERT INTO <tabela> (colunas) values (valores);
 Quando quero inserir todas as colunas não preciso especificar a mesma
 ex:
 */
-INSERT INTO
-    cliente
+INSERT INTO cliente
 VALUES (
-        01, 'Rafael Machado', '01010101010', '2010-04-01', 01
-    );
+    01,
+    'Rafael Machado',
+    '01010101010',
+    '2010-04-01',
+    01
+);
 
 -------------------------------------------------------------------------------------------------------------
 /*Consultando tabela
