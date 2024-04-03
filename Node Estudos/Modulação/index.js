@@ -1,5 +1,6 @@
-//Começamos instalar express "npm install express --save"
-//E também o router "npm install router --save"
+//Instala express no terminal com o comando:
+//npm install express --save
+//E também o router "npm install router --save
 
 const express = require('express')
 const rotas = require('./Rotas/rotas.js') //Puxa o arquivo
