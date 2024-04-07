@@ -13,9 +13,9 @@ async function run() {
 
         const dbo = banco.db("Cursos"); //Criação do banco de dados
         const obj = { curso: "Curso de Node", aluno: "Rafael Machado" }; //Inserindo dados dentro da tabela "Cursos"
-        const colação = "curso";
+        const coleção = "curso";
 
-        await dbo.collection(colação).insertOne(obj);
+        await dbo.collection(coleção).insertOne(obj);
         console.log("1 novo curso inserido");
     } finally {
         // Garante que o cliente fechará quando você terminar/errar
