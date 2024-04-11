@@ -1267,7 +1267,7 @@ class CarroEspecial1 extends carroPadrão {
 //Eh uma area de transferência tipo copiar e cola
 
 tcpy.addEventListener("click", (evt) => {
-    navigator.clipboard.writeText(display.innerHTML)//Copia conteudo do display
+    navigator.clipboard.writeText(display.innerHTML)//Copia conteúdo do display
     //Para versão mobile necessário usar select e selectRange
     teste.select() //seleciona o texto
     teste.setSelectionRange(0, 99999) //Quantidade de caractere selecionado de 0 a 99999
