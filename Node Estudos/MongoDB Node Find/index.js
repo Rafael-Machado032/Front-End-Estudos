@@ -4,8 +4,6 @@
 const { MongoClient } = require('mongodb')
 const url = "mongodb+srv://rafaelmachado032:010203@cluster0.84oxr2p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-
-
 async function run() {
     const banco = new MongoClient(url);
     try {
