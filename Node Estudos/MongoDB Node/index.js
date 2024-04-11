@@ -12,11 +12,11 @@ async function run() {
         await banco.connect();
 
         const dbo = banco.db("Cursos"); //Criação do banco de dados
-        const obj = { curso: "Curso de Node", aluno: "Rafael Machado" }; //Inserindo dados dentro da tabela "Cursos"
+        const obj = { curso: "Curso de Culinária", aluno: "Terezinha Marlene" }; //Inserindo dados dentro da tabela "Cursos"
         const coleção = "curso";
 
         await dbo.collection(coleção).insertOne(obj);
-        console.log("1 novo curso inserido");
+        console.log("1 novo registro inserido");
     } finally {
         // Garante que o cliente fechará quando você terminar/errar
         await banco.close();
