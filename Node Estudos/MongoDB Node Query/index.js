@@ -12,7 +12,7 @@ async function run() {
         const dbo = banco.db("Cursos"); //Criação do banco de dados
         const coleção = "curso";
 
-        const query = {curso: /e$/}
+        const query = {curso: /.e/} //Fizemos nossas especificação numa variável
 
         const todos = await dbo.collection(coleção).find({}).toArray(); //Busca todos da tabela
         const exptodos = await dbo.collection(coleção).find(query).toArray(); //Busca todos da tabela com condição especifica
@@ -22,7 +22,7 @@ async function run() {
         console.log("\n Todos os Registros");
         console.log(todos);
         console.log("\n Todos os Registros com condição especifica");
-        console.log(exptodos);segui
+        console.log(exptodos);
 
     } finally {
         // Garante que o cliente fechará quando você terminar/errar

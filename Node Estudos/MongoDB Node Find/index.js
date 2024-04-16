@@ -3,14 +3,15 @@
 
 const { MongoClient } = require('mongodb')
 const url = "mongodb+srv://rafaelmachado032:010203@cluster0.84oxr2p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const banco = new MongoClient(url);
 
 async function run() {
-    const banco = new MongoClient(url);
+    
     try {
-        await banco.connect();
+        
 
-        const dbo = banco.db("Cursos"); //Criação do banco de dados
-        const coleção = "curso";
+        const dbo = banco.db("Cursos"); //Conecta ao banco de dados Cursos
+        const coleção = "curso"; //Variável para a coleção
 
         const prireg = await dbo.collection(coleção).findOne(); //Busca o primeiro registro
         const expreg = await dbo.collection(coleção).findOne({aluno:"Graziele da Rocha"}); //Busca o primeiro registro com a condição especifica
