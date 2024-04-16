@@ -3,23 +3,28 @@
 
 const { MongoClient } = require('mongodb')
 const url = "mongodb+srv://rafaelmachado032:010203@cluster0.84oxr2p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
+const banco = new MongoClient(url);
 
 
 async function run() {
-    const banco = new MongoClient(url);
+    
     try {
-        await banco.connect();
+        
 
-        const dbo = banco.db("Cursos"); //Criação do banco de dados
-        const obj = { curso: "Curso de Culinária", aluno: "Terezinha Marlene" }; //Inserindo dados dentro da tabela "Cursos"
-        const coleção = "curso";
+        const dbo = banco.db("Cursos"); //Conecta ao banco de dados Cursos
+        const coleção = "curso"; //Variável para a coleção
+        const doc = { 
+            curso: 'Curso de Eletrónica',
+            aluno: 'Victor Meireles'
+        }; //Cria o documento para inserir
+        
 
-        await dbo.collection(coleção).insertOne(obj);
+        await dbo.collection(coleção).insertOne(doc); //Acessa a coleção e insere o documento
         console.log("1 novo registro inserido");
     } finally {
         // Garante que o cliente fechará quando você terminar/errar
         await banco.close();
     }
 }
+//Execute a função e resolva quaisquer erros
 run().catch(console.dir);
