@@ -13,14 +13,24 @@ async function run() {
 
         const dbo = banco.db("Cursos"); //Conecta ao banco de dados Cursos
         const coleção = "curso"; //Variável para a coleção
-        const doc = { 
-            curso: 'Curso de Eletrónica',
-            aluno: 'Victor Meireles'
-        }; //Cria o documento para inserir
+        
+        //const doc = {curso: 'Curso de MongoDb', aluno: 'Rafael Machado'}
+        const doc = [
+            {curso: 'Curso de Node', aluno: 'Clésio Silva'},
+            {curso: 'Curso de Node', aluno: 'Vitor Meireles'},
+            {curso: 'Curso de CSS', aluno: 'Vitor Meireles'},
+            {curso: 'Curso de Croché', aluno: 'Graziele Mendes'}
+        ] //Cria o documento para inserir
         
 
-        await dbo.collection(coleção).insertOne(doc); //Acessa a coleção e insere o documento
-        console.log("1 novo registro inserido");
+        //const insere = await dbo.collection(coleção).insertOne(doc); //Acessa a coleção e insere o documento com 1 registro
+        const insere = await dbo.collection(coleção).insertMany(doc); //Acessa a coleção e insere o documento com vários registro
+        
+        if(insere.insertedCount == 1){
+            console.log("\n Um registro inserido!");
+        }else if(insere.insertedCount > 0){
+            console.log("\n" + insere.insertedCount + " registros inseridos!");
+        }
     } finally {
         // Garante que o cliente fechará quando você terminar/errar
         await banco.close();
