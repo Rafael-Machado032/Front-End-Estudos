@@ -41,13 +41,15 @@ async function run() {
 
         // let insere = await dbo.collection(coleção1).insertMany(doc1);
         // insere = await dbo.collection(coleção2).insertMany(doc2);
-        
-        dbo.collection(coleção1).aggregate([
-            $lookup:{
-                from: "Cod dos curso",
-                localFiled: 'idCurso',
-                foreignFild: "idCurso",
-                as:"Detalhes"
+
+        const novo = await dbo.collection(coleção1).aggregate([ //Agrega
+            {
+                $lookup: {
+                    from: coleção2, //Coleção que quer juntar
+                    localField: 'idCurso', //chave da Coleção 1
+                    foreignField: 'idCurso', //chave da Coleção 2
+                    as: 'Detalhes' //insere um nome para nova coleção
+                }
             }
         ]).toArray()
 
@@ -55,18 +57,24 @@ async function run() {
 
 
         let query = {}
-        const opção = { projection: { _id: 0 } }
+        const opção = { projection: { _id: 0 } }//Omite id gerado pelo mango
 
         const todos1 = await dbo.collection(coleção1).find(query, opção).toArray();
         const todos2 = await dbo.collection(coleção2).find(query, opção).toArray();
 
         console.log("Pesquisa concluída ");
 
+        console.log("\nColeção Agregado");
+        console.log(JSON.stringify(novo));
+
         console.log("\nTodos os Registros 1");
         console.log(todos1);
 
         console.log("\nTodos os Registros 2");
         console.log(todos2);
+
+        
+
 
 
     } finally {
