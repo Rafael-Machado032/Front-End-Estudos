@@ -42,8 +42,61 @@
 //          for interrompido ou reimplementado.
 //
 //          1 ou mais saídas e 1 ou mais entradas
-//          
 
+//Switch    -> Nó de switch: Serve para dependendo da condição,
+//           sair em um sada especifica
+
+//Change    -> Nó de modificação: Serve para definir, mudar, mover ou apagar valores programados
+
+//Template  -> Nó de apresentação: Serve para inserir um texto junto com o resultado
+
+
+//*Funções Prontos
+//Se não quiser usar programação nos nos de função existe nos ja pronto para baixar
+//Menu > Gerenciar paleta > Instalar
+//E procura o no com a função desejada ex: node-red-node-random
+
+//*Variáveis Globais
+//context é uma variável lido somente no nó criado invisível para outros nós
+//ex:
+var cont = context.get('contador') || 0;
+cont++;
+context.set('contador',cont);
+msg.payload = cont;
+return msg;
+
+//flow é uma variável de fluxo lido somente por nós do mesmo fluxo
+var cont = flow.get('contador') || 0;
+cont++;
+flow.set('contador',cont);
+msg.payload = cont;
+return msg;
+
+//global é uma variável global lido por todos nós
+var cont = global.get('contador') || 0;
+cont++;
+global.set('contador',cont);
+msg.payload = cont;
+return msg;
+
+//Manipulando Mensagem
+//ex:
+
+var doc = {
+    "nome":"Rafael",
+    "sobrenome":"Machado",
+    "curso":"Node RED",
+    "Telefone":["9999-9999","8888-8888","7777-7777"]
+}
+msg.payload = doc
+return msg;
+
+//No debug podemos configurar para imprimir so uma variável do doc
+//ex:
+//Output | msg. | payload.nome         |
+
+//Podemos imprimir também um índice do array
+//Output | msg. | payload.telefone[1]  |
 
 
 
