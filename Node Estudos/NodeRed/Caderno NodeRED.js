@@ -48,7 +48,41 @@
 
 //Change    -> Nó de modificação: Serve para definir, mudar, mover ou apagar valores programados
 
-//Template  -> Nó de apresentação: Serve para inserir um texto junto com o resultado
+//Template  -> Nó de apresentação: Insere um texto junto com o resultado
+
+//Range     -> Nó de mapeamento: Correlaciona valores entre 2 faixas 
+//          ex:
+//          Mapeie o intervalo de entrada:
+//          de: 0 para: 10
+//          para o intervalo alvo:
+//          de: 0 para: 100
+//
+//          O valor coletado va ser entre 0 a 10
+//          A função vai fazer tipo uma regra de 3 para correlacionar com outra faixa de valor
+//          Exemplo insere o valor 4
+//         
+//          10 - 100        10x = 4 * 100
+//          4 - x           x = 400 / 10
+//                          x = 40
+//          Outro exemplo é uma saída de um sensor de 0 a 12v
+//          sendo 0v e igual -10° e 12v é igual 40° e ao receber 6v seria igual á 25°
+
+//Delay     -> Nó de intervalo: Atrasa o evento por tempo programado
+
+//Trigger   -> Nó de Gatilho: Ao ativar o gatilho fica disparando mensagem programada
+//          podemos parar de dispara ao receber um valor especifico
+
+//HTTP      -> Nó de web: Pode fazer chamadas via browser como API
+
+//
+//
+
+
+
+
+
+
+
 
 
 //*Funções Prontos
