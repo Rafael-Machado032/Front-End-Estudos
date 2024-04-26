@@ -73,9 +73,15 @@
 //          podemos parar de dispara ao receber um valor especifico
 
 //HTTP      -> Nó de web: Pode fazer chamadas via browser como API
-
+//          EX: Na configuração do no HTTP setamos "aluno" no URL
+//          http://127.0.0.1:1880/aluno?curso=Javascript Nesse exemplo passamos um parâmetro
 //
-//
+//          Outra forma de passar o parâmetro é pela requisição prevista
+//          EX: Na configuração do no HTTP setamos "/api/:nome" no URL prevendo o campo nome
+//          http://127.0.0.1:1880/api/Rafael
+//          Mais parâmetros
+//          "/api/:nome/:idade/:profissão"
+//          http://127.0.0.1:1880/api/Rafael/34/Tecnico
 
 
 
