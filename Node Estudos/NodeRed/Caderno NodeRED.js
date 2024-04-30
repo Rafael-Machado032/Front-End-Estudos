@@ -85,13 +85,6 @@
 
 //File      -> No de armazenamento: Permite selecionar um arquivo para leitura
 
-//
-
-
-
-
-
-
 
 //*Funções Prontos
 //Se não quiser usar programação nos nos de função existe nos ja pronto para baixar
