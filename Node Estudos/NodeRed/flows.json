@@ -1,0 +1,2327 @@
+[
+    {
+        "id": "fb90419b2eae8818",
+        "type": "tab",
+        "label": "Primeira Aula",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a8d2866cbb5a27fb",
+        "type": "tab",
+        "label": "Função com mais saidas",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3018d3e8abfb470d",
+        "type": "tab",
+        "label": "Usando No Baixado",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c7507cc9908101a3",
+        "type": "tab",
+        "label": "Fluxo local",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "162be5549dd5ff54",
+        "type": "tab",
+        "label": "Fluxo global",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "69a0122fef4a215f",
+        "type": "tab",
+        "label": "Manipulando mensagem",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f74e9a4e5df5144f",
+        "type": "tab",
+        "label": "Switch",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1ded30353ed902a9",
+        "type": "tab",
+        "label": "Change e Template",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9f83f3e080d69391",
+        "type": "tab",
+        "label": "Range",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a2f23489ef5d3269",
+        "type": "tab",
+        "label": "Delay",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2843fd23ec07b855",
+        "type": "tab",
+        "label": "Trigger",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "19a3dd29b3595015",
+        "type": "tab",
+        "label": "HTTP",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e24a8c6d1c785660",
+        "type": "tab",
+        "label": "Parametro HTTP",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bd11844629048cc3",
+        "type": "tab",
+        "label": "Criando API",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "812b547930bae62f",
+        "type": "tab",
+        "label": "HTTP Parametros externo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4fcbb98a5169e853",
+        "type": "tab",
+        "label": "Cabeçalho",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0201760cc56fb391",
+        "type": "tab",
+        "label": "API Retorna JSON",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0806ba2f6fd38585",
+        "type": "tab",
+        "label": "Retornar Arquivo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e93b16ccd175b548",
+        "type": "tab",
+        "label": "Enviar Formulario",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7206c457ccef264d",
+        "type": "inject",
+        "z": "fb90419b2eae8818",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "curso",
+                "v": "NodeRed",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "4a61f9c3bd989add"
+            ]
+        ]
+    },
+    {
+        "id": "959a1c71ffbf22fd",
+        "type": "debug",
+        "z": "fb90419b2eae8818",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4a61f9c3bd989add",
+        "type": "function",
+        "z": "fb90419b2eae8818",
+        "name": "function 1",
+        "func": "let data = new Date()\nmsg.payload = data.toDateString()\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 40,
+        "wires": [
+            [
+                "959a1c71ffbf22fd"
+            ]
+        ]
+    },
+    {
+        "id": "d50c3fe0d6687353",
+        "type": "inject",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Entada 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "entrada 1",
+        "payloadType": "str",
+        "x": 100,
+        "y": 60,
+        "wires": [
+            [
+                "053e74ee210fcea6"
+            ]
+        ]
+    },
+    {
+        "id": "2738da74c235c2bd",
+        "type": "inject",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Entrada 2",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "entrada 2",
+        "payloadType": "str",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "053e74ee210fcea6"
+            ]
+        ]
+    },
+    {
+        "id": "053e74ee210fcea6",
+        "type": "function",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Processo",
+        "func": "if(msg.payload == \"entrada 1\"){\n    msg.payload=\"S1\"\n    return [msg,null]\n}else if(msg.payload == \"entrada 2\"){\n    msg.payload=\"S2\"\n    return [null,msg]\n}\nreturn msg;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 80,
+        "wires": [
+            [
+                "14a90b056bf3dc61"
+            ],
+            [
+                "f42eb4d90354cda9"
+            ]
+        ]
+    },
+    {
+        "id": "14a90b056bf3dc61",
+        "type": "debug",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Saida 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f42eb4d90354cda9",
+        "type": "debug",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Saida 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ab4def9cccecb2b1",
+        "type": "inject",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Entrada 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Numero Aleatorio",
+        "payloadType": "str",
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "a843122d07cb7792"
+            ]
+        ]
+    },
+    {
+        "id": "a843122d07cb7792",
+        "type": "function",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Processo",
+        "func": "msg.payload = Math.random()*30\nif(msg.payload <= 10){\n    return [msg, null, null]\n}else if(msg.payload <= 20){\n    return [null, msg, null]\n}else if (msg.payload <= 30){\n    return [null, null, msg]\n}",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 260,
+        "wires": [
+            [
+                "c1ed3dff0df1b9e1"
+            ],
+            [
+                "dbd932d5c47665a6"
+            ],
+            [
+                "65d6855b4db4b710"
+            ]
+        ]
+    },
+    {
+        "id": "c1ed3dff0df1b9e1",
+        "type": "debug",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Saida 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "dbd932d5c47665a6",
+        "type": "debug",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Saida 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "65d6855b4db4b710",
+        "type": "debug",
+        "z": "a8d2866cbb5a27fb",
+        "name": "Saida 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d6e24fe6633da613",
+        "type": "function",
+        "z": "3018d3e8abfb470d",
+        "name": "Soma mais 10",
+        "func": "msg.numero = msg.numero + 10\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "740c7a32d2996e26"
+            ]
+        ]
+    },
+    {
+        "id": "646dc0a19c349b15",
+        "type": "inject",
+        "z": "3018d3e8abfb470d",
+        "name": "",
+        "props": [
+            {
+                "p": "numero",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 40,
+        "wires": [
+            [
+                "bb75aeb389ef2f03"
+            ]
+        ]
+    },
+    {
+        "id": "bb75aeb389ef2f03",
+        "type": "random",
+        "z": "3018d3e8abfb470d",
+        "name": "De 0 a 50",
+        "low": "0",
+        "high": "10",
+        "inte": "true",
+        "property": "numero",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "d6e24fe6633da613"
+            ]
+        ]
+    },
+    {
+        "id": "740c7a32d2996e26",
+        "type": "debug",
+        "z": "3018d3e8abfb470d",
+        "name": "resposta",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "numero",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 160,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "41c52e966bbe3887",
+        "type": "inject",
+        "z": "c7507cc9908101a3",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "dd0e7bcb45524854"
+            ]
+        ]
+    },
+    {
+        "id": "dd0e7bcb45524854",
+        "type": "function",
+        "z": "c7507cc9908101a3",
+        "name": "Contador",
+        "func": "var cont = context.get('contador') || 0;\ncont++;\ncontext.set('contador',cont);\nmsg.payload = cont;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "e70d2bb3edc7f2bc"
+            ]
+        ]
+    },
+    {
+        "id": "e70d2bb3edc7f2bc",
+        "type": "debug",
+        "z": "c7507cc9908101a3",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "3a417774f6b7e231",
+        "type": "inject",
+        "z": "c7507cc9908101a3",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 90,
+        "y": 220,
+        "wires": [
+            [
+                "b9e25540f120e8bf"
+            ]
+        ]
+    },
+    {
+        "id": "b9e25540f120e8bf",
+        "type": "function",
+        "z": "c7507cc9908101a3",
+        "name": "Contador var fluxo",
+        "func": "var cont = flow.get('contador') || 0;\ncont++;\nflow.set('contador',cont);\nmsg.payload = cont;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "72d6e06cbdb2f3ec"
+            ]
+        ]
+    },
+    {
+        "id": "72d6e06cbdb2f3ec",
+        "type": "debug",
+        "z": "c7507cc9908101a3",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "53a8b1ab373055e0",
+        "type": "inject",
+        "z": "c7507cc9908101a3",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "e89399454dccb5e5"
+            ]
+        ]
+    },
+    {
+        "id": "e89399454dccb5e5",
+        "type": "function",
+        "z": "c7507cc9908101a3",
+        "name": "Contador",
+        "func": "var cont = context.get('contador') || 0;\ncont++;\ncontext.set('contador',cont);\nmsg.payload = cont;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "9f981e57f9969f06"
+            ]
+        ]
+    },
+    {
+        "id": "9f981e57f9969f06",
+        "type": "debug",
+        "z": "c7507cc9908101a3",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e0c22584d30ea39b",
+        "type": "inject",
+        "z": "c7507cc9908101a3",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 90,
+        "y": 260,
+        "wires": [
+            [
+                "01fdcd686dfc0735"
+            ]
+        ]
+    },
+    {
+        "id": "01fdcd686dfc0735",
+        "type": "function",
+        "z": "c7507cc9908101a3",
+        "name": "Contador var fluxo",
+        "func": "var cont = flow.get('contador') || 0;\ncont++;\nflow.set('contador',cont);\nmsg.payload = cont;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "8f20e7728f648659"
+            ]
+        ]
+    },
+    {
+        "id": "8f20e7728f648659",
+        "type": "debug",
+        "z": "c7507cc9908101a3",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d3c9b38c52d15f0a",
+        "type": "inject",
+        "z": "c7507cc9908101a3",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 90,
+        "y": 340,
+        "wires": [
+            [
+                "5b1df00420a328c4"
+            ]
+        ]
+    },
+    {
+        "id": "5b1df00420a328c4",
+        "type": "function",
+        "z": "c7507cc9908101a3",
+        "name": "Contador var global",
+        "func": "var cont = global.get('contador') || 0;\ncont++;\nglobal.set('contador',cont);\nmsg.payload = cont;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 340,
+        "wires": [
+            [
+                "b016a96d1124d8fa"
+            ]
+        ]
+    },
+    {
+        "id": "b016a96d1124d8fa",
+        "type": "debug",
+        "z": "c7507cc9908101a3",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7faebbcf413a32f1",
+        "type": "inject",
+        "z": "162be5549dd5ff54",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 90,
+        "y": 60,
+        "wires": [
+            [
+                "136c100f09fdb581"
+            ]
+        ]
+    },
+    {
+        "id": "136c100f09fdb581",
+        "type": "function",
+        "z": "162be5549dd5ff54",
+        "name": "Contador var global",
+        "func": "var cont = global.get('contador') || 0;\ncont++;\nglobal.set('contador',cont);\nmsg.payload = cont;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 60,
+        "wires": [
+            [
+                "8293f33190025def"
+            ]
+        ]
+    },
+    {
+        "id": "8293f33190025def",
+        "type": "debug",
+        "z": "162be5549dd5ff54",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cd2ef33a3d0e36ea",
+        "type": "inject",
+        "z": "69a0122fef4a215f",
+        "name": "inicio",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 60,
+        "wires": [
+            [
+                "a7f9f84f6c7247b0"
+            ]
+        ]
+    },
+    {
+        "id": "a7f9f84f6c7247b0",
+        "type": "function",
+        "z": "69a0122fef4a215f",
+        "name": "Criando JSON",
+        "func": "var doc = {\n    \"nome\":\"Rafael\",\n    \"sobrenome\":\"Machado\",\n    \"curso\":\"Node RED\",\n    \"telefone\":[\"9999-9999\",\"8888-8888\",\"7777-7777\"]\n}\nmsg.payload = doc\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 60,
+        "wires": [
+            [
+                "adde29449abde043",
+                "7a3e337b80532fa6"
+            ]
+        ]
+    },
+    {
+        "id": "adde29449abde043",
+        "type": "debug",
+        "z": "69a0122fef4a215f",
+        "name": "Pos 1 do telefone",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.telefone[1]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7a3e337b80532fa6",
+        "type": "debug",
+        "z": "69a0122fef4a215f",
+        "name": "Nome",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.nome",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "0e1d2acd40081908",
+        "type": "inject",
+        "z": "f74e9a4e5df5144f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "45",
+        "payloadType": "num",
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "c23a046961dd7a3b"
+            ]
+        ]
+    },
+    {
+        "id": "c23a046961dd7a3b",
+        "type": "switch",
+        "z": "f74e9a4e5df5144f",
+        "name": "Entre os numero",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "0",
+                "vt": "num",
+                "v2": "30",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "31",
+                "vt": "num",
+                "v2": "59",
+                "v2t": "num"
+            },
+            {
+                "t": "gte",
+                "v": "60",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "d14a04f99710005c"
+            ],
+            [
+                "be8406131fafefe0"
+            ],
+            [
+                "fe3b5228169184c2"
+            ]
+        ]
+    },
+    {
+        "id": "d14a04f99710005c",
+        "type": "debug",
+        "z": "f74e9a4e5df5144f",
+        "name": "Saida 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "be8406131fafefe0",
+        "type": "debug",
+        "z": "f74e9a4e5df5144f",
+        "name": "Saida 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "fe3b5228169184c2",
+        "type": "debug",
+        "z": "f74e9a4e5df5144f",
+        "name": "Saida 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "94fc90790a531f1e",
+        "type": "inject",
+        "z": "1ded30353ed902a9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "4",
+        "payloadType": "num",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "2871cfd6bee89443"
+            ]
+        ]
+    },
+    {
+        "id": "2871cfd6bee89443",
+        "type": "switch",
+        "z": "1ded30353ed902a9",
+        "name": "Ver nota",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "7",
+                "vt": "num",
+                "v2": "10",
+                "v2t": "num"
+            },
+            {
+                "t": "lte",
+                "v": "4",
+                "vt": "str"
+            },
+            {
+                "t": "btwn",
+                "v": "5",
+                "vt": "num",
+                "v2": "6",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 280,
+        "y": 40,
+        "wires": [
+            [
+                "8c23dee0a9b86cdc"
+            ],
+            [
+                "f4ae34fd4a5241e5"
+            ],
+            [
+                "afdd5cdcdebd3aa4"
+            ]
+        ]
+    },
+    {
+        "id": "848bfb6a57d9edd0",
+        "type": "debug",
+        "z": "1ded30353ed902a9",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8c23dee0a9b86cdc",
+        "type": "change",
+        "z": "1ded30353ed902a9",
+        "name": "Aprovado",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Aprovado",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "441a843ea624d5d6"
+            ]
+        ]
+    },
+    {
+        "id": "f4ae34fd4a5241e5",
+        "type": "change",
+        "z": "1ded30353ed902a9",
+        "name": "Reprovado",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Reprovado",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "441a843ea624d5d6"
+            ]
+        ]
+    },
+    {
+        "id": "afdd5cdcdebd3aa4",
+        "type": "change",
+        "z": "1ded30353ed902a9",
+        "name": "Recuperação",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "para a Recuperação",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "441a843ea624d5d6"
+            ]
+        ]
+    },
+    {
+        "id": "08aa8bb0a32fd6c0",
+        "type": "inject",
+        "z": "1ded30353ed902a9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "2871cfd6bee89443"
+            ]
+        ]
+    },
+    {
+        "id": "9d5bd404730a76be",
+        "type": "inject",
+        "z": "1ded30353ed902a9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "8",
+        "payloadType": "num",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "2871cfd6bee89443"
+            ]
+        ]
+    },
+    {
+        "id": "441a843ea624d5d6",
+        "type": "template",
+        "z": "1ded30353ed902a9",
+        "name": "Imprime uma msg",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "O aluno foi {{payload}}!",
+        "output": "str",
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "848bfb6a57d9edd0"
+            ]
+        ]
+    },
+    {
+        "id": "0f46916636314bd9",
+        "type": "range",
+        "z": "9f83f3e080d69391",
+        "minin": "0",
+        "maxin": "10",
+        "minout": "0",
+        "maxout": "100",
+        "action": "scale",
+        "round": false,
+        "property": "payload",
+        "name": "",
+        "x": 260,
+        "y": 100,
+        "wires": [
+            [
+                "f50e44cbbf52a52c"
+            ]
+        ]
+    },
+    {
+        "id": "3bc87acb643e4a19",
+        "type": "inject",
+        "z": "9f83f3e080d69391",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "6",
+        "payloadType": "num",
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "0f46916636314bd9"
+            ]
+        ]
+    },
+    {
+        "id": "f50e44cbbf52a52c",
+        "type": "debug",
+        "z": "9f83f3e080d69391",
+        "name": "Resutado",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b6884d016c8a7d41",
+        "type": "inject",
+        "z": "a2f23489ef5d3269",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Mensagem chegada a 5s de atraso",
+        "payloadType": "str",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "7242ef7c8fa89981"
+            ]
+        ]
+    },
+    {
+        "id": "2d99acb1b6ae4f1a",
+        "type": "debug",
+        "z": "a2f23489ef5d3269",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 150,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "7242ef7c8fa89981",
+        "type": "delay",
+        "z": "a2f23489ef5d3269",
+        "name": "Intervalo 5s",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "2d99acb1b6ae4f1a"
+            ]
+        ]
+    },
+    {
+        "id": "0cd2bf86bf66a307",
+        "type": "inject",
+        "z": "2843fd23ec07b855",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Dispara",
+        "payloadType": "str",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "a988ab1227943d7f"
+            ]
+        ]
+    },
+    {
+        "id": "e611a54fe728b81a",
+        "type": "debug",
+        "z": "2843fd23ec07b855",
+        "name": "Saida",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a988ab1227943d7f",
+        "type": "trigger",
+        "z": "2843fd23ec07b855",
+        "name": "",
+        "op1": "Disparo",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "-2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "Parar",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "e611a54fe728b81a"
+            ]
+        ]
+    },
+    {
+        "id": "da70d3dd6be3b6fc",
+        "type": "inject",
+        "z": "2843fd23ec07b855",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Parar",
+        "payloadType": "str",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "a988ab1227943d7f"
+            ]
+        ]
+    },
+    {
+        "id": "8312843879eeb09b",
+        "type": "http in",
+        "z": "19a3dd29b3595015",
+        "name": "",
+        "url": "/teste1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "7fa27d06749f09e9"
+            ]
+        ]
+    },
+    {
+        "id": "798e2962abf14a95",
+        "type": "http response",
+        "z": "19a3dd29b3595015",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 310,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b59047bce1790b42",
+        "type": "template",
+        "z": "19a3dd29b3595015",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<html>\n    <head>\n        <title>NodeRED</title>\n    </head>\n    <body>\n        <h1>Rafael Machado</h1>\n        <h1>{{payload}}</h1>\n    </body>\n</html>",
+        "output": "str",
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "798e2962abf14a95"
+            ]
+        ]
+    },
+    {
+        "id": "7fa27d06749f09e9",
+        "type": "function",
+        "z": "19a3dd29b3595015",
+        "name": "funçaõ",
+        "func": "msg.payload=\"Curso NodeRED\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "b59047bce1790b42"
+            ]
+        ]
+    },
+    {
+        "id": "7726a7beac7cfb8c",
+        "type": "http in",
+        "z": "e24a8c6d1c785660",
+        "name": "",
+        "url": "/aluno",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "c7fed7e89b9d4bc2"
+            ]
+        ]
+    },
+    {
+        "id": "28daefd2ec3c4986",
+        "type": "http response",
+        "z": "e24a8c6d1c785660",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 330,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "0d5a039a2a54e7a6",
+        "type": "template",
+        "z": "e24a8c6d1c785660",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<html>\n    <head>\n        <title>NodeRED</title>\n    </head>\n    <body>\n        <h1>Rafael Machado</h1>\n        <h1>{{payload}}</h1>\n    </body>\n</html>",
+        "output": "str",
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "28daefd2ec3c4986"
+            ]
+        ]
+    },
+    {
+        "id": "c7fed7e89b9d4bc2",
+        "type": "function",
+        "z": "e24a8c6d1c785660",
+        "name": "funçaõ",
+        "func": "\nmsg.payload=msg.req.query.curso\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "0d5a039a2a54e7a6"
+            ]
+        ]
+    },
+    {
+        "id": "cecbbbfe0183b4a5",
+        "type": "http in",
+        "z": "bd11844629048cc3",
+        "name": "",
+        "url": "/api/:nome/:idade/:profissao",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "c9b177d57aaf5c2b"
+            ]
+        ]
+    },
+    {
+        "id": "25dbf5019373319a",
+        "type": "http response",
+        "z": "bd11844629048cc3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 130,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c9b177d57aaf5c2b",
+        "type": "template",
+        "z": "bd11844629048cc3",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Criando API</title>\n</head>\n<body>\n    <h1>Aluno</h1>\n    <h1>Mome: {{req.params.nome}}</h1>\n    <h1>Idade: {{req.params.idade}}</h1>\n    <h1>Profisão: {{req.params.profissao}}</h1>\n\n    <p></p>\n</body>\n</html>",
+        "output": "str",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "25dbf5019373319a"
+            ]
+        ]
+    },
+    {
+        "id": "f28de18856904376",
+        "type": "inject",
+        "z": "812b547930bae62f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "c128cfce590874eb"
+            ]
+        ]
+    },
+    {
+        "id": "c128cfce590874eb",
+        "type": "random",
+        "z": "812b547930bae62f",
+        "name": "",
+        "low": 1,
+        "high": 10,
+        "inte": "true",
+        "property": "payload",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "de6a6a0241a4c264"
+            ]
+        ]
+    },
+    {
+        "id": "4505f6101f86f55b",
+        "type": "http in",
+        "z": "812b547930bae62f",
+        "name": "",
+        "url": "/api1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 220,
+        "wires": [
+            [
+                "1e5038474856605a"
+            ]
+        ]
+    },
+    {
+        "id": "c4b80c426428d925",
+        "type": "template",
+        "z": "812b547930bae62f",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Numero: {{payload}} !",
+        "output": "str",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "ee4a2ffd38c90f47"
+            ]
+        ]
+    },
+    {
+        "id": "ee4a2ffd38c90f47",
+        "type": "http response",
+        "z": "812b547930bae62f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 310,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4df80e0dada2a93d",
+        "type": "debug",
+        "z": "812b547930bae62f",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "de6a6a0241a4c264",
+        "type": "change",
+        "z": "812b547930bae62f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "4df80e0dada2a93d"
+            ]
+        ]
+    },
+    {
+        "id": "1e5038474856605a",
+        "type": "change",
+        "z": "812b547930bae62f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [
+                "c4b80c426428d925"
+            ]
+        ]
+    },
+    {
+        "id": "f29973c74d7149d8",
+        "type": "http in",
+        "z": "4fcbb98a5169e853",
+        "name": "",
+        "url": "/user",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 80,
+        "wires": [
+            [
+                "01ebaff2676d572d"
+            ]
+        ]
+    },
+    {
+        "id": "846dcb0ffdad2fdd",
+        "type": "http response",
+        "z": "4fcbb98a5169e853",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 310,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "851defe231192aef",
+        "type": "template",
+        "z": "4fcbb98a5169e853",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"User Agent\": \"{{req.headers.user-agent}}\"}",
+        "output": "str",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "846dcb0ffdad2fdd"
+            ]
+        ]
+    },
+    {
+        "id": "01ebaff2676d572d",
+        "type": "change",
+        "z": "4fcbb98a5169e853",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "headers.content.type",
+                "pt": "msg",
+                "to": "application/json",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "headers.access-control-allow-origim",
+                "pt": "msg",
+                "to": "*",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "851defe231192aef"
+            ]
+        ]
+    },
+    {
+        "id": "509320ca5ba0f2f3",
+        "type": "http in",
+        "z": "0201760cc56fb391",
+        "name": "",
+        "url": "/api-json",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "169c81238b52ce5c"
+            ]
+        ]
+    },
+    {
+        "id": "2fec96c42530d4e9",
+        "type": "http response",
+        "z": "0201760cc56fb391",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 430,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "169c81238b52ce5c",
+        "type": "template",
+        "z": "0201760cc56fb391",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"curso\":\"NodeRED\",\n    \"aluno\":\"NodeRED\",\n    \"ano\":\"2024\",\n    \"cursos\":[\"NodeRED\",\"react\",\"react-native\"]\n}",
+        "output": "str",
+        "x": 280,
+        "y": 40,
+        "wires": [
+            [
+                "2fec96c42530d4e9",
+                "ef52b95963baab4b"
+            ]
+        ]
+    },
+    {
+        "id": "19601e3d06862902",
+        "type": "debug",
+        "z": "0201760cc56fb391",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.cursos[2]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ef52b95963baab4b",
+        "type": "json",
+        "z": "0201760cc56fb391",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "19601e3d06862902"
+            ]
+        ]
+    },
+    {
+        "id": "4740527ec54a619f",
+        "type": "http in",
+        "z": "0806ba2f6fd38585",
+        "name": "",
+        "url": "/api-logo-png",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "454463dc695a1135"
+            ]
+        ]
+    },
+    {
+        "id": "52a3fec2ae84e1e9",
+        "type": "http response",
+        "z": "0806ba2f6fd38585",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 90,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "454463dc695a1135",
+        "type": "file in",
+        "z": "0806ba2f6fd38585",
+        "name": "",
+        "filename": "C:\\Users\\rafin\\OneDrive\\Documentos\\GitHub\\Front-End Estudos\\Projeto01 Resp SEO\\images\\arrow.png",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "52a3fec2ae84e1e9"
+            ]
+        ]
+    },
+    {
+        "id": "df4efcee2d5f7a0f",
+        "type": "http in",
+        "z": "0806ba2f6fd38585",
+        "name": "",
+        "url": "/api-logo.rar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "6a38e3a338a97f01"
+            ]
+        ]
+    },
+    {
+        "id": "8178354b67c05bb2",
+        "type": "http response",
+        "z": "0806ba2f6fd38585",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": ""
+        },
+        "x": 90,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6a38e3a338a97f01",
+        "type": "file in",
+        "z": "0806ba2f6fd38585",
+        "name": "",
+        "filename": "C:\\Users\\rafin\\OneDrive\\Documentos\\GitHub\\Front-End Estudos\\Projeto01 Resp SEO\\images\\header_bg.rar",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "8178354b67c05bb2"
+            ]
+        ]
+    },
+    {
+        "id": "d52d51a249283736",
+        "type": "http in",
+        "z": "e93b16ccd175b548",
+        "name": "",
+        "url": "/get-form",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "d07de4e375fb80cc"
+            ]
+        ]
+    },
+    {
+        "id": "b91b10ce39336aea",
+        "type": "http response",
+        "z": "e93b16ccd175b548",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 90,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d07de4e375fb80cc",
+        "type": "template",
+        "z": "e93b16ccd175b548",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"pi-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Curso NodeRED</title>\n</head>\n<body>\n    <h1>Olá {{payload.nome}}</h1>\n</body>\n</html>",
+        "output": "str",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "b91b10ce39336aea"
+            ]
+        ]
+    },
+    {
+        "id": "474af5f5497f03ff",
+        "type": "http in",
+        "z": "e93b16ccd175b548",
+        "name": "",
+        "url": "/post-form",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "f550cbe5158f82c5"
+            ]
+        ]
+    },
+    {
+        "id": "51d988c031ba4ff3",
+        "type": "http response",
+        "z": "e93b16ccd175b548",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 90,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f550cbe5158f82c5",
+        "type": "template",
+        "z": "e93b16ccd175b548",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Curso NodeRED</title>\n</head>\n<body>\n    <h1>Olá {{payload.nome}}</h1>\n</body>\n</html>",
+        "output": "str",
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "51d988c031ba4ff3"
+            ]
+        ]
+    }
+]

@@ -83,7 +83,9 @@
 //          "/api/:nome/:idade/:profissão"
 //          http://127.0.0.1:1880/api/Rafael/34/Tecnico
 
+//File      -> No de armazenamento: Permite selecionar um arquivo para leitura
 
+//
 
 
 
