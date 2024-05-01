@@ -22,68 +22,79 @@
 
 //*Tipos de nós
 
-//Inject    -> Nó de incio: Injeta uma mensagem porem não necessariamente precisa começar com ele.
-//          Para alterar os parâmetros da injeção de um click dublo
-//          Repetição configurada
+//Inject        -> Nó de incio: Injeta uma mensagem porem não necessariamente precisa começar com ele.
+//              Para alterar os parâmetros da injeção de um click dublo
+//              Repetição configurada
 
-//Debug     -> Nó de saída: Recebe o que foi injetado como se fosse um console
-//          Escolhe um ou todos os recursos injetado
+//Debug         -> Nó de saída: Recebe o que foi injetado como se fosse um console
+//              Escolhe um ou todos os recursos injetado
 
-//Function  -> Nó de função: Pode fazer função em javascript
-//          No inicio:
-//          O código adicionado aqui será executado uma vez
-//          sempre que o nó for iniciado.
+//Function      -> Nó de função: Pode fazer função em javascript
+//              No inicio:
+//              O código adicionado aqui será executado uma vez
+//              sempre que o nó for iniciado.
 //
-//          Na mensagem:
-//          Retorna uma mensagem
+//              Na mensagem:
+//              Retorna uma mensagem
 //
-//          Na parada:
-//          O código adicionado aqui será executado quando o nó
-//          for interrompido ou reimplementado.
+//              Na parada:
+//              O código adicionado aqui será executado quando o nó
+//              for interrompido ou reimplementado.
 //
-//          1 ou mais saídas e 1 ou mais entradas
+//              1 ou mais saídas e 1 ou mais entradas
 
-//Switch    -> Nó de switch: Serve para dependendo da condição,
-//           sair em um sada especifica
+//Switch        -> Nó de switch: Serve para dependendo da condição,
+//              sair em um sada especifica
 
-//Change    -> Nó de modificação: Serve para definir, mudar, mover ou apagar valores programados
+//Change        -> Nó de modificação: Serve para definir, mudar, mover ou apagar valores programados
 
-//Template  -> Nó de apresentação: Insere um texto junto com o resultado
+//Template      -> Nó de apresentação: Insere um texto junto com o resultado
 
-//Range     -> Nó de mapeamento: Correlaciona valores entre 2 faixas 
-//          ex:
-//          Mapeie o intervalo de entrada:
-//          de: 0 para: 10
-//          para o intervalo alvo:
-//          de: 0 para: 100
+//Range         -> Nó de mapeamento: Correlaciona valores entre 2 faixas 
+//              ex:
+//              Mapeie o intervalo de entrada:
+//              de: 0 para: 10
+//              para o intervalo alvo:
+//              de: 0 para: 100
 //
-//          O valor coletado va ser entre 0 a 10
-//          A função vai fazer tipo uma regra de 3 para correlacionar com outra faixa de valor
-//          Exemplo insere o valor 4
+//              O valor coletado va ser entre 0 a 10
+//              A função vai fazer tipo uma regra de 3 para correlacionar com outra faixa de valor
+//              Exemplo insere o valor 4
 //         
-//          10 - 100        10x = 4 * 100
-//          4 - x           x = 400 / 10
+//              10 - 100        10x = 4 * 100
+//              4 - x           x = 400 / 10
 //                          x = 40
-//          Outro exemplo é uma saída de um sensor de 0 a 12v
-//          sendo 0v e igual -10° e 12v é igual 40° e ao receber 6v seria igual á 25°
+//              Outro exemplo é uma saída de um sensor de 0 a 12v
+//              sendo 0v e igual -10° e 12v é igual 40° e ao receber 6v seria igual á 25°
 
-//Delay     -> Nó de intervalo: Atrasa o evento por tempo programado
+//Delay         -> Nó de intervalo: Atrasa o evento por tempo programado
 
-//Trigger   -> Nó de Gatilho: Ao ativar o gatilho fica disparando mensagem programada
-//          podemos parar de dispara ao receber um valor especifico
+//Trigger       -> Nó de Gatilho: Ao ativar o gatilho fica disparando mensagem programada
+//              podemos parar de dispara ao receber um valor especifico
 
-//HTTP      -> Nó de web: Pode fazer chamadas via browser como API
-//          EX: Na configuração do no HTTP setamos "aluno" no URL
-//          http://127.0.0.1:1880/aluno?curso=Javascript Nesse exemplo passamos um parâmetro
+//HTTP          -> Nó de web: Pode fazer chamadas via browser como API
+//              EX: Na configuração do no HTTP setamos "aluno" no URL
+//              http://127.0.0.1:1880/aluno?curso=Javascript Nesse exemplo passamos um parâmetro
 //
-//          Outra forma de passar o parâmetro é pela requisição prevista
-//          EX: Na configuração do no HTTP setamos "/api/:nome" no URL prevendo o campo nome
-//          http://127.0.0.1:1880/api/Rafael
-//          Mais parâmetros
-//          "/api/:nome/:idade/:profissão"
-//          http://127.0.0.1:1880/api/Rafael/34/Tecnico
+//              Outra forma de passar o parâmetro é pela requisição prevista
+//              EX: Na configuração do no HTTP setamos "/api/:nome" no URL prevendo o campo nome
+//              http://127.0.0.1:1880/api/Rafael
+//              Mais parâmetros
+//              "/api/:nome/:idade/:profissão"
+//              http://127.0.0.1:1880/api/Rafael/34/Tecnico
 
-//File      -> No de armazenamento: Permite selecionar um arquivo para leitura
+//File          -> No de armazenamento: Permite selecionar um arquivo para leitura
+
+//HTTP Request  -> Nó de requisição http: Permite consultar url configurada nela
+
+//HTML          -> Nó de seleção: Seleciona qualquer elemento dentro do HTML
+
+//Split         -> Nó de divisão: Divide a mensagem a partir do carácter definido e cria um array
+
+//Join          -> Nó de junção: Junta as mensagem enviadas separadas setando no manual e 
+//              a quantidade de mensagem
+
+//mysql         -> Nó de Banco de Dados: As query é inserido no msg.topic
 
 
 //*Funções Prontos
