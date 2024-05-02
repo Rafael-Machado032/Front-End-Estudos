@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookies</title>
+    <style>
+        {{css}}
+    </style>
+    <title>Curso NodeRED</title>
 </head>
+
 <body>
-    <h1>Cookies</h1>
-    <a href="http://api-cookies/add">Adicionar</a>
-    <pre>{{payload}}</pre>
+    <div class="topo">
+        <a class="btn" href="http://127.0.0.1:1880/inicio/1">Home</a>
+        <a class="btn" href="http://127.0.0.1:1880/inicio/2">Adicionar</a>
+        <a class="btn" href="http://127.0.0.1:1880/inicio/2">Consultar</a>
+    </div>
+    <h1>Curso NodeRED</h1>
+    <h2>Home</h2>
+    <form action="" method="get">
+        <label for="">Nome</label>
+        <input type="text" name="nome" id="nome">
+        <label for="">Telefone</label>
+        <input type="tel" name="telefone" id="telefone">
+        <label for="">Email</label>
+        <input type="email" name="email" id="email">
+        <input type="submit" value="Enviar">
+    </form>
+
 </body>
+
 </html>
