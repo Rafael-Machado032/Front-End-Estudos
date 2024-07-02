@@ -216,6 +216,14 @@
         "env": []
     },
     {
+        "id": "cfea689c951e1a35",
+        "type": "tab",
+        "label": "Back-End com NodeRed",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f411f9ddb115f5cf",
         "type": "MySQLdatabase",
         "name": "",
@@ -4264,7 +4272,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        {{css}}\n    </style>\n    <title>Curso NodeRED</title>\n</head>\n\n<body>\n    <div class=\"topo\">\n                <a class=\"btn\" href=\"http://127.0.0.1:1880/inicio/home\">Home</a>\n        <a class=\"btn\" href=\"http://127.0.0.1:1880/inicio/add\">Adicionar</a>\n        <a class=\"btn\" href=\"http://127.0.0.1:1880/inicio/cons\">Consultar</a>\n    </div>\n    <h1>Curso NodeRED</h1>\n    <h2>Adicionar</h2>\n    <h3>Dados Enviados</h3>\n</body>\n\n</html>",
+        "template": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        {{css}}\n    </style>\n    <title>Curso NodeRED</title>\n</head>\n\n<body>\n    <div class=\"topo\">\n        <a class=\"btn\" href=\"http://127.0.0.1:1880/inicio/home\">Home</a>\n        <a class=\"btn\" href=\"http://127.0.0.1:1880/inicio/add\">Adicionar</a>\n        <a class=\"btn\" href=\"http://127.0.0.1:1880/inicio/cons\">Consultar</a>\n    </div>\n    <h1>Curso NodeRED</h1>\n    <h2>Adicionar</h2>\n    <h3>Dados Enviados</h3>\n</body>\n\n</html>",
         "output": "str",
         "x": 130,
         "y": 440,
@@ -4284,5 +4292,231 @@
         "x": 310,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "68e72b375cfbc1df",
+        "type": "http in",
+        "z": "cfea689c951e1a35",
+        "name": "",
+        "url": "/adicionarB",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 80,
+        "wires": [
+            [
+                "867abfc67647dd06"
+            ]
+        ]
+    },
+    {
+        "id": "e2f0d4f18dab6428",
+        "type": "mysql",
+        "z": "cfea689c951e1a35",
+        "mydb": "f411f9ddb115f5cf",
+        "name": "",
+        "x": 740,
+        "y": 60,
+        "wires": [
+            [
+                "8041c0257f725348"
+            ]
+        ]
+    },
+    {
+        "id": "ab13b67433bf72e7",
+        "type": "function",
+        "z": "cfea689c951e1a35",
+        "name": "Insert banco",
+        "func": "let nome = msg.req.query.nome\nlet fone = msg.req.query.telefone\nlet email = msg.req.query.email\nmsg.topic = \"insert into contatos_nodered (s_nome_contatos,s_telefone_contatos,s_email_contatos) values('\"+nome+\"','\"+fone+\"','\"+email+\"')\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 60,
+        "wires": [
+            [
+                "e2f0d4f18dab6428"
+            ]
+        ]
+    },
+    {
+        "id": "bc07e11a2a051b5e",
+        "type": "http response",
+        "z": "cfea689c951e1a35",
+        "name": "OK - 200",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1200,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "867abfc67647dd06",
+        "type": "function",
+        "z": "cfea689c951e1a35",
+        "name": "Testa Vazio",
+        "func": "let nome = msg.req.query.nome\nlet fone = msg.req.query.telefone\nif(nome==\"\"||fone==\"\"){\n    msg.erro = 1;\n}else{\n    msg.erro = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 80,
+        "wires": [
+            [
+                "c87480aad79b6339"
+            ]
+        ]
+    },
+    {
+        "id": "c87480aad79b6339",
+        "type": "switch",
+        "z": "cfea689c951e1a35",
+        "name": "",
+        "property": "erro",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 80,
+        "wires": [
+            [
+                "ab13b67433bf72e7"
+            ],
+            [
+                "e85dae55d57bbbf1"
+            ]
+        ]
+    },
+    {
+        "id": "e85dae55d57bbbf1",
+        "type": "http response",
+        "z": "cfea689c951e1a35",
+        "name": "ERRO - 204",
+        "statusCode": "204",
+        "headers": {},
+        "x": 590,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "fd954c9a9fb035cb",
+        "type": "mysql",
+        "z": "cfea689c951e1a35",
+        "mydb": "f411f9ddb115f5cf",
+        "name": "",
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "da6658732de65b38"
+            ]
+        ]
+    },
+    {
+        "id": "9d8679b13a1f1ffe",
+        "type": "function",
+        "z": "cfea689c951e1a35",
+        "name": "select banco",
+        "func": "let nome = msg.req.query.nome\nlet fone = msg.req.query.telefone\nlet email = msg.req.query.email\nmsg.topic = \"select * from contatos_nodered\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "fd954c9a9fb035cb"
+            ]
+        ]
+    },
+    {
+        "id": "da6658732de65b38",
+        "type": "http response",
+        "z": "cfea689c951e1a35",
+        "name": "OK - 200",
+        "statusCode": "200",
+        "headers": {},
+        "x": 560,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "05036b5fdbb2b60d",
+        "type": "http in",
+        "z": "cfea689c951e1a35",
+        "name": "",
+        "url": "/consultarB",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "9d8679b13a1f1ffe"
+            ]
+        ]
+    },
+    {
+        "id": "e3ebfda36c4b9957",
+        "type": "template",
+        "z": "cfea689c951e1a35",
+        "name": "Dados adicionado",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        {{css}}\n    </style>\n    <title>Curso NodeRED</title>\n</head>\n\n<body>\n    <div class=\"topo\">\n        <a class=\"btn\" href=\"http://127.0.0.1:5500/Node%20Estudos/NodeRed/Front-End%20com%20NodeRed/index.html\">Home</a>\n        <a class=\"btn\" href=\"http://127.0.0.1:5500/Node%20Estudos/NodeRed/Front-End%20com%20NodeRed/adicionar.html\">Adicionar</a>\n        <a class=\"btn\" href=\"http://127.0.0.1:5500/Node%20Estudos/NodeRed/Front-End%20com%20NodeRed/consultar.html\">Consultar</a>\n    </div>\n    <h1>Curso NodeRED</h1>\n    <h2>Adicionar</h2>\n    <h3>Dados Enviados</h3>\n</body>\n\n</html>",
+        "output": "str",
+        "x": 1030,
+        "y": 60,
+        "wires": [
+            [
+                "bc07e11a2a051b5e"
+            ]
+        ]
+    },
+    {
+        "id": "8041c0257f725348",
+        "type": "template",
+        "z": "cfea689c951e1a35",
+        "name": "css",
+        "field": "css",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": "*{\n    box-sizing: border-box;\n    margin: 0px;\n    padding: 0px;\n    border: 0px;\n    font-family: Arial, Helvetica, sans-serif;\n}\nbody{\n    background-color:#ffe;\n}\nh1{\n    color: #00a;\n    margin: 10px;\n}\nh2,h3{\n    margin: 10px;\n}\na{\n    text-decoration: none;\n}\n.topo{\n    width: 100%;\n    background-color: #004;\n    color: #fff;\n    display: flex;    \n}\n.btn{\n    background-color: #eae5e5;\n    color: #000;\n    border-radius: 5px;\n    padding: 5px 15px;\n    margin: 5px;\n}\n",
+        "output": "str",
+        "x": 870,
+        "y": 60,
+        "wires": [
+            [
+                "e3ebfda36c4b9957"
+            ]
+        ]
     }
 ]
