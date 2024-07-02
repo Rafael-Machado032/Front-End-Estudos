@@ -3,7 +3,7 @@ const p_nivel = document.getElementById("p_nivel")
 const p_press = document.getElementById("p_press")
 const btn_texto = document.getElementById("btn_texto")
 //Trabalhando com API
-const endpoint = "http://127.0.0.1:1880/recebe"
+const endpoint = "https://dce2e9a9-010b-4837-a62d-682670b54047-00-194hc2z58tau3.spock.replit.dev/"
 //A variável endpoint não eh obrigatória 
 const obterDados=()=>{
     fetch(endpoint) //Faz o consumo da API
@@ -15,7 +15,7 @@ const obterDados=()=>{
         p_press.innerHTML = "Pressão: " + dados.pressao
     })
 }
-let intervalo = setInterval(obterDados,1000)
+//let intervalo = setInterval(obterDados,1000)
 
 let dados={ //Objeto que recebe os dados 
     Nome: "Rafael",
@@ -29,7 +29,7 @@ let cabecalho={ //foi criado um variável para colocar as configuração de envi
 }
 
 const gravarDados=()=>{
-    const endpoint="http://127.0.0.1:1880/gravar" //Endereço do API
+    const endpoint="" //Endereço do API
     fetch(endpoint,cabecalho) //Faz consumo do API coma configuração
     .then(res=>res.json())
     .then(ret=>{
