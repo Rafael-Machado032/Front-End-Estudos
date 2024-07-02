@@ -1,5 +1,5 @@
 //Trabalhando com API
-const endpoint="https://cba67353-9bac-4b14-9d59-17a10d29b0db-00-f0sm574m7rab.riker.replit.dev/"
+const endpoint="https://dce2e9a9-010b-4837-a62d-682670b54047-00-194hc2z58tau3.spock.replit.dev/"
 //A variável endpoint não eh obrigatória 
 
 fetch(endpoint) //Faz o consumo da API
