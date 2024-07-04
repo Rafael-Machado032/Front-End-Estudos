@@ -29,7 +29,7 @@ btn_iniciar.addEventListener("click", (evt) => {
     intervalo = setInterval(contador, 1000) //chama o contator de 1 a 1 segundo
 })
 btn_parar.addEventListener("click", (evt) => {
-    clearInterval(intervalo) ////para de chamar
+    clearInterval(intervalo) //para de chamar
 })
 btn_zerar.addEventListener("click", (evt) => {
     tmpini = Date.now()
