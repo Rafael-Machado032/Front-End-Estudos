@@ -28,9 +28,11 @@ btn_iniciar.addEventListener("click", (evt) => {
     tmpini = Date.now() //pega o tempo agora  
     intervalo = setInterval(contador, 1000) //chama o contator de 1 a 1 segundo
 })
+
 btn_parar.addEventListener("click", (evt) => {
     clearInterval(intervalo) //para de chamar
 })
+
 btn_zerar.addEventListener("click", (evt) => {
     tmpini = Date.now()
     timer.innerHTML = "00:00:00"
