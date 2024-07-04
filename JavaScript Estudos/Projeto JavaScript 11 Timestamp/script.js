@@ -23,8 +23,6 @@ const conveter = (seg) => {
     return tempoformatado //retorna o horário formatado
 }
 
-
-
 btn_iniciar.addEventListener("click", (evt) => {
 
     tmpini = Date.now() //pega o tempo agora  
