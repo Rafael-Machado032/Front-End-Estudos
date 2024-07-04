@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- https://www.chartjs.org/ biblioteca de gráficos -->
+    <title>Aprendendo Gráficos</title>
+</head>
+<body>
+  <div style="width: 1000px; height: 1000px;">
+        <canvas id="grafico1" ></canvas>
+  </div>
+   
+
+    <script>
+        const ctx = document.getElementById('grafico1');
+        
+        let eixoX = ["Disponibilidade","Qualidade","Performance"] // Cria as variáveis para modificar os valores
+        let Valores = [0,0,0]
+
+        let grafico1 = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: eixoX, //insira a variável com os países
+            datasets: [{
+              label: 'Países em desenvolvimento',
+              data: Valores, //variável valores
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      
+        const obterdados = () =>{
+          const endpoint = "https://8deaed34-c38d-4992-8207-3e0e1eabfda0-00-oy3chj7gru45.worf.replit.dev/"
+        fetch(endpoint)
+        .then(res=>res.json())
+        .then(res=>{
+          Valores[0] = res.Disponibilidade
+          Valores[1] = res.Qualidade
+          Valores[2] = res.Performance
+          grafico1.update() //Atualizar os valores
+        })
+        }
+        
+        let intervalo = setInterval(obterdados,1000)
+
+      </script>
+
+    
+</body>
+</html>
