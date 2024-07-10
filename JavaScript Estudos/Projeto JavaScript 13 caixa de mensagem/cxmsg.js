@@ -12,7 +12,7 @@ class Cxmsg {
         this.destino = document.body
     }
     mostrar = () => {       //Métodos da classe
-        this.divmsg = document.createElement("div")
+        
         const estilo_divmsg =       //Variável para armazenar o estilo
             " display: flex;" +
             " justify-content: center;" +
@@ -22,8 +22,8 @@ class Cxmsg {
             " left: 0px;" +
             " width: 100%;" +
             " height: 100vh;" +
-            " background-color: rgba(0,0,0,0.7);"
-            
+            " background-color: rgba(0,0,0,0.7);" 
+        this.divmsg = document.createElement("div")  
         this.divmsg.setAttribute("id","divmsg")         //Setando "id" na div
         this.divmsg.setAttribute("style",estilo_divmsg) //Setando o estilo na div
         this.destino.prepend(this.divmsg)               //Colocar a div no topo do body que esta associado no destino
@@ -34,10 +34,9 @@ class Cxmsg {
             " align-items: flex-start;" +
             " flex-direction: column;" +
             " width: 300px;" 
-
-        const areaCxmsg = document.createElement("div")
-        areaCxmsg.setAttribute("style",estilo_areaCxmsg)
-        this.divmsg.appendChild(areaCxmsg)
+        const areaCxmsg = document.createElement("div")     //criando a div
+        areaCxmsg.setAttribute("style",estilo_areaCxmsg)    //Setando o estilo na div
+        this.divmsg.appendChild(areaCxmsg)      //Filho da divmsg
 
         const estilo_tituloCxmsg =
             " display: flex;" +
@@ -48,10 +47,10 @@ class Cxmsg {
             " color: #fff;" +
             " padding: 5px;" +
             " border-radius: 5px 5px 0px 0px;"
-        const tituloCxmsg = document.createElement("div")
-        tituloCxmsg.setAttribute("style",estilo_tituloCxmsg)
-        tituloCxmsg.innerHTML = this.titulo
-        areaCxmsg.appendChild(tituloCxmsg)
+        const tituloCxmsg = document.createElement("div")       //criando a div
+        tituloCxmsg.setAttribute("style",estilo_tituloCxmsg)    //Setando o estilo na div
+        tituloCxmsg.innerHTML = this.titulo     //Insere conteúdo setado na chamada do objeto
+        areaCxmsg.appendChild(tituloCxmsg)      //Filho da div areaCxmsg
     }
     ocultar = () => {       //Métodos da classe
 
