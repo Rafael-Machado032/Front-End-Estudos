@@ -2,10 +2,10 @@
 const body = document.body
 
 const estiloTopo =
-    "display: flex;" +
-    "justify-content: space-between;" +
-    "align-items: center;" +
-    "background-color: #eee;"
+    " display: flex;" +
+    " justify-content: space-between;" +
+    " align-items: center;" +
+    " background-color: #eee;"
 
 const topo = document.createElement("div")
 topo.setAttribute("id", "topo")
