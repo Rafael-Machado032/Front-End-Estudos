@@ -42,7 +42,7 @@ class Cxmsg {
         const estilo_tituloCxmsg =
             " display: flex;" +
             " justify-content: flex-start;" +
-            " align-itens: flex-start;" +
+            " align-items: center;" +
             " width: 100%;" +
             " background-color: " + this.cor + ";" +
             " color: #fff;" +
@@ -51,7 +51,7 @@ class Cxmsg {
         const tituloCxmsg = document.createElement("div")
         tituloCxmsg.setAttribute("style",estilo_tituloCxmsg)
         tituloCxmsg.innerHTML = this.titulo
-        this.divmsg.appendChild(tituloCxmsg)
+        areaCxmsg.appendChild(tituloCxmsg)
     }
     ocultar = () => {       //Métodos da classe
 
