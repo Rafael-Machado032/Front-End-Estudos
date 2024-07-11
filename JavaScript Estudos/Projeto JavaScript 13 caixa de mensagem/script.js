@@ -1,6 +1,6 @@
 const config = { //Setando a configuração para estanciamento da classe
-    titulo:"Teste",
-    texto:"Curso Javascript",
+    titulo:"Rafael Machado",
+    texto:"Curso Javascript, Criando caixa personalizada",
     cor:"#48f"
 }
 const cxmsg = new Cxmsg(config) //Estanciar o objeto com as configuração
