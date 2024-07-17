@@ -5,4 +5,47 @@
     box-sizing: border-box;
 }
 
-/**/
+/*  FORMATAÇÃO TELA LOGIN */
+
+.fundologin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.baselogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.elementoslogin{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+    background-color: #eee;
+}
+
+.logologin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #bbb;
+}
+
+.logologin img{
+    width: 40%;
+}
+
+
+
