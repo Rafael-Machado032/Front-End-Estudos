@@ -25,9 +25,9 @@ class Login {
             ".logologin img{ width: 40%; box-sizing: inherit;}" +
             ".campologin{ display: flex; justify-content: flex-start;align-items: flex-start;flex-direction: column; box-sizing: inherit; margin-bottom: 10px; }" +
             ".campologin label{ font-size: 18px; }"+
-            ".campologin input{ font-size: 18px; padding: 5px;background-color: #fff;border-radius: 5px;}" +
-            ".botoeslogin{ display: flex;justify-content: space-around; align-items: center; width: 100%;box-sizing: inherit; }" +
-            `.botoeslogin button{ cursor: pointer; background-color: ${this.config}; color: #fff; border-radius: 5px; padding: 10px; width: 100px; box-sizing: inherit; }`
+            ".campologin input{ font-size: 18px; padding: 5px;background-color: #fff; border-radius: 5px; }" +
+            ".botoeslogin{ display: flex; justify-content: space-around; align-items: center; width: 100%; box-sizing: inherit; }" +
+            `.botoeslogin button{ cursor: pointer; background-color: #${this.config}; color: #fff; border-radius: 5px; padding: 10px; width: 100px; box-sizing: inherit; }`
         
             const styleestilo = document.createElement("style");
             styleestilo.setAttribute("id","id_estilologin");
@@ -84,18 +84,18 @@ class Login {
             campologinsenha.appendChild(inputsenha);
 
             const botoeslogin = document.createElement("div");
-            botoeslogin.setAttribute("id","botoeslogin");
+            botoeslogin.setAttribute("class","botoeslogin");
             elementoslogin.appendChild(botoeslogin);
 
             const btn_login = document.createElement("button");
             btn_login.setAttribute("id","btn_login");
             btn_login.innerHTML = "Login"
-            elementoslogin.appendChild(btn_login);
+            botoeslogin.appendChild(btn_login);
            
             const btn_cancelar = document.createElement("button");
             btn_cancelar.setAttribute("id","btn_login");
             btn_cancelar.innerHTML = "Cancelar"
-            elementoslogin.appendChild(btn_cancelar);
+            botoeslogin.appendChild(btn_cancelar);
 
             const logologin = document.createElement("div");
             logologin.setAttribute("id","logologin");
