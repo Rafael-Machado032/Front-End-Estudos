@@ -30,7 +30,10 @@
 }
 
 .logo{
-    background-color: blueviolet;
+    background-image: url(logo.jpg);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 50% -40px;
     width: 100%;
     height: 100px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -38,7 +41,6 @@
 
 .container_menu{
     display: flex;
-    
     flex-direction: column;
 }
 
