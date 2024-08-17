@@ -61,6 +61,30 @@
     font-size: 15pt;
 }
 
+.container_dir_painel{
+  text-align: center;
+  padding: 20px;
+}
+.container_dispositivo{
+  max-width: 1000px;
+  height: 100px;
+  background-color: blueviolet;
+  margin: 20px auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+button{
+  padding: 10px 40px;
+  border-radius: 30px;
+  font-size: 15pt;
+}
+.selecionado{
+  background-color: rgb(125, 125, 248)
+} 
 /*Lista Suspensa*/
 
 .pesquisa{
