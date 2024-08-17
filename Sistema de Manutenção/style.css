@@ -61,6 +61,46 @@
     font-size: 15pt;
 }
 
+/*Lista Suspensa*/
+
+.pesquisa{
+  margin: 8px 0;
+  font-size: 16pt;
+  border-radius: 20px;
+  padding: 8px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 290px;
+  z-index: 1;
+  background-color: white;
+  border-radius: 10px;
+  
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 16pt;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+/*Lista Suspensa*/
 
 
 
