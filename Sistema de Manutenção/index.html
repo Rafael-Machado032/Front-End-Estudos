@@ -16,16 +16,14 @@
         <div class="container_esq">
 
             <div class="logo">
-                
+
             </div>
 
             <div class="container_menu">
                 <div class="op">
-                    <a href="">Comandos Remote</a>
+                    <a href="">Rebot</a>
                 </div>
-                <div class="op">
-                    <a href="">Comandos Facial</a>
-                </div>
+
                 <div class="op">
                     <a href="">Configuração</a>
                 </div>
@@ -35,15 +33,27 @@
 
         <div class="container_dir">
             <div class="header">
-                
+                <!--Lista Suspensa-->
+                <div class="dropdown">
+                    <input type="text" placeholder="Pesquisar.." id="myInput" onkeyup="filterFunction()"
+                        class="pesquisa">
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#about">Condominio 1</a>
+                        <a href="#base">Condominio 2</a>
+                        <a href="#blog">Condominio 3</a>
+                        <a href="#contact">Condominio 4</a>
+                        <a href="#custom">Condominio 5</a>
+                        <a href="#support">Condominio 6</a>
+                        <a href="#tools">Condominio 7</a>
+                    </div>
+                </div>
+                <!--Lista Suspensa-->
             </div>
         </div>
+
     </div>
 
-
-
-
-    <script src="script.js"></script>
+    <script src="listasuspensa.js"></script>
 </body>
 
 </html>
