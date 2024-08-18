@@ -69,8 +69,11 @@
 }
 
 .container_dir_painel{
-  text-align: center;
+  
   padding: 20px;
+}
+.reiniciar{
+  text-align: center;
 }
 .container_dispositivo{
   max-width: 1000px;
@@ -85,7 +88,7 @@
   box-shadow: 0px 5px 10px black;
 }
 
-button{
+.container_dispositivo button{
   padding: 10px 40px;
   border-radius: 30px;
   font-size: 15pt;
@@ -93,6 +96,8 @@ button{
 .selecionado{
   background-color: rgb(125, 125, 248)
 } 
+
+
 /*Lista Suspensa*/
 
 .pesquisa{
