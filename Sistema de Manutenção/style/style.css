@@ -73,12 +73,13 @@
 }
 
 .container_dir_painel{
-  
   padding: 20px;
 }
+
 .reiniciar{
   text-align: center;
 }
+
 .container_dispositivo{
   max-width: 1000px;
   height: 100px;
@@ -97,10 +98,38 @@
   border-radius: 30px;
   font-size: 15pt;
 }
+
 .selecionado{
   background-color: rgb(125, 125, 248)
 } 
 
+.cadastro{
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: blue;
+}
+
+.cadastro fieldset{
+  
+  padding: 20px;
+  margin-top: 10px;
+  background-color: blueviolet;
+}
+
+.campo_pri{
+  display: flex;
+  background-color: brown;
+}
+.cadastro div{
+  margin: 0px 5px;
+  background-color: chartreuse;
+}
+
+.campo_disp{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(11, 21, 21);
+}
 
 /*Lista Suspensa*/
 
