@@ -1,89 +1,92 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-    list-style-type: none;
-    text-decoration: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  list-style-type: none;
+  text-decoration: none;
 }
+
 
 /*Geral*/
-.container_pri{
-   display: flex; 
-   background-color: brown;
+.container_pri {
+  display: flex;
+  background-color: brown;
 }
 
-.container_esq{
-  
-    background-color: rgb(85, 85, 247);
-    width: 400px;
-    height: 100vh;
-    
+.container_esq {
+
+  background-color: rgb(85, 85, 247);
+  width: 400px;
+  min-width: 248px;
+  height: 100vh;
+
 }
 
-.container_dir{
-    background-color: rgb(250, 250, 250);
-    width: 100%;
+.container_dir {
+  background-color: rgb(250, 250, 250);
+  width: 100%;
 }
+
 /*Header*/
-.header{
-    width: 100%;
-    padding: 2px 30px;
-    background-color: rgb(244, 244, 244);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 5px 1px 10px black;
+.header {
+  width: 100%;
+  padding: 2px 30px;
+  background-color: rgb(244, 244, 244);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 5px 1px 10px black;
 }
 
-.logo{
-    background-image: url(/Sistema\ de\ Manutenção/img/logo.jpg);
-    background-color: white;
-    background-repeat: no-repeat;
-    background-position: 50% -40px;
-    width: 100%;
-    height: 100px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+.logo {
+  background-image: url(/Sistema\ de\ Manutenção/img/logo.jpg);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 50% -40px;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.container_menu{
-    display: flex;
-    flex-direction: column;
+.container_menu {
+  display: flex;
+  flex-direction: column;
 }
 
-.op{
-    
-    width: 100%;
-    height: 80px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    
+.op {
+
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
 }
 
-.op a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-align: center;
-    color: white;  
-    position: relative;
-    font-size: 15pt;
-    width: 100%;
-    height: 100%;
+.op a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  position: relative;
+  font-size: 15pt;
+  width: 100%;
+  height: 100%;
 }
 
-.container_dir_painel{
+.container_dir_painel {
   padding: 20px;
 }
 
-.reiniciar{
+.reiniciar {
   text-align: center;
 }
 
-.container_dispositivo{
+.container_dispositivo {
   max-width: 1000px;
   height: 100px;
-  background-color: rgb(148, 148, 246);;
+  background-color: rgb(148, 148, 246);
   margin: 20px auto;
   border-radius: 10px;
   display: flex;
@@ -93,47 +96,83 @@
   box-shadow: 0px 5px 10px black;
 }
 
-.container_dispositivo button{
+.container_dispositivo button {
   padding: 10px 40px;
   border-radius: 30px;
   font-size: 15pt;
 }
 
-.selecionado{
+.selecionado {
   background-color: rgb(125, 125, 248)
-} 
-
-.cadastro{
-  margin: 0 auto;
-  max-width: 1200px;
-  background-color: blue;
 }
 
-.cadastro fieldset{
-  
-  padding: 20px;
-  margin-top: 10px;
-  background-color: blueviolet;
+.cadastro_container {
+  background-color: rgb(148, 148, 246);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px black;
+  max-width: 1000px;
+  margin: 20px auto;
 }
 
-.campo_pri{
+.cadastro {
+ 
+  padding: 10px;
+  font-size: 16pt;
+}
+
+.cadastro input[type=text] {
+
+  font-size: 16pt;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+#ipexterno {
+  width: 186px;
+}
+
+#condominio {
+  width: 300px;
+}
+
+.campo_pri {
   display: flex;
-  background-color: brown;
-}
-.cadastro div{
-  margin: 0px 5px;
-  background-color: chartreuse;
+  justify-content: space-around;
 }
 
-.campo_disp{
+.campo_disp {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(11, 21, 21);
+  margin-top: 20px;
+  
 }
+
+
+@media screen and (max-width: 865px) {
+  .campo_pri {
+    flex-direction: column;
+
+  }
+
+  #ipexterno {
+    width: 100%;
+  }
+
+  #condominio {
+    width: 100%;
+  }
+
+  .cadastro input[type=text] {
+    width: 100%;
+
+  }
+}
+
 
 /*Lista Suspensa*/
 
-.pesquisa{
+.pesquisa {
   margin: 8px 0;
   font-size: 16pt;
   border-radius: 20px;
@@ -143,7 +182,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
- 
+
 }
 
 .dropdown-content {
@@ -153,7 +192,7 @@
   z-index: 1;
   background-color: white;
   border-radius: 10px;
-  
+
 }
 
 .dropdown-content a {
@@ -168,22 +207,8 @@
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #ddd;
+}
 
 /*Lista Suspensa*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
