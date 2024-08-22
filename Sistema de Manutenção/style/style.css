@@ -145,7 +145,7 @@ input[type=text], select{
 .botao{
   float: right;
   cursor: pointer;
- 
+  
   
 }
 fieldset, div{
@@ -161,6 +161,12 @@ fieldset, div{
   }
 
   .campo_pri{
+    flex-direction: column;
+  }
+  .campo_disp{
+    flex-direction: column;
+  }
+  .cont1 div{
     flex-direction: column;
   }
   
