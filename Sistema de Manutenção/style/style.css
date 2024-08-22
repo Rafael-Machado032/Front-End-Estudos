@@ -106,6 +106,8 @@
   background-color: rgb(125, 125, 248)
 }
 
+/*Cadastro*/
+
 .cadastro_container {
   background-color: rgb(148, 148, 246);
   padding: 10px;
@@ -113,60 +115,55 @@
   box-shadow: 0px 5px 10px black;
   max-width: 1000px;
   margin: 20px auto;
+  font-size: 16pt;
+}
+input[type=text], select{
+  width: 250px;
+  padding: 5px;
+  font-size: 16pt;
 }
 
-.cadastro {
- 
+.cadastro{
   padding: 10px;
-  font-size: 16pt;
 }
 
-.cadastro input[type=text] {
-
-  font-size: 16pt;
-  padding: 0 10px;
-  margin-bottom: 10px;
-}
-
-#ipexterno {
-  width: 186px;
-}
-
-#condominio {
-  width: 300px;
-}
-
-.campo_pri {
-  display: flex;
-  justify-content: space-around;
-}
-
-.campo_disp {
+.campo_pri{
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+}
+
+.campo_disp{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cont1 div{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.botao{
+  float: right;
+  cursor: pointer;
+ 
   
+}
+fieldset, div{
+  overflow: hidden;
+  clear: both;
 }
 
 
 @media screen and (max-width: 865px) {
-  .campo_pri {
+  input[type=text], select{
+    width: 100%; 
+    
+  }
+
+  .campo_pri{
     flex-direction: column;
-
   }
-
-  #ipexterno {
-    width: 100%;
-  }
-
-  #condominio {
-    width: 100%;
-  }
-
-  .cadastro input[type=text] {
-    width: 100%;
-
-  }
+  
 }
 
 
