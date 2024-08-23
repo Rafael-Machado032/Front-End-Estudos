@@ -11,7 +11,7 @@
 /*Geral*/
 .container_pri {
   display: flex;
-  background-color: brown;
+
 }
 
 .container_esq {
@@ -144,17 +144,42 @@ input[type=text], select{
 }
 .botao{
   float: right;
-  cursor: pointer;
-  
-  
+}
+
+button{
+  padding: 5px;
+  cursor: pointer; 
+  border-radius: 10px;
+
 }
 fieldset, div{
   overflow: hidden;
-  clear: both;
+ 
+}
+
+@media screen and (max-width: 1215px) {
+  .campo_pri{
+    justify-content: center;
+  }
+  .campo_pri div{
+   
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+  }
+  .campo_disp{
+    
+    justify-content:center ;
+  }
+  
+  .cont1 div{
+    flex-direction: column;
+  }
 }
 
 
-@media screen and (max-width: 865px) {
+
+@media screen and (max-width: 905px) {
   input[type=text], select{
     width: 100%; 
     
