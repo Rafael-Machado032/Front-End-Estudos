@@ -41,7 +41,7 @@ class Login {
             const fundologin = document.createElement("div");
             fundologin.setAttribute("id","fundologin");
             fundologin.setAttribute("class","fundologin");
-            document.body.prepend(fundologin);
+            corpo.prepend(fundologin);
 
             const baselogin = document.createElement("div");
             baselogin.setAttribute("id","baselogin");
