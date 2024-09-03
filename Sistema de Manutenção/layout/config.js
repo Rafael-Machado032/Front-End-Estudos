@@ -25,12 +25,6 @@ class Config {
 
         console.log("layoutconfig fim");    
     }
-    static selecionado = () =>{
-        // const op_selecionado = getElementById("op2")
-        // op_selecionado.setAttribute("class","op selecionado")
-        console.log("222222222222222222222222222222222222222222222222222222222222222222222222222222222");
-        
-    }
-   
+    
 }
 export {Config}
