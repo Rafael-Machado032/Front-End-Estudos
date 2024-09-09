@@ -118,7 +118,7 @@
   margin: 20px auto;
   font-size: 16pt;
 }
-input[type=text], select{
+input[type=text], select, input[type=number]{
   width: 250px;
   padding: 5px;
   font-size: 16pt;
@@ -181,7 +181,7 @@ fieldset, div{
 
 
 @media screen and (max-width: 905px) {
-  input[type=text], select{
+  input[type=text], select, input[type=number]{
     width: 100%; 
     
   }
