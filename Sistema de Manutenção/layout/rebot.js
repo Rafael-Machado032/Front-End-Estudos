@@ -14,7 +14,8 @@ class Rebot {
         
 
         const link_op = document.createElement("a"); 
-        link_op.setAttribute("href","http://127.0.0.1:5500/Sistema%20de%20Manuten%C3%A7%C3%A3o/index.html");
+        //link_op.setAttribute("href","http://127.0.0.1:5500/Sistema%20de%20Manuten%C3%A7%C3%A3o/index.html");
+        link_op.setAttribute("id","reiniciar")
         op.appendChild(link_op);
 
         const span_Configuracao = document.createElement("span");
@@ -30,6 +31,7 @@ class Rebot {
         
         const container_dir_painel = document.createElement("div");
         container_dir_painel.setAttribute("class","container_dir_painel");
+        container_dir_painel.setAttribute("id","container_dir_painel");
         container_dir.appendChild(container_dir_painel);
 
         const reiniciar = document.createElement("div");
