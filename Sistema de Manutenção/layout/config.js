@@ -1,7 +1,6 @@
 class Config {
     
     static estilo = null;
-    static link_op = null;
 
     static button_config = () => {
         console.log("layoutconfig inicio");
@@ -15,15 +14,15 @@ class Config {
         op.setAttribute("id","op2");
         
 
-        this.link_op = document.createElement("a");
+        const link_op = document.createElement("a");
         //link_op.setAttribute("href","http://127.0.0.1:5500/Sistema%20de%20Manuten%C3%A7%C3%A3o/config.html");
-        this.link_op.setAttribute("id","configuracao")
+        link_op.setAttribute("id","configuracao")
         
-        op.appendChild(this.link_op);
+        op.appendChild(link_op);
 
         const span_Configuracao = document.createElement("span");
         span_Configuracao.textContent = "Configuração";
-        this.link_op.appendChild(span_Configuracao);
+        link_op.appendChild(span_Configuracao);
         
         divmenu.appendChild(op);
 
@@ -192,6 +191,7 @@ class Config {
         cadastro.appendChild(botao);
 
         const bnovo_dispositivo = document.createElement("button");
+        bnovo_dispositivo.setAttribute("id","bnovo_dispositivo");
         bnovo_dispositivo.textContent = "Novo Dispositivo";
         botao.appendChild(bnovo_dispositivo);
 
@@ -210,9 +210,6 @@ class Config {
         const blimpar = document.createElement("button");
         blimpar.textContent = "Limpar";
         botao2.appendChild(blimpar);
-
-        this.link_op.setAttribute("class","selecionado")
-
 
 
         //Painel Cadastro inicio
