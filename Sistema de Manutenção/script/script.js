@@ -1,6 +1,6 @@
 import Rebot from "../layout/rebot.js";
 import { Config } from "../layout/config.js";
-import { AddJanela } from "../script/addjanela.js";
+
 
 Rebot.button_rebot();
 Rebot.janela_rebot();
@@ -33,8 +33,3 @@ menu2.addEventListener("click", () => {
     menu2.classList.add("selecionado");
 })
 
-const bnovo_dispositivo1 = document.getElementById("bnovo_dispositivo");
-
-bnovo_dispositivo1.addEventListener("click", () => {
-    AddJanela.addjanela();
-})
