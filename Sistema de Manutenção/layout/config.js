@@ -34,7 +34,7 @@ class Config {
         console.log("layoutconfig fim");
     }
     static painel_config = () => {
-
+        var cont = 1
         //Painel Cadastro inicio
 
         const container_dir = document.getElementById("container_dir");
@@ -91,7 +91,7 @@ class Config {
         cadastro.appendChild(dispositivo1);
 
         const lgdispositivo1 = document.createElement("legend")
-        lgdispositivo1.textContent = "Dispositivo 1";
+        lgdispositivo1.textContent = "Dispositivo "+ cont;
         dispositivo1.appendChild(lgdispositivo1);
 
         const campo_disp = document.createElement("div");
@@ -190,6 +190,7 @@ class Config {
 
         const botao = document.createElement("div");
         botao.setAttribute("class", "botao");
+        botao.setAttribute("id", "botao");
         cadastro.appendChild(botao);
 
         const bnovo_dispositivo = document.createElement("button");
@@ -197,9 +198,7 @@ class Config {
         bnovo_dispositivo.textContent = "Novo Dispositivo";
         botao.appendChild(bnovo_dispositivo);
 
-        const bremover = document.createElement("button");
-        bremover.textContent = "Remover";
-        botao.appendChild(bremover);
+        
 
         const botao2 = document.createElement("div");
         botao2.setAttribute("class", "botao");
@@ -213,26 +212,45 @@ class Config {
         blimpar.textContent = "Limpar";
         botao2.appendChild(blimpar);
 
-        const bnovo_dispositivo1 = document.getElementById("bnovo_dispositivo");
-
-        bnovo_dispositivo1.addEventListener("click", () => {
-            Config.addjanela()
+        bnovo_dispositivo.addEventListener("click", () => {
+            
+            cont=cont+1;
+            Config.addjanela(cont);
+            console.log("ficou add " + cont);
+            
 
         })
 
+        
         //Painel Cadastro inicio
 
     }
 
-    static addjanela = () => {
+    static removerjanela = (cont) =>{
+        console.log("remove " + cont);
+        
+        const removerdis = document.getElementById("dis" + cont)
+        removerdis.remove()
+        if (cont == 2) {
+            const bremover =document.getElementById("bremover")
+            bremover.remove()
+        }
+        cont = cont - 1;
+        console.log("ficou " + cont);
+        return cont
+    }
 
-        const cadastro = document.getElementById("cadastro")
+    static addjanela = (cont) => {
+
+        console.log("adiciona " + cont);
+        const botao = document.getElementById("botao")
 
         const dispositivo1 = document.createElement("fieldset");
-        cadastro.appendChild(dispositivo1)
+        dispositivo1.setAttribute("id","dis" + cont)
+        botao.insertAdjacentElement("beforebegin",dispositivo1)
 
         const lgdispositivo1 = document.createElement("legend")
-        lgdispositivo1.textContent = "Dispositivo 1";
+        lgdispositivo1.textContent = "Dispositivo " + cont;
         dispositivo1.appendChild(lgdispositivo1);
 
         const campo_disp = document.createElement("div");
@@ -328,6 +346,20 @@ class Config {
         indisp6.setAttribute("name", "senha");
         indisp6.setAttribute("id", "senha");
         ddispositivo6.appendChild(indisp6);
+
+        if (cont==2) {
+            const bremover = document.createElement("button");
+            bremover.textContent = "Remover";
+            bremover.setAttribute("id","bremover")
+            botao.appendChild(bremover);
+        }
+        
+
+        bremover.addEventListener("click", () =>{
+            Config.removerjanela(cont);
+        })
+        
+        
     }
 
 }
