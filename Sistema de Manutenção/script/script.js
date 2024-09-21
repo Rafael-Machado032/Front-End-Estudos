@@ -29,7 +29,8 @@ menu1.addEventListener("click", () => {
 
 menu2.addEventListener("click", () => {
     ocultar();
-    Config.painel_config();
+    const cont = 1
+    Config.painel_config(cont);
     menu2.classList.add("selecionado");
 })
 
