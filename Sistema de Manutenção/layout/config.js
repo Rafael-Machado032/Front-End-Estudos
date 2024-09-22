@@ -2,7 +2,8 @@ import { AddJanela } from "../script/addjanela.js";
 class Config {
 
     static estilo = null;
-    static cont = 1
+    static contador = 1
+
     static button_config = () => {
         console.log("layoutconfig inicio");
 
@@ -33,8 +34,9 @@ class Config {
 
         console.log("layoutconfig fim");
     }
-    static painel_config = (cont) => {
-         this.cont = cont
+
+    static painel_config = (cont1) => {
+        this.contador = cont1
         //Painel Cadastro inicio
 
         const container_dir = document.getElementById("container_dir");
@@ -91,7 +93,7 @@ class Config {
         cadastro.appendChild(dispositivo1);
 
         const lgdispositivo1 = document.createElement("legend")
-        lgdispositivo1.textContent = "Dispositivo "+ this.cont;
+        lgdispositivo1.textContent = "Dispositivo " + this.contador;
         dispositivo1.appendChild(lgdispositivo1);
 
         const campo_disp = document.createElement("div");
@@ -198,7 +200,7 @@ class Config {
         bnovo_dispositivo.textContent = "Novo Dispositivo";
         botao.appendChild(bnovo_dispositivo);
 
-        
+
 
         const botao2 = document.createElement("div");
         botao2.setAttribute("class", "botao");
@@ -213,45 +215,34 @@ class Config {
         botao2.appendChild(blimpar);
 
         bnovo_dispositivo.addEventListener("click", () => {
-            
-            this.cont=this.cont+1;
-            Config.addjanela(this.cont);
-            console.log("ficou add " + this.cont);
-            
+
+            this.contador = this.contador + 1;
+            Config.addjanela(this.contador);
+            console.log("ficou add " + this.contador);
+
 
         })
 
-        
+
         //Painel Cadastro inicio
 
     }
 
-    static removerjanela = (cont) => {
-        this.cont=cont
-        console.log("remove " + this.cont);
-        
-        const removerdis = document.getElementById("dis" + this.cont)
-        removerdis.remove()
-        if (this.cont == 2) {
-            const bremover =document.getElementById("bremover")
-            bremover.remove();
-        }
-        this.cont = this.cont - 1;
-        console.log("ficou " + this.cont);
-        
-    }
 
-    static addjanela = (cont) => {
-        this.cont = cont
-        console.log("adiciona " + this.cont);
+
+    static addjanela = (cont2) => {
+
+        this.contador = cont2
+
+        console.log("adiciona " + this.contador);
         const botao = document.getElementById("botao")
 
         const dispositivo1 = document.createElement("fieldset");
-        dispositivo1.setAttribute("id","dis" + this.cont)
-        botao.insertAdjacentElement("beforebegin",dispositivo1)
+        dispositivo1.setAttribute("id", "dis" + this.contador)
+        botao.insertAdjacentElement("beforebegin", dispositivo1)
 
         const lgdispositivo1 = document.createElement("legend")
-        lgdispositivo1.textContent = "Dispositivo " + this.cont;
+        lgdispositivo1.textContent = "Dispositivo " + this.contador;
         dispositivo1.appendChild(lgdispositivo1);
 
         const campo_disp = document.createElement("div");
@@ -348,28 +339,39 @@ class Config {
         indisp6.setAttribute("id", "senha");
         ddispositivo6.appendChild(indisp6);
 
-        if (this.cont==2) {
+        if (this.contador == 2) {
             const bremover = document.createElement("button");
             bremover.textContent = "Remover";
-            bremover.setAttribute("id","bremover")
+            bremover.setAttribute("id", "bremover")
             botao.appendChild(bremover);
         }
-        
 
-        bremover.addEventListener("click", () =>{
-            
-            console.log("Cliquei remover "+this.cont);
-            Config.removerjanela(this.cont);
-            if (true) {
+        if (this.contador == 2) { //Para não criar mais escutadores foi feito o if
+            bremover.addEventListener("click", () => { //Se não criar if ele esclui todas as janelas pois cria um escutador sempre que cria uma janela
+
+                console.log("Cliquei remover " + this.contador);
+                Config.removerjanela(this.contador);
+                this.contador = this.contador - 1;
+                console.log("ficou " + this.contador);
                 console.log("para porra");
-                
-            }
-               
-            
-            
-        },{once:true})
-        
-        
+            })
+        }
+
+
+
+    }
+
+    static removerjanela = (cont3) => {
+        this.contador = cont3
+        console.log("remove " + this.contador);
+
+        const removerdis = document.getElementById("dis" + this.contador)
+        removerdis.remove()
+        if (this.contador == 2) {
+            const bremover = document.getElementById("bremover")
+            bremover.remove();
+        }
+
     }
 
 }
