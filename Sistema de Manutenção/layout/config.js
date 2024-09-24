@@ -223,6 +223,20 @@ class Config {
 
         })
 
+        blimpar.addEventListener("click", ()=> {
+            
+            icondominio.value = "";
+            iipexterno.value = "";
+            indisp1.value = "";
+            opdisp2.selected
+            indisp3.value = "";
+            indisp4.value = "";
+            indisp5.value = "";
+            indisp6.value = "";
+            console.log("Limpar " + this.contador + " janelas");
+            Config.limparjanela(this.contador)
+            
+        })
 
         //Painel Cadastro inicio
 
@@ -263,7 +277,7 @@ class Config {
         const indisp1 = document.createElement("input");
         indisp1.setAttribute("type", "text");
         indisp1.setAttribute("name", "ndisp");
-        indisp1.setAttribute("id", "ndisp");
+        indisp1.setAttribute("id", "ndisp" + this.contador);
         ddispositivo1.appendChild(indisp1);
 
         const ddispositivo2 = document.createElement("div")
@@ -274,7 +288,7 @@ class Config {
         ddispositivo2.appendChild(ldispositivo2);
 
         const seldisp2 = document.createElement("select");
-        seldisp2.setAttribute("id", "seldisp");
+        seldisp2.setAttribute("id", "seldisp" + this.contador);
         ddispositivo2.appendChild(seldisp2);
 
         const opdisp2 = document.createElement("option");
@@ -293,7 +307,7 @@ class Config {
         const indisp3 = document.createElement("input");
         indisp3.setAttribute("type", "number");
         indisp3.setAttribute("name", "pdisp");
-        indisp3.setAttribute("id", "pdisp");
+        indisp3.setAttribute("id", "pdisp" + this.contador);
         ddispositivo3.appendChild(indisp3);
 
         const box_disp2 = document.createElement("div");
@@ -310,7 +324,7 @@ class Config {
         const indisp4 = document.createElement("input");
         indisp4.setAttribute("type", "text");
         indisp4.setAttribute("name", "serial");
-        indisp4.setAttribute("id", "serial");
+        indisp4.setAttribute("id", "serial" + this.contador);
         ddispositivo4.appendChild(indisp4);
 
         const ddispositivo5 = document.createElement("div")
@@ -323,7 +337,7 @@ class Config {
         const indisp5 = document.createElement("input");
         indisp5.setAttribute("type", "text");
         indisp5.setAttribute("name", "login");
-        indisp5.setAttribute("id", "login");
+        indisp5.setAttribute("id", "login" + this.contador);
         ddispositivo5.appendChild(indisp5);
 
         const ddispositivo6 = document.createElement("div")
@@ -336,7 +350,7 @@ class Config {
         const indisp6 = document.createElement("input");
         indisp6.setAttribute("type", "text");
         indisp6.setAttribute("name", "senha");
-        indisp6.setAttribute("id", "senha");
+        indisp6.setAttribute("id", "senha" + this.contador);
         ddispositivo6.appendChild(indisp6);
 
         if (this.contador == 2) {
@@ -352,8 +366,7 @@ class Config {
                 console.log("Cliquei remover " + this.contador);
                 Config.removerjanela(this.contador);
                 this.contador = this.contador - 1;
-                console.log("ficou " + this.contador);
-                console.log("para porra");
+                console.log("Ficou " + this.contador);
             })
         }
 
@@ -365,13 +378,26 @@ class Config {
         this.contador = cont3
         console.log("remove " + this.contador);
 
-        const removerdis = document.getElementById("dis" + this.contador)
-        removerdis.remove()
+        const removerdis = document.getElementById("dis" + this.contador);
+        removerdis.remove();
         if (this.contador == 2) {
             const bremover = document.getElementById("bremover")
             bremover.remove();
         }
 
+    }
+
+    static limparjanela = (cont4) => {
+        
+        for (let i = 1; i < cont4; cont4 --) {
+            console.log("Janela "+cont4+" apagado");
+            
+            const removerdis = document.getElementById("dis" + cont4);
+            removerdis.remove();
+        }
+        this.contador = 1;
+        const bremover = document.getElementById("bremover")
+        bremover.remove();
     }
 
 }
