@@ -1,4 +1,3 @@
-import { AddJanela } from "../script/addjanela.js";
 class Config {
 
     static estilo = null;
@@ -401,4 +400,4 @@ class Config {
     }
 
 }
-export { Config }
+export { Config };
