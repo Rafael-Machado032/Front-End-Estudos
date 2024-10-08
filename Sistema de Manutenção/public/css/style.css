@@ -40,7 +40,7 @@
 }
 
 .logo {
-  background-image: url(/Sistema\ de\ Manutenção/img/logo.jpg);
+  background-image: url(/Sistema\ de\ Manutenção/public/img/logo.jpg);
   background-color: white;
   background-repeat: no-repeat;
   background-position: 50% -40px;

@@ -1,5 +1,5 @@
-import { Config } from "../../../layout/config.js";
-import Rebot from "../../../layout/rebot.js";
+import { Config } from "../layout/config.js";
+import Rebot from "../layout/rebot.js";
 
 
 Rebot.button_rebot();
