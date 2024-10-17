@@ -20,7 +20,6 @@ app.use('/api/condominiums', condominiumRoutes); // Usar as rotas de Condomínio
   "name": "Condomínio Exemplo",
   "externalIP": "192.168.1.100"
 }
-
  */
 
 // Importar as rotas de Equipamentos
