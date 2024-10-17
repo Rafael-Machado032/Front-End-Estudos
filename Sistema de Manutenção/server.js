@@ -14,12 +14,31 @@ app.use(express.json());
 const condominiumRoutes = require('./server/routes/condominiumRoutes'); // Certifique-se de que o caminho está correto
 app.use('/api/condominiums', condominiumRoutes); // Usar as rotas de Condomínio
 //http://localhost:3000/api/condominiums/add
+/**
+ * 
+{
+  "name": "Condomínio Exemplo",
+  "externalIP": "192.168.1.100"
+}
+
+ */
 
 // Importar as rotas de Equipamentos
 const equipmentRoutes = require('./server/routes/equipmentRoutes');
 app.use('/api/equipments', equipmentRoutes);
 //http://localhost:3000/api/equipments/add
-
+/**
+{
+  "name": "Equipamento Exemplo",
+  "model": "Modelo X",
+  "port": "8080",
+  "serialNumber": "123456789",
+  "login": "admin",
+  "password": "admin123",
+  "status": "ativo",
+  "condominium": "6710769a05f5bed2b0725190"
+}
+*/
 
 
 // Atualizar string de conexão do MongoDB
