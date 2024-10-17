@@ -1,20 +1,25 @@
 const express = require('express');
-const Condominium = require('../models/Condominium');  // Importa o modelo Condominium
+const Condominium = require('../../src/models/Condominium');  // Importa o modelo Condominium
 const router = express.Router();
 
 // Criar novo condomínio (CREATE)
 router.post('/add', async (req, res) => {
   try {
+    
     const newCondominium = new Condominium({
       name: req.body.name,
       externalIP: req.body.externalIP
     });
+
     await newCondominium.save();
+
     res.status(201).send('Condomínio criado com sucesso!');
   } catch (err) {
+    console.error('Erro ao criar condomínio:', err);
     res.status(500).send('Erro ao criar condomínio');
   }
 });
+
 
 // Listar todos os condomínios (READ)
 router.get('/list', async (req, res) => {

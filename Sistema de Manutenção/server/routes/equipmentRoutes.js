@@ -1,6 +1,6 @@
 const express = require('express');
-const Equipment = require('../models/Equipment');  // Importa o modelo Equipment
-const Condominium = require('../models/Condominium');  // Importa o modelo Condominium
+const Equipment = require('../../src/models/Equipament');  // Importa o modelo Equipment
+const Condominium = require('../../src/models/Condominium');  // Importa o modelo Condominium
 const router = express.Router();
 
 // Criar novo equipamento (CREATE)
