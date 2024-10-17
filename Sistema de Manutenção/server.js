@@ -15,7 +15,7 @@ const condominiumRoutes = require('./server/routes/condominiumRoutes'); // Certi
 app.use('/api/condominiums', condominiumRoutes); // Usar as rotas de Condomínio
 //http://localhost:3000/api/condominiums/add
 /**
- * 
+ *
 {
   "name": "Condomínio Exemplo",
   "externalIP": "192.168.1.100"
