@@ -13,7 +13,7 @@ app.use(express.json());
 // Importar as rotas de Condomínio
 const condominiumRoutes = require('./server/routes/condominiumRoutes'); // Certifique-se de que o caminho está correto
 app.use('/api/condominiums', condominiumRoutes); // Usar as rotas de Condomínio
-
+//http://localhost:3000/api/condominiums/add
 
 // Importar as rotas de Equipamentos
 const equipmentRoutes = require('./server/routes/equipmentRoutes');
