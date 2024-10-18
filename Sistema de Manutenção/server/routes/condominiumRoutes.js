@@ -1,6 +1,11 @@
 const express = require('express');
+const authMiddleware = require('../../src/middleware/authMiddleware'); // Importar o middleware
 const Condominium = require('../../src/models/Condominium');  // Importa o modelo Condominium
 const router = express.Router();
+
+// Usar o middleware para proteger as rotas
+router.use(authMiddleware);
+
 
 // Criar novo condomínio (CREATE)
 router.post('/add', async (req, res) => {
