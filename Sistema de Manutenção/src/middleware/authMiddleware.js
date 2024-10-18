@@ -1,11 +1,13 @@
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
-  const token = req.header('Authorization');
+  const authHeader = req.header('Authorization'); // Obter o cabeçalho de autorização
 
-  if (!token) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return res.status(401).send('Acesso negado. Sem token.');
   }
+
+  const token = authHeader.split(' ')[1]; // Extrair o token do formato "Bearer TOKEN"
 
   try {
     const verified = jwt.verify(token, process.env.SECRET_KEY);
