@@ -39,6 +39,9 @@ app.use('/api/equipments', equipmentRoutes);
 }
 */
 
+const authRoutes = require('./server/routes/authRoutes'); // Ajuste o caminho para o arquivo de rotas
+app.use('/api/auth', authRoutes); // Usar as rotas de autenticação
+
 
 // Atualizar string de conexão do MongoDB
 
