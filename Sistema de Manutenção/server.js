@@ -42,6 +42,13 @@ app.use('/api/equipments', equipmentRoutes);
 const authRoutes = require('./server/routes/authRoutes'); // Ajuste o caminho para o arquivo de rotas
 app.use('/api/auth', authRoutes); // Usar as rotas de autenticação
 
+const errorHandler = require('./src/middleware/errorHandler');
+
+// Outras importações e definições de rotas...
+
+// Middleware global de erros
+app.use(errorHandler);
+
 
 // Atualizar string de conexão do MongoDB
 

@@ -8,7 +8,7 @@ router.use(authMiddleware);
 
 
 // Criar novo condomínio (CREATE)
-router.post('/add', async (req, res) => {
+router.post('/add', async (req, res, next) => {
   try {
     
     const newCondominium = new Condominium({
@@ -20,8 +20,8 @@ router.post('/add', async (req, res) => {
 
     res.status(201).send('Condomínio criado com sucesso!');
   } catch (err) {
-    console.error('Erro ao criar condomínio:', err);
-    res.status(500).send('Erro ao criar condomínio');
+    err.status = 400; // Definir código de status específico
+    next(err);        // Passar o erro para o middleware global
   }
 });
 
@@ -40,9 +40,14 @@ router.get('/list', async (req, res) => {
 router.put('/update/:id', async (req, res) => {
   try {
     await Condominium.findByIdAndUpdate(req.params.id, req.body);
+    if (!updatedCondominium) {
+      const error = new Error('Condomínio não encontrado');
+      error.status = 404;
+      throw error;
+    }
     res.send('Condomínio atualizado com sucesso!');
   } catch (err) {
-    res.status(500).send('Erro ao atualizar condomínio');
+    next(err); // Passa o erro para o middleware
   }
 });
 
