@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
 });
 
 // Logar um usuário (POST)
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res, next) => {
   const { username, password } = req.body;
 
   try {
@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
     res.json({ token });
   } catch (err) {
-    res.status(500).send('Erro ao logar');
+    next(err); 
   }
 });
 

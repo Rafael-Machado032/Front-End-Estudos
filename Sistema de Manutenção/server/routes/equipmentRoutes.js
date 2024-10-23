@@ -8,7 +8,7 @@ const router = express.Router();
 router.use(authMiddleware);
 
 // Criar novo equipamento (CREATE)
-router.post('/add', async (req, res) => {
+router.post('/add', async (req, res, next) => {
   try {
     const condominium = await Condominium.findById(req.body.condominium);
     if (!condominium) {
@@ -34,7 +34,7 @@ router.post('/add', async (req, res) => {
 
     res.status(201).send('Equipamento criado com sucesso!');
   } catch (err) {
-    res.status(500).send('Erro ao criar equipamento');
+    next(err); 
   }
 });
 
