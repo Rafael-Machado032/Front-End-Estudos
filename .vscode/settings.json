@@ -80,5 +80,6 @@
     ],
     "cSpell.enableFiletypes": [
         "dockercompose"
-    ]
+    ],
+    "commentTranslate.hover.enabled": true
 }
