@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "7d8324f3-3d66-4b98-9dec-699081895ab3",
+		"name": "Teste de sistema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39010829"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/equipments/add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Content-Type is text/html with charset=utf-8\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"text/html; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response status code is 404\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content-Type header is 'text/html'\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.equal('text/html');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate that the response contains the expected HTML structure\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include('<!DOCTYPE html>');\r",
+							"    pm.expect(pm.response.text()).to.include('<html lang=\"en\">');\r",
+							"    pm.expect(pm.response.text()).to.include('<head>');\r",
+							"    pm.expect(pm.response.text()).to.include('<title>Error</title>');\r",
+							"    pm.expect(pm.response.text()).to.include('<body>');\r",
+							"    pm.expect(pm.response.text()).to.include('<pre>Cannot POST /api/equipments/add</pre>');\r",
+							"    pm.expect(pm.response.text()).to.include('</body>');\r",
+							"    pm.expect(pm.response.text()).to.include('</html>');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTFiY2ZiMzU1NzNmMjRmY2Y5YTkzZiIsImlhdCI6MTcyOTIxNzg2MywiZXhwIjoxNzI5MjIxNDYzfQ.PfxtVr6_zTrgNSiOUjV3f8yJQEIWarLmlDbFA71Vp8M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Equipamento E554552\",\r\n  \"model\": \"Modelo X\",\r\n  \"port\": \"8080\",\r\n  \"serialNumber\": \"123456789\",\r\n  \"login\": \"admin\",\r\n  \"password\": \"admin123\",\r\n  \"status\": \"ativo\",\r\n  \"condominium\": \"6710769a05f5bed2b0725190\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/equipments/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"equipments",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/condominiums/add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTFiY2ZiMzU1NzNmMjRmY2Y5YTkzZiIsImlhdCI6MTcyOTIxNzg2MywiZXhwIjoxNzI5MjIxNDYzfQ.PfxtVr6_zTrgNSiOUjV3f8yJQEIWarLmlDbFA71Vp8M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"abw3232e\",\r\n  \"externalIP\": \"maddd.ddns.net\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/condominiums/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"condominiums",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"rafael\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"rafael\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
