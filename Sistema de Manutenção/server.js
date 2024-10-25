@@ -75,10 +75,14 @@ async function connectMongoDB() { //Essa função assíncrona é responsável po
 // Chamar a função de conexão
 connectMongoDB();
 
-// Iniciar o servidor Express
-app.listen(port, () => { //Esta linha inicia o servidor Express, fazendo com que ele comece a escutar na porta definida. O callback fornece uma mensagem de log que confirma que o servidor está em execução.
-  console.log(`Servidor rodando na porta ${port}`);
-});
+// Exportar o app para ser usado nos testes
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+  });
+}
+
+module.exports = app;  // Exporta o app para ser utilizado em testes
 
 
 
