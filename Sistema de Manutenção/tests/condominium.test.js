@@ -1,9 +1,3 @@
-// Desabilitar console.log para testes
-beforeEach(() => {
-  jest.spyOn(console, 'log').mockImplementation(() => {});
-});
-
-
 const request = require('supertest');
 const mongoose = require('mongoose');
 const app = require('../server');  // Aqui está o app, não o server
@@ -19,8 +13,8 @@ describe('Testes de Condomínios', () => {
     const loginResponse = await request(server)
       .post('/api/login')  // Ajuste de acordo com a rota de login
       .send({
-        username: 'rafael',  // Insira um usuário de teste
-        password: '123456'     // Insira a senha de teste
+        username: 'seuUsuario',  // Insira um usuário de teste
+        password: 'suaSenha'     // Insira a senha de teste
       });
     token = loginResponse.body.token;  // Armazenar o token JWT
   });
@@ -53,5 +47,3 @@ describe('Testes de Condomínios', () => {
     expect(Array.isArray(response.body)).toBeTruthy();
   });
 });
-
-
