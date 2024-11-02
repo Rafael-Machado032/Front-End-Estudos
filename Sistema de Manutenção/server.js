@@ -85,4 +85,22 @@ if (require.main === module) {
 module.exports = app;  // Exporta o app para ser utilizado em testes
 
 
+const jwt = require('jsonwebtoken');
+const router = express.Router();
+
+// Rota de login
+router.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    // Autenticar usuário (substitua pela lógica real de verificação de credenciais)
+    if (username === 'usuarioExemplo' && password === 'senhaExemplo') {
+        const token = jwt.sign({ username }, process.env.SECRET_KEY, { expiresIn: '1h' });
+        res.json({ token });
+    } else {
+        res.status(401).json({ message: "Usuário ou senha incorretos." });
+    }
+});
+
+module.exports = router;
+
 

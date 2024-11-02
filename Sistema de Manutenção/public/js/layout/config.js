@@ -221,9 +221,42 @@ class Config {
 
 
         })
+        bsalvar.addEventListener("click", async () => {
+            // Capturar dados do formulário
+            const condominio = {
+                name: document.getElementById("icondominio").value,
+                externalIP: document.getElementById("iipexterno").value
+            };
 
-        blimpar.addEventListener("click", ()=> {
-            
+            const dispositivo = {
+                name: document.getElementById("ndisp").value,
+                type: document.getElementById("seldisp").value,
+                port: document.getElementById("pdisp").value,
+                serial: document.getElementById("serial").value,
+                login: document.getElementById("login").value,
+                password: document.getElementById("senha").value
+            };
+
+            try {
+                // Enviar dados do condomínio para a API
+                const response = await fetch("http://localhost:3000/api/condominiums/add", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ condominio, dispositivo })
+                });
+
+                if (response.ok) {
+                    alert("Cadastro realizado com sucesso!");
+                } else {
+                    alert("Erro ao cadastrar: " + response.statusText);
+                }
+            } catch (error) {
+                console.error("Erro ao enviar dados:", error);
+            }
+        })
+
+        blimpar.addEventListener("click", () => {
+
             icondominio.value = "";
             iipexterno.value = "";
             indisp1.value = "";
@@ -234,7 +267,7 @@ class Config {
             indisp6.value = "";
             console.log("Limpar " + this.contador + " janelas");
             Config.limparjanela(this.contador)
-            
+
         })
 
         //Painel Cadastro inicio
@@ -387,10 +420,10 @@ class Config {
     }
 
     static limparjanela = (cont4) => {
-        
-        for (let i = 1; i < cont4; cont4 --) {
-            console.log("Janela "+cont4+" apagado");
-            
+
+        for (let i = 1; i < cont4; cont4--) {
+            console.log("Janela " + cont4 + " apagado");
+
             const removerdis = document.getElementById("dis" + cont4);
             removerdis.remove();
         }
