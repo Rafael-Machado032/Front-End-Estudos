@@ -26,7 +26,8 @@ class Cxmsg {
             " left: 0px;" +
             " width: 100%;" +
             " height: 100vh;" +
-            " background-color: rgba(0,0,0,0.7);"
+            " background-color: rgba(0,0,0,0.7);"+
+            "z-index: 1000;"
         this.divmsg = document.createElement("div")     //criando a div e inserido na variável de propriedade divmsg
         this.divmsg.setAttribute("id", "divmsg")         //Setando "id" na div
         this.divmsg.setAttribute("style", estilo_divmsg) //Setando o estilo na div
