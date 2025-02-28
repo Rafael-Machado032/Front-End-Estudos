@@ -10,8 +10,9 @@ class Login {
     static callback_ok = null;
     static callback_nook = null;
     static config = {
-        cor: "#048",
-        img: "./logo.jpg"
+        cor: null, //"#048",
+        img: null,//"./logo.jpg"
+        endpoint: null // `https://ea5e330f-3e67-46f7-96a3-4e29209807d2-00-1rhphb7s2ac4p.riker.replit.dev/`
     };
     
     
@@ -130,25 +131,25 @@ class Login {
         const mat = document.querySelector("#f_username").value;
         const pas = document.querySelector("#f_senha").value;
         
-        const endpoint = `https://ea5e330f-3e67-46f7-96a3-4e29209807d2-00-1rhphb7s2ac4p.riker.replit.dev/?matricula=${mat}&senha=${pas}`
+        const endpoint = `${this.config.endpoint}/?matricula=${mat}&senha=${pas}`
         
             fetch(endpoint)
             .then(res => res.json())
             .then(res => {
             
                 if (res) {
-                    this.logado = true;
-                    this.matlogado = mat;
-                    this.nomelogado = res.nome;
-                    this.acessologado = res.acesso;
+                    sessionStorage.setItem("logado",true);
+                    sessionStorage.setItem("matlogado",mat);
+                    sessionStorage.setItem("nomelogado",res.nome);
+                    sessionStorage.setItem("acessologado",res.acesso);
                     console.log(res);
                     this.callback_ok();
                     this.fechar();
                 }else{
-                    this.logado = false;
-                    this.matlogado = null;
-                    this.nomelogado = null;
-                    this.acessologado = null;
+                    sessionStorage.setItem("logado",false);
+                    sessionStorage.setItem("matlogado",null);
+                    sessionStorage.setItem("nomelogado",null);
+                    sessionStorage.setItem("acessologado",null);
                     this.callback_nook();
                 }
 
