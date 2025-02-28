@@ -18,10 +18,7 @@ class Login {
     
 
     static login = ( callback_ok,callback_nook,config = null ) => {
-        sessionStorage.setItem("logado",false);
-        sessionStorage.setItem("matlogado",null);
-        sessionStorage.setItem("nomelogado",null);
-        sessionStorage.setItem("acessologado",null)
+
         if (config!=null) {
             this.config = config; 
         }
