@@ -18,6 +18,10 @@ class Login {
     
 
     static login = ( callback_ok,callback_nook,config = null ) => {
+        sessionStorage.setItem("logado",false);
+        sessionStorage.setItem("matlogado",null);
+        sessionStorage.setItem("nomelogado",null);
+        sessionStorage.setItem("acessologado",null)
         if (config!=null) {
             this.config = config; 
         }
@@ -111,6 +115,10 @@ class Login {
             btn_cancelar.innerHTML = "Cancelar"
             botoeslogin.appendChild(btn_cancelar);
             btn_cancelar.addEventListener("click",(evt) => {
+                sessionStorage.setItem("logado",false);
+                sessionStorage.setItem("matlogado",null);
+                sessionStorage.setItem("nomelogado",null);
+                sessionStorage.setItem("acessologado",null);
                 this.fechar();
             })
 
