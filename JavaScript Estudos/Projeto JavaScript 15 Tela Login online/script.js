@@ -18,7 +18,7 @@ const callback_nook = () => {
 }
 const configlogin = {
     cor: "#800",
-    img: "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    img: "./logo.jpg",
     endpoint: "https://ea5e330f-3e67-46f7-96a3-4e29209807d2-00-1rhphb7s2ac4p.riker.replit.dev"
 }
 
