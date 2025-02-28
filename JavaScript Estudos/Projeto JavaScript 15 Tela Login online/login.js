@@ -173,4 +173,4 @@ class Login {
         id_estiloLogin.remove();
     }
 }
-export { Login }
+//export { Login }
