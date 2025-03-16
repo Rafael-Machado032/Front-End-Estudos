@@ -1,37 +1,85 @@
-/* CSS Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.dvg{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
-html, body {
-    height: 100%;
-    font-family: Arial, sans-serif;
+.dvgTitulos{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    background-color: #138;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+.dvgTitulos div{
+    padding: 10px;
+    border: 1px solid #fff;
 }
 
-ul, ol {
-    list-style: none;
+.dvgDados{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.dvgLinha{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
 }
 
-button {
-    background: none;
-    border: none;
+.dvgLinha:nth-child(odd){
+    background-color: #aaa;
+}
+
+.dvgLinha:nth-child(even){
+    background-color: #eee;
+}
+
+.dvgLinha:hover{
+    background-color: #088 !important;
+}
+
+.c1{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.c2{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.c3{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.c4{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.c5{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.dvgIcone{
+    width: 20px;
     cursor: pointer;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+    margin: 0 5px;
+    color: black;
 }
