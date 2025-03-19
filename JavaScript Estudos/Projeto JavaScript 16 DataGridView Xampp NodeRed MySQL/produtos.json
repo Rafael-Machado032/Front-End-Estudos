@@ -1,0 +1,62 @@
+[
+    {
+        "id": "01",
+        "produto": "Teclado",
+        "marca": "Logitech",
+        "modelo": "K120"
+    },
+    {
+        "id": "02",
+        "produto": "Mouse",
+        "marca": "Razer",
+        "modelo": "DeathAdder V2"
+    },
+    {
+        "id": "03",
+        "produto": "Monitor",
+        "marca": "Dell",
+        "modelo": "U2720Q"
+    },
+    {
+        "id": "04",
+        "produto": "Headset",
+        "marca": "HyperX",
+        "modelo": "Cloud II"
+    },
+    {
+        "id": "05",
+        "produto": "Webcam",
+        "marca": "Logitech",
+        "modelo": "C920"
+    },
+    {
+        "id": "06",
+        "produto": "Impressora",
+        "marca": "HP",
+        "modelo": "LaserJet Pro M15w"
+    },
+    {
+        "id": "07",
+        "produto": "Microfone",
+        "marca": "Blue",
+        "modelo": "Yeti"
+    },
+    {
+        "id": "08",
+        "produto": "SSD",
+        "marca": "Samsung",
+        "modelo": "860 EVO"
+    },
+    {
+        "id": "09",
+        "produto": "Placa de Vídeo",
+        "marca": "NVIDIA",
+        "modelo": "RTX 3080"
+    },
+    {
+        "id": "10",
+        "produto": "Fonte de Alimentação",
+        "marca": "Corsair",
+        "modelo": "RM750x"
+    }
+]
