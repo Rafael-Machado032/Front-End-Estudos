@@ -1,0 +1,85 @@
+.dvg{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.dvgTitulos{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    background-color: #138;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+}
+
+.dvgTitulos div{
+    padding: 10px;
+    border: 1px solid #fff;
+}
+
+.dvgDados{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.dvgLinha{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.dvgLinha:nth-child(odd){
+    background-color: #aaa;
+}
+
+.dvgLinha:nth-child(even){
+    background-color: #eee;
+}
+
+.dvgLinha:hover{
+    background-color: #088 !important;
+}
+
+.c1{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.c2{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.c3{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.c4{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.c5{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.dvgIcone{
+    width: 20px;
+    cursor: pointer;
+    margin: 0 5px;
+    color: black;
+}
