@@ -42,6 +42,21 @@ const dvg = (configdvg) => {
             const imgVisibility = document.createElement('img');
             imgVisibility.setAttribute('class', 'dvgIcone');
             imgVisibility.setAttribute('src', 'img/visibility_black.png');
+            imgVisibility.addEventListener('click', (evt) =>{
+                document.getElementById('.janelaView').classList.remove('ocultar');
+                const id = evt.target.parentNode.parentNode.firstChild.innerHTML;
+                const endpoint = `http://localhost:1880/produtos/${id}`;
+                fetch(endpoint)
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response);
+                    alert(`Produto: ${response[0].s_produto_produtos}\nMarca: ${response[0].s_marca_produtos}\nModelo: ${response[0].s_modelo_produtos}`);
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar o arquivo JSON:', error);
+                });
+                console.log('Clicou no visibility');
+            });
             c5.appendChild(imgVisibility);
             
             const imgEdit = document.createElement('img');
@@ -71,12 +86,8 @@ const dvg = (configdvg) => {
                     
                 
                 console.log('Clicou no delete');
-            });
-            
+            });           
             c5.appendChild(imgDelete);
-
-            
-
             
             dvgDados.appendChild(dgvLinha);
 
@@ -88,3 +99,6 @@ const dvg = (configdvg) => {
 }
 
 dvg(configdvg);
+document.getElementById('.btn_ok').addEventListener('click', (evt) => {
+    document.getElementById('.janelaView').classList.add('ocultar');
+});
