@@ -125,9 +125,10 @@
 }
 .rodape{
     align-items: center !important;
-    
+    justify-content: center !important;
+    flex-direction: row !important;
 }
-.btn_ok{
+.btn{
     background-color: #480;
     color: #fff;
     padding: 10px 30px;
