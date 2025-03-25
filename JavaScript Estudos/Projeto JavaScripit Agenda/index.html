@@ -11,34 +11,31 @@
 </head>
 
 <body>
+
     <header id="cabecalho" class="cabecalho">
         <h1>Agenda</h1>
     </header>
+
     <nav id="menu" class="menu">
         <button id="btn_home" class="aba selecionado">Home</button>
         <button id="btn_novo" class="aba">Novo</button>
         <button id="btn_pesquisar" class="aba">Pesquisar</button>
         <button id="btn_gestao" class="aba">Gestão</button>
         <button id="btn_sobre" class="aba">Sobre</button>
-
     </nav>
+
     <main id="principal" class="principal">
-        <h2>Contatos</h2>
-        <form id="form">
-            <input type="text" id="nome" placeholder="Nome">
-            <input type="text" id="telefone" placeholder="Telefone">
-            <button type="submit">Salvar</button>
-        </form>
-        <ul id="lista"></ul>
+        <iframe name="if_principal" id="if_pricipal" class="if_principal" src="home.html"></iframe>
     </main>
+
     <footer id="rodape" class="rodape">
         <p>&copy; 2025 Agenda</p>
         <p>Desenvolvido por <a href="RAFAEL" target="_blank">RAFAEL</a></p>
     </footer>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-
     <script src="script.js"></script>
+
 </body>
 
 </html>
