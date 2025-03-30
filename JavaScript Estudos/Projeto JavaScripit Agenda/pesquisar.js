@@ -21,11 +21,8 @@ btn_pesq.addEventListener('click', () => {
     })
     .then(res => {
         console.log(res);
-<<<<<<< HEAD
+
         // dados.innerHTML = '';
-=======
-        dados.innerHTML = '';
->>>>>>> f9046905edba2a1f8a7b55e6c4bf07b170823a3d
         res.forEach(element => {
             const linha = document.createElement('div');
             linha.setAttribute("class",'linhadados');
