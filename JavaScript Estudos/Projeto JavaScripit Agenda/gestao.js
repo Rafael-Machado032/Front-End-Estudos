@@ -1,8 +1,6 @@
-const btn_pesq = document.querySelector('#btn_pesq');
-const f_txtpesq = document.querySelector('#f_txtpesq');
 const dados = document.querySelector('.dados');
 
-btn_pesq.addEventListener('click', () => { 
+const preencher = () => {
     
     if (f_txtpesq.value == '') {
         alert('Digite um nome para pesquisar');
@@ -21,7 +19,7 @@ btn_pesq.addEventListener('click', () => {
     })
     .then(res => {
         console.log(res);
-        // dados.innerHTML = '';
+        dados.innerHTML = '';
         res.forEach(element => {
             const linha = document.createElement('div');
             linha.setAttribute("class",'linhadados');
@@ -57,4 +55,6 @@ btn_pesq.addEventListener('click', () => {
     f_txtpesq.value = '';
     f_txtpesq.focus();
     
-});
+};
+
+preencher();
