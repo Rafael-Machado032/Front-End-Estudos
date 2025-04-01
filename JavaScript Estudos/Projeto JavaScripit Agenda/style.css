@@ -62,7 +62,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 80%;
+    width: 50%;
 
    
 }
@@ -174,18 +174,18 @@ label{
 }
 
 .c1{
-    width: 10%;
+    width: 3%;
 }
 .c2{
-    width: 30%;
+    width: 25%;
 }
 .c3{
-    width: 10%;
+    width: 12%;
 }
 .c4{
     width: 21%;
 }
 .c5{
-    width: 29%;
+    width: 39%;
 }
 
