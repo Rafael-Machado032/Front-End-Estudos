@@ -21,7 +21,7 @@ btn_pesq.addEventListener('click', () => {
     })
     .then(res => {
         console.log(res);
-        // dados.innerHTML = '';
+        dados.innerHTML = '';
         res.forEach(element => {
             const linha = document.createElement('div');
             linha.setAttribute("class",'linhadados');
