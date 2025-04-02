@@ -2,13 +2,8 @@ const dados = document.querySelector('.dados');
 
 const preencher = () => {
     
-    if (f_txtpesq.value == '') {
-        alert('Digite um nome para pesquisar');
-        f_txtpesq.focus();
-        return;
-    }
-    const f_pesq = document.querySelector("input[name='f_pesq']:checked").value;
-    let endpoint = `http://127.0.0.1:1880/pesquisarcontatos/${f_pesq}/${f_txtpesq.value}`;
+    
+    let endpoint = `http://127.0.0.1:1880/contatos`;
     fetch(endpoint)
     .then(res => {
         if (res.status == 200) {
@@ -49,12 +44,51 @@ const preencher = () => {
             c5.innerHTML = element.tx_obs_contatos;
             linha.appendChild(c5);
 
+            const c6 = document.createElement('div');
+            c6.setAttribute("class",'coluna c6');
+
+            const imgdelete = document.createElement('img');
+            imgdelete.setAttribute("src", "img/delete_black.png");
+            imgdelete.setAttribute("class", "imgdelete img");
+            c6.appendChild(imgdelete);
+            imgdelete.addEventListener('click', (evt) => {
+                const id = element.n_contato_contatos;
+                removercontato(id);
+                console.log(id);
+                
+            });
+
+            const imgedit = document.createElement('img');
+            imgedit.setAttribute("src", "img/edit_black.png");
+            imgedit.setAttribute("class", "imgedit img");
+            c6.appendChild(imgedit);
+            imgedit.addEventListener('click', (evt) => {
+                const id = element.n_contato_contatos;
+                window.location.href = `cadastro.html?id=${id}`;
+                console.log(id);
+                
+            });
+
+            linha.appendChild(c6);
+
             dados.appendChild(linha);
         });
     })
-    f_txtpesq.value = '';
-    f_txtpesq.focus();
+
     
 };
 
 preencher();
+
+const removercontato = (id) => {
+    const endpoint = `http://127.0.0.1:1880/deletarcontatos/${id}`;
+    fetch(endpoint)
+    .then(res => {
+        if (res.status == 200) {
+            alert('Contato removido com sucesso!');
+            preencher();
+        } else {
+            alert('Erro ao remover contato!');
+        }
+    })
+}
