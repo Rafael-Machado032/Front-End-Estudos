@@ -1,4 +1,32 @@
 const dados = document.querySelector('.dados');
+const fundopopup = document.querySelector('.fundopopup');
+const btn_gravar = document.querySelector('#btn_gravar');
+const btn_cancelar = document.querySelector('#btn_cancelar');
+const f_nome = document.querySelector('#f_nome');
+const f_telefone = document.querySelector('#f_telefone');
+const f_email = document.querySelector('#f_email');
+const f_obs = document.querySelector('#f_obs');
+let id = null
+
+btn_gravar.addEventListener('click', (evt) => {
+    fundopopup.classList.add('ocultar');
+    console.log(id);
+    const endpoint = `http://127.0.0.1:1880/editarcontatos/${id}/${f_nome.value}/${f_telefone.value}/${f_email.value}/${f_obs.value}`;
+    fetch(endpoint)
+    .then(res => {
+        if (res.status == 200) {
+            alert('Contato editado com sucesso!');
+            preencher();
+        } else {
+            alert('Erro ao editar contato!');
+        }
+    })
+    
+
+});
+btn_cancelar.addEventListener('click', (evt) => {
+    fundopopup.classList.add('ocultar');
+});
 
 const preencher = () => {
     
@@ -52,6 +80,7 @@ const preencher = () => {
             imgdelete.setAttribute("class", "imgdelete img");
             c6.appendChild(imgdelete);
             imgdelete.addEventListener('click', (evt) => {
+                
                 const id = element.n_contato_contatos;
                 removercontato(id);
                 console.log(id);
@@ -63,9 +92,18 @@ const preencher = () => {
             imgedit.setAttribute("class", "imgedit img");
             c6.appendChild(imgedit);
             imgedit.addEventListener('click', (evt) => {
-                const id = element.n_contato_contatos;
-                window.location.href = `cadastro.html?id=${id}`;
-                console.log(id);
+                id = element.n_contato_contatos;
+                const nome = element.s_nome_contatos;
+                const telefone = element.n_telefone_contatos;
+                const email = element.s_email_contatos;
+                const obs = element.tx_obs_contatos;
+                f_nome.value = nome;
+                f_telefone.value = telefone;
+                f_email.value = email;
+                f_obs.value = obs;
+                fundopopup.classList.remove('ocultar');
+                
+                
                 
             });
 

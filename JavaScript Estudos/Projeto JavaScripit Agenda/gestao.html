@@ -11,15 +11,30 @@
 </head>
 
 <body>
-    <div class="fundopopup">
+    <div class="fundopopup ocultar">
         <div class="popup">
             <div id="titulopopup" class="titulopopup">Editar Contato</div>
             <div id="principalpopup" class="principalpopup">
-                
+                <div class="campoform">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="f_nome" name="f_nome">
+                </div>
+                <div class="campoform">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" id="f_telefone" name="f_telefone">
+                </div>
+                <div class="campoform">
+                    <label for="email">E-mail:</label>
+                    <input type="text" id="f_email" name="f_email">
+                </div>
+                <div class="campoform">
+                    <label for="obs">Observações:</label>
+                    <textarea id="f_obs" name="f_obs"></textarea>
+                </div>
             </div>
             <div id="rodapepopup" class="rodapepopup">
-                <button class="btn">Gravar</button>
-                <button class="btn">Cancelar</button>
+                <button class="btn" id="btn_gravar">Gravar</button>
+                <button class="btn" id="btn_cancelar">Cancelar</button>
             </div>
         </div>
     </div>
@@ -35,7 +50,7 @@
         </div>
 
         <div id="dados" class="dados">
-            
+
         </div>
     </div>
 
