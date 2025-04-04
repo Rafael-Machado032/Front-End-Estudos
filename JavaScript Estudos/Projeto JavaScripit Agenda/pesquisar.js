@@ -14,10 +14,10 @@ btn_pesq.addEventListener('click', () => {
     fetch(endpoint)
     .then(res => {
         if (res.status == 200) {
-            return res.json();   
+            return res.json();
         } else {
             alert('Erro ao pesquisar contato!');
-        }  
+        }
     })
     .then(res => {
         console.log(res);

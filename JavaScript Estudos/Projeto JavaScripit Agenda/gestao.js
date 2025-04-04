@@ -15,7 +15,7 @@ btn_gravar.addEventListener('click', (evt) => {
     fetch(endpoint)
     .then(res => {
         if (res.status == 200) {
-            alert('Contato editado com sucesso!');
+            
             preencher();
         } else {
             alert('Erro ao editar contato!');
