@@ -257,3 +257,23 @@ label{
     border-radius: 0 0 10px 10px;
     
 }
+
+/* Filtro */
+
+.filtro{
+    display: flex;
+    width: 100%;
+    padding: 0 80px;
+}
+.colunafiltro{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    
+}
+
+#filtro_nome, #filtro_email, #filtro_telefone{
+    width: 100%;
+    
+}
