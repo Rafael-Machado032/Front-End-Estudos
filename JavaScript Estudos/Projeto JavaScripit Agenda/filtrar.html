@@ -13,23 +13,48 @@
 <body>
     
     <h1 class="center">Filtrar</h1>
+    <div class="fundopopup ocultar">
+        <div class="popup">
+            <div id="titulopopup" class="titulopopup">Editar Contato</div>
+            <div id="principalpopup" class="principalpopup">
+                <div class="campoform">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="f_nome" name="f_nome">
+                </div>
+                <div class="campoform">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" id="f_telefone" name="f_telefone">
+                </div>
+                <div class="campoform">
+                    <label for="email">E-mail:</label>
+                    <input type="text" id="f_email" name="f_email">
+                </div>
+                <div class="campoform">
+                    <label for="obs">Observações:</label>
+                    <textarea id="f_obs" name="f_obs"></textarea>
+                </div>
+            </div>
+            <div id="rodapepopup" class="rodapepopup">
+                <button class="btn" id="btn_gravar">Gravar</button>
+                <button class="btn" id="btn_cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
 
     <div id="filtro" class="filtro">
-        <div class="coluna c1">
+        <div class="colunafiltro">
             <label for="filtro_nome">Nome:</label>
             <input type="text" id="filtro_nome" name="filtro_nome" placeholder="Digite o nome">
         </div>
-        <div class="coluna c2">
+        <div class="colunafiltro">
             <label for="filtro_telefone">Telefone:</label>
             <input type="text" id="filtro_telefone" name="filtro_telefone" placeholder="Digite o telefone">
         </div>
-        <div class="coluna c3">
+        <div class="colunafiltro">
             <label for="filtro_email">Email:</label>
             <input type="text" id="filtro_email" name="filtro_email" placeholder="Digite o email">
         </div>
-        <div class="coluna c4">
-            <button id="btn_filtrar" class="btn_filtrar">Filtrar</button>
-        </div>
+        
     </div>
     <div id="resultado" class="resultado">
         <div id="titulos" class="titulos">

@@ -4,10 +4,31 @@ const f_nome = document.querySelector('#f_nome');
 const f_telefone = document.querySelector('#f_telefone');
 const f_email = document.querySelector('#f_email');
 const f_obs = document.querySelector('#f_obs');
+const filtro_nome = document.querySelector('#filtro_nome');
+const filtro_telefone = document.querySelector('#filtro_telefone');
+const filtro_email = document.querySelector('#filtro_email');
 let id = null
 
 
+btn_gravar.addEventListener('click', (evt) => {
+    fundopopup.classList.add('ocultar');
+    console.log(id);
+    const endpoint = `http://127.0.0.1:1880/editarcontatos/${id}/${f_nome.value}/${f_telefone.value}/${f_email.value}/${f_obs.value}`;
+    fetch(endpoint)
+    .then(res => {
+        if (res.status == 200) {
+            
+            preencher();
+        } else {
+            alert('Erro ao editar contato!');
+        }
+    })
+    
 
+});
+btn_cancelar.addEventListener('click', (evt) => {
+    fundopopup.classList.add('ocultar');
+});
 
 const preencher = () => {
     
@@ -111,3 +132,45 @@ const removercontato = (id) => {
         }
     })
 }
+
+filtro_nome.addEventListener('input', (evt) => {
+    const termo = evt.target.value.toLowerCase();
+    const linhas = document.querySelectorAll('.linhadados');
+    
+    linhas.forEach(linha => {
+        const nome = linha.querySelector('.c2').textContent.toLowerCase();
+        if (nome.includes(termo)) {
+            linha.style.display = '';
+        } else {
+            linha.style.display = 'none';
+        }
+    });
+});
+
+filtro_telefone.addEventListener('input', (evt) => {
+    const termo = evt.target.value.toLowerCase();
+    const linhas = document.querySelectorAll('.linhadados');
+    
+    linhas.forEach(linha => {
+        const telefone = linha.querySelector('.c3').textContent.toLowerCase();
+        if (telefone.includes(termo)) {
+            linha.style.display = '';
+        } else {
+            linha.style.display = 'none';
+        }
+    });
+});
+
+filtro_email.addEventListener('input', (evt) => {
+    const termo = evt.target.value.toLowerCase();
+    const linhas = document.querySelectorAll('.linhadados');
+    
+    linhas.forEach(linha => {
+        const email = linha.querySelector('.c4').textContent.toLowerCase();
+        if (email.includes(termo)) {
+            linha.style.display = '';
+        } else {
+            linha.style.display = 'none';
+        }
+    });
+});
