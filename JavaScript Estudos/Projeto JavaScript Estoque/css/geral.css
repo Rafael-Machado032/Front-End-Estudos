@@ -1,9 +1,42 @@
 .menuprincipal{
-   
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 241px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: all .2s;
+
 }
-.btn_menuprincipal{
-    cursor: pointer;
+.ocultar{
+    left: -210px;
+    transition: all .2s;
+}
+
+.menuitens{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ccc;
+    height: 94vh;
 }
 .btn_menuitem{
     cursor: pointer;
+    margin: 5px;
+    padding: 5px 15px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: #888;
+    text-align: center;
+    color: #fff;
 }
+.btn_menuprincipal{
+    cursor: pointer;
+    width: 30px;
+    border: none;
+    
+}
+
