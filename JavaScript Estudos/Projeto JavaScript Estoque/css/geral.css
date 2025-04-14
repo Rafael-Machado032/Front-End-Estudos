@@ -1,3 +1,12 @@
+:root{
+    --corprimaria: #248;
+    --corsecundaria: #ccc;
+    --corfundo: #fff;
+    --corfundo2: #888;
+    --corfundo3: #000;
+    --corfundo4: #aaa;
+    --corfundo5: #666;
+}
 .menuprincipal{
     display: flex;
     flex-direction: row;
@@ -20,8 +29,8 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    background-color: #ccc;
-    height: 94vh;
+    background-color: var(--corfundo);
+    height: 100vh;
 }
 .btn_menuitem{
     cursor: pointer;
@@ -40,3 +49,141 @@
     
 }
 
+/* FORMATAÇÃO DE TABELA */
+
+.grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 100px;
+}
+.titulogrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--corprimaria);
+    color: white;
+    width: 100%;
+
+}
+.colunatitulogrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid var(--corfundo);
+}
+.dadosgrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.linhagrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.colunalinhagrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--corfundo);
+}
+
+/* Topo Jaela */
+
+.topojanela{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn_mainoper{
+    background-color: var(--corprimaria);
+    border-radius: 100px;
+    cursor: pointer;
+    width: 40px;
+}
+
+/* Janela Novo */
+
+.popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+}
+.janelapopup{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 500px;
+    
+}
+
+.titulopopup{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--corprimaria);
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0px 0px;
+    width: 100%;
+}
+.corpopopup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--corfundo);
+}
+.campoform{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+.inputform{
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+}
+.rodapepopup{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--corprimaria);
+    color: white;
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
+    width: 100%;
+}
+
+.btn_comandopopup{
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px 15px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: var(--corfundo4);
+    text-align: center;
+    color: var(--corfundo3);
+    text-transform: uppercase;
+}

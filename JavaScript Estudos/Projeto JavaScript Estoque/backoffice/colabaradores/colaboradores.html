@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,23 +10,79 @@
     <link rel="stylesheet" href="colaboradores.css">
     <title>Colaboradores - BackOffice</title>
 </head>
+
 <body>
-   <div id="topojanela" class="topojanela"></div>
-   <div id="grid" class="grid">
+    <div id="topojanela" class="topojanela">
+        <div></div>
+        <div>Colaboradores</div>
+        <div>
+            <img src="../../img/add.svg" alt="Editar" title="Adicionar novo operador" class="btn_mainoper"
+                id="btn_mainoper">
+        </div>
+    </div>
+
+    <div id="novocolaborador" class="popup">
+        <div class="janelapopup">
+            <div class="titulopopup">
+                <div>Novo Colaborador</div>
+                <img src="../../img/close.svg" alt="">
+            </div>
+            <div class="corpopopup">
+                <div class="campoform">
+                    <label for="">Nome Colaborador:</label>
+                    <input type="text" name="f_nome" id="f_nome" class="inputform">
+                </div>
+                <div class="campoform">
+                    <label for="">Tipo Colaborador:</label>
+                    <select name="f_tipo" id="f_tipo" class="inputform" >
+                        <option value="" disabled selected>Selecione</option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="campoform">
+                    <label for="">Status:</label>
+                    <select name="f_status" id="f_status" class="inputform" >
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="">Ativo</option>
+                        <option value="">Inativo</option>
+                    </select>
+                </div>
+                <div class="campoform">
+                    <label for="">Telefone:</label>
+                    <input type="tel" name="f_telefone" id="f_telefone" class="inputform">
+                </div>
+            </div>
+            <div class="rodapepopup">
+                <button id="btn_gravar" class="btn_comandopopup">Salvar</button>
+                <button id="btn_cancelar" class="btn_comandopopup">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="grid" class="grid">
         <div id="titulogrid" class="titulogrid">
             <div class="colunatitulogrid c1">ID</div>
             <div class="colunatitulogrid c2">Nome</div>
             <div class="colunatitulogrid c3">Tipo</div>
             <div class="colunatitulogrid c4">Status</div>
+            <div class="colunatitulogrid c5">Operação</div>
         </div>
         <div id="dadosgrid" class="dadosgrid">
+            <!-- <div class="linhagrid">
+                <div class="colunalinhagrid c1">ID</div>
+                <div class="colunalinhagrid c2">Nome</div>
+                <div class="colunalinhagrid c3">Tipo</div>
+                <div class="colunalinhagrid c4">Status</div>
+                <div class="colunalinhagrid c5">Operação</div>
+            </div> -->
 
         </div>
-   </div>
+    </div>
 
 
 
     <script src="colaboradores.js" type="module"></script>
     <script src="../../script.js" type="module"></script>
 </body>
+
 </html>
