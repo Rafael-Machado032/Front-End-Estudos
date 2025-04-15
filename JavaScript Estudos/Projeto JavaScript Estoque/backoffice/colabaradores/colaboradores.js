@@ -1,4 +1,9 @@
-const dadosgrid = document.querySelector(".dadosgrid");
+const dadosgrid = document.querySelector("#dadosgrid");
+const btn_add = document.querySelector("#btn_add");
+const novocolaborador = document.querySelector("#novocolaborador");
+const btn_fecharpopup = document.querySelector("#btn_closepopup");
+const btn_cancelar = document.querySelector("#btn_cancelar");
+const btn_salvar = document.querySelector("#btn_salvar");
 
 const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
 
@@ -47,14 +52,50 @@ fetch(endpoint_todoscoloboradores)
             c5.classList.add("colunalinhagrid");
             c5.innerHTML = "E E";
             linhagrid.appendChild(c5);
-
-
-
-
-
-            
-            
-
-            
         });
+    });
+
+const endpoint_tipocolab = "http://localhost:1880/tipocolab";
+fetch(endpoint_tipocolab)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("A resposta da rede não foi bem-sucedida");
+        }
+        return response.json();
     })
+    .then((data) => {
+        console.log(data);
+        const f_tipo = document.querySelector("#f_tipo");
+        f_tipo.innerHTML = "";
+        const option = document.createElement("option");
+        option.setAttribute("disable", "true");
+        option.setAttribute("selected", "true");
+        option.setAttribute("value", "");
+        option.textContent = "Selecione";
+        f_tipo.appendChild(option);
+        f_tipo.setAttribute("required", "true");
+        data.forEach((tipo) => {
+            const option = document.createElement("option");
+            option.value = tipo.n_nivel_tipousuario;
+            option.textContent = tipo.s_desc_tipousuario;
+            f_tipo.appendChild(option);
+        });
+    });
+
+
+
+btn_add.addEventListener("click", function () {
+    novocolaborador.classList.remove("ocultarpopup");
+    f_tipo.selectedIndex = 0;
+});
+btn_fecharpopup.addEventListener("click", function () {
+    novocolaborador.classList.add("ocultarpopup");
+    
+});
+btn_cancelar.addEventListener("click", function () {
+    novocolaborador.classList.add("ocultarpopup");
+});
+btn_salvar.addEventListener("click", function () {
+    novocolaborador.classList.add("ocultarpopup");
+});
+

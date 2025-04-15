@@ -17,15 +17,15 @@
         <div>Colaboradores</div>
         <div>
             <img src="../../img/add.svg" alt="Editar" title="Adicionar novo operador" class="btn_mainoper"
-                id="btn_mainoper">
+                id="btn_add">
         </div>
     </div>
 
-    <div id="novocolaborador" class="popup">
+    <div id="novocolaborador" class="popup ocultarpopup">
         <div class="janelapopup">
             <div class="titulopopup">
                 <div>Novo Colaborador</div>
-                <img src="../../img/close.svg" alt="">
+                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_closepopup" required>
             </div>
             <div class="corpopopup">
                 <div class="campoform">
@@ -34,26 +34,25 @@
                 </div>
                 <div class="campoform">
                     <label for="">Tipo Colaborador:</label>
-                    <select name="f_tipo" id="f_tipo" class="inputform" >
-                        <option value="" disabled selected>Selecione</option>
-                        <option value=""></option>
+                    <select name="f_tipo" id="f_tipo" class="inputform" required>
+                        
                     </select>
                 </div>
                 <div class="campoform">
                     <label for="">Status:</label>
-                    <select name="f_status" id="f_status" class="inputform" >
+                    <select name="f_status" id="f_status" class="inputform" required>
                         <option value="" disabled selected>Selecione</option>
-                        <option value="">Ativo</option>
-                        <option value="">Inativo</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
                     </select>
                 </div>
                 <div class="campoform">
                     <label for="">Telefone:</label>
-                    <input type="tel" name="f_telefone" id="f_telefone" class="inputform">
+                    <input type="tel" name="f_telefone" id="f_telefone" class="inputform" required>
                 </div>
             </div>
             <div class="rodapepopup">
-                <button id="btn_gravar" class="btn_comandopopup">Salvar</button>
+                <button id="btn_salvar" class="btn_comandopopup">Salvar</button>
                 <button id="btn_cancelar" class="btn_comandopopup">Cancelar</button>
             </div>
         </div>
