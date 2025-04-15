@@ -123,6 +123,7 @@
     top: 0px;
     left: 0px;
     z-index: 9999;
+    transition: all .2s;
 }
 .janelapopup{
     display: flex;
@@ -149,7 +150,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background-color: var(--corfundo);
+    background-color: var(--corfundo4);
 }
 .campoform{
     display: flex;
@@ -186,4 +187,15 @@
     text-align: center;
     color: var(--corfundo3);
     text-transform: uppercase;
+}
+.ocultarpopup{
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s;
+}
+.btn_closepopup{
+    cursor: pointer;
+    width: 30px;
+    border: none;
+    background-color: transparent;
 }
