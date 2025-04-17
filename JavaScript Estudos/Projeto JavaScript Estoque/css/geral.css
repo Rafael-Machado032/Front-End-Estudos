@@ -130,7 +130,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    width: 500px;
+    width: 520px;
     
 }
 
@@ -198,4 +198,32 @@
     width: 30px;
     border: none;
     background-color: transparent;
+}
+.telefones{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--corfundo);
+    margin: 10px 0;
+}
+.tel{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    flex-direction: row;
+    margin: 5px;
+    background-color: yellow;
+
+}
+.numtel{
+    background-color:var(--corfundo4);
+    border-radius: 5px 0 0 5px ;
+    padding: 5px;
+}
+.deltel{
+    background-color: var(--corfundo5);
+    cursor: pointer;
+    border-radius: 0 5px 5px 0 ;
+    padding: 2px;
 }

@@ -47,8 +47,21 @@
                     </select>
                 </div>
                 <div class="campoform">
-                    <label for="">Telefone:</label>
-                    <input type="tel" name="f_telefone" id="f_telefone" class="inputform" required>
+                    <label for="">Foto:</label>
+                    <input type="file" name="f_foto" id="f_foto" accept="image/*" class="inputform">
+                </div>
+                <div class="campoform">
+                    <img src="" alt="foto cadastro" id="img_foto" class="img_foto">
+                </div>
+                <div class="campoform">
+                    <label for="">Telefone: (Aperte ENTER para adiionar um ou mais numeros)</label>
+                    <input type="tel" name="f_telefone" id="f_telefone" class="inputform" title="Digite no máximo 10 dígitos" required>
+                    <div id="telefones" class="telefones">
+                        <!-- <div class="tel">
+                            <div class="numtel">(51)3317-3324</div>
+                            <img src="../../img/delete.svg" alt="Excluir" title="Excluir telefone" id="btn_delete" class="deltel">
+                        </div> -->
+                    </div>
                 </div>
             </div>
             <div class="rodapepopup">
