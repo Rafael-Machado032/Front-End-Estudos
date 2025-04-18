@@ -16,53 +16,56 @@ const img_foto = document.querySelector("#img_foto");
 
 const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
 
-fetch(endpoint_todoscoloboradores)
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error("A resposta da rede não foi bem-sucedida");
-        }
-        return response.json();
-    })
+const carregarColaboradores = () => {
+    fetch(endpoint_todoscoloboradores)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("A resposta da rede não foi bem-sucedida");
+            }
+            return response.json();
+        })
 
-    .then((data) => {
-        console.log(data);
-        dadosgrid.innerHTML = "";
-        data.forEach((colaborador) => {
-            const linhagrid = document.createElement("div");
-            linhagrid.classList.add("linhagrid");
-            dadosgrid.appendChild(linhagrid);
+        .then((data) => {
+            console.log(data);
+            dadosgrid.innerHTML = "";
+            data.forEach((colaborador) => {
+                const linhagrid = document.createElement("div");
+                linhagrid.classList.add("linhagrid");
+                dadosgrid.appendChild(linhagrid);
 
-            const c1 = document.createElement("div");
-            c1.classList.add("c1");
-            c1.classList.add("colunalinhagrid");
-            c1.innerHTML = colaborador.n_usuario_usuario;
-            linhagrid.appendChild(c1);
+                const c1 = document.createElement("div");
+                c1.classList.add("c1");
+                c1.classList.add("colunalinhagrid");
+                c1.innerHTML = colaborador.n_usuario_usuario;
+                linhagrid.appendChild(c1);
 
-            const c2 = document.createElement("div");
-            c2.classList.add("c2");
-            c2.classList.add("colunalinhagrid");
-            c2.innerHTML = colaborador.s_nome_usuario;
-            linhagrid.appendChild(c2);
+                const c2 = document.createElement("div");
+                c2.classList.add("c2");
+                c2.classList.add("colunalinhagrid");
+                c2.innerHTML = colaborador.s_nome_usuario;
+                linhagrid.appendChild(c2);
 
-            const c3 = document.createElement("div");
-            c3.classList.add("c3");
-            c3.classList.add("colunalinhagrid");
-            c3.innerHTML = colaborador.n_tipo_usuario;
-            linhagrid.appendChild(c3);
+                const c3 = document.createElement("div");
+                c3.classList.add("c3");
+                c3.classList.add("colunalinhagrid");
+                c3.innerHTML = colaborador.n_tipo_usuario;
+                linhagrid.appendChild(c3);
 
-            const c4 = document.createElement("div");
-            c4.classList.add("c4");
-            c4.classList.add("colunalinhagrid");
-            c4.innerHTML = colaborador.c_status_usuario;
-            linhagrid.appendChild(c4);
+                const c4 = document.createElement("div");
+                c4.classList.add("c4");
+                c4.classList.add("colunalinhagrid");
+                c4.innerHTML = colaborador.c_status_usuario;
+                linhagrid.appendChild(c4);
 
-            const c5 = document.createElement("div");
-            c5.classList.add("c5");
-            c5.classList.add("colunalinhagrid");
-            c5.innerHTML = "E E";
-            linhagrid.appendChild(c5);
+                const c5 = document.createElement("div");
+                c5.classList.add("c5");
+                c5.classList.add("colunalinhagrid");
+                c5.innerHTML = "E E";
+                linhagrid.appendChild(c5);
+            });
         });
-    });
+}
+carregarColaboradores();
 
 const endpoint_tipocolab = "http://localhost:1880/tipocolab";
 fetch(endpoint_tipocolab)
@@ -77,7 +80,7 @@ fetch(endpoint_tipocolab)
         const f_tipo = document.querySelector("#f_tipo");
         f_tipo.innerHTML = "";
         const option = document.createElement("option");
-        option.setAttribute("disable", "true");
+        option.setAttribute("disabled", "true");
         option.setAttribute("selected", "true");
         option.setAttribute("value", "");
         option.textContent = "Selecione";
@@ -95,11 +98,14 @@ fetch(endpoint_tipocolab)
 
 btn_add.addEventListener("click", function () {
     novocolaborador.classList.remove("ocultarpopup");
+    limpar();
 });
 btn_fecharpopup.addEventListener("click", function () {
+    novocolaborador.classList.add("ocultarpopup");
     limpar();
 });
 btn_cancelar.addEventListener("click", function () {
+    novocolaborador.classList.add("ocultarpopup");
     limpar();
 });
 btn_salvar.addEventListener("click", function () {
@@ -113,15 +119,12 @@ btn_salvar.addEventListener("click", function () {
         n_tipo_usuario: f_tipo.value,
         c_status_usuario: f_status.value,
         numtelefones: telefones,
-        s_foto_usuario: img_foto.getAttribute("src"),
+        s_foto_usuario: img_foto.getAttribute("src")
     };
     console.log(dados);
     const endpointnovocolab = "http://localhost:1880/novocolab";
     const options = {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
         body: JSON.stringify(dados),
     };
     fetch(endpointnovocolab, options)
@@ -137,6 +140,8 @@ btn_salvar.addEventListener("click", function () {
 
 
     limpar();
+    carregarColaboradores();
+
 });
 
 f_telefone.addEventListener("keyup", (evt) => {
@@ -188,7 +193,7 @@ const limpar = () => {
     f_telefone.value = "";
     telefones.innerHTML = "";
     f_nome.focus();
-    novocolaborador.classList.add("ocultarpopup");
+    img_foto.setAttribute("src", "../../img/defaut.svg");
 }
 
 f_foto.addEventListener("change", function () { // Evento de mudança do input de arquivo
