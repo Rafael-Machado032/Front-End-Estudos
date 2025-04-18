@@ -10,6 +10,9 @@ const f_status = document.querySelector("#f_status");
 const f_telefone = document.querySelector("#f_telefone");
 const telefones = document.querySelector("#telefones");
 const btn_delete = document.querySelector("#btn_delete");
+const f_foto = document.querySelector("#f_foto");
+const img_foto = document.querySelector("#img_foto");
+
 
 const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
 
@@ -110,6 +113,7 @@ btn_salvar.addEventListener("click", function () {
         n_tipo_usuario: f_tipo.value,
         c_status_usuario: f_status.value,
         numtelefones: telefones,
+        s_foto_usuario: img_foto.getAttribute("src"),
     };
     console.log(dados);
     const endpointnovocolab = "http://localhost:1880/novocolab";
@@ -130,45 +134,6 @@ btn_salvar.addEventListener("click", function () {
             }
             return response.json();
         })
-    // .then((data) => {
-    //     console.log(data);
-    //     dadosgrid.innerHTML = "";
-    //     data.forEach((colaborador) => {
-    //         const linhagrid = document.createElement("div");
-    //         linhagrid.classList.add("linhagrid");
-    //         dadosgrid.appendChild(linhagrid);
-
-    //         const c1 = document.createElement("div");
-    //         c1.classList.add("c1");
-    //         c1.classList.add("colunalinhagrid");
-    //         c1.innerHTML = colaborador.n_usuario_usuario;
-    //         linhagrid.appendChild(c1);
-
-    //         const c2 = document.createElement("div");
-    //         c2.classList.add("c2");
-    //         c2.classList.add("colunalinhagrid");
-    //         c2.innerHTML = colaborador.s_nome_usuario;
-    //         linhagrid.appendChild(c2);
-
-    //         const c3 = document.createElement("div");
-    //         c3.classList.add("c3");
-    //         c3.classList.add("colunalinhagrid");
-    //         c3.innerHTML = colaborador.n_tipo_usuario;
-    //         linhagrid.appendChild(c3);
-
-    //         const c4 = document.createElement("div");
-    //         c4.classList.add("c4");
-    //         c4.classList.add("colunalinhagrid");
-    //         c4.innerHTML = colaborador.c_status_usuario;
-    //         linhagrid.appendChild(c4);
-
-    //         const c5 = document.createElement("div");
-    //         c5.classList.add("c5");
-    //         c5.classList.add("colunalinhagrid");
-    //         c5.innerHTML = "E E";
-    //         linhagrid.appendChild(c5);
-    //     });
-    // });
 
 
     limpar();
@@ -225,3 +190,14 @@ const limpar = () => {
     f_nome.focus();
     novocolaborador.classList.add("ocultarpopup");
 }
+
+f_foto.addEventListener("change", function () { // Evento de mudança do input de arquivo
+    const file = f_foto.files[0]; // Pega o primeiro arquivo selecionado
+    if (file) { // Verifica se há um arquivo
+        const reader = new FileReader(); //  é uma API do JavaScript usada para ler o conteúdo de arquivos de forma assíncrona
+        reader.onload = function (e) { // Carraga o arquivo
+            img_foto.setAttribute("src", e.target.result); // Define o src da imagem para o resultado do FileReader
+        }
+        reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
+    }
+});
