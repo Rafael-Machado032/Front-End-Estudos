@@ -13,6 +13,8 @@ const btn_delete = document.querySelector("#btn_delete");
 const f_foto = document.querySelector("#f_foto");
 const img_foto = document.querySelector("#img_foto");
 
+//n = Novo colaboraodr | e = Editar colaborador
+let modojanela = "n";
 
 const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
 
@@ -60,8 +62,32 @@ const carregarColaboradores = () => {
                 const c5 = document.createElement("div");
                 c5.classList.add("c5");
                 c5.classList.add("colunalinhagrid");
-                c5.innerHTML = "E E";
                 linhagrid.appendChild(c5);
+
+                const img_status = document.createElement("img");
+                img_status.classList.add("icone_op");
+                img_status.setAttribute("src", "../../img/ligado.svg");
+                c5.appendChild(img_status);
+                
+                const img_editar = document.createElement("img");
+                img_editar.classList.add("icone_op");
+                img_editar.setAttribute("src", "../../img/edit.svg");
+                img_editar.addEventListener("click", function () {
+                    modojanela = "e";
+                    document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
+                    novocolaborador.classList.remove("ocultarpopup");
+                    const id = colaborador.n_usuario_usuario;
+                    console.log(id);
+                    
+                });
+                c5.appendChild(img_editar);
+
+                const img_remover = document.createElement("img");
+                img_remover.classList.add("icone_op");
+                img_remover.setAttribute("src", "../../img/delete.svg");
+                c5.appendChild(img_remover);
+
+
             });
         });
 }
@@ -97,6 +123,8 @@ fetch(endpoint_tipocolab)
 
 
 btn_add.addEventListener("click", function () {
+    modojanela = "n";
+    document.querySelector("#titulopopup").innerHTML = "Novo Colaborador";
     novocolaborador.classList.remove("ocultarpopup");
     limpar();
 });

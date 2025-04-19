@@ -16,16 +16,16 @@
         <div></div>
         <div>Colaboradores</div>
         <div>
-            <img src="../../img/add.svg" alt="Editar" title="Adicionar novo operador" class="btn_mainoper"
-                id="btn_add">
+            <img src="../../img/add.svg" alt="Editar" title="Adicionar novo operador" class="btn_mainoper" id="btn_add">
         </div>
     </div>
 
     <div id="novocolaborador" class="popup ocultarpopup">
         <div class="janelapopup">
             <div class="titulopopup">
-                <div>Novo Colaborador</div>
-                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_closepopup" required>
+                <div id="titulopopup">Novo Colaborador</div>
+                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_closepopup"
+                    required>
             </div>
             <div class="corpopopup">
                 <div class="campoform">
@@ -54,10 +54,11 @@
                 <div class="campoform">
                     <img src="" alt="foto cadastro" id="img_foto" class="img_foto">
                 </div>
-                
+
                 <div class="campoform">
                     <label for="">Telefone: (Aperte ENTER para adiionar um ou mais numeros)</label>
-                    <input type="tel" name="f_telefone" id="f_telefone" class="inputform" title="Digite no máximo 10 dígitos" required>
+                    <input type="tel" name="f_telefone" id="f_telefone" class="inputform"
+                        title="Digite no máximo 10 dígitos" required>
                     <div id="telefones" class="telefones">
                         <!-- <div class="tel">
                             <div class="numtel">(51)3317-3324</div>
@@ -72,17 +73,17 @@
             </div>
         </div>
     </div>
-
-    <div id="grid" class="grid">
-        <div id="titulogrid" class="titulogrid">
-            <div class="colunatitulogrid c1">ID</div>
-            <div class="colunatitulogrid c2">Nome</div>
-            <div class="colunatitulogrid c3">Tipo</div>
-            <div class="colunatitulogrid c4">Status</div>
-            <div class="colunatitulogrid c5">Operação</div>
-        </div>
-        <div id="dadosgrid" class="dadosgrid">
-            <!-- <div class="linhagrid">
+    <div id="areagrid" class="areagrid">
+        <div id="grid" class="grid">
+            <div id="titulogrid" class="titulogrid">
+                <div class="colunatitulogrid c1">ID</div>
+                <div class="colunatitulogrid c2">Nome</div>
+                <div class="colunatitulogrid c3">Tipo</div>
+                <div class="colunatitulogrid c4">Status</div>
+                <div class="colunatitulogrid c5">Operação</div>
+            </div>
+            <div id="dadosgrid" class="dadosgrid">
+                <!-- <div class="linhagrid">
                 <div class="colunalinhagrid c1">ID</div>
                 <div class="colunalinhagrid c2">Nome</div>
                 <div class="colunalinhagrid c3">Tipo</div>
@@ -90,8 +91,10 @@
                 <div class="colunalinhagrid c5">Operação</div>
             </div> -->
 
+            </div>
         </div>
     </div>
+
 
 
 

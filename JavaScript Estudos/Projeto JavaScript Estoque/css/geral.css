@@ -50,6 +50,15 @@
 }
 
 /* FORMATAÇÃO DE TABELA */
+.areagrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
 
 .grid{
     display: flex;
@@ -87,11 +96,23 @@
     align-items: center;
     width: 100%;
 }
+.linhagrid:nth-child(even){
+    background-color: #fff;
+}
+.linhagrid:nth-child(odd){
+    background-color: #ddd;
+}
+.linhagrid:hover{
+    background-color: var(--corfundo2);
+}
+
 .colunalinhagrid{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--corfundo);
+}
+.icone_op{
+    cursor: pointer;
 }
 
 /* Topo Jaela */

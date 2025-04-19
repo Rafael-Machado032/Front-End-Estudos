@@ -37,7 +37,7 @@ const preencher = () => {
     fetch(endpoint)
     .then(res => {
         if (res.status == 200) {
-            return res.json();   
+            return res.json();
         } else {
             alert('Erro ao pesquisar contato!');
         }  
