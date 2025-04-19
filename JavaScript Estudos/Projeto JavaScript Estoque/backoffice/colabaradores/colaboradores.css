@@ -15,8 +15,9 @@
     
 }
 .c5{
+    display: flex;
+    justify-content: space-around;
     width: 15%;
-    
 }
 .img_foto{
     width: 100px;
