@@ -22,8 +22,8 @@ btn_gravar.addEventListener('click', (evt) => {
         }
     })
     
-
 });
+
 btn_cancelar.addEventListener('click', (evt) => {
     fundopopup.classList.add('ocultar');
 });

@@ -76,9 +76,58 @@ const carregarColaboradores = () => {
                     modojanela = "e";
                     document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
                     novocolaborador.classList.remove("ocultarpopup");
-                    const id = colaborador.n_usuario_usuario;
+                    const id = colaborador.n_usuario_usuario
+                    f_nome.value = colaborador.s_nome_usuario;
+                    f_tipo.value = colaborador.n_tipo_usuario;
+                    f_status.value = colaborador.c_status_usuario;
                     console.log(id);
-                    
+
+                    let endpoint_colaborador = `http://localhost:1880/editarcontatos/${id}`;
+                    fetch(endpoint_colaborador)
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error("A resposta da rede não foi bem-sucedida");
+                            }
+                            return response.json();
+                        })
+                        .then((response) => {
+                            console.log(response);
+                            img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
+                        });
+
+                        endpoint_colaborador = `http://localhost:1880/editartelefones/${id}`;
+                        fetch(endpoint_colaborador)
+                            .then((response) => {
+                                if (!response.ok) {
+                                    throw new Error("A resposta da rede não foi bem-sucedida");
+                                }
+                                return response.json();
+                            })
+                            .then((response) => {
+                                console.log(response);
+                                telefones.innerHTML = "";
+                                response.forEach((telefone) => {
+                                    const tel = document.createElement("div");
+                                    tel.classList.add("tel");
+                                    telefones.appendChild(tel);
+
+                                    const numtel = document.createElement("div");
+                                    numtel.classList.add("numtel");
+                                    numtel.innerHTML = telefone.s_numero_telefone;
+                                    tel.appendChild(numtel);
+
+                                    const deltel = document.createElement("img");
+                                    deltel.classList.add("deltel");
+                                    deltel.setAttribute("src", "../../img/delete.svg");
+                                    deltel.setAttribute("alt", "Excluir telefone");
+                                    deltel.setAttribute("title", "Excluir telefone");
+                                    tel.appendChild(deltel);
+
+                                    deltel.addEventListener("click", function () {
+                                        telefones.removeChild(tel);
+                                    });
+                                });
+                            });
                 });
                 c5.appendChild(img_editar);
 
@@ -128,14 +177,17 @@ btn_add.addEventListener("click", function () {
     novocolaborador.classList.remove("ocultarpopup");
     limpar();
 });
+
 btn_fecharpopup.addEventListener("click", function () {
     novocolaborador.classList.add("ocultarpopup");
     limpar();
 });
+
 btn_cancelar.addEventListener("click", function () {
     novocolaborador.classList.add("ocultarpopup");
     limpar();
 });
+
 btn_salvar.addEventListener("click", function () {
     const tels = document.querySelectorAll(".numtel");
     let telefones = [];
