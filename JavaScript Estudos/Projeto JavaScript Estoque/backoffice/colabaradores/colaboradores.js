@@ -16,9 +16,34 @@ const img_foto = document.querySelector("#img_foto");
 //n = Novo colaboraodr | e = Editar colaborador
 let modojanela = "n";
 
-const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
+const criarCxTelefone = (fone) => {
+    const tel = document.createElement("div");
+    tel.classList.add("tel");
+    telefones.appendChild(tel);
+
+    const numtel = document.createElement("div");
+    numtel.classList.add("numtel");
+    numtel.innerHTML = fone;
+    tel.appendChild(numtel);
+
+    const deltel = document.createElement("img");
+    deltel.classList.add("deltel");
+    deltel.setAttribute("src", "../../img/delete.svg");
+    deltel.setAttribute("alt", "Excluir telefone");
+    deltel.setAttribute("title", "Excluir telefone");
+    tel.appendChild(deltel);
+
+    f_telefone.value = "";
+    f_telefone.focus();
+
+    deltel.addEventListener("click", function () {
+        telefones.removeChild(tel);
+    });
+}
+
 
 const carregarColaboradores = () => {
+    const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
     fetch(endpoint_todoscoloboradores)
         .then((response) => {
             if (!response.ok) {
@@ -68,7 +93,7 @@ const carregarColaboradores = () => {
                 img_status.classList.add("icone_op");
                 img_status.setAttribute("src", "../../img/ligado.svg");
                 c5.appendChild(img_status);
-                
+
                 const img_editar = document.createElement("img");
                 img_editar.classList.add("icone_op");
                 img_editar.setAttribute("src", "../../img/edit.svg");
@@ -82,7 +107,7 @@ const carregarColaboradores = () => {
                     f_status.value = colaborador.c_status_usuario;
                     console.log(id);
 
-                    let endpoint_colaborador = `http://localhost:1880/editarcontatos/${id}`;
+                    let endpoint_colaborador = `http://localhost:1880/mostrarcontato/${id}`;
                     fetch(endpoint_colaborador)
                         .then((response) => {
                             if (!response.ok) {
@@ -95,39 +120,21 @@ const carregarColaboradores = () => {
                             img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
                         });
 
-                        endpoint_colaborador = `http://localhost:1880/editartelefones/${id}`;
-                        fetch(endpoint_colaborador)
-                            .then((response) => {
-                                if (!response.ok) {
-                                    throw new Error("A resposta da rede não foi bem-sucedida");
-                                }
-                                return response.json();
-                            })
-                            .then((response) => {
-                                console.log(response);
-                                telefones.innerHTML = "";
-                                response.forEach((telefone) => {
-                                    const tel = document.createElement("div");
-                                    tel.classList.add("tel");
-                                    telefones.appendChild(tel);
-
-                                    const numtel = document.createElement("div");
-                                    numtel.classList.add("numtel");
-                                    numtel.innerHTML = telefone.s_numero_telefone;
-                                    tel.appendChild(numtel);
-
-                                    const deltel = document.createElement("img");
-                                    deltel.classList.add("deltel");
-                                    deltel.setAttribute("src", "../../img/delete.svg");
-                                    deltel.setAttribute("alt", "Excluir telefone");
-                                    deltel.setAttribute("title", "Excluir telefone");
-                                    tel.appendChild(deltel);
-
-                                    deltel.addEventListener("click", function () {
-                                        telefones.removeChild(tel);
-                                    });
-                                });
+                    endpoint_colaborador = `http://localhost:1880/mostrartelefones/${id}`;
+                    fetch(endpoint_colaborador)
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error("A resposta da rede não foi bem-sucedida");
+                            }
+                            return response.json();
+                        })
+                        .then((response) => {
+                            console.log(response);
+                            telefones.innerHTML = "";
+                            response.forEach((telefone) => {
+                                criarCxTelefone(telefone.s_numero_telefone);
                             });
+                        });
                 });
                 c5.appendChild(img_editar);
 
@@ -189,6 +196,33 @@ btn_cancelar.addEventListener("click", function () {
 });
 
 btn_salvar.addEventListener("click", function () {
+
+    if (f_nome.value.length < 3) {
+        alert("Nome inválido");
+        f_nome.focus();
+        return;
+    }
+    if (f_tipo.value == "") {
+        alert("Tipo inválido");
+        f_tipo.focus();
+        return;
+    }
+    if (f_status.value == "") {
+        alert("Status inválido");
+        f_status.focus();
+        return;
+    }
+    if (telefones.length == 0) {
+        alert("Telefone inválido");
+        f_telefone.focus();
+        return;
+    }
+    if (img_foto.getAttribute("src") == "../../img/defaut.svg") {
+        alert("Foto inválida");
+        f_foto.focus();
+        return;
+    }
+
     const tels = document.querySelectorAll(".numtel");
     let telefones = [];
     tels.forEach((tel) => {
@@ -201,23 +235,46 @@ btn_salvar.addEventListener("click", function () {
         numtelefones: telefones,
         s_foto_usuario: img_foto.getAttribute("src")
     };
-    console.log(dados);
-    const endpointnovocolab = "http://localhost:1880/novocolab";
-    const options = {
-        method: "POST",
-        body: JSON.stringify(dados),
-    };
-    fetch(endpointnovocolab, options)
-        .then((response) => {
-            if (response.status === 200) {
-                alert("Colaborador cadastrado com sucesso!");
-                limpar();
-            } else {
-                alert("Erro ao cadastrar colaborador!");
-            }
-            return response.json();
-        })
 
+    console.log(dados);
+
+    if (modojanela == "e") {
+        const id = dadosgrid.querySelector(".linhagrid").querySelector(".c1").innerHTML;
+        dados.n_usuario_usuario = id;
+        const endpointnovocolab = "http://localhost:1880/atualizarcolaborador";
+        const options = {
+            method: "PUT",
+            body: JSON.stringify(dados),
+        };
+        fetch(endpointnovocolab, options)
+            .then((response) => {
+                if (response.status === 200) {
+                    alert("Colaborador atualizado com sucesso!");
+                    limpar();
+                } else {
+                    alert("Erro ao atualizar colaborador!");
+                }
+                return response.json();
+            })
+
+    } else if (modojanela == "n") {
+        const endpointnovocolab = "http://localhost:1880/novocolab";
+        const options = {
+            method: "POST",
+            body: JSON.stringify(dados),
+        };
+        fetch(endpointnovocolab, options)
+            .then((response) => {
+                if (response.status === 200) {
+                    alert("Colaborador cadastrado com sucesso!");
+                    limpar();
+                } else {
+                    alert("Erro ao cadastrar colaborador!");
+                }
+                return response.json();
+            })
+
+    }
 
     limpar();
     carregarColaboradores();
@@ -240,28 +297,9 @@ f_telefone.addEventListener("keyup", (evt) => {
             f_telefone.focus();
             return;
         } else {
-            const tel = document.createElement("div");
-            tel.classList.add("tel");
-            telefones.appendChild(tel);
-
-            const numtel = document.createElement("div");
-            numtel.classList.add("numtel");
-            numtel.innerHTML = f_telefone.value;
-            tel.appendChild(numtel);
-
-            const deltel = document.createElement("img");
-            deltel.classList.add("deltel");
-            deltel.setAttribute("src", "../../img/delete.svg");
-            deltel.setAttribute("alt", "Excluir telefone");
-            deltel.setAttribute("title", "Excluir telefone");
-            tel.appendChild(deltel);
-
+            criarCxTelefone(f_telefone.value);
             f_telefone.value = "";
             f_telefone.focus();
-
-            deltel.addEventListener("click", function () {
-                telefones.removeChild(tel);
-            });
         }
 
     }
