@@ -16,7 +16,8 @@ const img_foto = document.querySelector("#img_foto");
 //n = Novo colaboraodr | e = Editar colaborador
 let modojanela = "n";
 
-const criarCxTelefone = (fone) => {
+//Função de criar caixa do telefone
+const criarCxTelefone = (fone,idtel) => {
     const tel = document.createElement("div");
     tel.classList.add("tel");
     telefones.appendChild(tel);
@@ -31,17 +32,36 @@ const criarCxTelefone = (fone) => {
     deltel.setAttribute("src", "../../img/delete.svg");
     deltel.setAttribute("alt", "Excluir telefone");
     deltel.setAttribute("title", "Excluir telefone");
+    deltel.setAttribute("data-idtel",idtel);
     tel.appendChild(deltel);
 
     f_telefone.value = "";
     f_telefone.focus();
 
+    //Botão de lixeira da Caixa do Telefone Deletar Telefone
     deltel.addEventListener("click", function () {
-        telefones.removeChild(tel);
+        
+        const idtel = deltel.getAttribute("data-idtel");
+        const endpoint_deletetel = `http://localhost:1880/deletetelefone/${idtel}`;
+        fetch(endpoint_deletetel)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
+                }else{
+                    telefones.removeChild(tel);
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error("Erro:", error);
+            });
     });
 }
 
-
+//Função Carregar a lista
 const carregarColaboradores = () => {
     const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
     fetch(endpoint_todoscoloboradores)
@@ -55,6 +75,7 @@ const carregarColaboradores = () => {
         .then((data) => {
             console.log(data);
             dadosgrid.innerHTML = "";
+            //Cria a linha da lista
             data.forEach((colaborador) => {
                 const linhagrid = document.createElement("div");
                 linhagrid.classList.add("linhagrid");
@@ -89,11 +110,14 @@ const carregarColaboradores = () => {
                 c5.classList.add("colunalinhagrid");
                 linhagrid.appendChild(c5);
 
+                //Botão de Ligado/Desligado Selecionar o Status
                 const img_status = document.createElement("img");
                 img_status.classList.add("icone_op");
                 img_status.setAttribute("src", "../../img/ligado.svg");
                 c5.appendChild(img_status);
 
+
+                //Botão de Lapis Editar Contato
                 const img_editar = document.createElement("img");
                 img_editar.classList.add("icone_op");
                 img_editar.setAttribute("src", "../../img/edit.svg");
@@ -119,7 +143,6 @@ const carregarColaboradores = () => {
                             console.log(response);
                             img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
                         });
-
                     endpoint_colaborador = `http://localhost:1880/mostrartelefones/${id}`;
                     fetch(endpoint_colaborador)
                         .then((response) => {
@@ -132,12 +155,15 @@ const carregarColaboradores = () => {
                             console.log(response);
                             telefones.innerHTML = "";
                             response.forEach((telefone) => {
-                                criarCxTelefone(telefone.s_numero_telefone);
+                                criarCxTelefone(telefone.s_numero_telefone,telefone.n_telefone_telefone);
+
                             });
                         });
                 });
                 c5.appendChild(img_editar);
 
+
+                //Botão de Lixeira Remover Contato
                 const img_remover = document.createElement("img");
                 img_remover.classList.add("icone_op");
                 img_remover.setAttribute("src", "../../img/delete.svg");
@@ -147,8 +173,11 @@ const carregarColaboradores = () => {
             });
         });
 }
+
+//Chama a Função Carregar a lista
 carregarColaboradores();
 
+//Carrega o Tipo Colaborador e bota no Select
 const endpoint_tipocolab = "http://localhost:1880/tipocolab";
 fetch(endpoint_tipocolab)
     .then((response) => {
@@ -177,7 +206,7 @@ fetch(endpoint_tipocolab)
     });
 
 
-
+//Botão de Adicionar Contato
 btn_add.addEventListener("click", function () {
     modojanela = "n";
     document.querySelector("#titulopopup").innerHTML = "Novo Colaborador";
@@ -185,18 +214,23 @@ btn_add.addEventListener("click", function () {
     limpar();
 });
 
+
+//Botão X da Janela
 btn_fecharpopup.addEventListener("click", function () {
     novocolaborador.classList.add("ocultarpopup");
     limpar();
 });
 
+//Botão de Cancelar
 btn_cancelar.addEventListener("click", function () {
     novocolaborador.classList.add("ocultarpopup");
     limpar();
 });
 
+//Botão de Salvar Contato
 btn_salvar.addEventListener("click", function () {
 
+    //Validar informações
     if (f_nome.value.length < 3) {
         alert("Nome inválido");
         f_nome.focus();
@@ -222,12 +256,14 @@ btn_salvar.addEventListener("click", function () {
         f_foto.focus();
         return;
     }
-
+    //Guarda Telefones da caixa
     const tels = document.querySelectorAll(".numtel");
     let telefones = [];
     tels.forEach((tel) => {
         telefones.push(tel.innerHTML);
     });
+
+    //Armazena todo o formulario na variavel dados
     const dados = {
         s_nome_usuario: f_nome.value,
         n_tipo_usuario: f_tipo.value,
@@ -238,10 +274,11 @@ btn_salvar.addEventListener("click", function () {
 
     console.log(dados);
 
+    //Edita Contato
     if (modojanela == "e") {
         const id = dadosgrid.querySelector(".linhagrid").querySelector(".c1").innerHTML;
         dados.n_usuario_usuario = id;
-        const endpointnovocolab = "http://localhost:1880/atualizarcolaborador";
+        const endpointnovocolab = "http://localhost:1880/editarcolaborador";
         const options = {
             method: "PUT",
             body: JSON.stringify(dados),
@@ -256,7 +293,7 @@ btn_salvar.addEventListener("click", function () {
                 }
                 return response.json();
             })
-
+    //Novo Contato
     } else if (modojanela == "n") {
         const endpointnovocolab = "http://localhost:1880/novocolab";
         const options = {
@@ -281,6 +318,8 @@ btn_salvar.addEventListener("click", function () {
 
 });
 
+//Criar Caixa Telefone
+
 f_telefone.addEventListener("keyup", (evt) => {
     let telefone = f_telefone.value.replace(/[^0-9]/g, '');
     if (telefone.length > 10) {
@@ -304,6 +343,9 @@ f_telefone.addEventListener("keyup", (evt) => {
 
     }
 });
+
+//Limpar Inputs
+
 const limpar = () => {
     f_nome.value = "";
     f_tipo.selectedIndex = 0;
@@ -313,6 +355,8 @@ const limpar = () => {
     f_nome.focus();
     img_foto.setAttribute("src", "../../img/defaut.svg");
 }
+
+//Inserir Foto
 
 f_foto.addEventListener("change", function () { // Evento de mudança do input de arquivo
     const file = f_foto.files[0]; // Pega o primeiro arquivo selecionado
