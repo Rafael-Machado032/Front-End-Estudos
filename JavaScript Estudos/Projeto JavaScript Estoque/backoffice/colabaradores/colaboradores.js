@@ -121,8 +121,6 @@ const carregarColaboradores = () => {
                 const img_editar = document.createElement("img");
                 img_editar.classList.add("icone_op");
                 img_editar.setAttribute("src", "../../img/edit.svg");
-                c5.appendChild(img_editar);
-
                 img_editar.addEventListener("click", function () {
                     modojanela = "e";
                     document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
@@ -160,10 +158,9 @@ const carregarColaboradores = () => {
                                 criarCxTelefone(telefone.s_numero_telefone,telefone.n_telefone_telefone);
 
                             });
-                            
                         });
                 });
-                
+                c5.appendChild(img_editar);
 
 
                 //Botão de Lixeira Remover Contato
