@@ -13,8 +13,13 @@ const btn_delete = document.querySelector("#btn_delete");
 const f_foto = document.querySelector("#f_foto");
 const img_foto = document.querySelector("#img_foto");
 
+/**Variaveis Globais */
+
 //n = Novo colaboraodr | e = Editar colaborador
 let modojanela = "n";
+let idsTelefones = [];
+
+/**Funções */
 
 //Função de criar caixa do telefone
 const criarCxTelefone = (fone,idtel) => {
@@ -158,6 +163,9 @@ const carregarColaboradores = () => {
                                 criarCxTelefone(telefone.s_numero_telefone,telefone.n_telefone_telefone);
 
                             });
+                            idsTelefones = response.map(telefone => telefone.n_telefone_telefone); // Extrai os IDs dos telefones
+                            console.log(idsTelefones);
+                            
                         });
                 });
                 c5.appendChild(img_editar);
@@ -174,37 +182,18 @@ const carregarColaboradores = () => {
         });
 }
 
-//Chama a Função Carregar a lista
-carregarColaboradores();
+//Limpar Inputs
+const limpar = () => {
+    f_nome.value = "";
+    f_tipo.selectedIndex = 0;
+    f_status.selectedIndex = 0;
+    f_telefone.value = "";
+    telefones.innerHTML = "";
+    f_nome.focus();
+    img_foto.setAttribute("src", "../../img/defaut.svg");
+}
 
-//Carrega o Tipo Colaborador e bota no Select
-const endpoint_tipocolab = "http://localhost:1880/tipocolab";
-fetch(endpoint_tipocolab)
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error("A resposta da rede não foi bem-sucedida");
-        }
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data);
-        const f_tipo = document.querySelector("#f_tipo");
-        f_tipo.innerHTML = "";
-        const option = document.createElement("option");
-        option.setAttribute("disabled", "true");
-        option.setAttribute("selected", "true");
-        option.setAttribute("value", "");
-        option.textContent = "Selecione";
-        f_tipo.appendChild(option);
-        f_tipo.setAttribute("required", "true");
-        data.forEach((tipo) => {
-            const option = document.createElement("option");
-            option.value = tipo.n_nivel_tipousuario;
-            option.textContent = tipo.s_desc_tipousuario;
-            f_tipo.appendChild(option);
-        });
-    });
-
+/**Tratamento de Eventos */
 
 //Botão de Adicionar Contato
 btn_add.addEventListener("click", function () {
@@ -312,14 +301,11 @@ btn_salvar.addEventListener("click", function () {
             })
 
     }
-
     limpar();
     carregarColaboradores();
-
 });
 
-//Criar Caixa Telefone
-
+//Insere Caixa Telefone por meio do Enter
 f_telefone.addEventListener("keyup", (evt) => {
     let telefone = f_telefone.value.replace(/[^0-9]/g, '');
     if (telefone.length > 10) {
@@ -344,20 +330,7 @@ f_telefone.addEventListener("keyup", (evt) => {
     }
 });
 
-//Limpar Inputs
-
-const limpar = () => {
-    f_nome.value = "";
-    f_tipo.selectedIndex = 0;
-    f_status.selectedIndex = 0;
-    f_telefone.value = "";
-    telefones.innerHTML = "";
-    f_nome.focus();
-    img_foto.setAttribute("src", "../../img/defaut.svg");
-}
-
 //Inserir Foto
-
 f_foto.addEventListener("change", function () { // Evento de mudança do input de arquivo
     const file = f_foto.files[0]; // Pega o primeiro arquivo selecionado
     if (file) { // Verifica se há um arquivo
@@ -368,3 +341,37 @@ f_foto.addEventListener("change", function () { // Evento de mudança do input d
         reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
     }
 });
+
+
+/**Carregamentos */
+
+//Chama a Função Carregar a lista
+carregarColaboradores();
+
+//Carrega o Tipo Colaborador e bota no Select
+const endpoint_tipocolab = "http://localhost:1880/tipocolab";
+fetch(endpoint_tipocolab)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("A resposta da rede não foi bem-sucedida");
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+        const f_tipo = document.querySelector("#f_tipo");
+        f_tipo.innerHTML = "";
+        const option = document.createElement("option");
+        option.setAttribute("disabled", "true");
+        option.setAttribute("selected", "true");
+        option.setAttribute("value", "");
+        option.textContent = "Selecione";
+        f_tipo.appendChild(option);
+        f_tipo.setAttribute("required", "true");
+        data.forEach((tipo) => {
+            const option = document.createElement("option");
+            option.value = tipo.n_nivel_tipousuario;
+            option.textContent = tipo.s_desc_tipousuario;
+            f_tipo.appendChild(option);
+        });
+    });
