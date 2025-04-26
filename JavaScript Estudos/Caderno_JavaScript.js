@@ -1770,8 +1770,47 @@ console.log(iii)
 let v = "OK";
 ['j','a','b'].forEach(l=>console.log(l))
 
-
+/**Comandos Explicados */
     
+Telefones = [1, 2, 3];
+let idtel = 4;
+
+if (!idsTelefones.includes(idtel)) { //O método includes verifica se o valor já está presente no array. Retrona TRUE ou FALSE
+    idsTelefones.push(idtel); //O método push adiciona o valor ao final do array
+}
+
+console.log(idsTelefones); // Saída: [1, 2, 3, 4]
+
+//*map
+array.map(callback(elemento, índice, arrayOriginal)) 
+/**O método map cria um novo array com os resultados da chamada da função callback 
+ * para cada elemento do array original. 
+ * O array original não é alterado.*/
+
+/** callback: A função que será executada para cada elemento do array.
+ * elemento: O elemento atual do array que está sendo processado.
+ * índice: O índice do elemento atual no array (opcional).
+ * arrayOriginal: O array original que está sendo processado (opcional).*/
+const numeros = [1, 2, 3, 4];
+const dobrados = numeros.map((numero) => numero * 2);
+
+console.log(dobrados); // Saída: [2, 4, 6, 8]
+
+//*filter
+array.filter(callback(elemento, índice, arrayOriginal))
+/**O método filter cria um novo array com todos os elementos que passam no teste 
+ * implementado pela função callback fornecida. O array original não é alterado. */
+
+/** callback: A função que será executada para cada elemento do array.
+ * elemento: O elemento atual do array que está sendo processado.
+ * índice: O índice do elemento atual no array (opcional).
+ * arrayOriginal: O array original que está sendo processado (opcional).*/
+const numeros1 = [1, 2, 3, 4, 5];
+const pares = numeros1.filter((numero) => numero % 2 === 0);
+
+console.log(pares); // Saída: [2, 4]
+
+
 
 
 

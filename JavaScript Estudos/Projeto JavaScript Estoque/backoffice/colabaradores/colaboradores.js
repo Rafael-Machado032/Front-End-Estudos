@@ -21,51 +21,6 @@ let idsTelefones = [];
 
 /**Funções */
 
-//Função de criar caixa do telefone
-const criarCxTelefone = (fone,idtel) => {
-    const tel = document.createElement("div");
-    tel.classList.add("tel");
-    telefones.appendChild(tel);
-
-    const numtel = document.createElement("div");
-    numtel.classList.add("numtel");
-    numtel.innerHTML = fone;
-    tel.appendChild(numtel);
-
-    const deltel = document.createElement("img");
-    deltel.classList.add("deltel");
-    deltel.setAttribute("src", "../../img/delete.svg");
-    deltel.setAttribute("alt", "Excluir telefone");
-    deltel.setAttribute("title", "Excluir telefone");
-    deltel.setAttribute("data-idtel",idtel);
-    tel.appendChild(deltel);
-
-    f_telefone.value = "";
-    f_telefone.focus();
-
-    //Botão de lixeira da Caixa do Telefone Deletar Telefone
-    deltel.addEventListener("click", function () {
-        
-        const idtel = deltel.getAttribute("data-idtel");
-        const endpoint_deletetel = `http://localhost:1880/deletetelefone/${idtel}`;
-        fetch(endpoint_deletetel)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("A resposta da rede não foi bem-sucedida");
-                }else{
-                    telefones.removeChild(tel);
-                    return response.json();
-                }
-            })
-            .then((data) => {
-                console.log(data);
-            })
-            .catch((error) => {
-                console.error("Erro:", error);
-            });
-    });
-}
-
 //Função Carregar a lista
 const carregarColaboradores = () => {
     const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
@@ -78,7 +33,7 @@ const carregarColaboradores = () => {
         })
 
         .then((data) => {
-            console.log(data);
+            console.log("Carregando Lista: /n", data);
             dadosgrid.innerHTML = "";
             //Cria a linha da lista
             data.forEach((colaborador) => {
@@ -134,8 +89,9 @@ const carregarColaboradores = () => {
                     f_nome.value = colaborador.s_nome_usuario;
                     f_tipo.value = colaborador.n_tipo_usuario;
                     f_status.value = colaborador.c_status_usuario;
-                    console.log(id);
+                    console.log("id do usuario para editar: /n", id);
 
+                    //Carrega as fotos e telefones do colaborador
                     let endpoint_colaborador = `http://localhost:1880/mostrarcontato/${id}`;
                     fetch(endpoint_colaborador)
                         .then((response) => {
@@ -145,7 +101,7 @@ const carregarColaboradores = () => {
                             return response.json();
                         })
                         .then((response) => {
-                            console.log(response);
+                            console.log("Carregando o usuario para editar: /n", response);
                             img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
                         });
                     endpoint_colaborador = `http://localhost:1880/mostrartelefones/${id}`;
@@ -157,15 +113,15 @@ const carregarColaboradores = () => {
                             return response.json();
                         })
                         .then((response) => {
-                            console.log(response);
+                            console.log("Carregando Lista de telefones desse usuario: /n", response);
                             telefones.innerHTML = "";
                             response.forEach((telefone) => {
-                                criarCxTelefone(telefone.s_numero_telefone,telefone.n_telefone_telefone);
+                                criarCxTelefone(telefone.s_numero_telefone, telefone.n_telefone_telefone);
 
                             });
-                            idsTelefones = response.map(telefone => telefone.n_telefone_telefone); // Extrai os IDs dos telefones
-                            console.log(idsTelefones);
-                            
+                            // idsTelefones = response.map(telefone => telefone.n_telefone_telefone); // Extrai os IDs dos telefones
+                            // console.log("IDs dos telefones carregados: /n",idsTelefones);
+
                         });
                 });
                 c5.appendChild(img_editar);
@@ -182,6 +138,43 @@ const carregarColaboradores = () => {
         });
 }
 
+//Função de criar caixa do telefone
+const criarCxTelefone = (fone, idtel) => {
+    const tel = document.createElement("div");
+    tel.classList.add("tel");
+    telefones.appendChild(tel);
+
+    const numtel = document.createElement("div");
+    numtel.classList.add("numtel");
+    numtel.innerHTML = fone;
+    tel.appendChild(numtel);
+
+    const deltel = document.createElement("img");
+    deltel.setAttribute("class", "deltel");
+    deltel.setAttribute("id", "btn_deltel");
+    deltel.setAttribute("src", "../../img/delete.svg");
+    deltel.setAttribute("alt", "Excluir telefone");
+    deltel.setAttribute("title", "Excluir telefone");
+    deltel.setAttribute("data-idtel", idtel);
+    tel.appendChild(deltel);
+
+    f_telefone.value = "";
+    f_telefone.focus();
+
+    // Botão de lixeira para deletar telefone
+    deltel.addEventListener("click", function () {
+        
+        if (modojanela == "e") {
+            const idtel = deltel.getAttribute("data-idtel");
+            idsTelefones.push(idtel);
+            console.log("IDs dos telefones deletados: /n", idsTelefones);
+        }
+        telefones.removeChild(tel); // Remove o telefone da interface
+    });
+
+
+}
+
 //Limpar Inputs
 const limpar = () => {
     f_nome.value = "";
@@ -191,6 +184,8 @@ const limpar = () => {
     telefones.innerHTML = "";
     f_nome.focus();
     img_foto.setAttribute("src", "../../img/defaut.svg");
+    idsTelefones = []; // Limpa os IDs dos telefones
+    modojanela = "n"; // Reseta o modo da janela
 }
 
 /**Tratamento de Eventos */
@@ -235,55 +230,53 @@ btn_salvar.addEventListener("click", function () {
         f_status.focus();
         return;
     }
-    if (telefones.length == 0) {
-        alert("Telefone inválido");
-        f_telefone.focus();
-        return;
-    }
     if (img_foto.getAttribute("src") == "../../img/defaut.svg") {
         alert("Foto inválida");
         f_foto.focus();
         return;
     }
-    //Guarda Telefones da caixa
-    const tels = document.querySelectorAll(".numtel");
-    let telefones = [];
-    tels.forEach((tel) => {
-        telefones.push(tel.innerHTML);
-    });
 
-    //Armazena todo o formulario na variavel dados
-    const dados = {
-        s_nome_usuario: f_nome.value,
-        n_tipo_usuario: f_tipo.value,
-        c_status_usuario: f_status.value,
-        numtelefones: telefones,
-        s_foto_usuario: img_foto.getAttribute("src")
-    };
+    console.log("Modo Janela", modojanela);
 
-    console.log(dados);
 
     //Edita Contato
     if (modojanela == "e") {
-        const id = dadosgrid.querySelector(".linhagrid").querySelector(".c1").innerHTML;
-        dados.n_usuario_usuario = id;
-        const endpointnovocolab = "http://localhost:1880/editarcolaborador";
-        const options = {
-            method: "PUT",
-            body: JSON.stringify(dados),
-        };
-        fetch(endpointnovocolab, options)
-            .then((response) => {
-                if (response.status === 200) {
-                    alert("Colaborador atualizado com sucesso!");
-                    limpar();
-                } else {
-                    alert("Erro ao atualizar colaborador!");
-                }
-                return response.json();
-            })
-    //Novo Contato
+
+        // Enviar requisição para deletar os IDs removidos
+        idsTelefones.forEach((id) => {
+            const endpoint_deletetel = `http://localhost:1880/deletetelefone/${id}`;
+            fetch(endpoint_deletetel)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Erro ao deletar telefone com ID ${id}`);
+                    } else {
+                        console.log(`Telefone com ID ${id} deletado com sucesso`);
+                        return response.json();
+                    }
+                })
+        });
+        novocolaborador.classList.add("ocultarpopup");
+
+        //Novo Contato
     } else if (modojanela == "n") {
+        //Guarda Telefones da caixa
+        const tels = document.querySelectorAll(".numtel");
+        let telefones = [];
+
+        tels.forEach((tel) => {
+            telefones.push(tel.innerHTML);
+        });
+
+        //Armazena todo o formulario na variavel dados
+        const dados = {
+            s_nome_usuario: f_nome.value,
+            n_tipo_usuario: f_tipo.value,
+            c_status_usuario: f_status.value,
+            numtelefones: telefones,
+            s_foto_usuario: img_foto.getAttribute("src")
+        };
+
+        console.log("Carregando Formulario para Salvamento no BD: /n", dados);
         const endpointnovocolab = "http://localhost:1880/novocolab";
         const options = {
             method: "POST",
@@ -301,8 +294,11 @@ btn_salvar.addEventListener("click", function () {
             })
 
     }
+
+
     limpar();
     carregarColaboradores();
+
 });
 
 //Insere Caixa Telefone por meio do Enter
@@ -358,7 +354,7 @@ fetch(endpoint_tipocolab)
         return response.json();
     })
     .then((data) => {
-        console.log(data);
+        console.log("Carregando Tipo Colaborador: /n", data);
         const f_tipo = document.querySelector("#f_tipo");
         f_tipo.innerHTML = "";
         const option = document.createElement("option");
