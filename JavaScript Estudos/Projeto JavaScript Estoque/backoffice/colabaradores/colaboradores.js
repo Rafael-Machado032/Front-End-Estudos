@@ -18,6 +18,7 @@ const img_foto = document.querySelector("#img_foto");
 //n = Novo colaboraodr | e = Editar colaborador
 let modojanela = "n";
 let idsTelefones = [];
+let id = 0; // ID do colaborador a ser editado
 
 /**Funções */
 
@@ -85,7 +86,7 @@ const carregarColaboradores = () => {
                     modojanela = "e";
                     document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
                     novocolaborador.classList.remove("ocultarpopup");
-                    const id = colaborador.n_usuario_usuario
+                    id = colaborador.n_usuario_usuario;
                     f_nome.value = colaborador.s_nome_usuario;
                     f_tipo.value = colaborador.n_tipo_usuario;
                     f_status.value = colaborador.c_status_usuario;
@@ -238,9 +239,46 @@ btn_salvar.addEventListener("click", function () {
 
     console.log("Modo Janela", modojanela);
 
+    //Guarda Telefones da caixa
+    const tels = document.querySelectorAll(".numtel");
+    let telefones = [];
+
+    tels.forEach((tel) => {
+        telefones.push(tel.innerHTML);
+    });
 
     //Edita Contato
     if (modojanela == "e") {
+
+        //Armazena todo o formulario na variavel dados
+        const dados = {
+            n_usuario_usuario: id,
+            s_nome_usuario: f_nome.value,
+            n_tipo_usuario: f_tipo.value,
+            c_status_usuario: f_status.value,
+            s_foto_usuario: img_foto.getAttribute("src")
+        };
+
+        // Enviar requisição para atualizar os dados do colaborador
+
+        console.log("Carregando Formulario para Salvamento no BD: /n", dados);
+        const endpointnovocolab = "http://localhost:1880/editarcolab";
+        const options = {
+            method: "POST",
+            body: JSON.stringify(dados),
+        };
+        fetch(endpointnovocolab, options)
+            .then((response) => {
+                if (response.status === 200) {
+                    alert("Colaborador Atualizado com sucesso!");
+                    limpar();
+                } else {
+                    alert("Erro ao atualizar o colaborador!");
+                }
+                return response.json();
+            })
+        
+        
 
         // Enviar requisição para deletar os IDs removidos
         idsTelefones.forEach((id) => {
@@ -259,13 +297,7 @@ btn_salvar.addEventListener("click", function () {
 
         //Novo Contato
     } else if (modojanela == "n") {
-        //Guarda Telefones da caixa
-        const tels = document.querySelectorAll(".numtel");
-        let telefones = [];
-
-        tels.forEach((tel) => {
-            telefones.push(tel.innerHTML);
-        });
+        
 
         //Armazena todo o formulario na variavel dados
         const dados = {
