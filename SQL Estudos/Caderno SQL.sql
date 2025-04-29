@@ -318,7 +318,7 @@ WHERE
 
 /*Operadores Logica
 OR  ->  OU
-AND -   >E
+AND ->  E
 NOT ->  NEGAÇÃO
 */
 
