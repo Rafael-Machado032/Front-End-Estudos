@@ -23,120 +23,125 @@ let id = 0; // ID do colaborador a ser editado
 /**Funções */
 
 //Função Carregar a lista
+
 const carregarColaboradores = () => {
-    const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
-    fetch(endpoint_todoscoloboradores)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("A resposta da rede não foi bem-sucedida");
-            }
-            return response.json();
-        })
+    return new Promise((resolve, reject) => {
+        const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
+        fetch(endpoint_todoscoloboradores)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
+                }
+                return response.json();
+            })
 
-        .then((data) => {
-            console.log("Carregando Lista: /n", data);
-            dadosgrid.innerHTML = "";
-            //Cria a linha da lista
-            data.forEach((colaborador) => {
-                const linhagrid = document.createElement("div");
-                linhagrid.classList.add("linhagrid");
-                dadosgrid.appendChild(linhagrid);
+            .then((data) => {
+                console.log("Carregando Lista: /n", data);
+                dadosgrid.innerHTML = "";
+                //Cria a linha da lista
+                data.forEach((colaborador) => {
+                    const linhagrid = document.createElement("div");
+                    linhagrid.classList.add("linhagrid");
+                    dadosgrid.appendChild(linhagrid);
 
-                const c1 = document.createElement("div");
-                c1.classList.add("c1");
-                c1.classList.add("colunalinhagrid");
-                c1.innerHTML = colaborador.n_usuario_usuario;
-                linhagrid.appendChild(c1);
+                    const c1 = document.createElement("div");
+                    c1.classList.add("c1");
+                    c1.classList.add("colunalinhagrid");
+                    c1.innerHTML = colaborador.n_usuario_usuario;
+                    linhagrid.appendChild(c1);
 
-                const c2 = document.createElement("div");
-                c2.classList.add("c2");
-                c2.classList.add("colunalinhagrid");
-                c2.innerHTML = colaborador.s_nome_usuario;
-                linhagrid.appendChild(c2);
+                    const c2 = document.createElement("div");
+                    c2.classList.add("c2");
+                    c2.classList.add("colunalinhagrid");
+                    c2.innerHTML = colaborador.s_nome_usuario;
+                    linhagrid.appendChild(c2);
 
-                const c3 = document.createElement("div");
-                c3.classList.add("c3");
-                c3.classList.add("colunalinhagrid");
-                c3.innerHTML = colaborador.n_tipo_usuario;
-                linhagrid.appendChild(c3);
+                    const c3 = document.createElement("div");
+                    c3.classList.add("c3");
+                    c3.classList.add("colunalinhagrid");
+                    c3.innerHTML = colaborador.n_tipo_usuario;
+                    linhagrid.appendChild(c3);
 
-                const c4 = document.createElement("div");
-                c4.classList.add("c4");
-                c4.classList.add("colunalinhagrid");
-                c4.innerHTML = colaborador.c_status_usuario;
-                linhagrid.appendChild(c4);
+                    const c4 = document.createElement("div");
+                    c4.classList.add("c4");
+                    c4.classList.add("colunalinhagrid");
+                    c4.innerHTML = colaborador.c_status_usuario;
+                    linhagrid.appendChild(c4);
 
-                const c5 = document.createElement("div");
-                c5.classList.add("c5");
-                c5.classList.add("colunalinhagrid");
-                linhagrid.appendChild(c5);
+                    const c5 = document.createElement("div");
+                    c5.classList.add("c5");
+                    c5.classList.add("colunalinhagrid");
+                    linhagrid.appendChild(c5);
 
-                //Botão de Ligado/Desligado Selecionar o Status
-                const img_status = document.createElement("img");
-                img_status.classList.add("icone_op");
-                img_status.setAttribute("src", "../../img/ligado.svg");
-                c5.appendChild(img_status);
+                    //Botão de Ligado/Desligado Selecionar o Status
+                    const img_status = document.createElement("img");
+                    img_status.classList.add("icone_op");
+                    img_status.setAttribute("src", "../../img/ligado.svg");
+                    c5.appendChild(img_status);
 
 
-                //Botão de Lapis Editar Contato
-                const img_editar = document.createElement("img");
-                img_editar.classList.add("icone_op");
-                img_editar.setAttribute("src", "../../img/edit.svg");
-                img_editar.addEventListener("click", function () {
-                    modojanela = "e";
-                    document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
-                    novocolaborador.classList.remove("ocultarpopup");
-                    id = colaborador.n_usuario_usuario;
-                    f_nome.value = colaborador.s_nome_usuario;
-                    f_tipo.value = colaborador.n_tipo_usuario;
-                    f_status.value = colaborador.c_status_usuario;
-                    console.log("id do usuario para editar: /n", id);
+                    //Botão de Lapis Editar Contato
+                    const img_editar = document.createElement("img");
+                    img_editar.classList.add("icone_op");
+                    img_editar.setAttribute("src", "../../img/edit.svg");
+                    img_editar.addEventListener("click", function () {
+                        modojanela = "e";
+                        document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
+                        novocolaborador.classList.remove("ocultarpopup");
+                        id = colaborador.n_usuario_usuario;
+                        f_nome.value = colaborador.s_nome_usuario;
+                        f_tipo.value = colaborador.n_tipo_usuario;
+                        f_status.value = colaborador.c_status_usuario;
+                        console.log("id do usuario para editar: /n", id);
 
-                    //Carrega as fotos e telefones do colaborador
-                    let endpoint_colaborador = `http://localhost:1880/mostrarcontato/${id}`;
-                    fetch(endpoint_colaborador)
-                        .then((response) => {
-                            if (!response.ok) {
-                                throw new Error("A resposta da rede não foi bem-sucedida");
-                            }
-                            return response.json();
-                        })
-                        .then((response) => {
-                            console.log("Carregando o usuario para editar: /n", response);
-                            img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
-                        });
-                    endpoint_colaborador = `http://localhost:1880/mostrartelefones/${id}`;
-                    fetch(endpoint_colaborador)
-                        .then((response) => {
-                            if (!response.ok) {
-                                throw new Error("A resposta da rede não foi bem-sucedida");
-                            }
-                            return response.json();
-                        })
-                        .then((response) => {
-                            console.log("Carregando Lista de telefones desse usuario: /n", response);
-                            telefones.innerHTML = "";
-                            response.forEach((telefone) => {
-                                criarCxTelefone(telefone.s_numero_telefone, telefone.n_telefone_telefone);
+                        //Carrega as fotos e telefones do colaborador
+                        let endpoint_colaborador = `http://localhost:1880/mostrarcontato/${id}`;
+                        fetch(endpoint_colaborador)
+                            .then((response) => {
+                                if (!response.ok) {
+                                    throw new Error("A resposta da rede não foi bem-sucedida");
+                                }
+                                return response.json();
+                            })
+                            .then((response) => {
+                                console.log("Carregando o usuario para editar: /n", response);
+                                img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
+                            });
+                        endpoint_colaborador = `http://localhost:1880/mostrartelefones/${id}`;
+                        fetch(endpoint_colaborador)
+                            .then((response) => {
+                                if (!response.ok) {
+                                    throw new Error("A resposta da rede não foi bem-sucedida");
+                                }
+                                return response.json();
+                            })
+                            .then((response) => {
+                                console.log("Carregando Lista de telefones desse usuario: /n", response);
+                                telefones.innerHTML = "";
+                                response.forEach((telefone) => {
+                                    criarCxTelefone(telefone.s_numero_telefone, telefone.n_telefone_telefone);
+
+                                });
+                                // idsTelefones = response.map(telefone => telefone.n_telefone_telefone); // Extrai os IDs dos telefones
+                                // console.log("IDs dos telefones carregados: /n",idsTelefones);
 
                             });
-                            // idsTelefones = response.map(telefone => telefone.n_telefone_telefone); // Extrai os IDs dos telefones
-                            // console.log("IDs dos telefones carregados: /n",idsTelefones);
+                    });
+                    c5.appendChild(img_editar);
 
-                        });
+                    //Botão de Lixeira Remover Contato
+                    const img_remover = document.createElement("img");
+                    img_remover.classList.add("icone_op");
+                    img_remover.setAttribute("src", "../../img/delete.svg");
+                    c5.appendChild(img_remover);
                 });
-                c5.appendChild(img_editar);
-
-
-                //Botão de Lixeira Remover Contato
-                const img_remover = document.createElement("img");
-                img_remover.classList.add("icone_op");
-                img_remover.setAttribute("src", "../../img/delete.svg");
-                c5.appendChild(img_remover);
-
-
+                resolve("Colaboradores carregados com sucesso!"); // Resolve a Promise
+            })
+            .catch((erro) => {
+                console.error("Erro ao carregar colaboradores:", erro);
+                reject(erro); // Rejeita a Promise em caso de erro
             });
-        });
+    });
 }
 
 //Função de criar caixa do telefone
@@ -164,7 +169,7 @@ const criarCxTelefone = (fone, idtel) => {
 
     // Botão de lixeira para deletar telefone
     deltel.addEventListener("click", function () {
-        
+
         if (modojanela == "e") {
             const idtel = deltel.getAttribute("data-idtel");
             idsTelefones.push(idtel);
@@ -185,6 +190,7 @@ const limpar = () => {
     telefones.innerHTML = "";
     f_nome.focus();
     img_foto.setAttribute("src", "../../img/defaut.svg");
+    f_foto.value = ""; // Limpa o input de foto
     idsTelefones = []; // Limpa os IDs dos telefones
     modojanela = "n"; // Reseta o modo da janela
 }
@@ -277,8 +283,8 @@ btn_salvar.addEventListener("click", function () {
                 }
                 return response.json();
             })
-        
-        
+
+
 
         // Enviar requisição para deletar os IDs removidos
         idsTelefones.forEach((id) => {
@@ -297,7 +303,7 @@ btn_salvar.addEventListener("click", function () {
 
         //Novo Contato
     } else if (modojanela == "n") {
-        
+
 
         //Armazena todo o formulario na variavel dados
         const dados = {
