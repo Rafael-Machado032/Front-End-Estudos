@@ -78,9 +78,22 @@ const carregarColaboradores = () => {
                 c5.appendChild(img_status);
 
                 //Botão de Lapis Editar Contato
+
                 const img_editar = document.createElement("img");
                 img_editar.classList.add("icone_op");
                 img_editar.setAttribute("src", "../../img/edit.svg");
+                c5.appendChild(img_editar);
+
+                //Botão de Lixeira Remover Contato
+                const img_remover = document.createElement("img");
+                img_remover.classList.add("icone_op");
+                img_remover.setAttribute("src", "../../img/delete.svg");
+                c5.appendChild(img_remover);
+
+                //Tratamento de evento
+
+                //Botão Editar Contato
+
                 img_editar.addEventListener("click", function () {
                     modojanela = "e";
                     document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
@@ -104,6 +117,7 @@ const carregarColaboradores = () => {
                             console.log("Carregando o usuario para editar: /n", response);
                             img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
                         });
+
                     endpoint_colaborador = `http://localhost:1880/mostrartelefones/${id}`;
                     fetch(endpoint_colaborador)
                         .then((response) => {
@@ -120,13 +134,41 @@ const carregarColaboradores = () => {
                             });
                         });
                 });
-                c5.appendChild(img_editar);
 
-                //Botão de Lixeira Remover Contato
-                const img_remover = document.createElement("img");
-                img_remover.classList.add("icone_op");
-                img_remover.setAttribute("src", "../../img/delete.svg");
-                c5.appendChild(img_remover);
+                //Botão Remover Contato
+                img_remover.addEventListener("click", function () {
+                    if (confirm(`Tem certeza que deseja remover colaborador ${colaborador.s_nome_usuario}?`)) {
+                        console.log("ID do colaborador a ser deletado: ", colaborador.n_usuario_usuario);
+                        const iddelete = {
+                            n_usuario_usuario: colaborador.n_usuario_usuario,
+                        }
+
+                        const endpoint_removercolaborador = `http://localhost:1880/deletecolab`;
+                        const options = {
+                            method: "POST",
+                            body: JSON.stringify(iddelete),
+                        };
+                        fetch(endpoint_removercolaborador, options)
+                            .then((response) => {
+                                if (!response.ok) {
+                                    throw new Error("Erro ao remover colaborador");
+                                }
+                                alert("Colaborador removido com sucesso!");
+                                carregarColaboradores();
+                            })
+                            .catch((erro) => {
+                                console.error("Erro ao remover colaborador:", erro);
+                                alert("Erro ao remover colaborador!");
+                            });
+                    limpar();
+                    carregarColaboradores();
+                    }
+
+                    
+                });
+                
+
+                
             });
         })
         .catch((erro) => {
