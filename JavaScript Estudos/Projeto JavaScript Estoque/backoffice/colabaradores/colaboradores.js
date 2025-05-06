@@ -19,13 +19,14 @@ const img_foto = document.querySelector("#img_foto");
 let modojanela = "n";
 let idsTelefones = [];
 let id = 0; // ID do colaborador a ser editado
+const serv = sessionStorage.getItem("servidor_nodered");
 
 /**Funções */
 
 //Função Carregar a lista
 
 const carregarColaboradores = () => {
-    const endpoint_todoscoloboradores = "http://localhost:1880/todosusuarios";
+    const endpoint_todoscoloboradores = `${serv}/todosusuarios`;
     fetch(endpoint_todoscoloboradores)
         .then((response) => {
             if (!response.ok) {
@@ -74,7 +75,12 @@ const carregarColaboradores = () => {
                 //Botão de Ligado/Desligado Selecionar o Status
                 const img_status = document.createElement("img");
                 img_status.classList.add("icone_op");
-                img_status.setAttribute("src", "../../img/ligado.svg");
+                if (colaborador.c_status_usuario == "A") {
+                    img_status.setAttribute("src", "../../img/ligado.svg");
+                }
+                if (colaborador.c_status_usuario == "I") {
+                    img_status.setAttribute("src", "../../img/desligado.svg");
+                }
                 c5.appendChild(img_status);
 
                 //Botão de Lapis Editar Contato
@@ -105,7 +111,7 @@ const carregarColaboradores = () => {
                     console.log("id do usuario para editar: /n", id);
 
                     //Carrega as fotos e telefones do colaborador
-                    let endpoint_colaborador = `http://localhost:1880/mostrarcontato/${id}`;
+                    let endpoint_colaborador = `${serv}/mostrarcontato/${id}`;
                     fetch(endpoint_colaborador)
                         .then((response) => {
                             if (!response.ok) {
@@ -118,7 +124,7 @@ const carregarColaboradores = () => {
                             img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
                         });
 
-                    endpoint_colaborador = `http://localhost:1880/mostrartelefones/${id}`;
+                    endpoint_colaborador = `${serv}/mostrartelefones/${id}`;
                     fetch(endpoint_colaborador)
                         .then((response) => {
                             if (!response.ok) {
@@ -143,7 +149,7 @@ const carregarColaboradores = () => {
                             n_usuario_usuario: colaborador.n_usuario_usuario,
                         }
 
-                        const endpoint_removercolaborador = `http://localhost:1880/deletecolab`;
+                        const endpoint_removercolaborador = `${serv}/deletecolab`;
                         const options = {
                             method: "POST",
                             body: JSON.stringify(iddelete),
@@ -160,15 +166,37 @@ const carregarColaboradores = () => {
                                 console.error("Erro ao remover colaborador:", erro);
                                 alert("Erro ao remover colaborador!");
                             });
-                    limpar();
-                    carregarColaboradores();
+                        limpar();
+                        carregarColaboradores();
                     }
 
-                    
-                });
-                
 
-                
+                });
+                //Botão de Status
+                img_status.addEventListener("click", function () {
+                    if (colaborador.c_status_usuario == "A") {
+                        img_status.setAttribute("src", "../../img/desligado.svg");
+                        colaborador.c_status_usuario = "I";
+                        console.log(`Colaborador ${colaborador.n_usuario_usuario} Desligado`);
+                    } else {
+                        img_status.setAttribute("src", "../../img/ligado.svg");
+                        colaborador.c_status_usuario = "A";
+                        console.log(`Colaborador ${colaborador.n_usuario_usuario} Ligado`);
+                    }
+                    const endpoint_status = `${serv}/editarstatus/${colaborador.n_usuario_usuario}/${colaborador.c_status_usuario}`;
+                    fetch(endpoint_status)
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error("Erro ao atualizar status");
+                            }
+                            return response.json();
+                        })
+                        .then((data) => {
+                            console.log("Status atualizado com sucesso:", data); 
+                            carregarColaboradores();
+                        })
+                });
+
             });
         })
         .catch((erro) => {
@@ -292,7 +320,7 @@ btn_salvar.addEventListener("click", function () {
         console.log("ID testado: ", datatel);
         if (datatel == "undefined") {
             console.log("ID não existe, adicionando telefone: ", tel.innerHTML);
-            
+
             telefones.push(tel.innerHTML);
         }
     });
@@ -333,7 +361,7 @@ btn_salvar.addEventListener("click", function () {
         // Enviar requisição para atualizar os dados do colaborador
 
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
-        const endpointnovocolab = "http://localhost:1880/editarcolab";
+        const endpointnovocolab = `${serv}/editarcolab`;
         const options = {
             method: "POST",
             body: JSON.stringify(dados),
@@ -368,7 +396,7 @@ btn_salvar.addEventListener("click", function () {
         };
 
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
-        const endpointnovocolab = "http://localhost:1880/novocolab";
+        const endpointnovocolab = `${serv}/novocolab`;
         const options = {
             method: "POST",
             body: JSON.stringify(dados),
@@ -436,7 +464,7 @@ f_foto.addEventListener("change", function () { // Evento de mudança do input d
 carregarColaboradores();
 
 //Carrega o Tipo Colaborador e bota no Select
-const endpoint_tipocolab = "http://localhost:1880/tipocolab";
+const endpoint_tipocolab = `${serv}/tipocolab`;
 fetch(endpoint_tipocolab)
     .then((response) => {
         if (!response.ok) {
