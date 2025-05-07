@@ -12,6 +12,7 @@ const telefones = document.querySelector("#telefones");
 const btn_delete = document.querySelector("#btn_delete");
 const f_foto = document.querySelector("#f_foto");
 const img_foto = document.querySelector("#img_foto");
+const f_filtro = document.querySelector("#f_filtro");
 
 /**Variaveis Globais */
 
@@ -455,6 +456,21 @@ f_foto.addEventListener("change", function () { // Evento de mudança do input d
         }
         reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
     }
+});
+
+
+//Filtro de pesquisa
+f_filtro.addEventListener("keyup", function () {
+    const filtro = f_filtro.value.toLowerCase();
+    const linhas = dadosgrid.querySelectorAll(".linhagrid");
+    linhas.forEach((linha) => {
+        const nome = linha.querySelector(".c2").textContent.toLowerCase();
+        if (nome.includes(filtro)) {
+            linha.style.display = "flex";
+        } else {
+            linha.style.display = "none";
+        }
+    });
 });
 
 
