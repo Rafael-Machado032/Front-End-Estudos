@@ -1,18 +1,27 @@
 const dadosgrid = document.querySelector("#dadosgrid");
-const btn_add = document.querySelector("#btn_add");
 const novocolaborador = document.querySelector("#novocolaborador");
-const btn_fecharpopup = document.querySelector("#btn_closepopup");
+const img_foto = document.querySelector("#img_foto");
+const telefones = document.querySelector("#telefones");
+const pesquisa = document.querySelector("#pesquisa");
+
+const btn_add = document.querySelector("#btn_add");
+const btn_fecharpopup = document.querySelector("#btn_fecharpopup");
 const btn_cancelar = document.querySelector("#btn_cancelar");
 const btn_salvar = document.querySelector("#btn_salvar");
+const btn_delete = document.querySelector("#btn_delete");
+const btn_pesquisar = document.querySelector("#btn_pesquisar");
+const btn_pesq = document.querySelector("#btn_pesq");
+const btn_fecharpopuppesq = document.querySelector("#btn_fecharpopuppesq");
+const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
+
 const f_nome = document.querySelector("#f_nome");
 const f_tipo = document.querySelector("#f_tipo");
 const f_status = document.querySelector("#f_status");
 const f_telefone = document.querySelector("#f_telefone");
-const telefones = document.querySelector("#telefones");
-const btn_delete = document.querySelector("#btn_delete");
 const f_foto = document.querySelector("#f_foto");
-const img_foto = document.querySelector("#img_foto");
 const f_filtro = document.querySelector("#f_filtro");
+
+
 
 /**Variaveis Globais */
 
@@ -283,6 +292,30 @@ btn_cancelar.addEventListener("click", function () {
     limpar();
 });
 
+//Botão de Pesquisar
+
+btn_pesq.addEventListener("click", function () {
+    pesquisa.classList.remove("ocultarpopup");
+});
+
+btn_fecharpopuppesq.addEventListener("click", function () {
+    pesquisa.classList.add("ocultarpopup");
+    limpar();
+});
+
+btn_cancelarpesq.addEventListener("click", function () {
+    pesquisa.classList.add("ocultarpopup");
+    limpar();
+});
+
+btn_pesquisar.addEventListener("click", function () {
+    pesquisa.classList.add("ocultarpopup");
+    limpar();
+    
+});
+
+
+
 //Botão de Salvar Contato
 btn_salvar.addEventListener("click", function () {
 
@@ -421,6 +454,8 @@ btn_salvar.addEventListener("click", function () {
 
 });
 
+
+
 //Insere Caixa Telefone por meio do Enter
 f_telefone.addEventListener("keyup", (evt) => {
     let telefone = f_telefone.value.replace(/[^0-9]/g, '');
@@ -461,11 +496,11 @@ f_foto.addEventListener("change", function () { // Evento de mudança do input d
 
 //Filtro de pesquisa
 f_filtro.addEventListener("keyup", function () {
-    const filtro = f_filtro.value.toLowerCase();
+    const filtro = f_filtro.value.toLowerCase(); //Converte o valor do filtro para minúsculas
     const linhas = dadosgrid.querySelectorAll(".linhagrid");
     linhas.forEach((linha) => {
-        const nome = linha.querySelector(".c2").textContent.toLowerCase();
-        if (nome.includes(filtro)) {
+        const nome = linha.querySelector(".c2").textContent.toLowerCase(); //Converte o nome para minúsculas
+        if (nome.includes(filtro)) { //Verifica se contem a string do filtro
             linha.style.display = "flex";
         } else {
             linha.style.display = "none";
