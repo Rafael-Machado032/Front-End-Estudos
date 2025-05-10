@@ -13,6 +13,7 @@ const btn_pesquisar = document.querySelector("#btn_pesquisar");
 const btn_pesq = document.querySelector("#btn_pesq");
 const btn_fecharpopuppesq = document.querySelector("#btn_fecharpopuppesq");
 const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
+const btn_listar = document.querySelector("#btn_listar");
 
 const f_nome = document.querySelector("#f_nome");
 const f_tipo = document.querySelector("#f_tipo");
@@ -20,7 +21,9 @@ const f_status = document.querySelector("#f_status");
 const f_telefone = document.querySelector("#f_telefone");
 const f_foto = document.querySelector("#f_foto");
 const f_filtro = document.querySelector("#f_filtro");
-
+const f_pesqId = document.querySelector("#f_pesqId");
+const f_pesqNome = document.querySelector("#f_pesqNome");
+const f_pesq = document.querySelector("#f_pesq");
 
 
 /**Variaveis Globais */
@@ -49,7 +52,71 @@ const carregarColaboradores = () => {
             dadosgrid.innerHTML = "";
             //Cria a linha da lista
             data.forEach((colaborador) => {
-                const linhagrid = document.createElement("div");
+                criarlinha(colaborador);
+            });
+        })
+        .catch((erro) => {
+            console.error("Erro ao carregar colaboradores:", erro);
+        });
+}
+
+//Função de criar caixa do telefone
+const criarCxTelefone = (fone, idtel) => {
+    const tel = document.createElement("div");
+    tel.classList.add("tel");
+    telefones.appendChild(tel);
+
+    const numtel = document.createElement("div");
+    numtel.classList.add("numtel");
+    numtel.setAttribute("data-idtel", idtel);
+    numtel.innerHTML = fone;
+    tel.appendChild(numtel);
+
+    const deltel = document.createElement("img");
+    deltel.setAttribute("class", "deltel");
+    deltel.setAttribute("id", "btn_deltel");
+    deltel.setAttribute("src", "../../img/delete.svg");
+    deltel.setAttribute("alt", "Excluir telefone");
+    deltel.setAttribute("title", "Excluir telefone");
+    deltel.setAttribute("data-idtel", idtel);
+    tel.appendChild(deltel);
+
+    console.log("ID da caixa telefone criada: ", idtel);
+
+
+    f_telefone.value = "";
+    f_telefone.focus();
+
+    // Botão de lixeira para deletar telefone
+    deltel.addEventListener("click", function () {
+
+        if (modojanela == "e") {
+            const idtel = deltel.getAttribute("data-idtel");
+            idsTelefones.push(idtel);
+            console.log("IDs dos telefones deletados: /n", idsTelefones);
+        }
+        telefones.removeChild(tel); // Remove o telefone da interface
+    });
+
+
+}
+
+//Limpar Inputs
+const limpar = () => {
+    f_nome.value = "";
+    f_tipo.selectedIndex = 0;
+    f_status.selectedIndex = 0;
+    f_telefone.value = "";
+    telefones.innerHTML = "";
+    f_nome.focus();
+    img_foto.setAttribute("src", "../../img/defaut.svg");
+    f_foto.value = ""; // Limpa o input de foto
+    idsTelefones = []; // Limpa os IDs dos telefones
+    modojanela = "n"; // Reseta o modo da janela
+}
+
+const criarlinha = (colaborador) => {
+    const linhagrid = document.createElement("div");
                 linhagrid.classList.add("linhagrid");
                 dadosgrid.appendChild(linhagrid);
 
@@ -206,68 +273,7 @@ const carregarColaboradores = () => {
                             carregarColaboradores();
                         })
                 });
-
-            });
-        })
-        .catch((erro) => {
-            console.error("Erro ao carregar colaboradores:", erro);
-        });
-}
-
-//Função de criar caixa do telefone
-const criarCxTelefone = (fone, idtel) => {
-    const tel = document.createElement("div");
-    tel.classList.add("tel");
-    telefones.appendChild(tel);
-
-    const numtel = document.createElement("div");
-    numtel.classList.add("numtel");
-    numtel.setAttribute("data-idtel", idtel);
-    numtel.innerHTML = fone;
-    tel.appendChild(numtel);
-
-    const deltel = document.createElement("img");
-    deltel.setAttribute("class", "deltel");
-    deltel.setAttribute("id", "btn_deltel");
-    deltel.setAttribute("src", "../../img/delete.svg");
-    deltel.setAttribute("alt", "Excluir telefone");
-    deltel.setAttribute("title", "Excluir telefone");
-    deltel.setAttribute("data-idtel", idtel);
-    tel.appendChild(deltel);
-
-    console.log("ID da caixa telefone criada: ", idtel);
-
-
-    f_telefone.value = "";
-    f_telefone.focus();
-
-    // Botão de lixeira para deletar telefone
-    deltel.addEventListener("click", function () {
-
-        if (modojanela == "e") {
-            const idtel = deltel.getAttribute("data-idtel");
-            idsTelefones.push(idtel);
-            console.log("IDs dos telefones deletados: /n", idsTelefones);
-        }
-        telefones.removeChild(tel); // Remove o telefone da interface
-    });
-
-
-}
-
-//Limpar Inputs
-const limpar = () => {
-    f_nome.value = "";
-    f_tipo.selectedIndex = 0;
-    f_status.selectedIndex = 0;
-    f_telefone.value = "";
-    telefones.innerHTML = "";
-    f_nome.focus();
-    img_foto.setAttribute("src", "../../img/defaut.svg");
-    f_foto.value = ""; // Limpa o input de foto
-    idsTelefones = []; // Limpa os IDs dos telefones
-    modojanela = "n"; // Reseta o modo da janela
-}
+            }
 
 /**Tratamento de Eventos */
 
@@ -296,6 +302,7 @@ btn_cancelar.addEventListener("click", function () {
 
 btn_pesq.addEventListener("click", function () {
     pesquisa.classList.remove("ocultarpopup");
+    f_pesq.focus();
 });
 
 btn_fecharpopuppesq.addEventListener("click", function () {
@@ -308,11 +315,59 @@ btn_cancelarpesq.addEventListener("click", function () {
     limpar();
 });
 
+f_pesqId.addEventListener("click", function (evt) {
+    f_pesq.value = "";
+    f_pesq.focus();
+});
+f_pesqNome.addEventListener("click", function (evt) {
+    f_pesq.value = "";
+    f_pesq.focus();
+});
+
 btn_pesquisar.addEventListener("click", function () {
-    pesquisa.classList.add("ocultarpopup");
-    limpar();
+    
+    if (f_pesq.value.length < 0) {
+        alert("Digite um valor para pesquisar");
+        f_pesq.focus();
+        return;
+    } else {
+        let tipo = "";
+        if (f_pesqId.checked) {
+            tipo = "ID";
+        } else {
+            tipo = "Nome";
+        }
+        const endpoint_pesquisa = `${serv}/pesquisarcolab/${tipo}/${f_pesq.value}`;
+        fetch(endpoint_pesquisa)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log("Carregando Lista: /n", data);
+                dadosgrid.innerHTML = "";
+                //Cria a linha da lista
+                data.forEach((colaborador) => {
+                    criarlinha(colaborador);
+                });
+            });
+
+
+
+        pesquisa.classList.add("ocultarpopup");
+    }
     
 });
+
+btn_listar.addEventListener("click", function () {
+    
+    carregarColaboradores();
+
+});
+
+
 
 
 
