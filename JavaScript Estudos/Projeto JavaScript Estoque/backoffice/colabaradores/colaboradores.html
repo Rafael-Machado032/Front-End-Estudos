@@ -16,30 +16,54 @@
         <div></div>
         <div>Colaboradores</div>
         <div>
+            <img src="../../img/lupa.svg" alt="Pesquisar" title="Pesquisa o operador" class="btn_mainoper"
+                id="btn_pesq">
             <img src="../../img/add.svg" alt="Editar" title="Adicionar novo operador" class="btn_mainoper" id="btn_add">
+
         </div>
     </div>
 
     <div id="filtragem">
-        <div class="campoform">
+        <div class="campoform filtro">
             <label for="">Filtrar por nome:</label>
             <input type="text" name="f_filtro" id="f_filtro" class="inputform">
         </div>
-        <div class="campoform">
-            <label for="">Status:</label>
-            <select name="f_status" id="f_status" class="inputform">
-                <option value="" disabled selected>Selecione</option>
-                <option value="A">Ativo</option>
-                <option value="I">Inativo</option>
-            </select>
+    </div>
+
+    <div id="pesquisa" class="popup ocultarpopup">
+        <div class="janelapopup">
+            <div class="titulopopup">
+                <div id="titulopopuplabel">Pesquisar Colaborador</div>
+                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_fecharpopuppesq"
+                    required>
+            </div>
+            <div class="corpopopup">
+                <div class="campoform">
+                    <label for="">Tipo de Pesquisa:</label>
+                    <div class="radioform">
+                        <input type="radio" name="f_pesqTipo" id="f_pesqId" class="inputform" checked>ID
+                    </div>
+                    <div class="radioform">
+                        <input type="radio" name="f_pesqTipo" id="f_pesqNome" class="inputform">Nome
+                    </div>
+                </div>
+                <div class="campoform">
+                    <input type="text" name="f_pesq" id="f_pesq" class="inputform">
+                </div>
+            </div>
+            <div class="rodapepopup">
+                <button id="btn_pesquisar" class="btn_comandopopup">Pesquisar</button>
+                <button id="btn_cancelarpesq" class="btn_comandopopup">Cancelar</button>
+            </div>
         </div>
     </div>
+
 
     <div id="novocolaborador" class="popup ocultarpopup">
         <div class="janelapopup">
             <div class="titulopopup">
                 <div id="titulopopup">Novo Colaborador</div>
-                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_closepopup"
+                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_fecharpopup"
                     required>
             </div>
             <div class="corpopopup">
@@ -88,6 +112,7 @@
             </div>
         </div>
     </div>
+
     <div id="areagrid" class="areagrid">
         <div id="grid" class="grid">
             <div id="titulogrid" class="titulogrid">
@@ -105,7 +130,6 @@
                 <div class="colunalinhagrid c4">Status</div>
                 <div class="colunalinhagrid c5">Operação</div>
             </div> -->
-
             </div>
         </div>
     </div>
