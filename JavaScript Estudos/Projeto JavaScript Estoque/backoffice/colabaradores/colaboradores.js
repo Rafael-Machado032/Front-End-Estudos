@@ -302,6 +302,7 @@ btn_cancelar.addEventListener("click", function () {
 
 btn_pesq.addEventListener("click", function () {
     pesquisa.classList.remove("ocultarpopup");
+    f_pesq.value = "";
     f_pesq.focus();
 });
 
@@ -366,9 +367,6 @@ btn_listar.addEventListener("click", function () {
     carregarColaboradores();
 
 });
-
-
-
 
 
 //Botão de Salvar Contato
