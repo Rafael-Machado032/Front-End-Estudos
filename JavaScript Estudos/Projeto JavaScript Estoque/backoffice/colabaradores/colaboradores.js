@@ -1,3 +1,5 @@
+import { Cxmsg } from "../../utils/cxmsg.js";
+
 const dadosgrid = document.querySelector("#dadosgrid");
 const novocolaborador = document.querySelector("#novocolaborador");
 const img_foto = document.querySelector("#img_foto");
@@ -117,163 +119,163 @@ const limpar = () => {
 
 const criarlinha = (colaborador) => {
     const linhagrid = document.createElement("div");
-                linhagrid.classList.add("linhagrid");
-                dadosgrid.appendChild(linhagrid);
+    linhagrid.classList.add("linhagrid");
+    dadosgrid.appendChild(linhagrid);
 
-                const c1 = document.createElement("div");
-                c1.classList.add("c1");
-                c1.classList.add("colunalinhagrid");
-                c1.innerHTML = colaborador.n_usuario_usuario;
-                linhagrid.appendChild(c1);
+    const c1 = document.createElement("div");
+    c1.classList.add("c1");
+    c1.classList.add("colunalinhagrid");
+    c1.innerHTML = colaborador.n_usuario_usuario;
+    linhagrid.appendChild(c1);
 
-                const c2 = document.createElement("div");
-                c2.classList.add("c2");
-                c2.classList.add("colunalinhagrid");
-                c2.innerHTML = colaborador.s_nome_usuario;
-                linhagrid.appendChild(c2);
+    const c2 = document.createElement("div");
+    c2.classList.add("c2");
+    c2.classList.add("colunalinhagrid");
+    c2.innerHTML = colaborador.s_nome_usuario;
+    linhagrid.appendChild(c2);
 
-                const c3 = document.createElement("div");
-                c3.classList.add("c3");
-                c3.classList.add("colunalinhagrid");
-                c3.innerHTML = colaborador.n_tipo_usuario;
-                linhagrid.appendChild(c3);
+    const c3 = document.createElement("div");
+    c3.classList.add("c3");
+    c3.classList.add("colunalinhagrid");
+    c3.innerHTML = colaborador.n_tipo_usuario;
+    linhagrid.appendChild(c3);
 
-                const c4 = document.createElement("div");
-                c4.classList.add("c4");
-                c4.classList.add("colunalinhagrid");
-                c4.innerHTML = colaborador.c_status_usuario;
-                linhagrid.appendChild(c4);
+    const c4 = document.createElement("div");
+    c4.classList.add("c4");
+    c4.classList.add("colunalinhagrid");
+    c4.innerHTML = colaborador.c_status_usuario;
+    linhagrid.appendChild(c4);
 
-                const c5 = document.createElement("div");
-                c5.classList.add("c5");
-                c5.classList.add("colunalinhagrid");
-                linhagrid.appendChild(c5);
+    const c5 = document.createElement("div");
+    c5.classList.add("c5");
+    c5.classList.add("colunalinhagrid");
+    linhagrid.appendChild(c5);
 
-                //Botão de Ligado/Desligado Selecionar o Status
-                const img_status = document.createElement("img");
-                img_status.classList.add("icone_op");
-                if (colaborador.c_status_usuario == "A") {
-                    img_status.setAttribute("src", "../../img/ligado.svg");
+    //Botão de Ligado/Desligado Selecionar o Status
+    const img_status = document.createElement("img");
+    img_status.classList.add("icone_op");
+    if (colaborador.c_status_usuario == "A") {
+        img_status.setAttribute("src", "../../img/ligado.svg");
+    }
+    if (colaborador.c_status_usuario == "I") {
+        img_status.setAttribute("src", "../../img/desligado.svg");
+    }
+    c5.appendChild(img_status);
+
+    //Botão de Lapis Editar Contato
+
+    const img_editar = document.createElement("img");
+    img_editar.classList.add("icone_op");
+    img_editar.setAttribute("src", "../../img/edit.svg");
+    c5.appendChild(img_editar);
+
+    //Botão de Lixeira Remover Contato
+    const img_remover = document.createElement("img");
+    img_remover.classList.add("icone_op");
+    img_remover.setAttribute("src", "../../img/delete.svg");
+    c5.appendChild(img_remover);
+
+    //Tratamento de evento
+
+    //Botão Editar Contato
+
+    img_editar.addEventListener("click", function () {
+        modojanela = "e";
+        document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
+        novocolaborador.classList.remove("ocultarpopup");
+        id = colaborador.n_usuario_usuario;
+        f_nome.value = colaborador.s_nome_usuario;
+        f_tipo.value = colaborador.n_tipo_usuario;
+        f_status.value = colaborador.c_status_usuario;
+        console.log("id do usuario para editar: /n", id);
+
+        //Carrega as fotos e telefones do colaborador
+        let endpoint_colaborador = `${serv}/mostrarcontato/${id}`;
+        fetch(endpoint_colaborador)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
                 }
-                if (colaborador.c_status_usuario == "I") {
-                    img_status.setAttribute("src", "../../img/desligado.svg");
+                return response.json();
+            })
+            .then((response) => {
+                console.log("Carregando o usuario para editar: /n", response);
+                img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
+            });
+
+        endpoint_colaborador = `${serv}/mostrartelefones/${id}`;
+        fetch(endpoint_colaborador)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
                 }
-                c5.appendChild(img_status);
-
-                //Botão de Lapis Editar Contato
-
-                const img_editar = document.createElement("img");
-                img_editar.classList.add("icone_op");
-                img_editar.setAttribute("src", "../../img/edit.svg");
-                c5.appendChild(img_editar);
-
-                //Botão de Lixeira Remover Contato
-                const img_remover = document.createElement("img");
-                img_remover.classList.add("icone_op");
-                img_remover.setAttribute("src", "../../img/delete.svg");
-                c5.appendChild(img_remover);
-
-                //Tratamento de evento
-
-                //Botão Editar Contato
-
-                img_editar.addEventListener("click", function () {
-                    modojanela = "e";
-                    document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
-                    novocolaborador.classList.remove("ocultarpopup");
-                    id = colaborador.n_usuario_usuario;
-                    f_nome.value = colaborador.s_nome_usuario;
-                    f_tipo.value = colaborador.n_tipo_usuario;
-                    f_status.value = colaborador.c_status_usuario;
-                    console.log("id do usuario para editar: /n", id);
-
-                    //Carrega as fotos e telefones do colaborador
-                    let endpoint_colaborador = `${serv}/mostrarcontato/${id}`;
-                    fetch(endpoint_colaborador)
-                        .then((response) => {
-                            if (!response.ok) {
-                                throw new Error("A resposta da rede não foi bem-sucedida");
-                            }
-                            return response.json();
-                        })
-                        .then((response) => {
-                            console.log("Carregando o usuario para editar: /n", response);
-                            img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
-                        });
-
-                    endpoint_colaborador = `${serv}/mostrartelefones/${id}`;
-                    fetch(endpoint_colaborador)
-                        .then((response) => {
-                            if (!response.ok) {
-                                throw new Error("A resposta da rede não foi bem-sucedida");
-                            }
-                            return response.json();
-                        })
-                        .then((response) => {
-                            console.log("Carregando Lista de telefones desse usuario: /n", response);
-                            telefones.innerHTML = "";
-                            response.forEach((telefone) => {
-                                criarCxTelefone(telefone.s_numero_telefone, telefone.n_telefone_telefone);
-                            });
-                        });
+                return response.json();
+            })
+            .then((response) => {
+                console.log("Carregando Lista de telefones desse usuario: /n", response);
+                telefones.innerHTML = "";
+                response.forEach((telefone) => {
+                    criarCxTelefone(telefone.s_numero_telefone, telefone.n_telefone_telefone);
                 });
+            });
+    });
 
-                //Botão Remover Contato
-                img_remover.addEventListener("click", function () {
-                    if (confirm(`Tem certeza que deseja remover colaborador ${colaborador.s_nome_usuario}?`)) {
-                        console.log("ID do colaborador a ser deletado: ", colaborador.n_usuario_usuario);
-                        const iddelete = {
-                            n_usuario_usuario: colaborador.n_usuario_usuario,
-                        }
-
-                        const endpoint_removercolaborador = `${serv}/deletecolab`;
-                        const options = {
-                            method: "POST",
-                            body: JSON.stringify(iddelete),
-                        };
-                        fetch(endpoint_removercolaborador, options)
-                            .then((response) => {
-                                if (!response.ok) {
-                                    throw new Error("Erro ao remover colaborador");
-                                }
-                                alert("Colaborador removido com sucesso!");
-                                carregarColaboradores();
-                            })
-                            .catch((erro) => {
-                                console.error("Erro ao remover colaborador:", erro);
-                                alert("Erro ao remover colaborador!");
-                            });
-                        limpar();
-                        carregarColaboradores();
-                    }
-
-
-                });
-                //Botão de Status
-                img_status.addEventListener("click", function () {
-                    if (colaborador.c_status_usuario == "A") {
-                        img_status.setAttribute("src", "../../img/desligado.svg");
-                        colaborador.c_status_usuario = "I";
-                        console.log(`Colaborador ${colaborador.n_usuario_usuario} Desligado`);
-                    } else {
-                        img_status.setAttribute("src", "../../img/ligado.svg");
-                        colaborador.c_status_usuario = "A";
-                        console.log(`Colaborador ${colaborador.n_usuario_usuario} Ligado`);
-                    }
-                    const endpoint_status = `${serv}/editarstatus/${colaborador.n_usuario_usuario}/${colaborador.c_status_usuario}`;
-                    fetch(endpoint_status)
-                        .then((response) => {
-                            if (!response.ok) {
-                                throw new Error("Erro ao atualizar status");
-                            }
-                            return response.json();
-                        })
-                        .then((data) => {
-                            console.log("Status atualizado com sucesso:", data); 
-                            carregarColaboradores();
-                        })
-                });
+    //Botão Remover Contato
+    img_remover.addEventListener("click", function () {
+        if (confirm(`Tem certeza que deseja remover colaborador ${colaborador.s_nome_usuario}?`)) {
+            console.log("ID do colaborador a ser deletado: ", colaborador.n_usuario_usuario);
+            const iddelete = {
+                n_usuario_usuario: colaborador.n_usuario_usuario,
             }
+
+            const endpoint_removercolaborador = `${serv}/deletecolab`;
+            const options = {
+                method: "POST",
+                body: JSON.stringify(iddelete),
+            };
+            fetch(endpoint_removercolaborador, options)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao remover colaborador");
+                    }
+                    alert("Colaborador removido com sucesso!");
+                    carregarColaboradores();
+                })
+                .catch((erro) => {
+                    console.error("Erro ao remover colaborador:", erro);
+                    alert("Erro ao remover colaborador!");
+                });
+            limpar();
+            carregarColaboradores();
+        }
+
+
+    });
+    //Botão de Status
+    img_status.addEventListener("click", function () {
+        if (colaborador.c_status_usuario == "A") {
+            img_status.setAttribute("src", "../../img/desligado.svg");
+            colaborador.c_status_usuario = "I";
+            console.log(`Colaborador ${colaborador.n_usuario_usuario} Desligado`);
+        } else {
+            img_status.setAttribute("src", "../../img/ligado.svg");
+            colaborador.c_status_usuario = "A";
+            console.log(`Colaborador ${colaborador.n_usuario_usuario} Ligado`);
+        }
+        const endpoint_status = `${serv}/editarstatus/${colaborador.n_usuario_usuario}/${colaborador.c_status_usuario}`;
+        fetch(endpoint_status)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Erro ao atualizar status");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log("Status atualizado com sucesso:", data);
+                carregarColaboradores();
+            })
+    });
+}
 
 /**Tratamento de Eventos */
 
@@ -326,9 +328,16 @@ f_pesqNome.addEventListener("click", function (evt) {
 });
 
 btn_pesquisar.addEventListener("click", function () {
-    
-    if (f_pesq.value.length < 0) {
-        alert("Digite um valor para pesquisar");
+
+    if (f_pesq.value == "") {
+        const config = {
+            titulo: 'Título',
+            texto: 'Texto',
+            cor: '#00f',
+            tipo: 'sn'
+        }
+        Cxmsg.mostrar(config);
+        // alert("Digite um valor para pesquisar");
         f_pesq.focus();
         return;
     } else {
@@ -359,11 +368,11 @@ btn_pesquisar.addEventListener("click", function () {
 
         pesquisa.classList.add("ocultarpopup");
     }
-    
+
 });
 
 btn_listar.addEventListener("click", function () {
-    
+
     carregarColaboradores();
 
 });
