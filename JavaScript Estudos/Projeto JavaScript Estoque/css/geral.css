@@ -279,6 +279,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 100000 !important;
         }
 
         .cxmsg {
@@ -290,10 +291,11 @@
             flex-direction: column;
             justify-content: space-between;
             
+            
         }
 
         .titulo_cxmsg {
-            background-color: #00f;
+    
             color: #fff;
             padding: 10px;
             display: flex;
@@ -322,13 +324,13 @@
             color: #000;
             padding: 5px;
             text-align: center;
+            height: 100%;
         }
 
         .rodape_cxmsg {
             display: flex;
             justify-content: space-around;
             padding: 10px;
-            background-color: #00f;
             border-radius: 0 0 10px 10px;
         }
 
