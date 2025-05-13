@@ -238,7 +238,24 @@ const criarlinha = (colaborador) => {
                     if (!response.ok) {
                         throw new Error("Erro ao remover colaborador");
                     }
-                    alert("Colaborador removido com sucesso!");
+                    const config = {
+                        titulo: 'Aviso',
+                        texto: 'Colaborador Removido com sucesso!',
+                        cor: 'green',
+                        tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                        ok: function () {
+                            console.log("OK");
+                        }
+                        , sim: function () {
+                            console.log("Sim");
+                        }
+                        , nao: function () {
+                            console.log("Não");
+                        }
+
+                    }
+                    Cxmsg.mostrar(config);
+                    //alert("Colaborador removido com sucesso!");
                     carregarColaboradores();
                 })
                 .catch((erro) => {
@@ -331,10 +348,20 @@ btn_pesquisar.addEventListener("click", function () {
 
     if (f_pesq.value == "") {
         const config = {
-            titulo: 'Título',
-            texto: 'Texto',
-            cor: '#00f',
-            tipo: 'sn'
+            titulo: 'Atenção',
+            texto: 'Campo de pesquisa vazio, digite um valor para pesquisar',
+            cor: '#f00',
+            tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+            ok: function () {
+                console.log("OK");
+            }
+            , sim: function () {
+                console.log("Sim");
+            }
+            , nao: function () {
+                console.log("Não");
+            }
+
         }
         Cxmsg.mostrar(config);
         // alert("Digite um valor para pesquisar");
@@ -465,7 +492,24 @@ btn_salvar.addEventListener("click", function () {
         fetch(endpointnovocolab, options)
             .then((response) => {
                 if (response.status === 200) {
-                    alert("Colaborador Atualizado com sucesso!");
+                    const config = {
+                        titulo: 'Aviso',
+                        texto: 'Colaborador Atualizado com sucesso!',
+                        cor: 'green',
+                        tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                        ok: function () {
+                            console.log("OK");
+                        }
+                        , sim: function () {
+                            console.log("Sim");
+                        }
+                        , nao: function () {
+                            console.log("Não");
+                        }
+
+                    }
+                    Cxmsg.mostrar(config);
+                    //alert("Colaborador Atualizado com sucesso!");
                     limpar();
                 } else {
                     alert("Erro ao atualizar o colaborador!");
@@ -500,7 +544,24 @@ btn_salvar.addEventListener("click", function () {
         fetch(endpointnovocolab, options)
             .then((response) => {
                 if (response.status === 200) {
-                    alert("Colaborador cadastrado com sucesso!");
+                    const config = {
+                        titulo: 'Aviso',
+                        texto: 'Colaborador cadastrado com sucesso!',
+                        cor: 'green',
+                        tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                        ok: function () {
+                            console.log("OK");
+                        }
+                        , sim: function () {
+                            console.log("Sim");
+                        }
+                        , nao: function () {
+                            console.log("Não");
+                        }
+
+                    }
+                    Cxmsg.mostrar(config);
+                    //alert("Colaborador cadastrado com sucesso!");
                     limpar();
                 } else {
                     alert("Erro ao cadastrar colaborador!");

@@ -26,6 +26,11 @@ class Cxmsg {
         const titulo_cxmsg = document.createElement('div');
         titulo_cxmsg.id = 'titulo_cxmsg';
         titulo_cxmsg.className = 'titulo_cxmsg';
+        if (config.cor) {
+            titulo_cxmsg.style.backgroundColor = config.cor;
+        } else {
+            titulo_cxmsg.style.backgroundColor = '#007bff';
+        }
         cxmsg.appendChild(titulo_cxmsg);
 
         const p_titulo = document.createElement('p');
@@ -35,7 +40,7 @@ class Cxmsg {
         const btn_fechar = document.createElement('img');
         btn_fechar.id = 'btn_fechar';
         btn_fechar.className = 'btn_fechar_cxmsg';
-        // btn_fechar.src = '../img/close.svg';
+        btn_fechar.src = '../../img/close.svg';
         btn_fechar.alt = 'X de fechar';
         btn_fechar.title = 'Fechar';
         titulo_cxmsg.appendChild(btn_fechar);
@@ -52,6 +57,11 @@ class Cxmsg {
         const rodape_cxmsg = document.createElement('div');
         rodape_cxmsg.id = 'rodape_cxmsg';
         rodape_cxmsg.className = 'rodape_cxmsg';
+        if (config.cor) {
+            rodape_cxmsg.style.backgroundColor = config.cor;
+        } else {
+            rodape_cxmsg.style.backgroundColor = '#007bff';
+        }
         cxmsg.appendChild(rodape_cxmsg);
 
         if (config.tipo == 'ok') {
@@ -65,10 +75,7 @@ class Cxmsg {
                 if (this.config.ok) {
                     this.config.ok();
                 }
-                cxmsg_fundo.classList.add('ocultarpopup');
-                setTimeout(() => {
-                    cxmsg_fundo.remove();
-                }, 500);
+                this.fechar();
             });
         } else if (config.tipo == 'sn') {
             const btn_sim = document.createElement('button');
@@ -81,10 +88,7 @@ class Cxmsg {
                 if (this.config.sim) {
                     this.config.sim();
                 }
-                cxmsg_fundo.classList.add('ocultarpopup');
-                setTimeout(() => {
-                    cxmsg_fundo.remove();
-                }, 500);
+                this.fechar();
             });
 
             const btn_nao = document.createElement('button');
@@ -97,30 +101,23 @@ class Cxmsg {
                 if (this.config.nao) {
                     this.config.nao();
                 }
-                cxmsg_fundo.classList.add('ocultarpopup');
-                setTimeout(() => {
-                    cxmsg_fundo.remove();
-                }, 500);
+                this.fechar();
             });
         }
 
-
-
-
-
-
         btn_fechar.addEventListener('click', () => {
+            this.fechar();
+        });
+    }
+
+    static fechar = () => {
+        const cxmsg_fundo = document.getElementById('cxmsg_fundo');
+        if (cxmsg_fundo) {
             cxmsg_fundo.classList.add('ocultarpopup');
             setTimeout(() => {
                 cxmsg_fundo.remove();
             }, 500);
-        });
-
-
-        // cxmsg_fundo.classList.remove('ocultarpopup');
-        // cxmsg_fundo.classList.add('cxmsg_fundo');
-
-        alert(this.config.texto);
+        }
     }
 }
 
