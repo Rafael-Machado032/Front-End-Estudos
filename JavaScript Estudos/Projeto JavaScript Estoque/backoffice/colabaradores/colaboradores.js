@@ -41,7 +41,7 @@ const serv = sessionStorage.getItem("servidor_nodered");
 //Função Carregar a lista
 
 const carregarColaboradores = () => {
-    const endpoint_todoscoloboradores = `${serv}/todosusuarios`;
+    const endpoint_todoscoloboradores = `${serv}/todospessoas`;
     fetch(endpoint_todoscoloboradores)
         .then((response) => {
             if (!response.ok) {
@@ -125,25 +125,25 @@ const criarlinha = (colaborador) => {
     const c1 = document.createElement("div");
     c1.classList.add("c1");
     c1.classList.add("colunalinhagrid");
-    c1.innerHTML = colaborador.n_usuario_usuario;
+    c1.innerHTML = colaborador.n_pessoa_pessoa;
     linhagrid.appendChild(c1);
 
     const c2 = document.createElement("div");
     c2.classList.add("c2");
     c2.classList.add("colunalinhagrid");
-    c2.innerHTML = colaborador.s_nome_usuario;
+    c2.innerHTML = colaborador.s_nome_pessoa;
     linhagrid.appendChild(c2);
 
     const c3 = document.createElement("div");
     c3.classList.add("c3");
     c3.classList.add("colunalinhagrid");
-    c3.innerHTML = colaborador.n_tipo_usuario;
+    c3.innerHTML = colaborador.n_tipo_pessoa;
     linhagrid.appendChild(c3);
 
     const c4 = document.createElement("div");
     c4.classList.add("c4");
     c4.classList.add("colunalinhagrid");
-    c4.innerHTML = colaborador.c_status_usuario;
+    c4.innerHTML = colaborador.c_status_pessoa;
     linhagrid.appendChild(c4);
 
     const c5 = document.createElement("div");
@@ -154,10 +154,10 @@ const criarlinha = (colaborador) => {
     //Botão de Ligado/Desligado Selecionar o Status
     const img_status = document.createElement("img");
     img_status.classList.add("icone_op");
-    if (colaborador.c_status_usuario == "A") {
+    if (colaborador.c_status_pessoa == "A") {
         img_status.setAttribute("src", "../../img/ligado.svg");
     }
-    if (colaborador.c_status_usuario == "I") {
+    if (colaborador.c_status_pessoa == "I") {
         img_status.setAttribute("src", "../../img/desligado.svg");
     }
     c5.appendChild(img_status);
@@ -183,11 +183,11 @@ const criarlinha = (colaborador) => {
         modojanela = "e";
         document.querySelector("#titulopopup").innerHTML = "Editar Colaborador";
         novocolaborador.classList.remove("ocultarpopup");
-        id = colaborador.n_usuario_usuario;
-        f_nome.value = colaborador.s_nome_usuario;
-        f_tipo.value = colaborador.n_tipo_usuario;
-        f_status.value = colaborador.c_status_usuario;
-        console.log("id do usuario para editar: /n", id);
+        id = colaborador.n_pessoa_pessoa;
+        f_nome.value = colaborador.s_nome_pessoa;
+        f_tipo.value = colaborador.n_tipo_pessoa;
+        f_status.value = colaborador.c_status_pessoa;
+        console.log("id do pessoa para editar: /n", id);
 
         //Carrega as fotos e telefones do colaborador
         let endpoint_colaborador = `${serv}/mostrarcontato/${id}`;
@@ -199,8 +199,8 @@ const criarlinha = (colaborador) => {
                 return response.json();
             })
             .then((response) => {
-                console.log("Carregando o usuario para editar: /n", response);
-                img_foto.src = response[0].s_foto_usuario;  //Como é um array, pego o primeiro elemento
+                console.log("Carregando o pessoa para editar: /n", response);
+                img_foto.src = response[0].s_foto_pessoa;  //Como é um array, pego o primeiro elemento
             });
 
         endpoint_colaborador = `${serv}/mostrartelefones/${id}`;
@@ -212,7 +212,7 @@ const criarlinha = (colaborador) => {
                 return response.json();
             })
             .then((response) => {
-                console.log("Carregando Lista de telefones desse usuario: /n", response);
+                console.log("Carregando Lista de telefones desse pessoa: /n", response);
                 telefones.innerHTML = "";
                 response.forEach((telefone) => {
                     criarCxTelefone(telefone.s_numero_telefone, telefone.n_telefone_telefone);
@@ -222,10 +222,10 @@ const criarlinha = (colaborador) => {
 
     //Botão Remover Contato
     img_remover.addEventListener("click", function () {
-        if (confirm(`Tem certeza que deseja remover colaborador ${colaborador.s_nome_usuario}?`)) {
-            console.log("ID do colaborador a ser deletado: ", colaborador.n_usuario_usuario);
+        if (confirm(`Tem certeza que deseja remover colaborador ${colaborador.s_nome_pessoa}?`)) {
+            console.log("ID do colaborador a ser deletado: ", colaborador.n_pessoa_pessoa);
             const iddelete = {
-                n_usuario_usuario: colaborador.n_usuario_usuario,
+                n_pessoa_pessoa: colaborador.n_pessoa_pessoa,
             }
 
             const endpoint_removercolaborador = `${serv}/deletecolab`;
@@ -270,16 +270,16 @@ const criarlinha = (colaborador) => {
     });
     //Botão de Status
     img_status.addEventListener("click", function () {
-        if (colaborador.c_status_usuario == "A") {
+        if (colaborador.c_status_pessoa == "A") {
             img_status.setAttribute("src", "../../img/desligado.svg");
-            colaborador.c_status_usuario = "I";
-            console.log(`Colaborador ${colaborador.n_usuario_usuario} Desligado`);
+            colaborador.c_status_pessoa = "I";
+            console.log(`Colaborador ${colaborador.n_pessoa_pessoa} Desligado`);
         } else {
             img_status.setAttribute("src", "../../img/ligado.svg");
-            colaborador.c_status_usuario = "A";
-            console.log(`Colaborador ${colaborador.n_usuario_usuario} Ligado`);
+            colaborador.c_status_pessoa = "A";
+            console.log(`Colaborador ${colaborador.n_pessoa_pessoa} Ligado`);
         }
-        const endpoint_status = `${serv}/editarstatus/${colaborador.n_usuario_usuario}/${colaborador.c_status_usuario}`;
+        const endpoint_status = `${serv}/editarstatus/${colaborador.n_pessoa_pessoa}/${colaborador.c_status_pessoa}`;
         fetch(endpoint_status)
             .then((response) => {
                 if (!response.ok) {
@@ -456,12 +456,12 @@ btn_salvar.addEventListener("click", function () {
 
         //Armazena todo o formulario na variavel dados
         const dados = {
-            n_usuario_usuario: id,
-            s_nome_usuario: f_nome.value,
-            n_tipo_usuario: f_tipo.value,
-            c_status_usuario: f_status.value,
+            n_pessoa_pessoa: id,
+            s_nome_pessoa: f_nome.value,
+            n_tipo_pessoa: f_tipo.value,
+            c_status_pessoa: f_status.value,
             numtelefones: telefones,
-            s_foto_usuario: img_foto.getAttribute("src")
+            s_foto_pessoa: img_foto.getAttribute("src")
         };
 
         // Enviar requisição para deletar os IDs removidos
@@ -528,11 +528,11 @@ btn_salvar.addEventListener("click", function () {
 
         //Armazena todo o formulario na variavel dados
         const dados = {
-            s_nome_usuario: f_nome.value,
-            n_tipo_usuario: f_tipo.value,
-            c_status_usuario: f_status.value,
+            s_nome_pessoa: f_nome.value,
+            n_tipo_pessoa: f_tipo.value,
+            c_status_pessoa: f_status.value,
             numtelefones: telefones,
-            s_foto_usuario: img_foto.getAttribute("src")
+            s_foto_pessoa: img_foto.getAttribute("src")
         };
 
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
@@ -573,7 +573,10 @@ btn_salvar.addEventListener("click", function () {
 
 
     limpar();
-    carregarColaboradores();
+    setTimeout(() => {
+        carregarColaboradores();
+    }, 500);
+    
 
 });
 
@@ -659,8 +662,8 @@ fetch(endpoint_tipocolab)
         f_tipo.setAttribute("required", "true");
         data.forEach((tipo) => {
             const option = document.createElement("option");
-            option.value = tipo.n_nivel_tipousuario;
-            option.textContent = tipo.s_desc_tipousuario;
+            option.value = tipo.n_nivel_tipopessoa;
+            option.textContent = tipo.s_desc_tipopessoa;
             f_tipo.appendChild(option);
         });
     });
