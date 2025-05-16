@@ -573,7 +573,7 @@ btn_salvar.addEventListener("click", function () {
 
 
     limpar();
-    setTimeout(() => {
+    setTimeout(() => { //Não da tempo de carregar a lista antes de fechar a janela
         carregarColaboradores();
     }, 500);
     
