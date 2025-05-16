@@ -224,6 +224,47 @@
         "env": []
     },
     {
+        "id": "2607909540dc9bb0",
+        "type": "tab",
+        "label": "Javascript no node",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "02e4bb26894110ae",
+        "type": "tab",
+        "label": "Curso de javascript",
+        "disabled": true,
+        "locked": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "303cdc2011633dc6",
+        "type": "tab",
+        "label": "Agenda",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "90b3b8ee26b78526",
+        "type": "tab",
+        "label": "Estoque - Colaboradores",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a45fc121946bb817",
+        "type": "tab",
+        "label": "Estoque - Fornecedores",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f411f9ddb115f5cf",
         "type": "MySQLdatabase",
         "name": "",
@@ -412,6 +453,36 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "516320bcc5fab6ae",
+        "type": "MySQLdatabase",
+        "name": "xamp mysql",
+        "host": "127.0.0.1",
+        "port": "3307",
+        "db": "cursojavascript",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "eaa9d8d67d3d67cc",
+        "type": "MySQLdatabase",
+        "name": "Agenda",
+        "host": "127.0.0.1",
+        "port": "3308",
+        "db": "agenda1_js",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "a9f8cb086f96e4e8",
+        "type": "MySQLdatabase",
+        "name": "Estoque",
+        "host": "127.0.0.1",
+        "port": "3308",
+        "db": "estoque",
+        "tz": "",
+        "charset": "UTF8"
     },
     {
         "id": "7206c457ccef264d",
@@ -4516,6 +4587,1850 @@
         "wires": [
             [
                 "e3ebfda36c4b9957"
+            ]
+        ]
+    },
+    {
+        "id": "915df477931e3272",
+        "type": "http in",
+        "z": "2607909540dc9bb0",
+        "name": "",
+        "url": "gravar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "d41d9f6376a14eea"
+            ]
+        ]
+    },
+    {
+        "id": "e67b4206c2fb46bc",
+        "type": "http in",
+        "z": "2607909540dc9bb0",
+        "name": "",
+        "url": "recebe",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "d003723e523c36ed"
+            ]
+        ]
+    },
+    {
+        "id": "d41d9f6376a14eea",
+        "type": "function",
+        "z": "2607909540dc9bb0",
+        "name": "function 2",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "34b265521c524ede",
+                "b6beca3362309a50"
+            ]
+        ]
+    },
+    {
+        "id": "d003723e523c36ed",
+        "type": "function",
+        "z": "2607909540dc9bb0",
+        "name": "function 3",
+        "func": "let dados = {\n    temperatura: Math.round(Math.random() * 10),\n    nivel: Math.round(Math.random() * 10),\n    pressao: Math.round(Math.random() * 10)\n}\nmsg.payload=dados;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 380,
+        "wires": [
+            [
+                "8983e5c82ccb1aa4",
+                "7c02e89abd8743f9"
+            ]
+        ]
+    },
+    {
+        "id": "b6beca3362309a50",
+        "type": "debug",
+        "z": "2607909540dc9bb0",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "7c02e89abd8743f9",
+        "type": "debug",
+        "z": "2607909540dc9bb0",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "34b265521c524ede",
+        "type": "http response",
+        "z": "2607909540dc9bb0",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 490,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8983e5c82ccb1aa4",
+        "type": "http response",
+        "z": "2607909540dc9bb0",
+        "name": "Recebe dados",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 520,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1a2dd801d02463bf",
+        "type": "http in",
+        "z": "02e4bb26894110ae",
+        "name": "",
+        "url": "/produtos",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "2a543db9089fb35f"
+            ]
+        ]
+    },
+    {
+        "id": "5f87ae57f4df5acd",
+        "type": "http response",
+        "z": "02e4bb26894110ae",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2a543db9089fb35f",
+        "type": "function",
+        "z": "02e4bb26894110ae",
+        "name": "Mostrar Tabela",
+        "func": "let query = \"select * from produtos\";\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "1b8a94b1d31f6161"
+            ]
+        ]
+    },
+    {
+        "id": "1b8a94b1d31f6161",
+        "type": "mysql",
+        "z": "02e4bb26894110ae",
+        "mydb": "516320bcc5fab6ae",
+        "name": "",
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "5f87ae57f4df5acd"
+            ]
+        ]
+    },
+    {
+        "id": "8892ac6f773605f1",
+        "type": "http in",
+        "z": "02e4bb26894110ae",
+        "name": "",
+        "url": "/removeprodutos/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "71405886403c0b60"
+            ]
+        ]
+    },
+    {
+        "id": "9354d046d0d9d20e",
+        "type": "http response",
+        "z": "02e4bb26894110ae",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "71405886403c0b60",
+        "type": "function",
+        "z": "02e4bb26894110ae",
+        "name": "Deletar Produto",
+        "func": "let id = msg.req.params.id;\nlet query = `DELETE FROM produtos WHERE n_id_produtos = ${id}`;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "42a343f10e17a9f6"
+            ]
+        ]
+    },
+    {
+        "id": "42a343f10e17a9f6",
+        "type": "mysql",
+        "z": "02e4bb26894110ae",
+        "mydb": "516320bcc5fab6ae",
+        "name": "",
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "9354d046d0d9d20e"
+            ]
+        ]
+    },
+    {
+        "id": "60d5c22dd18e3089",
+        "type": "http in",
+        "z": "02e4bb26894110ae",
+        "name": "",
+        "url": "/produtos/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "a415febef1024899"
+            ]
+        ]
+    },
+    {
+        "id": "bc45d368b2b82bc8",
+        "type": "http response",
+        "z": "02e4bb26894110ae",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a415febef1024899",
+        "type": "function",
+        "z": "02e4bb26894110ae",
+        "name": "Vizualizar Produto",
+        "func": "let id = msg.req.params.id;\nlet query = `SELECT * FROM produtos WHERE n_id_produtos = ${id}`;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "65f4a2363a9a88cc"
+            ]
+        ]
+    },
+    {
+        "id": "65f4a2363a9a88cc",
+        "type": "mysql",
+        "z": "02e4bb26894110ae",
+        "mydb": "516320bcc5fab6ae",
+        "name": "",
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "bc45d368b2b82bc8"
+            ]
+        ]
+    },
+    {
+        "id": "38069f9129d6d19c",
+        "type": "http in",
+        "z": "02e4bb26894110ae",
+        "name": "",
+        "url": "/updateprodutos/:id/:produto/:marca/:modelo",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 280,
+        "wires": [
+            [
+                "9721ce65a5449a8f"
+            ]
+        ]
+    },
+    {
+        "id": "4f294314e24911e5",
+        "type": "http response",
+        "z": "02e4bb26894110ae",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9721ce65a5449a8f",
+        "type": "function",
+        "z": "02e4bb26894110ae",
+        "name": "Editar Produto",
+        "func": "let id = msg.req.params.id;\nlet produto = msg.req.params.produto;\nlet marca = msg.req.params.marca;\nlet modelo = msg.req.params.modelo;\n\nlet query = `UPDATE produtos SET s_produto_produtos = '${produto}',s_marca_produtos = '${marca}',s_modelo_produtos = '${modelo}' WHERE n_id_produtos = '${id}'`;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "9aee03dbfe6f6d80"
+            ]
+        ]
+    },
+    {
+        "id": "9aee03dbfe6f6d80",
+        "type": "mysql",
+        "z": "02e4bb26894110ae",
+        "mydb": "516320bcc5fab6ae",
+        "name": "",
+        "x": 690,
+        "y": 280,
+        "wires": [
+            [
+                "4f294314e24911e5"
+            ]
+        ]
+    },
+    {
+        "id": "c4982674808151c1",
+        "type": "mysql",
+        "z": "303cdc2011633dc6",
+        "mydb": "eaa9d8d67d3d67cc",
+        "name": "Agenda Wamp",
+        "x": 700,
+        "y": 80,
+        "wires": [
+            [
+                "bb9291cc817c735a"
+            ]
+        ]
+    },
+    {
+        "id": "c64870e04c931aa3",
+        "type": "http in",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "url": "/contatos",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "143e612bb92ce661"
+            ]
+        ]
+    },
+    {
+        "id": "bb9291cc817c735a",
+        "type": "http response",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 850,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "143e612bb92ce661",
+        "type": "function",
+        "z": "303cdc2011633dc6",
+        "name": "Selecionar todos",
+        "func": "msg.topic = \"SELECT * FROM contatos\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 80,
+        "wires": [
+            [
+                "c4982674808151c1"
+            ]
+        ]
+    },
+    {
+        "id": "b006eb7dac609c43",
+        "type": "mysql",
+        "z": "303cdc2011633dc6",
+        "mydb": "eaa9d8d67d3d67cc",
+        "name": "Agenda Wamp",
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "f7c15726122c61d2"
+            ]
+        ]
+    },
+    {
+        "id": "5b95a9e403b2c80d",
+        "type": "http in",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "url": "/addcontatos",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "603ad9d8e9443156"
+            ]
+        ]
+    },
+    {
+        "id": "f7c15726122c61d2",
+        "type": "http response",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 850,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "603ad9d8e9443156",
+        "type": "function",
+        "z": "303cdc2011633dc6",
+        "name": "Add contatos",
+        "func": "msg.payload = JSON.parse(msg.payload);\nconst f_nome = msg.payload.f_nome;\nconst f_telefone = msg.payload.f_telefone;\nconst f_email = msg.payload.f_email;\nconst f_obs = msg.payload.f_obs;\n\nconst query = `INSERT INTO contatos VALUES (NULL,\"${f_nome}\",\"${f_telefone}\",\"${f_email}\",\"${f_obs}\") `;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 140,
+        "wires": [
+            [
+                "b006eb7dac609c43"
+            ]
+        ]
+    },
+    {
+        "id": "6789ba203fe9986d",
+        "type": "mysql",
+        "z": "303cdc2011633dc6",
+        "mydb": "eaa9d8d67d3d67cc",
+        "name": "Agenda Wamp",
+        "x": 700,
+        "y": 200,
+        "wires": [
+            [
+                "057af9df1f9d5300",
+                "0addf4ea7244018d"
+            ]
+        ]
+    },
+    {
+        "id": "16a7a0aec3e3eceb",
+        "type": "http in",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "url": "/editarcontatos/:id/:nome/:telefone/:email/:obs",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "5d3d950da6e6410d"
+            ]
+        ]
+    },
+    {
+        "id": "057af9df1f9d5300",
+        "type": "http response",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 850,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5d3d950da6e6410d",
+        "type": "function",
+        "z": "303cdc2011633dc6",
+        "name": "Editar contatos",
+        "func": "let id = msg.req.params.id;\nlet nome = msg.req.params.nome;\nlet telefone = msg.req.params.telefone;\nlet email = msg.req.params.email;\nlet obs = msg.req.params.obs;\n\nmsg.topic = `UPDATE contatos SET s_nome_contatos = \"${ nome }\", n_telefone_contatos = \"${ telefone }\", s_email_contatos = \"${ email }\", tx_obs_contatos = \"${ obs }\" WHERE n_contato_contatos = \"${id}\"`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 200,
+        "wires": [
+            [
+                "6789ba203fe9986d"
+            ]
+        ]
+    },
+    {
+        "id": "d8376fa02e69508c",
+        "type": "mysql",
+        "z": "303cdc2011633dc6",
+        "mydb": "eaa9d8d67d3d67cc",
+        "name": "Agenda Wamp",
+        "x": 700,
+        "y": 260,
+        "wires": [
+            [
+                "180596efc3c9a7c3"
+            ]
+        ]
+    },
+    {
+        "id": "582f957475e21b1e",
+        "type": "http in",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "url": "/deletarcontatos/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "959fc0acf53ef4a3"
+            ]
+        ]
+    },
+    {
+        "id": "180596efc3c9a7c3",
+        "type": "http response",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 850,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "959fc0acf53ef4a3",
+        "type": "function",
+        "z": "303cdc2011633dc6",
+        "name": "Deletar contatos",
+        "func": "const id = msg.req.params.id;\nmsg.topic = `DELETE FROM contatos WHERE n_contato_contatos = ${id}`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 260,
+        "wires": [
+            [
+                "d8376fa02e69508c"
+            ]
+        ]
+    },
+    {
+        "id": "b3e43819ea65bd0b",
+        "type": "mysql",
+        "z": "303cdc2011633dc6",
+        "mydb": "eaa9d8d67d3d67cc",
+        "name": "Agenda Wamp",
+        "x": 700,
+        "y": 320,
+        "wires": [
+            [
+                "4f19ead70870db80"
+            ]
+        ]
+    },
+    {
+        "id": "12c8af35dadcd319",
+        "type": "http in",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "url": "/pesquisarcontatos/:tipo/:pesq",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "cd6186c2e8902b11"
+            ]
+        ]
+    },
+    {
+        "id": "4f19ead70870db80",
+        "type": "http response",
+        "z": "303cdc2011633dc6",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 850,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "cd6186c2e8902b11",
+        "type": "function",
+        "z": "303cdc2011633dc6",
+        "name": "Pesquisar contatos",
+        "func": "const tipo = msg.req.params.tipo;\nconst pesq = msg.req.params.pesq;\n\nlet query = \"SELECT * FROM contatos WHERE \";\n\nif (tipo == \"id\"){\n    query += `n_contato_contatos = \"${pesq}\"`;\n} else if (tipo == \"nome\") {\n    query += `s_nome_contatos LIKE \"%${pesq}%\"`;\n} else if (tipo == \"telefone\") {\n    query += `n_telefone_contatos = \"${pesq}\"`;\n} else if (tipo == \"email\") {\n    query += `s_email_contatos LIKE \"%${pesq}%\"`;\n}\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "b3e43819ea65bd0b"
+            ]
+        ]
+    },
+    {
+        "id": "0addf4ea7244018d",
+        "type": "debug",
+        "z": "303cdc2011633dc6",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b6c77329b3e8bbb4",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Mostrar Tudo",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4fdb64dff4561458",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Exibir Usuarios",
+        "func": "msg.topic = \"SELECT * FROM pessoa\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 40,
+        "wires": [
+            [
+                "716360cc1afaa012"
+            ]
+        ]
+    },
+    {
+        "id": "9e700535a745ab8c",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/todospessoas",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 40,
+        "wires": [
+            [
+                "4fdb64dff4561458"
+            ]
+        ]
+    },
+    {
+        "id": "cc00899c65795ddf",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "716360cc1afaa012",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 660,
+        "y": 40,
+        "wires": [
+            [
+                "cc00899c65795ddf",
+                "b6c77329b3e8bbb4"
+            ]
+        ]
+    },
+    {
+        "id": "354aa76225c2367a",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Tipo Colaborador",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "fd29f30710e53470",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Exibir Tipo Usuarios",
+        "func": "msg.topic = \"SELECT * FROM tipopessoa\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 120,
+        "wires": [
+            [
+                "a3fa7a9e60a22ec7"
+            ]
+        ]
+    },
+    {
+        "id": "94a6ca507168526a",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/tipocolab",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "fd29f30710e53470"
+            ]
+        ]
+    },
+    {
+        "id": "101a53078de365ed",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a3fa7a9e60a22ec7",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 660,
+        "y": 120,
+        "wires": [
+            [
+                "101a53078de365ed",
+                "354aa76225c2367a"
+            ]
+        ]
+    },
+    {
+        "id": "d496b64da702ac63",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Add Usuario",
+        "func": "msg.payload = JSON.parse(msg.payload)\n\n\nconst tipo = msg.payload.n_tipo_pessoa;\nconst nome = msg.payload.s_nome_pessoa;\nconst foto = msg.payload.s_foto_pessoa\nconst status = msg.payload.c_status_pessoa;\nmsg.telefones = msg.payload.numtelefones;\n\nconst query = `INSERT INTO pessoa VALUES (NULL,NULL,\"${tipo}\",\"${nome}\",\"${foto}\",\"${status}\") `\n\nmsg.topic = query;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 740,
+        "wires": [
+            [
+                "00fe1ecb56816818"
+            ]
+        ]
+    },
+    {
+        "id": "9dde5801ac434389",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/novocolab",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "d496b64da702ac63"
+            ]
+        ]
+    },
+    {
+        "id": "d7042f885de3f747",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "00fe1ecb56816818",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 620,
+        "y": 740,
+        "wires": [
+            [
+                "0a9afeeb3e6bf6a9"
+            ]
+        ]
+    },
+    {
+        "id": "eab969bb37ae69a3",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Add Telefones",
+        "func": "let idusuario = msg.payload.insertId\nlet tels = msg.telefones;\n\nlet restel = \"\";\n\ntels.forEach(function(element) {\n    restel += `,(NULL,${idusuario},\"${element}\")`\n    //Cada conjuto de dados tem que ser separado por uma virgula\n});\n\nrestel = restel.substring(1);\n//Remove o caracter da primeira posição no caso a virgula\n//Cuidado com espaço na frente do conteudo\nconst query = `INSERT INTO telefone VALUES ${restel}`;\nmsg.topic = query;\n\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 800,
+        "wires": [
+            [
+                "fcd11ab5c157502f"
+            ]
+        ]
+    },
+    {
+        "id": "fcd11ab5c157502f",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 620,
+        "y": 800,
+        "wires": [
+            [
+                "d7042f885de3f747",
+                "98b9cc101131c0fd"
+            ]
+        ]
+    },
+    {
+        "id": "0a9afeeb3e6bf6a9",
+        "type": "switch",
+        "z": "90b3b8ee26b78526",
+        "name": "Tem telefone?",
+        "property": "telefones",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 160,
+        "y": 800,
+        "wires": [
+            [
+                "eab969bb37ae69a3"
+            ],
+            [
+                "829a0c6e6fcb443b"
+            ]
+        ]
+    },
+    {
+        "id": "df881396ec0666ca",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/mostrarcontato/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "8c94cb2414cad48c"
+            ]
+        ]
+    },
+    {
+        "id": "e204c0dacf52229e",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 790,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8c94cb2414cad48c",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Mostra um contato",
+        "func": "let id = msg.req.params.id;\n\nmsg.topic = `SELECT * FROM pessoa WHERE n_pessoa_pessoa = \"${id}\"`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "4b5dcbbb59a47709"
+            ]
+        ]
+    },
+    {
+        "id": "4b5dcbbb59a47709",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 660,
+        "y": 200,
+        "wires": [
+            [
+                "acae6ddb5fc81a76",
+                "e204c0dacf52229e"
+            ]
+        ]
+    },
+    {
+        "id": "acae6ddb5fc81a76",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Mostra Usuario",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bbc30a89d2d6de0b",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/mostrartelefones/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "e991641db738c896"
+            ]
+        ]
+    },
+    {
+        "id": "700f24c471aa6fa8",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 790,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e991641db738c896",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Mostrar Telefones",
+        "func": "let id = msg.req.params.id;\n\nmsg.topic = `SELECT * FROM telefone WHERE n_pessoa_pessoa = \"${id}\"`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "f0b8e5bd0cf1ca95"
+            ]
+        ]
+    },
+    {
+        "id": "f0b8e5bd0cf1ca95",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 660,
+        "y": 280,
+        "wires": [
+            [
+                "b007d1a9eb23045b",
+                "700f24c471aa6fa8"
+            ]
+        ]
+    },
+    {
+        "id": "b007d1a9eb23045b",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Mostra Telefone",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "829a0c6e6fcb443b",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 390,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "d336dad8ac5f98f6",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Update Usuario",
+        "func": "msg.payload = JSON.parse(msg.payload)\n\nconst id = msg.payload.n_pessoa_pessoa;\nconst nome = msg.payload.s_nome_pessoa;\nconst tipo = msg.payload.n_tipo_pessoa;\nconst status = msg.payload.c_status_pessoa;\nconst foto = msg.payload.s_foto_pessoa;\nmsg.telefones = msg.payload.numtelefones\n\nconst query = `UPDATE pessoa SET s_nome_pessoa = \"${nome}\",n_tipo_pessoa = \"${tipo}\",c_status_pessoa = \"${status}\",s_foto_pessoa = \"${foto}\" WHERE n_pessoa_pessoa =   \"${id}\"`\n\nmsg.topic = query;\nflow.set(\"ideditado\",id)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 880,
+        "wires": [
+            [
+                "c08a1f3fabcad4a8"
+            ]
+        ]
+    },
+    {
+        "id": "777672b33cfb5d5e",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/editarcolab",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 880,
+        "wires": [
+            [
+                "d336dad8ac5f98f6"
+            ]
+        ]
+    },
+    {
+        "id": "8c3185da57c1379e",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "c08a1f3fabcad4a8",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 620,
+        "y": 880,
+        "wires": [
+            [
+                "019c3d2d9a2ecaa1"
+            ]
+        ]
+    },
+    {
+        "id": "0e2425faf2452a94",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Add Telefones",
+        "func": "const id = flow.get(\"ideditado\");\n//let idusuario = msg.payload.insertId\nlet tels = msg.telefones;\n\nlet restel = \"\";\n\ntels.forEach(function(element) {\n    restel += `,(NULL,${id},\"${element}\")`\n    //Cada conjuto de dados tem que ser separado por uma virgula\n});\n\nrestel = restel.substring(1);\n//Remove o caracter da primeira posição no caso a virgula\n//Cuidado com espaço na frente do conteudo\nconst query = `INSERT INTO telefone VALUES ${restel}`;\nmsg.topic = query;\n\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 940,
+        "wires": [
+            [
+                "57c0017f96e828bb"
+            ]
+        ]
+    },
+    {
+        "id": "57c0017f96e828bb",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 620,
+        "y": 940,
+        "wires": [
+            [
+                "8c3185da57c1379e",
+                "cfcabbfcbbb297ee"
+            ]
+        ]
+    },
+    {
+        "id": "019c3d2d9a2ecaa1",
+        "type": "switch",
+        "z": "90b3b8ee26b78526",
+        "name": "Tem telefone?",
+        "property": "telefones",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 160,
+        "y": 940,
+        "wires": [
+            [
+                "0e2425faf2452a94"
+            ],
+            [
+                "fe95ec918ae76aa8"
+            ]
+        ]
+    },
+    {
+        "id": "fe95ec918ae76aa8",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 390,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "afb48f4cb4c0d467",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/deletetelefone/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "99edb406cb607074"
+            ]
+        ]
+    },
+    {
+        "id": "ab00b2369a603db0",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 790,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "99edb406cb607074",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Deletar Caixa Telefone",
+        "func": "let id = msg.req.params.id;\n\nmsg.topic = `DELETE FROM telefone WHERE n_telefone_telefone = \"${id}\"`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 360,
+        "wires": [
+            [
+                "5afc2319540c70e8"
+            ]
+        ]
+    },
+    {
+        "id": "5afc2319540c70e8",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 660,
+        "y": 360,
+        "wires": [
+            [
+                "f4d9578184616811",
+                "ab00b2369a603db0"
+            ]
+        ]
+    },
+    {
+        "id": "f4d9578184616811",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Delete Telefone",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "cfcabbfcbbb297ee",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Editar",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "98b9cc101131c0fd",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Adicionar",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "23ecd1c7ea30f51d",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Delete Usuario",
+        "func": "msg.payload = JSON.parse(msg.payload)\n\nconst id = msg.payload.n_pessoa_pessoa;\n\nmsg.topic = `DELETE FROM pessoa WHERE n_pessoa_pessoa = \"${id}\"`;\n\nflow.set(\"iddeletado\",id)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1020,
+        "wires": [
+            [
+                "51fefb9c75b53eae"
+            ]
+        ]
+    },
+    {
+        "id": "2dd05a5fd429f9c6",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/deletecolab",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 1020,
+        "wires": [
+            [
+                "23ecd1c7ea30f51d"
+            ]
+        ]
+    },
+    {
+        "id": "7b80c8857f6189fb",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "51fefb9c75b53eae",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 620,
+        "y": 1020,
+        "wires": [
+            [
+                "5b4b9aaaf02ad8f7"
+            ]
+        ]
+    },
+    {
+        "id": "3e694cded42794df",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Delete Telefones",
+        "func": "const id = flow.get(\"iddeletado\");\n\nmsg.topic = `DELETE FROM telefone WHERE n_pessoa_pessoa = \"${id}\"`;\n\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1080,
+        "wires": [
+            [
+                "1168cddc776fb02c"
+            ]
+        ]
+    },
+    {
+        "id": "1168cddc776fb02c",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 620,
+        "y": 1080,
+        "wires": [
+            [
+                "7b80c8857f6189fb",
+                "1635a77cc466c22e"
+            ]
+        ]
+    },
+    {
+        "id": "5b4b9aaaf02ad8f7",
+        "type": "switch",
+        "z": "90b3b8ee26b78526",
+        "name": "Tem telefone?",
+        "property": "telefones",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 160,
+        "y": 1080,
+        "wires": [
+            [
+                "3e694cded42794df"
+            ],
+            [
+                "3029b9179122cfdc"
+            ]
+        ]
+    },
+    {
+        "id": "3029b9179122cfdc",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 390,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "1635a77cc466c22e",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Deletar",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "623f7cb95b992eba",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/editarstatus/:id/:status",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "727286c49cfa2fb1"
+            ]
+        ]
+    },
+    {
+        "id": "aec79cbe8c0a7a9c",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 790,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "727286c49cfa2fb1",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Editar Status",
+        "func": "let id = msg.req.params.id;\nlet status = msg.req.params.status;\n\nmsg.topic = `UPDATE pessoa SET c_status_pessoa = \"${status}\" WHERE n_pessoa_pessoa = \"${id}\"`\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 440,
+        "wires": [
+            [
+                "3696d547ae67e6b3"
+            ]
+        ]
+    },
+    {
+        "id": "3696d547ae67e6b3",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 660,
+        "y": 440,
+        "wires": [
+            [
+                "703a52e6e19a9882",
+                "aec79cbe8c0a7a9c"
+            ]
+        ]
+    },
+    {
+        "id": "703a52e6e19a9882",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Muda Status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a29c4acd6744b602",
+        "type": "http in",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "url": "/pesquisarcolab/:tipo/:valor",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "37d1ef56c1a986af"
+            ]
+        ]
+    },
+    {
+        "id": "7899339d56da44da",
+        "type": "http response",
+        "z": "90b3b8ee26b78526",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 790,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "37d1ef56c1a986af",
+        "type": "function",
+        "z": "90b3b8ee26b78526",
+        "name": "Pesquisar Colaboradores",
+        "func": "const tipo = msg.req.params.tipo;\nconst valor = msg.req.params.valor;\n\nlet query = null;\nif(tipo == \"ID\"){\n   query = `SELECT * FROM pessoa WHERE n_pessoa_pessoa = \"${valor}\"` ;\n}else{\n    query = `SELECT * FROM pessoa WHERE s_nome_pessoa LIKE \"%${valor}%\"`;\n                                        //O % pesquisa em qualquer posição\n}\nmsg.topic = query\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "c7a324c1b77520cb"
+            ]
+        ]
+    },
+    {
+        "id": "c7a324c1b77520cb",
+        "type": "mysql",
+        "z": "90b3b8ee26b78526",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 660,
+        "y": 520,
+        "wires": [
+            [
+                "649a8e85cf93988a",
+                "7899339d56da44da"
+            ]
+        ]
+    },
+    {
+        "id": "649a8e85cf93988a",
+        "type": "debug",
+        "z": "90b3b8ee26b78526",
+        "name": "Pesquisa",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "854e321e2b8c2424",
+        "type": "debug",
+        "z": "a45fc121946bb817",
+        "name": "Mostrar Tudo",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "bd1dd093431bc0b8",
+        "type": "function",
+        "z": "a45fc121946bb817",
+        "name": "Exibir Usuarios",
+        "func": "msg.topic = \"SELECT * FROM fornecedor\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 40,
+        "wires": [
+            [
+                "1e0cf20ad0a94531"
+            ]
+        ]
+    },
+    {
+        "id": "1a46a14a66e866eb",
+        "type": "http in",
+        "z": "a45fc121946bb817",
+        "name": "",
+        "url": "/todosfornecedores",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "bd1dd093431bc0b8"
+            ]
+        ]
+    },
+    {
+        "id": "a61d1379b781b16e",
+        "type": "http response",
+        "z": "a45fc121946bb817",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1e0cf20ad0a94531",
+        "type": "mysql",
+        "z": "a45fc121946bb817",
+        "mydb": "a9f8cb086f96e4e8",
+        "name": "",
+        "x": 600,
+        "y": 40,
+        "wires": [
+            [
+                "a61d1379b781b16e",
+                "854e321e2b8c2424"
             ]
         ]
     }
