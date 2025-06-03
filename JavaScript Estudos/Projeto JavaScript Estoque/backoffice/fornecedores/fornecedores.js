@@ -220,7 +220,7 @@ const criarlinha = (fornecedor) => {
             fornecedor.c_status_fornecedor = "A";
             console.log(`fornecedor ${fornecedor.n_fornecedor_fornecedor} Ligado`);
         }
-        const endpoint_status = `${serv}/editarstatus/${fornecedor.n_fornecedor_fornecedor}/${fornecedor.c_status_fornecedor}`;
+        const endpoint_status = `${serv}/editarstatusfornecedor/${fornecedor.n_fornecedor_fornecedor}/${fornecedor.c_status_fornecedor}`;
         fetch(endpoint_status)
             .then((response) => {
                 if (!response.ok) {
