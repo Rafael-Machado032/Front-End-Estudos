@@ -67,14 +67,14 @@ const carregarFornecedores = () => {
 //Limpar Inputs
 const limpar = () => {
     f_nome.value = "";
-    
+
     f_status.selectedIndex = 0;
-    
-    
+
+
     f_nome.focus();
     img_foto.setAttribute("src", "../../img/defaut.svg");
     f_foto.value = ""; // Limpa o input de foto
-    
+
     modojanela = "n"; // Reseta o modo da janela
 }
 
@@ -140,11 +140,11 @@ const criarlinha = (fornecedor) => {
         novofornecedor.classList.remove("ocultarpopup");
         id = fornecedor.n_fornecedor_fornecedor;
         f_nome.value = fornecedor.s_nome_fornecedor;
-        
+
         f_status.value = fornecedor.c_status_fornecedor;
         console.log("id do fornecedor para editar: /n", id);
 
-        
+
         let endpoint_fornecedor = `${serv}/mostrarcontato/${id}`;
         fetch(endpoint_fornecedor)
             .then((response) => {
@@ -158,7 +158,7 @@ const criarlinha = (fornecedor) => {
                 img_foto.src = response[0].s_foto_fornecedor;  //Como é um array, pego o primeiro elemento
             });
 
-       
+
     });
 
     //Botão Remover Contato
@@ -355,7 +355,7 @@ btn_salvar.addEventListener("click", function () {
         f_nome.focus();
         return;
     }
-    
+
     if (f_status.value == "") {
         alert("Status inválido");
         f_status.focus();
@@ -369,9 +369,9 @@ btn_salvar.addEventListener("click", function () {
 
     console.log("Modo Janela", modojanela);
 
-    
-    
-    });
+
+
+
 
 
 
@@ -383,15 +383,15 @@ btn_salvar.addEventListener("click", function () {
         const dados = {
             n_fornecedor_fornecedor: id,
             s_nome_fornecedor: f_nome.value,
-            
+
             c_status_fornecedor: f_status.value,
-           
+
             s_foto_fornecedor: img_foto.getAttribute("src")
         };
 
         // Enviar requisição para deletar os IDs removidos
 
-        
+
 
         // Enviar requisição para atualizar os dados do fornecedor
 
@@ -441,14 +441,14 @@ btn_salvar.addEventListener("click", function () {
         //Armazena todo o formulario na variavel dados
         const dados = {
             s_nome_fornecedor: f_nome.value,
-            
+
             c_status_fornecedor: f_status.value,
-            
+
             s_foto_fornecedor: img_foto.getAttribute("src")
         };
 
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
-        const endpointnovocolab = `${serv}/novocolab`;
+        const endpointnovocolab = `${serv}/novofornecedor`;
         const options = {
             method: "POST",
             body: JSON.stringify(dados),
@@ -488,8 +488,8 @@ btn_salvar.addEventListener("click", function () {
     setTimeout(() => { //Não da tempo de carregar a lista antes de fechar a janela
         carregarFornecedores();
     }, 500);
-    
 
+});
 
 
 
