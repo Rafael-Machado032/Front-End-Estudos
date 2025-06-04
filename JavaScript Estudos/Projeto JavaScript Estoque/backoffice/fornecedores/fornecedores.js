@@ -139,13 +139,12 @@ const criarlinha = (fornecedor) => {
         document.querySelector("#titulopopup").innerHTML = "Editar fornecedor";
         novofornecedor.classList.remove("ocultarpopup");
         id = fornecedor.n_fornecedor_fornecedor;
-        f_nome.value = fornecedor.s_nome_fornecedor;
-
+        f_nome.value = fornecedor.s_desc_fornecedor;
         f_status.value = fornecedor.c_status_fornecedor;
         console.log("id do fornecedor para editar: /n", id);
 
 
-        let endpoint_fornecedor = `${serv}/mostrarcontato/${id}`;
+        let endpoint_fornecedor = `${serv}/mostrarfornecedor/${id}`;
         fetch(endpoint_fornecedor)
             .then((response) => {
                 if (!response.ok) {
@@ -155,7 +154,7 @@ const criarlinha = (fornecedor) => {
             })
             .then((response) => {
                 console.log("Carregando o fornecedor para editar: /n", response);
-                img_foto.src = response[0].s_foto_fornecedor;  //Como é um array, pego o primeiro elemento
+                img_foto.src = response[0].s_logo_fornecedor;  //Como é um array, pego o primeiro elemento
             });
 
 
@@ -163,13 +162,13 @@ const criarlinha = (fornecedor) => {
 
     //Botão Remover Contato
     img_remover.addEventListener("click", function () {
-        if (confirm(`Tem certeza que deseja remover fornecedor ${fornecedor.s_nome_fornecedor}?`)) {
+        if (confirm(`Tem certeza que deseja remover fornecedor ${fornecedor.s_desc_fornecedor}?`)) {
             console.log("ID do fornecedor a ser deletado: ", fornecedor.n_fornecedor_fornecedor);
             const iddelete = {
                 n_fornecedor_fornecedor: fornecedor.n_fornecedor_fornecedor,
             }
 
-            const endpoint_removerfornecedor = `${serv}/deletecolab`;
+            const endpoint_removerfornecedor = `${serv}/deletefornecedor`;
             const options = {
                 method: "POST",
                 body: JSON.stringify(iddelete),
@@ -315,7 +314,7 @@ btn_pesquisar.addEventListener("click", function () {
         } else {
             tipo = "Nome";
         }
-        const endpoint_pesquisa = `${serv}/pesquisarcolab/${tipo}/${f_pesq.value}`;
+        const endpoint_pesquisa = `${serv}/pesquisarfornecedor/${tipo}/${f_pesq.value}`;
         fetch(endpoint_pesquisa)
             .then((response) => {
                 if (!response.ok) {
@@ -396,7 +395,7 @@ btn_salvar.addEventListener("click", function () {
         // Enviar requisição para atualizar os dados do fornecedor
 
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
-        const endpointnovocolab = `${serv}/editarcolab`;
+        const endpointnovocolab = `${serv}/editarfornecedor`;
         const options = {
             method: "POST",
             body: JSON.stringify(dados),
@@ -406,7 +405,7 @@ btn_salvar.addEventListener("click", function () {
                 if (response.status === 200) {
                     const config = {
                         titulo: 'Aviso',
-                        texto: 'fornecedor Atualizado com sucesso!',
+                        texto: 'Fornecedor atualizado com sucesso!',
                         cor: 'green',
                         tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
                         ok: function () {
