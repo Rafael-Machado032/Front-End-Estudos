@@ -137,7 +137,7 @@ const criarlinha = (colaborador) => {
     const c3 = document.createElement("div");
     c3.classList.add("c3");
     c3.classList.add("colunalinhagrid");
-    c3.innerHTML = colaborador.n_tipo_pessoa;
+    c3.innerHTML = colaborador.n_tipopessoa_tipopessoa;
     linhagrid.appendChild(c3);
 
     const c4 = document.createElement("div");
@@ -185,7 +185,7 @@ const criarlinha = (colaborador) => {
         novocolaborador.classList.remove("ocultarpopup");
         id = colaborador.n_pessoa_pessoa;
         f_nome.value = colaborador.s_nome_pessoa;
-        f_tipo.value = colaborador.n_tipo_pessoa;
+        f_tipo.value = colaborador.n_tipopessoa_tipopessoa;
         f_status.value = colaborador.c_status_pessoa;
         console.log("id do pessoa para editar: /n", id);
 
@@ -458,7 +458,7 @@ btn_salvar.addEventListener("click", function () {
         const dados = {
             n_pessoa_pessoa: id,
             s_nome_pessoa: f_nome.value,
-            n_tipo_pessoa: f_tipo.value,
+            n_tipopessoa_tipopessoa: f_tipo.value,
             c_status_pessoa: f_status.value,
             numtelefones: telefones,
             s_foto_pessoa: img_foto.getAttribute("src")
@@ -529,7 +529,7 @@ btn_salvar.addEventListener("click", function () {
         //Armazena todo o formulario na variavel dados
         const dados = {
             s_nome_pessoa: f_nome.value,
-            n_tipo_pessoa: f_tipo.value,
+            n_tipopessoa_tipopessoa: f_tipo.value,
             c_status_pessoa: f_status.value,
             numtelefones: telefones,
             s_foto_pessoa: img_foto.getAttribute("src")
@@ -662,7 +662,7 @@ fetch(endpoint_tipocolab)
         f_tipo.setAttribute("required", "true");
         data.forEach((tipo) => {
             const option = document.createElement("option");
-            option.value = tipo.n_nivel_tipopessoa;
+            option.value = tipo.n_tipopessoa_tipopessoa;
             option.textContent = tipo.s_desc_tipopessoa;
             f_tipo.appendChild(option);
         });
