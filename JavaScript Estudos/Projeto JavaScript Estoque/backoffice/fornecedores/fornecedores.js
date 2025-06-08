@@ -5,6 +5,7 @@ const novofornecedor = document.querySelector("#novofornecedor");
 const img_foto = document.querySelector("#img_foto");
 
 const pesquisa = document.querySelector("#pesquisa");
+const listacontatosfornecedor = document.querySelector("#listacontatosfornecedor");
 
 const btn_add = document.querySelector("#btn_add");
 const btn_fecharpopup = document.querySelector("#btn_fecharpopup");
@@ -16,7 +17,9 @@ const btn_pesq = document.querySelector("#btn_pesq");
 const btn_fecharpopuppesq = document.querySelector("#btn_fecharpopuppesq");
 const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
 const btn_listar = document.querySelector("#btn_listar");
-
+const btn_fecharpopuplistacontatos = document.querySelector("#btn_fecharpopuplistacontatos");
+const btn_cancelarpopuplistacontatos = document.querySelector("#btn_cancelarpopuplistacontatos");
+const btn_listarcontatos = document.querySelector("#btn_listarcontatos");
 const f_nome = document.querySelector("#f_nome");
 
 const f_status = document.querySelector("#f_status");
@@ -279,9 +282,24 @@ f_pesqId.addEventListener("click", function (evt) {
     f_pesq.value = "";
     f_pesq.focus();
 });
+
 f_pesqNome.addEventListener("click", function (evt) {
     f_pesq.value = "";
     f_pesq.focus();
+});
+
+btn_fecharpopuplistacontatos.addEventListener("click", function () {
+    listacontatosfornecedor.classList.add("ocultarpopup");
+    limpar();
+});
+
+btn_cancelarpopuplistacontatos.addEventListener("click", function () {
+    listacontatosfornecedor.classList.add("ocultarpopup");
+    limpar();
+});
+
+btn_listarcontatos.addEventListener("click", function () {
+    listacontatosfornecedor.classList.remove("ocultarpopup");
 });
 
 btn_pesquisar.addEventListener("click", function () {
