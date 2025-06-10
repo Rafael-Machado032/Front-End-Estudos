@@ -3,7 +3,7 @@ import { Cxmsg } from "../../utils/cxmsg.js";
 const dadosgrid = document.querySelector("#dadosgrid");
 const novofornecedor = document.querySelector("#novofornecedor");
 const img_foto = document.querySelector("#img_foto");
-
+const dadosgridcontatosfornecedor = document.querySelector("#dadosgridcontatosfornecedor");
 const pesquisa = document.querySelector("#pesquisa");
 const listacontatosfornecedor = document.querySelector("#listacontatosfornecedor");
 
@@ -20,10 +20,9 @@ const btn_listar = document.querySelector("#btn_listar");
 const btn_fecharpopuplistacontatos = document.querySelector("#btn_fecharpopuplistacontatos");
 const btn_cancelarpopuplistacontatos = document.querySelector("#btn_cancelarpopuplistacontatos");
 const btn_listarcontatos = document.querySelector("#btn_listarcontatos");
+
 const f_nome = document.querySelector("#f_nome");
-
 const f_status = document.querySelector("#f_status");
-
 const f_foto = document.querySelector("#f_foto");
 const f_filtro = document.querySelector("#f_filtro");
 const f_pesqId = document.querySelector("#f_pesqId");
@@ -237,6 +236,156 @@ const criarlinha = (fornecedor) => {
     });
 }
 
+const criarlinhacontatosfornecedor = (contato) => {
+    const linhagrid = document.createElement("div");
+    linhagrid.classList.add("linhagrid");
+    dadosgridcontatosfornecedor.appendChild(linhagrid);
+
+    const c1 = document.createElement("div");
+    c1.classList.add("c1_lcf");
+    c1.classList.add("colunalinhagrid");
+    c1.innerHTML = contato.n_pessoa_pessoa;
+    linhagrid.appendChild(c1);
+
+    const c2 = document.createElement("div");
+    c2.classList.add("c2_lcf");
+    c2.classList.add("colunalinhagrid");
+    c2.innerHTML = contato.s_nome_pessoa;
+    linhagrid.appendChild(c2);
+
+    const c3 = document.createElement("div");
+    c3.classList.add("c3_lcf");
+    c3.classList.add("colunalinhagrid");
+    linhagrid.appendChild(c3);
+
+    //Botão de Ligado/Desligado Selecionar o Status
+    const img_status = document.createElement("img");
+    img_status.classList.add("icone_op");
+    if (contato.c_status_pessoa == "A") {
+        img_status.setAttribute("src", "../../img/ligado.svg");
+    }
+    if (contato.c_status_pessoa == "I") {
+        img_status.setAttribute("src", "../../img/desligado.svg");
+    }
+    c3.appendChild(img_status);
+
+    //Botão de Lapis Editar Contato
+
+    const img_editar = document.createElement("img");
+    img_editar.classList.add("icone_op");
+    img_editar.setAttribute("src", "../../img/edit.svg");
+    c3.appendChild(img_editar);
+
+    //Botão de Lixeira Remover Contato
+    const img_remover = document.createElement("img");
+    img_remover.classList.add("icone_op");
+    img_remover.setAttribute("src", "../../img/delete.svg");
+    c3.appendChild(img_remover);
+
+    //Tratamento de evento
+
+    //Botão Editar Contato
+
+    img_editar.addEventListener("click", function () {
+        modojanela = "e";
+        document.querySelector("#titulopopup").innerHTML = "Editar fornecedor";
+        novofornecedor.classList.remove("ocultarpopup");
+        id = fornecedor.n_fornecedor_fornecedor;
+        f_nome.value = fornecedor.s_desc_fornecedor;
+        f_status.value = fornecedor.c_status_fornecedor;
+        console.log("id do fornecedor para editar: /n", id);
+
+
+        let endpoint_fornecedor = `${serv}/mostrarfornecedor/${id}`;
+        fetch(endpoint_fornecedor)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
+                }
+                return response.json();
+            })
+            .then((response) => {
+                console.log("Carregando o fornecedor para editar: /n", response);
+                img_foto.src = response[0].s_logo_fornecedor;  //Como é um array, pego o primeiro elemento
+            });
+
+
+    });
+
+    //Botão Remover Contato
+    img_remover.addEventListener("click", function () {
+        if (confirm(`Tem certeza que deseja remover fornecedor ${fornecedor.s_desc_fornecedor}?`)) {
+            console.log("ID do fornecedor a ser deletado: ", fornecedor.n_fornecedor_fornecedor);
+            const iddelete = {
+                n_fornecedor_fornecedor: fornecedor.n_fornecedor_fornecedor,
+            }
+
+            const endpoint_removerfornecedor = `${serv}/deletefornecedor`;
+            const options = {
+                method: "POST",
+                body: JSON.stringify(iddelete),
+            };
+            fetch(endpoint_removerfornecedor, options)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao remover fornecedor");
+                    }
+                    const config = {
+                        titulo: 'Aviso',
+                        texto: 'fornecedor Removido com sucesso!',
+                        cor: 'green',
+                        tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                        ok: function () {
+                            console.log("OK");
+                        }
+                        , sim: function () {
+                            console.log("Sim");
+                        }
+                        , nao: function () {
+                            console.log("Não");
+                        }
+
+                    }
+                    Cxmsg.mostrar(config);
+                    //alert("fornecedor removido com sucesso!");
+                    carregarFornecedores();
+                })
+                .catch((erro) => {
+                    console.error("Erro ao remover fornecedor:", erro);
+                    alert("Erro ao remover fornecedor!");
+                });
+            limpar();
+            carregarFornecedores();
+        }
+
+
+    });
+    //Botão de Status
+    img_status.addEventListener("click", function () {
+        if (contato.c_status_pessoa == "A") {
+            img_status.setAttribute("src", "../../img/desligado.svg");
+            contato.c_status_pessoa = "I";
+            console.log(`fornecedor ${contato.n_fornecedor_fornecedor} Desligado`);
+        } else {
+            img_status.setAttribute("src", "../../img/ligado.svg");
+            contato.c_status_pessoa = "A";
+            console.log(`fornecedor ${contato.n_fornecedor_fornecedor} Ligado`);
+        }
+        const endpoint_status = `${serv}/editarstatusfornecedor/${contato.n_pessoa_pessoa}/${contato.c_status_pessoa}`;
+        fetch(endpoint_status)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Erro ao atualizar status");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log("Status atualizado com sucesso:", data);
+                carregarFornecedores();
+            })
+    });
+}
+
 /**Tratamento de Eventos */
 
 //Botão de Adicionar Contato
@@ -300,6 +449,23 @@ btn_cancelarpopuplistacontatos.addEventListener("click", function () {
 
 btn_listarcontatos.addEventListener("click", function () {
     listacontatosfornecedor.classList.remove("ocultarpopup");
+    listacontatosfornecedor.style.zIndex = maiorzindex(listacontatosfornecedor) + 1; //Define o z-index para o maior valor
+    const endpoint_listarcontatos = `${serv}/todospessoasfornecedor`;
+    fetch(endpoint_listarcontatos)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("A resposta da rede não foi bem-sucedida");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("Carregando Lista de Contatos: /n", data);
+            dadosgridcontatosfornecedor.innerHTML = "";
+            //Cria a linha da lista
+            data.forEach((contato) => {
+                criarlinhacontatosfornecedor(contato);
+            });
+        });
 });
 
 btn_pesquisar.addEventListener("click", function () {

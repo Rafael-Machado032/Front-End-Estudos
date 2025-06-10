@@ -8,38 +8,22 @@
     <link rel="stylesheet" href="../../css/geral.css">
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="fornecedores.css">
+    <script src="../../utils/utils.js"></script>
     <title>Colaboradores - BackOffice</title>
 </head>
 
 <body>
 
-    <div id="listacontatosfornecedor" class="popup ocultarpopup">
-        <div class="janelapopup">
-            <div class="titulopopup">
-                <div id="titulopopuplabel">Lista de Contatos</div>
-                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_fecharpopuplistacontatos"
-                    required>
-            </div>
-            <div class="corpopopup">
-                <div id="gridcontatosfornecedor" class="campoform">
-                    Grid Contatos Fornecedor
-                </div>
-            </div>
-            <div class="rodapepopup">
-                <button id="btn_pesquisar" class="btn_comandopopup">Pesquisar</button>
-                <button id="btn_cancelarpopuplistacontatos" class="btn_comandopopup">Cancelar</button>
-            </div>
-        </div>
-    </div>
-
     <div id="topojanela" class="topojanela">
         <div></div>
         <div>Fornecedores</div>
         <div>
-            <img src="../../img/lupa.svg" alt="Pesquisar" title="Pesquisa o operador" class="btn_mainoper" id="btn_pesq">
-            <img src="../../img/listar.svg" alt="Listar" title="Lista todos operadores" class="btn_mainoper" id="btn_listar">
+            <img src="../../img/lupa.svg" alt="Pesquisar" title="Pesquisa o operador" class="btn_mainoper"
+                id="btn_pesq">
+            <img src="../../img/listar.svg" alt="Listar" title="Lista todos operadores" class="btn_mainoper"
+                id="btn_listar">
             <img src="../../img/add.svg" alt="Editar" title="Adicionar novo operador" class="btn_mainoper" id="btn_add">
-            
+
         </div>
     </div>
 
@@ -54,8 +38,8 @@
         <div class="janelapopup">
             <div class="titulopopup">
                 <div id="titulopopuplabel">Pesquisar Colaborador</div>
-                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_fecharpopuppesq"
-                    required>
+                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup"
+                    id="btn_fecharpopuppesq" required>
             </div>
             <div class="corpopopup">
                 <div class="campoform">
@@ -114,7 +98,7 @@
                     <button id="btn_listarcontatos" class="btn_comandopopup">Listar contatos fornecedor</button>
                 </div>
                 <div class="campoform">
-                    
+
                 </div>
             </div>
 
@@ -141,6 +125,36 @@
                 <div class="colunalinhagrid c4">Status</div>
                 <div class="colunalinhagrid c5">Operação</div>
             </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div id="listacontatosfornecedor" class="popup ocultarpopup">
+        <div class="janelapopup">
+            <div class="titulopopup">
+                <div id="titulopopuplabel">Lista de Contatos</div>
+                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup"
+                    id="btn_fecharpopuplistacontatos" required>
+            </div>
+            <div class="corpopopup">
+                <div id="gridcontatosfornecedor" class="grid">
+                    <div class="titulogrid">
+                        <div class="colunatitulogrid c1_lcf">ID</div>
+                        <div class="colunatitulogrid c2_lcf">Nome</div>
+                        <div class="colunatitulogrid c3_lcf">Operação</div>
+                    </div>
+                    <div id="dadosgridcontatosfornecedor" class="dadosgrid">
+                        <!-- <div class="linhagrid">
+                            <div class="colunalinhagrid c1">ID</div>
+                            <div class="colunalinhagrid c2">Nome</div>
+                            <div class="colunalinhagrid c3">Operação</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="rodapepopup">
+                <button id="btn_pesquisar" class="btn_comandopopup">Pesquisar</button>
+                <button id="btn_cancelarpopuplistacontatos" class="btn_comandopopup">Cancelar</button>
             </div>
         </div>
     </div>
