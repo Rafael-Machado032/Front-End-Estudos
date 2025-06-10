@@ -294,6 +294,9 @@ const criarlinha = (colaborador) => {
     });
 }
 
+
+
+
 /**Tratamento de Eventos */
 
 //Botão de Adicionar Contato
