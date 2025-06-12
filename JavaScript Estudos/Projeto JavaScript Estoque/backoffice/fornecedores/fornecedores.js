@@ -3,25 +3,27 @@ import { Cxmsg } from "../../utils/cxmsg.js";
 const dadosgrid = document.querySelector("#dadosgrid");
 const dadosgridcontatosfornecedor = document.querySelector("#dadosgridcontatosfornecedor");
 const dadosgridlistacontatosfornecedoradd = document.querySelector("#dadosgridlistacontatosfornecedoradd");
-const novofornecedor = document.querySelector("#novofornecedor");
+const dadosgridtelefonesfornecedor = document.querySelector("#dadosgridtelefonesfornecedor");
+const popupnovofornecedor = document.querySelector("#popupnovofornecedor");
+const popuppesquisa = document.querySelector("#popuppesquisa");
+const popuplistacontatosfornecedor = document.querySelector("#popuplistacontatosfornecedor");
+const popuplistatelefonesfornecedor = document.querySelector("#popuplistatelefonesfornecedor");
 const img_foto = document.querySelector("#img_foto");
-const pesquisa = document.querySelector("#pesquisa");
-const listacontatosfornecedor = document.querySelector("#listacontatosfornecedor");
-
 
 const btn_add = document.querySelector("#btn_add");
-const btn_fecharpopup = document.querySelector("#btn_fecharpopup");
-const btn_cancelar = document.querySelector("#btn_cancelar");
 const btn_salvar = document.querySelector("#btn_salvar");
-const btn_delete = document.querySelector("#btn_delete");
 const btn_pesquisar = document.querySelector("#btn_pesquisar");
 const btn_pesq = document.querySelector("#btn_pesq");
-const btn_fecharpopuppesq = document.querySelector("#btn_fecharpopuppesq");
-const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
 const btn_listar = document.querySelector("#btn_listar");
-const btn_fecharpopuplistacontatos = document.querySelector("#btn_fecharpopuplistacontatos");
-const btn_cancelarpopuplistacontatos = document.querySelector("#btn_cancelarpopuplistacontatos");
 const btn_listarcontatos = document.querySelector("#btn_listarcontatos");
+const btn_cancelar = document.querySelector("#btn_cancelar");
+const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
+const btn_cancelarpopuplistacontatos = document.querySelector("#btn_cancelarpopuplistacontatos");
+const btn_fecharxpopupnovocolab = document.querySelector("#btn_fecharxpopupnovocolab");
+const btn_fecharxpopuppesq = document.querySelector("#btn_fecharxpopuppesq");
+const btn_fecharxpopuplistacontatos = document.querySelector("#btn_fecharxpopuplistacontatos");
+const btn_fecharxpopuplistatelefonesfornecedor = document.querySelector("#btn_fecharxpopuplistatelefonesfornecedor");
+const btn_fecharpopuplistatelefonesfornecedor = document.querySelector("#btn_fecharpopuplistatelefonesfornecedor");
 
 const f_nome = document.querySelector("#f_nome");
 const f_status = document.querySelector("#f_status");
@@ -42,7 +44,7 @@ const serv = sessionStorage.getItem("servidor_nodered");
 
 /**Funções */
 
-//Função Carregar a lista
+//**Função Carregar a lista */
 
 const carregarFornecedores = () => {
     const endpoint = `${serv}/todosfornecedores`;
@@ -66,15 +68,11 @@ const carregarFornecedores = () => {
         });
 }
 
+//**Função Limpar Inputs */
 
-
-//Limpar Inputs
 const limpar = () => {
     f_nome.value = "";
-
     f_status.selectedIndex = 0;
-
-
     f_nome.focus();
     img_foto.setAttribute("src", "../../img/defaut.svg");
     f_foto.value = ""; // Limpa o input de foto
@@ -82,7 +80,7 @@ const limpar = () => {
     modojanela = "n"; // Reseta o modo da janela
 }
 
-/** Criação da linha do fornecedor */
+//**Função Criar Linha Fornecedor */
 
 const criarlinha = (fornecedor) => {
     const linhagrid = document.createElement("div");
@@ -143,7 +141,7 @@ const criarlinha = (fornecedor) => {
     img_editar.addEventListener("click", function () {
         modojanela = "e";
         document.querySelector("#titulopopup").innerHTML = "Editar fornecedor";
-        novofornecedor.classList.remove("ocultarpopup");
+        popupnovofornecedor.classList.remove("ocultarpopup");
         id = fornecedor.n_fornecedor_fornecedor;
         f_nome.value = fornecedor.s_desc_fornecedor;
         f_status.value = fornecedor.c_status_fornecedor;
@@ -162,8 +160,6 @@ const criarlinha = (fornecedor) => {
                 console.log("Carregando o fornecedor para editar: /n", response);
                 img_foto.src = response[0].s_logo_fornecedor;  //Como é um array, pego o primeiro elemento
             });
-
-
     });
 
     //Botão Remover Contato
@@ -211,9 +207,8 @@ const criarlinha = (fornecedor) => {
             limpar();
             carregarFornecedores();
         }
-
-
     });
+
     //Botão de Status
     img_status.addEventListener("click", function () {
         if (fornecedor.c_status_fornecedor == "A") {
@@ -240,7 +235,7 @@ const criarlinha = (fornecedor) => {
     });
 }
 
-/** Criação da linha de contatos do fornecedor */
+//**Função Criar Linha de Contatos do Fornecedor */
 
 const criarlinhacontatosfornecedor = (contato) => {
     const linhagrid = document.createElement("div");
@@ -286,14 +281,33 @@ const criarlinhacontatosfornecedor = (contato) => {
         criarlinhacontatosfornecedoradd(contato);
         console.log("Adicionando contato: ", contato);
     });
+
     //Botão Ver Contato
 
     img_vercontato.addEventListener("click", function () {
-
+        popuplistatelefonesfornecedor.classList.remove("ocultarpopup");
+        popuplistatelefonesfornecedor.style.zIndex = maiorzindex(popuplistatelefonesfornecedor) + 1; //Define o z-index para o maior valor
+        dadosgridtelefonesfornecedor.innerHTML = ""; //Limpa o conteúdo do popup
+        const id = contato.n_pessoa_pessoa;
+        const endpoint_telefones = `${serv}/mostrartelefones/${id}`;
+        fetch(endpoint_telefones)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log("Carregando Telefones: /n", data);
+                
+                data.forEach((telefone) => {
+                    criarlinhatelefones(telefone);
+                });
+            });
     });
 }
 
-/** Criação da linha de contatos do fornecedor para adicionar */
+//**Função Criar Linha de Contatos do Fornecedor para Adicionar */
 
 const criarlinhacontatosfornecedoradd = (contato) => {
     const linhagrid = document.createElement("div");
@@ -331,72 +345,165 @@ const criarlinhacontatosfornecedoradd = (contato) => {
     });
 }
 
-    /**Tratamento de Eventos */
+//**Função Mostrar Telefones */
 
-    //Botão de Adicionar Contato
-    btn_add.addEventListener("click", function () {
-        modojanela = "n";
-        document.querySelector("#titulopopup").innerHTML = "Novo fornecedor";
-        novofornecedor.classList.remove("ocultarpopup");
-        limpar();
-    });
+const criarlinhatelefones = (telefone) => {
+    const linhagrid = document.createElement("div");
+    linhagrid.classList.add("linhagrid");
+    dadosgridtelefonesfornecedor.appendChild(linhagrid);
 
+    const c1 = document.createElement("div");
+    c1.classList.add("c1_mt");
+    c1.classList.add("colunalinhagrid");
+    c1.innerHTML = telefone.s_numero_telefone;
+    linhagrid.appendChild(c1);
+}
 
-    //Botão X da Janela
-    btn_fecharpopup.addEventListener("click", function () {
-        novofornecedor.classList.add("ocultarpopup");
-        limpar();
-    });
+/**Botões */
 
-    //Botão de Cancelar
-    btn_cancelar.addEventListener("click", function () {
-        novofornecedor.classList.add("ocultarpopup");
-        limpar();
-    });
+//**Botão Cabeçalho */
 
-    //Botão de Pesquisar
+//Botão de Adicionar Contato
+btn_add.addEventListener("click", function () {
+    modojanela = "n";
+    document.querySelector("#titulopopup").innerHTML = "Novo fornecedor";
+    popupnovofornecedor.classList.remove("ocultarpopup");
+    limpar();
+});
 
-    btn_pesq.addEventListener("click", function () {
-        pesquisa.classList.remove("ocultarpopup");
-        f_pesq.value = "";
+//Botão de Listar Fornecedores
+btn_listar.addEventListener("click", function () {
+    carregarFornecedores();
+});
+
+//Botão de Pesquisa
+btn_pesq.addEventListener("click", function () {
+    popuppesquisa.classList.remove("ocultarpopup");
+    f_pesq.value = "";
+    f_pesq.focus();
+});
+
+//**Botão de Rodape */
+
+//Botão de Cancelar
+btn_cancelar.addEventListener("click", function () {
+    popupnovofornecedor.classList.add("ocultarpopup");
+    limpar();
+});
+
+//Botão de Cancelar Pesquisa
+btn_cancelarpesq.addEventListener("click", function () {
+    popuppesquisa.classList.add("ocultarpopup");
+    limpar();
+});
+
+//Botão de Cancelar Popuplistacontatos
+btn_cancelarpopuplistacontatos.addEventListener("click", function () {
+    popuplistacontatosfornecedor.classList.add("ocultarpopup");
+    limpar();
+});
+
+//Botão de Fechar Popuplistatelefonesfornecedor
+btn_fecharpopuplistatelefonesfornecedor.addEventListener("click", function () {
+    popuplistatelefonesfornecedor.classList.add("ocultarpopup");
+    limpar();
+});
+
+//**Botão X da Janela */
+
+//Botão de Fechar Popuplistatelefonesfornecedor
+btn_fecharxpopuplistatelefonesfornecedor.addEventListener("click", function () {
+    popuplistatelefonesfornecedor.classList.add("ocultarpopup");
+    limpar();
+});
+
+//Botão de Fechar Popup Novo Fornecedor
+btn_fecharxpopupnovocolab.addEventListener("click", function () {
+    popupnovofornecedor.classList.add("ocultarpopup");
+    limpar();
+});
+
+//Botão de Fechar Popup Pesquisa
+btn_fecharxpopuppesq.addEventListener("click", function () {
+    popuppesquisa.classList.add("ocultarpopup");
+    limpar();
+});
+
+//Botão de Fechar Popuplistacontatos
+btn_fecharxpopuplistacontatos.addEventListener("click", function () {
+    popuplistacontatosfornecedor.classList.add("ocultarpopup");
+    limpar();
+});
+
+//**Botão de Pesquisa por ID ou Nome */
+
+f_pesqId.addEventListener("click", function (evt) {
+    f_pesq.value = "";
+    f_pesq.focus();
+});
+
+f_pesqNome.addEventListener("click", function (evt) {
+    f_pesq.value = "";
+    f_pesq.focus();
+});
+
+//**Botão dos Popups */
+
+//Botão de Listar Contatos do Fornecedor
+btn_listarcontatos.addEventListener("click", function () {
+    popuplistacontatosfornecedor.classList.remove("ocultarpopup");
+    popuplistacontatosfornecedor.style.zIndex = maiorzindex(popuplistacontatosfornecedor) + 1; //Define o z-index para o maior valor
+    const endpoint_listarcontatos = `${serv}/todospessoasfornecedor`;
+    fetch(endpoint_listarcontatos)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("A resposta da rede não foi bem-sucedida");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("Carregando Lista de Contatos: /n", data);
+            dadosgridcontatosfornecedor.innerHTML = "";
+            //Cria a linha da lista
+            data.forEach((contato) => {
+                criarlinhacontatosfornecedor(contato);
+            });
+        });
+});
+
+//Botão de Listar Telefones do Fornecedor
+btn_pesquisar.addEventListener("click", function () {
+
+    if (f_pesq.value == "") {
+        const config = {
+            titulo: 'Atenção',
+            texto: 'Campo de pesquisa vazio, digite um valor para pesquisar',
+            cor: '#f00',
+            tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+            ok: function () {
+                console.log("OK");
+            }
+            , sim: function () {
+                console.log("Sim");
+            }
+            , nao: function () {
+                console.log("Não");
+            }
+
+        }
+        Cxmsg.mostrar(config);
+        // alert("Digite um valor para pesquisar");
         f_pesq.focus();
-    });
-
-    btn_fecharpopuppesq.addEventListener("click", function () {
-        pesquisa.classList.add("ocultarpopup");
-        limpar();
-    });
-
-    btn_cancelarpesq.addEventListener("click", function () {
-        pesquisa.classList.add("ocultarpopup");
-        limpar();
-    });
-
-    f_pesqId.addEventListener("click", function (evt) {
-        f_pesq.value = "";
-        f_pesq.focus();
-    });
-
-    f_pesqNome.addEventListener("click", function (evt) {
-        f_pesq.value = "";
-        f_pesq.focus();
-    });
-
-    btn_fecharpopuplistacontatos.addEventListener("click", function () {
-        listacontatosfornecedor.classList.add("ocultarpopup");
-        limpar();
-    });
-
-    btn_cancelarpopuplistacontatos.addEventListener("click", function () {
-        listacontatosfornecedor.classList.add("ocultarpopup");
-        limpar();
-    });
-
-    btn_listarcontatos.addEventListener("click", function () {
-        listacontatosfornecedor.classList.remove("ocultarpopup");
-        listacontatosfornecedor.style.zIndex = maiorzindex(listacontatosfornecedor) + 1; //Define o z-index para o maior valor
-        const endpoint_listarcontatos = `${serv}/todospessoasfornecedor`;
-        fetch(endpoint_listarcontatos)
+        return;
+    } else {
+        let tipo = "";
+        if (f_pesqId.checked) {
+            tipo = "ID";
+        } else {
+            tipo = "Nome";
+        }
+        const endpoint_pesquisa = `${serv}/pesquisarfornecedor/${tipo}/${f_pesq.value}`;
+        fetch(endpoint_pesquisa)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("A resposta da rede não foi bem-sucedida");
@@ -404,246 +511,171 @@ const criarlinhacontatosfornecedoradd = (contato) => {
                 return response.json();
             })
             .then((data) => {
-                console.log("Carregando Lista de Contatos: /n", data);
-                dadosgridcontatosfornecedor.innerHTML = "";
+                console.log("Carregando Lista: /n", data);
+                dadosgrid.innerHTML = "";
                 //Cria a linha da lista
-                data.forEach((contato) => {
-                    criarlinhacontatosfornecedor(contato);
+                data.forEach((fornecedor) => {
+                    criarlinha(fornecedor);
                 });
             });
-    });
+        popuppesquisa.classList.add("ocultarpopup");
+    }
+});
 
-    btn_pesquisar.addEventListener("click", function () {
+//Botão de Salvar Contato
+btn_salvar.addEventListener("click", function () {
 
-        if (f_pesq.value == "") {
-            const config = {
-                titulo: 'Atenção',
-                texto: 'Campo de pesquisa vazio, digite um valor para pesquisar',
-                cor: '#f00',
-                tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
-                ok: function () {
-                    console.log("OK");
-                }
-                , sim: function () {
-                    console.log("Sim");
-                }
-                , nao: function () {
-                    console.log("Não");
-                }
+    //Validar informações
+    if (f_nome.value.length < 3) {
+        alert("Nome inválido");
+        f_nome.focus();
+        return;
+    }
 
-            }
-            Cxmsg.mostrar(config);
-            // alert("Digite um valor para pesquisar");
-            f_pesq.focus();
-            return;
-        } else {
-            let tipo = "";
-            if (f_pesqId.checked) {
-                tipo = "ID";
-            } else {
-                tipo = "Nome";
-            }
-            const endpoint_pesquisa = `${serv}/pesquisarfornecedor/${tipo}/${f_pesq.value}`;
-            fetch(endpoint_pesquisa)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error("A resposta da rede não foi bem-sucedida");
+    if (f_status.value == "") {
+        alert("Status inválido");
+        f_status.focus();
+        return;
+    }
+    if (img_foto.getAttribute("src") == "../../img/defaut.svg") {
+        alert("Foto inválida");
+        f_foto.focus();
+        return;
+    }
+
+    console.log("Modo Janela", modojanela);
+
+    //Edita Contato
+    if (modojanela == "e") {
+
+        //Armazena todo o formulario na variavel dados
+        const dados = {
+            n_fornecedor_fornecedor: id,
+            s_nome_fornecedor: f_nome.value,
+
+            c_status_fornecedor: f_status.value,
+
+            s_foto_fornecedor: img_foto.getAttribute("src")
+        };
+
+        console.log("Carregando Formulario para Salvamento no BD: /n", dados);
+        const endpointnovocolab = `${serv}/editarfornecedor`;
+        const options = {
+            method: "POST",
+            body: JSON.stringify(dados),
+        };
+        fetch(endpointnovocolab, options)
+            .then((response) => {
+                if (response.status === 200) {
+                    const config = {
+                        titulo: 'Aviso',
+                        texto: 'Fornecedor atualizado com sucesso!',
+                        cor: 'green',
+                        tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                        ok: function () {
+                            console.log("OK");
+                        }
+                        , sim: function () {
+                            console.log("Sim");
+                        }
+                        , nao: function () {
+                            console.log("Não");
+                        }
+
                     }
-                    return response.json();
-                })
-                .then((data) => {
-                    console.log("Carregando Lista: /n", data);
-                    dadosgrid.innerHTML = "";
-                    //Cria a linha da lista
-                    data.forEach((fornecedor) => {
-                        criarlinha(fornecedor);
-                    });
-                });
+                    Cxmsg.mostrar(config);
+                    //alert("fornecedor Atualizado com sucesso!");
+                    limpar();
+                } else {
+                    alert("Erro ao atualizar o fornecedor!");
+                }
+                return response.json();
+            })
+
+        popupnovofornecedor.classList.add("ocultarpopup");
+
+        //Novo Contato
+    } else if (modojanela == "n") {
 
 
+        //Armazena todo o formulario na variavel dados
+        const dados = {
+            s_nome_fornecedor: f_nome.value,
 
-            pesquisa.classList.add("ocultarpopup");
-        }
+            c_status_fornecedor: f_status.value,
 
-    });
+            s_foto_fornecedor: img_foto.getAttribute("src")
+        };
 
-    btn_listar.addEventListener("click", function () {
+        console.log("Carregando Formulario para Salvamento no BD: /n", dados);
+        const endpointnovocolab = `${serv}/novofornecedor`;
+        const options = {
+            method: "POST",
+            body: JSON.stringify(dados),
+        };
+        fetch(endpointnovocolab, options)
+            .then((response) => {
+                if (response.status === 200) {
+                    const config = {
+                        titulo: 'Aviso',
+                        texto: 'fornecedor cadastrado com sucesso!',
+                        cor: 'green',
+                        tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                        ok: function () {
+                            console.log("OK");
+                        }
+                        , sim: function () {
+                            console.log("Sim");
+                        }
+                        , nao: function () {
+                            console.log("Não");
+                        }
 
+                    }
+                    Cxmsg.mostrar(config);
+                    //alert("fornecedor cadastrado com sucesso!");
+                    limpar();
+                } else {
+                    alert("Erro ao cadastrar fornecedor!");
+                }
+                return response.json();
+            })
+    }
+
+    limpar();
+    setTimeout(() => { //Não da tempo de carregar a lista antes de fechar a janela
         carregarFornecedores();
+    }, 500);
+});
 
-    });
-
-
-    //Botão de Salvar Contato
-    btn_salvar.addEventListener("click", function () {
-
-        //Validar informações
-        if (f_nome.value.length < 3) {
-            alert("Nome inválido");
-            f_nome.focus();
-            return;
+//Inserir Foto
+f_foto.addEventListener("change", function () { // Evento de mudança do input de arquivo
+    const file = f_foto.files[0]; // Pega o primeiro arquivo selecionado
+    if (file) { // Verifica se há um arquivo
+        const reader = new FileReader(); //  é uma API do JavaScript usada para ler o conteúdo de arquivos de forma assíncrona
+        reader.onload = function (e) { // Carraga o arquivo
+            img_foto.setAttribute("src", e.target.result); // Define o src da imagem para o resultado do FileReader
         }
+        reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
+    }
+});
 
-        if (f_status.value == "") {
-            alert("Status inválido");
-            f_status.focus();
-            return;
-        }
-        if (img_foto.getAttribute("src") == "../../img/defaut.svg") {
-            alert("Foto inválida");
-            f_foto.focus();
-            return;
-        }
-
-        console.log("Modo Janela", modojanela);
-
-        //Edita Contato
-        if (modojanela == "e") {
-
-
-            //Armazena todo o formulario na variavel dados
-            const dados = {
-                n_fornecedor_fornecedor: id,
-                s_nome_fornecedor: f_nome.value,
-
-                c_status_fornecedor: f_status.value,
-
-                s_foto_fornecedor: img_foto.getAttribute("src")
-            };
-
-            // Enviar requisição para deletar os IDs removidos
-
-
-
-            // Enviar requisição para atualizar os dados do fornecedor
-
-            console.log("Carregando Formulario para Salvamento no BD: /n", dados);
-            const endpointnovocolab = `${serv}/editarfornecedor`;
-            const options = {
-                method: "POST",
-                body: JSON.stringify(dados),
-            };
-            fetch(endpointnovocolab, options)
-                .then((response) => {
-                    if (response.status === 200) {
-                        const config = {
-                            titulo: 'Aviso',
-                            texto: 'Fornecedor atualizado com sucesso!',
-                            cor: 'green',
-                            tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
-                            ok: function () {
-                                console.log("OK");
-                            }
-                            , sim: function () {
-                                console.log("Sim");
-                            }
-                            , nao: function () {
-                                console.log("Não");
-                            }
-
-                        }
-                        Cxmsg.mostrar(config);
-                        //alert("fornecedor Atualizado com sucesso!");
-                        limpar();
-                    } else {
-                        alert("Erro ao atualizar o fornecedor!");
-                    }
-                    return response.json();
-                })
-
-            novofornecedor.classList.add("ocultarpopup");
-
-            //Novo Contato
-        } else if (modojanela == "n") {
-
-
-            //Armazena todo o formulario na variavel dados
-            const dados = {
-                s_nome_fornecedor: f_nome.value,
-
-                c_status_fornecedor: f_status.value,
-
-                s_foto_fornecedor: img_foto.getAttribute("src")
-            };
-
-            console.log("Carregando Formulario para Salvamento no BD: /n", dados);
-            const endpointnovocolab = `${serv}/novofornecedor`;
-            const options = {
-                method: "POST",
-                body: JSON.stringify(dados),
-            };
-            fetch(endpointnovocolab, options)
-                .then((response) => {
-                    if (response.status === 200) {
-                        const config = {
-                            titulo: 'Aviso',
-                            texto: 'fornecedor cadastrado com sucesso!',
-                            cor: 'green',
-                            tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
-                            ok: function () {
-                                console.log("OK");
-                            }
-                            , sim: function () {
-                                console.log("Sim");
-                            }
-                            , nao: function () {
-                                console.log("Não");
-                            }
-
-                        }
-                        Cxmsg.mostrar(config);
-                        //alert("fornecedor cadastrado com sucesso!");
-                        limpar();
-                    } else {
-                        alert("Erro ao cadastrar fornecedor!");
-                    }
-                    return response.json();
-                })
-
-        }
-
-
-        limpar();
-        setTimeout(() => { //Não da tempo de carregar a lista antes de fechar a janela
-            carregarFornecedores();
-        }, 500);
-
-    });
-
-
-
-
-
-
-    //Inserir Foto
-    f_foto.addEventListener("change", function () { // Evento de mudança do input de arquivo
-        const file = f_foto.files[0]; // Pega o primeiro arquivo selecionado
-        if (file) { // Verifica se há um arquivo
-            const reader = new FileReader(); //  é uma API do JavaScript usada para ler o conteúdo de arquivos de forma assíncrona
-            reader.onload = function (e) { // Carraga o arquivo
-                img_foto.setAttribute("src", e.target.result); // Define o src da imagem para o resultado do FileReader
-            }
-            reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
+//Filtro de pesquisa
+f_filtro.addEventListener("keyup", function () {
+    const filtro = f_filtro.value.toLowerCase(); //Converte o valor do filtro para minúsculas
+    const linhas = dadosgrid.querySelectorAll(".linhagrid");
+    linhas.forEach((linha) => {
+        const nome = linha.querySelector(".c2").textContent.toLowerCase(); //Converte o nome para minúsculas
+        if (nome.includes(filtro)) { //Verifica se contem a string do filtro
+            linha.style.display = "flex";
+        } else {
+            linha.style.display = "none";
         }
     });
+});
 
 
-    //Filtro de pesquisa
-    f_filtro.addEventListener("keyup", function () {
-        const filtro = f_filtro.value.toLowerCase(); //Converte o valor do filtro para minúsculas
-        const linhas = dadosgrid.querySelectorAll(".linhagrid");
-        linhas.forEach((linha) => {
-            const nome = linha.querySelector(".c2").textContent.toLowerCase(); //Converte o nome para minúsculas
-            if (nome.includes(filtro)) { //Verifica se contem a string do filtro
-                linha.style.display = "flex";
-            } else {
-                linha.style.display = "none";
-            }
-        });
-    });
+/**Carregamentos */
 
-
-    /**Carregamentos */
-
-    //Chama a Função Carregar a lista
-    carregarFornecedores();
+//Chama a Função Carregar a lista
+carregarFornecedores();

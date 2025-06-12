@@ -10,7 +10,6 @@ const btn_add = document.querySelector("#btn_add");
 const btn_fecharpopup = document.querySelector("#btn_fecharpopup");
 const btn_cancelar = document.querySelector("#btn_cancelar");
 const btn_salvar = document.querySelector("#btn_salvar");
-const btn_delete = document.querySelector("#btn_delete");
 const btn_pesquisar = document.querySelector("#btn_pesquisar");
 const btn_pesq = document.querySelector("#btn_pesq");
 const btn_fecharpopuppesq = document.querySelector("#btn_fecharpopuppesq");
