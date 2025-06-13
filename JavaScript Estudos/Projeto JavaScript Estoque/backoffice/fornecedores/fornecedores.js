@@ -337,13 +337,41 @@ const criarlinhacontatosfornecedoradd = (contato) => {
     img_remover.setAttribute("src", "../../img/delete.svg");
     c3.appendChild(img_remover);
 
+    const img_vercontato = document.createElement("img");
+    img_vercontato.classList.add("icone_op");
+    img_vercontato.setAttribute("src", "../../img/cel.svg");
+    c3.appendChild(img_vercontato);
+
     /**Tratamento de evento*/
 
     //Botão Remover Contato
     img_remover.addEventListener("click", function () {
         linhagrid.remove();
     });
+
+    img_vercontato.addEventListener("click", function () {
+        popuplistatelefonesfornecedor.classList.remove("ocultarpopup");
+        popuplistatelefonesfornecedor.style.zIndex = maiorzindex(popuplistatelefonesfornecedor) + 1; //Define o z-index para o maior valor
+        dadosgridtelefonesfornecedor.innerHTML = ""; //Limpa o conteúdo do popup
+        const id = contato.n_pessoa_pessoa;
+        const endpoint_telefones = `${serv}/mostrartelefones/${id}`;
+        fetch(endpoint_telefones)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log("Carregando Telefones: /n", data);
+                
+                data.forEach((telefone) => {
+                    criarlinhatelefones(telefone);
+                });
+            });
+    });
 }
+    
 
 //**Função Mostrar Telefones */
 
