@@ -445,7 +445,6 @@ btn_salvar.addEventListener("click", function () {
         console.log("ID testado: ", datatel);
         if (datatel == "undefined") {
             console.log("ID não existe, adicionando telefone: ", tel.innerHTML);
-
             telefones.push(tel.innerHTML);
         }
     });
