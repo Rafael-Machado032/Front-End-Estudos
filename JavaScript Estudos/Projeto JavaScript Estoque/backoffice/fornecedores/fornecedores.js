@@ -38,7 +38,7 @@ const f_pesq = document.querySelector("#f_pesq");
 
 //n = Novo colaboraodr | e = Editar fornecedor
 let modojanela = "n";
-
+let iddeletado = [];
 let id = 0; // ID do fornecedor a ser editado
 const serv = sessionStorage.getItem("servidor_nodered");
 
@@ -76,7 +76,7 @@ const limpar = () => {
     f_nome.focus();
     img_foto.setAttribute("src", "../../img/defaut.svg");
     f_foto.value = ""; // Limpa o input de foto
-
+    dadosgridlistacontatosfornecedoradd.innerHTML = ""; // Limpa a lista de contatos do fornecedor
     modojanela = "n"; // Reseta o modo da janela
 }
 
@@ -134,7 +134,7 @@ const criarlinha = (fornecedor) => {
     img_remover.setAttribute("src", "../../img/delete.svg");
     c4.appendChild(img_remover);
 
-    //Tratamento de evento
+    //Botões Tratamento de evento da função
 
     //Botão Editar Contato
 
@@ -145,6 +145,7 @@ const criarlinha = (fornecedor) => {
         id = fornecedor.n_fornecedor_fornecedor;
         f_nome.value = fornecedor.s_desc_fornecedor;
         f_status.value = fornecedor.c_status_fornecedor;
+        let idpessoa = null
         console.log("id do fornecedor para editar: /n", id);
 
 
@@ -159,6 +160,43 @@ const criarlinha = (fornecedor) => {
             .then((response) => {
                 console.log("Carregando o fornecedor para editar: /n", response);
                 img_foto.src = response[0].s_logo_fornecedor;  //Como é um array, pego o primeiro elemento
+            });
+
+        // Buscar pessoas vinculadas a este fornecedor e mostrar na lista de contatos adicionados
+        const endpoint_pessoas = `${serv}/mostrarcontatofornecedor/${id}`;
+        fetch(endpoint_pessoas)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
+                }
+                return response.json();
+            })
+            .then((response) => {
+
+                // Limpa a lista antes de adicionar
+                dadosgridlistacontatosfornecedoradd.innerHTML = "";
+                const idContato = [];
+                response.forEach((contato) => {
+                    idContato.push(contato.n_pessoa_pessoa);
+                });
+                console.log("Retornando ID do Contato:", idContato);
+                idContato.forEach((idContato) => {
+                    const endpoint_nome = `${serv}/mostrarnomecontatofornecedor/${idContato}`;
+                    fetch(endpoint_nome)
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error("Erro ao buscar nome na outra tabela");
+                            }
+                            return response.json();
+                        })
+                        .then((data) => {
+                            console.log("Retornado", data);
+                            criarlinhacontatosfornecedoradd(data[0]);
+                        })
+                        .catch((erro) => {
+                            console.error("Erro ao buscar nome na outra tabela:", erro);
+                        });
+                });
             });
     });
 
@@ -182,7 +220,7 @@ const criarlinha = (fornecedor) => {
                     }
                     const config = {
                         titulo: 'Aviso',
-                        texto: 'fornecedor Removido com sucesso!',
+                        texto: 'Fornecedor Removido com sucesso!',
                         cor: 'green',
                         tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
                         ok: function () {
@@ -209,6 +247,7 @@ const criarlinha = (fornecedor) => {
         }
     });
 
+
     //Botão de Status
     img_status.addEventListener("click", function () {
         if (fornecedor.c_status_fornecedor == "A") {
@@ -233,8 +272,7 @@ const criarlinha = (fornecedor) => {
                 carregarFornecedores();
             })
     });
-}
-
+};
 //**Função Criar Linha de Contatos do Fornecedor */
 
 const criarlinhacontatosfornecedor = (contato) => {
@@ -273,11 +311,11 @@ const criarlinhacontatosfornecedor = (contato) => {
     img_vercontato.setAttribute("src", "../../img/cel.svg");
     c3.appendChild(img_vercontato);
 
-    /**Tratamento de evento*/
+    /**Tratamento de evento da função*/
 
     //Botão de Status
 
-    img_adduser.addEventListener("click", (evt) => {
+    img_adduser.addEventListener("click", () => {
         criarlinhacontatosfornecedoradd(contato);
         console.log("Adicionando contato: ", contato);
     });
@@ -299,7 +337,7 @@ const criarlinhacontatosfornecedor = (contato) => {
             })
             .then((data) => {
                 console.log("Carregando Telefones: /n", data);
-                
+
                 data.forEach((telefone) => {
                     criarlinhatelefones(telefone);
                 });
@@ -312,6 +350,7 @@ const criarlinhacontatosfornecedor = (contato) => {
 const criarlinhacontatosfornecedoradd = (contato) => {
     const linhagrid = document.createElement("div");
     linhagrid.classList.add("linhagrid");
+    linhagrid.setAttribute("id", "linhagridadd");
     dadosgridlistacontatosfornecedoradd.appendChild(linhagrid);
 
     const c1 = document.createElement("div");
@@ -347,6 +386,7 @@ const criarlinhacontatosfornecedoradd = (contato) => {
     //Botão Remover Contato
     img_remover.addEventListener("click", function () {
         linhagrid.remove();
+        iddeletado.push(contato.n_pessoa_pessoa);
     });
 
     img_vercontato.addEventListener("click", function () {
@@ -364,14 +404,14 @@ const criarlinhacontatosfornecedoradd = (contato) => {
             })
             .then((data) => {
                 console.log("Carregando Telefones: /n", data);
-                
+
                 data.forEach((telefone) => {
                     criarlinhatelefones(telefone);
                 });
             });
     });
 }
-    
+
 
 //**Função Mostrar Telefones */
 
@@ -428,7 +468,7 @@ btn_cancelarpesq.addEventListener("click", function () {
 //Botão de Cancelar Popuplistacontatos
 btn_cancelarpopuplistacontatos.addEventListener("click", function () {
     popuplistacontatosfornecedor.classList.add("ocultarpopup");
-    limpar();
+
 });
 
 //Botão de Fechar Popuplistatelefonesfornecedor
@@ -460,7 +500,6 @@ btn_fecharxpopuppesq.addEventListener("click", function () {
 //Botão de Fechar Popuplistacontatos
 btn_fecharxpopuplistacontatos.addEventListener("click", function () {
     popuplistacontatosfornecedor.classList.add("ocultarpopup");
-    limpar();
 });
 
 //**Botão de Pesquisa por ID ou Nome */
@@ -570,6 +609,19 @@ btn_salvar.addEventListener("click", function () {
         f_foto.focus();
         return;
     }
+    
+    let idcontat = [];
+
+    // // Pega todos os elementos de contatos adicionados
+    // const linhas = dadosgridlistacontatosfornecedoradd.querySelectorAll(".linhagrid");
+    // 
+    // linhas.forEach((linha) => {
+    //     // O id do contato está no primeiro filho (c1) da linha
+    //     const idContato = linha.querySelector(".c1_lcf").innerHTML;
+    //     idcontat.push(idContato);
+    // });
+
+    // console.log("IDs dos contatos adicionados: ", idcontat);
 
     console.log("Modo Janela", modojanela);
 
@@ -580,11 +632,18 @@ btn_salvar.addEventListener("click", function () {
         const dados = {
             n_fornecedor_fornecedor: id,
             s_nome_fornecedor: f_nome.value,
-
             c_status_fornecedor: f_status.value,
-
+            pessoa: idcontat, //Array de IDs dos contatos
             s_foto_fornecedor: img_foto.getAttribute("src")
+
         };
+        console.log("IDs dos contatos deletados: ", iddeletado);
+        if (iddeletado.length > 0) {
+            iddeletado.forEach((id) => {
+                const endpoint_deletepessoaadd = `${serv}/deletepessoaadd/${id}`; //terminar
+            });
+            
+        }
 
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
         const endpointnovocolab = `${serv}/editarfornecedor`;
@@ -624,14 +683,21 @@ btn_salvar.addEventListener("click", function () {
 
         //Novo Contato
     } else if (modojanela == "n") {
+        // Pega todos os elementos de contatos adicionados
+        const linhas = dadosgridlistacontatosfornecedoradd.querySelectorAll(".linhagrid");
+        let idcontat = [];
+        linhas.forEach((linha) => {
+            // O id do contato está no primeiro filho (c1) da linha
+            const idContato = linha.querySelector(".c1_lcf").innerHTML;
+            idcontat.push(idContato);
+        });
 
 
         //Armazena todo o formulario na variavel dados
         const dados = {
             s_nome_fornecedor: f_nome.value,
-
             c_status_fornecedor: f_status.value,
-
+            pessoa: idcontat, //Array de IDs dos contatos
             s_foto_fornecedor: img_foto.getAttribute("src")
         };
 
