@@ -78,6 +78,7 @@ const limpar = () => {
     f_foto.value = ""; // Limpa o input de foto
     dadosgridlistacontatosfornecedoradd.innerHTML = ""; // Limpa a lista de contatos do fornecedor
     modojanela = "n"; // Reseta o modo da janela
+    iddeletado = []; // Limpa o array de IDs deletados
 }
 
 //**Função Criar Linha Fornecedor */
@@ -386,7 +387,10 @@ const criarlinhacontatosfornecedoradd = (contato) => {
     //Botão Remover Contato
     img_remover.addEventListener("click", function () {
         linhagrid.remove();
-        iddeletado.push(contato.n_pessoa_pessoa);
+        iddeletado.push({
+            n_pessoa_pessoa: contato.n_pessoa_pessoa,
+            n_fornecedor_fornecedor: id // 'id' é o fornecedor atualmente sendo editado
+        });
     });
 
     img_vercontato.addEventListener("click", function () {
@@ -609,19 +613,11 @@ btn_salvar.addEventListener("click", function () {
         f_foto.focus();
         return;
     }
-    
+
     let idcontat = [];
 
-    // // Pega todos os elementos de contatos adicionados
-    // const linhas = dadosgridlistacontatosfornecedoradd.querySelectorAll(".linhagrid");
-    // 
-    // linhas.forEach((linha) => {
-    //     // O id do contato está no primeiro filho (c1) da linha
-    //     const idContato = linha.querySelector(".c1_lcf").innerHTML;
-    //     idcontat.push(idContato);
-    // });
 
-    // console.log("IDs dos contatos adicionados: ", idcontat);
+    console.log("IDs dos contatos adicionados: ", idcontat);
 
     console.log("Modo Janela", modojanela);
 
@@ -635,15 +631,31 @@ btn_salvar.addEventListener("click", function () {
             c_status_fornecedor: f_status.value,
             pessoa: idcontat, //Array de IDs dos contatos
             s_foto_fornecedor: img_foto.getAttribute("src")
-
         };
+
         console.log("IDs dos contatos deletados: ", iddeletado);
         if (iddeletado.length > 0) {
             iddeletado.forEach((id) => {
-                const endpoint_deletepessoaadd = `${serv}/deletepessoaadd/${id}`; //terminar
+                const endpoint_deletepessoaadd = `${serv}/deletepessoaadd/${id.n_pessoa_pessoa}/${id.n_fornecedor_fornecedor}`;
+                fetch(endpoint_deletepessoaadd, { method: "GET" })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Erro ao deletar contato");
+                        }
+                    });
             });
-            
+        } else {
+            // Pega todos os elementos de contatos adicionados
+            const linhas = dadosgridlistacontatosfornecedoradd.querySelectorAll(".linhagrid");
+            linhas.forEach((linha) => {
+                // O id do contato está no primeiro filho (c1) da linha
+                const idContato = linha.querySelector(".c1_lcf").innerHTML;
+                idcontat.push(idContato);
+            });
         }
+        limpar();
+
+
 
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
         const endpointnovocolab = `${serv}/editarfornecedor`;
@@ -685,7 +697,7 @@ btn_salvar.addEventListener("click", function () {
     } else if (modojanela == "n") {
         // Pega todos os elementos de contatos adicionados
         const linhas = dadosgridlistacontatosfornecedoradd.querySelectorAll(".linhagrid");
-        let idcontat = [];
+
         linhas.forEach((linha) => {
             // O id do contato está no primeiro filho (c1) da linha
             const idContato = linha.querySelector(".c1_lcf").innerHTML;
