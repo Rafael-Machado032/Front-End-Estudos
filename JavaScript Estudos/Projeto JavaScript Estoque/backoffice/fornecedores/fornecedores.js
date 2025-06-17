@@ -352,6 +352,7 @@ const criarlinhacontatosfornecedoradd = (contato) => {
     const linhagrid = document.createElement("div");
     linhagrid.classList.add("linhagrid");
     linhagrid.setAttribute("id", "linhagridadd");
+    linhagrid.setAttribute("data-existente", "true"); // alterar
     dadosgridlistacontatosfornecedoradd.appendChild(linhagrid);
 
     const c1 = document.createElement("div");
@@ -636,23 +637,26 @@ btn_salvar.addEventListener("click", function () {
         console.log("IDs dos contatos deletados: ", iddeletado);
         if (iddeletado.length > 0) {
             iddeletado.forEach((id) => {
-                const endpoint_deletepessoaadd = `${serv}/deletepessoaadd/${id.n_pessoa_pessoa}/${id.n_fornecedor_fornecedor}`;
-                fetch(endpoint_deletepessoaadd, { method: "GET" })
-                    .then((response) => {
-                        if (!response.ok) {
-                            throw new Error("Erro ao deletar contato");
-                        }
-                    });
-            });
-        } else {
-            // Pega todos os elementos de contatos adicionados
-            const linhas = dadosgridlistacontatosfornecedoradd.querySelectorAll(".linhagrid");
-            linhas.forEach((linha) => {
-                // O id do contato está no primeiro filho (c1) da linha
-                const idContato = linha.querySelector(".c1_lcf").innerHTML;
-                idcontat.push(idContato);
+            const endpoint_deletepessoaadd = `${serv}/deletepessoaadd/${id.n_pessoa_pessoa}/${id.n_fornecedor_fornecedor}`;
+            fetch(endpoint_deletepessoaadd, { method: "GET" })
+                .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Erro ao deletar contato");
+                }
+                });
             });
         }
+
+        // Só adiciona novos contatos (não salva os que já existem)
+        // Considera como "novo" apenas os que não têm atributo data-existente
+        const linhas = dadosgridlistacontatosfornecedoradd.querySelectorAll(".linhagrid");
+        linhas.forEach((linha) => {
+            // Se a linha NÃO tem o atributo data-existente, é novo contato
+            if (!linha.hasAttribute("data-existente")) {
+            const idContato = linha.querySelector(".c1_lcf").innerHTML;
+            idcontat.push(idContato);
+            }
+        });
         limpar();
 
 
