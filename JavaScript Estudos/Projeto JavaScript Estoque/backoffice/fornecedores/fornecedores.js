@@ -192,7 +192,8 @@ const criarlinha = (fornecedor) => {
                         })
                         .then((data) => {
                             console.log("Retornado", data);
-                            criarlinhacontatosfornecedoradd(data[0]);
+                            criarlinhacontatosfornecedoradd(data[0], true); // true indica que é um contato existente
+
                         })
                         .catch((erro) => {
                             console.error("Erro ao buscar nome na outra tabela:", erro);
@@ -317,7 +318,7 @@ const criarlinhacontatosfornecedor = (contato) => {
     //Botão de Status
 
     img_adduser.addEventListener("click", () => {
-        criarlinhacontatosfornecedoradd(contato);
+        criarlinhacontatosfornecedoradd(contato, false); // false indica que é um contato novo
         console.log("Adicionando contato: ", contato);
     });
 
@@ -348,11 +349,11 @@ const criarlinhacontatosfornecedor = (contato) => {
 
 //**Função Criar Linha de Contatos do Fornecedor para Adicionar */
 
-const criarlinhacontatosfornecedoradd = (contato) => {
+const criarlinhacontatosfornecedoradd = (contato, novo) => {
     const linhagrid = document.createElement("div");
     linhagrid.classList.add("linhagrid");
     linhagrid.setAttribute("id", "linhagridadd");
-    linhagrid.setAttribute("data-existente", "true"); // alterar
+    linhagrid.setAttribute("data-existente", novo); // alterar
     dadosgridlistacontatosfornecedoradd.appendChild(linhagrid);
 
     const c1 = document.createElement("div");
@@ -637,13 +638,13 @@ btn_salvar.addEventListener("click", function () {
         console.log("IDs dos contatos deletados: ", iddeletado);
         if (iddeletado.length > 0) {
             iddeletado.forEach((id) => {
-            const endpoint_deletepessoaadd = `${serv}/deletepessoaadd/${id.n_pessoa_pessoa}/${id.n_fornecedor_fornecedor}`;
-            fetch(endpoint_deletepessoaadd, { method: "GET" })
-                .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Erro ao deletar contato");
-                }
-                });
+                const endpoint_deletepessoaadd = `${serv}/deletepessoaadd/${id.n_pessoa_pessoa}/${id.n_fornecedor_fornecedor}`;
+                fetch(endpoint_deletepessoaadd, { method: "GET" })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Erro ao deletar contato");
+                        }
+                    });
             });
         }
 
@@ -652,9 +653,10 @@ btn_salvar.addEventListener("click", function () {
         const linhas = dadosgridlistacontatosfornecedoradd.querySelectorAll(".linhagrid");
         linhas.forEach((linha) => {
             // Se a linha NÃO tem o atributo data-existente, é novo contato
-            if (!linha.hasAttribute("data-existente")) {
-            const idContato = linha.querySelector(".c1_lcf").innerHTML;
-            idcontat.push(idContato);
+            if (!linha.getAttribute("data-existente") || linha.getAttribute("data-existente") === "false") {
+                const idContato = linha.querySelector(".c1_lcf").innerHTML;
+                idcontat.push(idContato);
+                console.log("Adicionando novo contato:", idContato);
             }
         });
         limpar();
@@ -728,7 +730,7 @@ btn_salvar.addEventListener("click", function () {
                 if (response.status === 200) {
                     const config = {
                         titulo: 'Aviso',
-                        texto: 'fornecedor cadastrado com sucesso!',
+                        texto: 'Fornecedor cadastrado com sucesso!',
                         cor: 'green',
                         tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
                         ok: function () {
