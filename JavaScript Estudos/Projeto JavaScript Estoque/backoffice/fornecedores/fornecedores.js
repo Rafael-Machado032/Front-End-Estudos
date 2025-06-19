@@ -18,7 +18,7 @@ const btn_listar = document.querySelector("#btn_listar");
 const btn_listarcontatos = document.querySelector("#btn_listarcontatos");
 const btn_cancelar = document.querySelector("#btn_cancelar");
 const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
-const btn_cancelarpopuplistacontatos = document.querySelector("#btn_cancelarpopuplistacontatos");
+const btn_fecharpopuplistacontatos = document.querySelector("#btn_fecharpopuplistacontatos");
 const btn_fecharxpopupnovocolab = document.querySelector("#btn_fecharxpopupnovocolab");
 const btn_fecharxpopuppesq = document.querySelector("#btn_fecharxpopuppesq");
 const btn_fecharxpopuplistacontatos = document.querySelector("#btn_fecharxpopuplistacontatos");
@@ -472,7 +472,7 @@ btn_cancelarpesq.addEventListener("click", function () {
 });
 
 //Botão de Cancelar Popuplistacontatos
-btn_cancelarpopuplistacontatos.addEventListener("click", function () {
+btn_fecharpopuplistacontatos.addEventListener("click", function () {
     popuplistacontatosfornecedor.classList.add("ocultarpopup");
 
 });
