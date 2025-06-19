@@ -1,0 +1,36 @@
+.c1{
+    width: 10%;
+    
+}
+.c2{
+    width: 45%;
+}
+
+.c3{
+    width: 15%;
+    
+}
+.c4{
+    width: 15%;
+    
+}
+.c5{
+    display: flex;
+    justify-content: space-around;
+    width: 15%;
+}
+.img_foto{
+    width: 100px;
+    height: 130px;
+    border-radius: 10%;
+    margin-right: 10px;
+    border: 1px solid var(--corprimaria);
+    background-color: var(--corfundo);
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0px 0px 5px var(--corprimaria);
+}
+html, body {
+    
+    overflow:visible;
+}
