@@ -41,8 +41,8 @@ const serv = sessionStorage.getItem("servidor_nodered");
 //Função Carregar a lista
 
 const carregarProdutos = () => {
-    const endpoint_todoscoloboradores = `${serv}/todospessoas`;
-    fetch(endpoint_todoscoloboradores)
+    const endpoint_todosprodutos = `${serv}/todosprodutos`;
+    fetch(endpoint_todosprodutos)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("A resposta da rede não foi bem-sucedida");
@@ -62,45 +62,6 @@ const carregarProdutos = () => {
         });
 }
 
-//Função de criar caixa do telefone
-const criarCxTelefone = (fone, idtel) => {
-    const tel = document.createElement("div");
-    tel.classList.add("tel");
-    telefones.appendChild(tel);
-
-    const numtel = document.createElement("div");
-    numtel.classList.add("numtel");
-    numtel.setAttribute("data-idtel", idtel);
-    numtel.innerHTML = fone;
-    tel.appendChild(numtel);
-
-    const deltel = document.createElement("img");
-    deltel.setAttribute("class", "deltel");
-    deltel.setAttribute("id", "btn_deltel");
-    deltel.setAttribute("src", "../../img/delete.svg");
-    deltel.setAttribute("alt", "Excluir telefone");
-    deltel.setAttribute("title", "Excluir telefone");
-    deltel.setAttribute("data-idtel", idtel);
-    tel.appendChild(deltel);
-
-    console.log("ID da caixa telefone criada: ", idtel);
-
-
-    
-
-    // Botão de lixeira para deletar telefone
-    deltel.addEventListener("click", function () {
-
-        if (modojanela == "e") {
-            const idtel = deltel.getAttribute("data-idtel");
-            idsTelefones.push(idtel);
-            console.log("IDs dos telefones deletados: /n", idsTelefones);
-        }
-        telefones.removeChild(tel); // Remove o telefone da interface
-    });
-
-
-}
 
 //Limpar Inputs
 const limpar = () => {
@@ -112,6 +73,7 @@ const limpar = () => {
     f_forneprod.selectedIndex = 0;
     f_codprod.focus();
     modojanela = "n"; // Reseta o modo da janela
+    f_codprod.disabled = false;
 }
 
 const criarlinha = (produto) => {
@@ -122,25 +84,25 @@ const criarlinha = (produto) => {
     const c1 = document.createElement("div");
     c1.classList.add("c1");
     c1.classList.add("colunalinhagrid");
-    c1.innerHTML = produto.n_pessoa_pessoa;
+    c1.innerHTML = produto.n_cod_produto;
     linhagrid.appendChild(c1);
 
     const c2 = document.createElement("div");
     c2.classList.add("c2");
     c2.classList.add("colunalinhagrid");
-    c2.innerHTML = produto.s_nome_pessoa;
+    c2.innerHTML = produto.	s_desc_produto;
     linhagrid.appendChild(c2);
 
     const c3 = document.createElement("div");
     c3.classList.add("c3");
     c3.classList.add("colunalinhagrid");
-    c3.innerHTML = produto.n_tipopessoa_tipopessoa;
+    c3.innerHTML = produto.n_qtde_produto;
     linhagrid.appendChild(c3);
 
     const c4 = document.createElement("div");
     c4.classList.add("c4");
     c4.classList.add("colunalinhagrid");
-    c4.innerHTML = produto.c_status_pessoa;
+    c4.innerHTML = produto.c_status_produto;
     linhagrid.appendChild(c4);
 
     const c5 = document.createElement("div");
@@ -151,10 +113,10 @@ const criarlinha = (produto) => {
     //Botão de Ligado/Desligado Selecionar o Status
     const img_status = document.createElement("img");
     img_status.classList.add("icone_op");
-    if (produto.c_status_pessoa == "A") {
+    if (produto.c_status_produto == "A") {
         img_status.setAttribute("src", "../../img/ligado.svg");
     }
-    if (produto.c_status_pessoa == "I") {
+    if (produto.c_status_produto == "I") {
         img_status.setAttribute("src", "../../img/desligado.svg");
     }
     c5.appendChild(img_status);
@@ -180,52 +142,26 @@ const criarlinha = (produto) => {
         modojanela = "e";
         document.querySelector("#titulopopup").innerHTML = "Editar Produto";
         novoproduto.classList.remove("ocultarpopup");
-        id = produto.n_pessoa_pessoa;
-        f_codprod.value = produto.s_nome_pessoa;
-        f_tipoprod.value = produto.n_tipopessoa_tipopessoa;
-        f_statusprod.value = produto.c_status_pessoa;
+        f_codprod.disabled = true;
+        id = produto.n_cod_produto; //Armazena o ID do Produto para editar
+        f_codprod.value = produto. n_cod_produto;
+        f_tipoprod.value = produto. n_tipoproduto_tipoproduto;
+        f_descprod.value = produto.s_desc_produto;
+        f_forneprod.value = produto.n_fornecedor_fornecedor;
+        f_qtdeprod.value = produto.n_qtde_produto;
+        f_statusprod.value = produto.c_status_produto;
         console.log("id do pessoa para editar: /n", id);
-
-        //Carrega as fotos e telefones do Produto
-        let endpoint_Produto = `${serv}/mostrarcontato/${id}`;
-        fetch(endpoint_Produto)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("A resposta da rede não foi bem-sucedida");
-                }
-                return response.json();
-            })
-            .then((response) => {
-                console.log("Carregando o pessoa para editar: /n", response);
-                img_foto.src = response[0].s_foto_pessoa;  //Como é um array, pego o primeiro elemento
-            });
-
-        endpoint_Produto = `${serv}/mostrartelefones/${id}`;
-        fetch(endpoint_Produto)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("A resposta da rede não foi bem-sucedida");
-                }
-                return response.json();
-            })
-            .then((response) => {
-                console.log("Carregando Lista de telefones desse pessoa: /n", response);
-                telefones.innerHTML = "";
-                response.forEach((telefone) => {
-                    criarCxTelefone(telefone.s_numero_telefone, telefone.n_telefone_telefone);
-                });
-            });
     });
 
     //Botão Remover Contato
     img_remover.addEventListener("click", function () {
-        if (confirm(`Tem certeza que deseja remover Produto ${produto.s_nome_pessoa}?`)) {
-            console.log("ID do Produto a ser deletado: ", produto.n_pessoa_pessoa);
+        if (confirm(`Tem certeza que deseja remover Produto ${produto.s_desc_produto}?`)) {
+            console.log("ID do Produto a ser deletado: ", produto.n_cod_produto);
             const iddelete = {
-                n_pessoa_pessoa: produto.n_pessoa_pessoa,
+                n_cod_produto : produto.n_cod_produto ,
             }
 
-            const endpoint_removerProduto = `${serv}/deletecolab`;
+            const endpoint_removerProduto = `${serv}/deleteproduto`;
             const options = {
                 method: "POST",
                 body: JSON.stringify(iddelete),
@@ -267,16 +203,16 @@ const criarlinha = (produto) => {
     });
     //Botão de Status
     img_status.addEventListener("click", function () {
-        if (produto.c_status_pessoa == "A") {
+        if (produto.c_status_produto == "A") {
             img_status.setAttribute("src", "../../img/desligado.svg");
-            produto.c_status_pessoa = "I";
-            console.log(`Produto ${produto.n_pessoa_pessoa} Desligado`);
+            produto.c_status_produto = "I";
+            console.log(`Produto ${produto.n_cod_produto} Desligado`);
         } else {
             img_status.setAttribute("src", "../../img/ligado.svg");
-            produto.c_status_pessoa = "A";
-            console.log(`Produto ${produto.n_pessoa_pessoa} Ligado`);
+            produto.c_status_produto = "A";
+            console.log(`Produto ${produto.n_cod_produto} Ligado`);
         }
-        const endpoint_status = `${serv}/editarstatus/${produto.n_pessoa_pessoa}/${produto.c_status_pessoa}`;
+        const endpoint_status = `${serv}/editarstatusproduto/${produto.n_cod_produto}/${produto.c_status_produto}`;
         fetch(endpoint_status)
             .then((response) => {
                 if (!response.ok) {
@@ -410,13 +346,23 @@ btn_salvar.addEventListener("click", function () {
 
     //Validar informações
     if (f_codprod.value.length < 3) {
-        alert("Nome inválido");
+        alert("Codigo inválido");
         f_codprod.focus();
         return;
     }
+    if (f_descprod.value.length < 4) {
+        alert("Descrição inválido");
+        f_descprod.focus();
+        return;
+    }
     if (f_tipoprod.value == "") {
-        alert("Tipo inválido");
+        alert("Nescessario informar o Tipo de Produto");
         f_tipoprod.focus();
+        return;
+    }
+    if (f_forneprod.value == "") {
+        alert("Nescessario informar o Fornecedor");
+        f_forneprod.focus();
         return;
     }
     if (f_statusprod.value == "") {
@@ -424,67 +370,34 @@ btn_salvar.addEventListener("click", function () {
         f_statusprod.focus();
         return;
     }
-    
+
 
     console.log("Modo Janela", modojanela);
 
-    //Guarda Telefones da caixa
-    const tels = document.querySelectorAll(".numtel");
-    let datatel = null;
-    let telefones = [];
-
-
-    tels.forEach((tel) => {
-        datatel = tel.getAttribute("data-idtel");
-        console.log("ID testado: ", datatel);
-        if (datatel == "undefined") {
-            console.log("ID não existe, adicionando telefone: ", tel.innerHTML);
-            telefones.push(tel.innerHTML);
-        }
-    });
+    //Armazena todo o formulario na variavel dados
+    const dados = {
+        n_cod_produto: f_codprod.value,
+        n_tipoproduto_tipoproduto: f_tipoprod.value,
+        s_desc_produto: f_descprod.value,
+        n_fornecedor_fornecedor: f_forneprod.value,
+        n_qtde_produto: f_qtdeprod.value,
+        c_status_produto: f_statusprod.value
+    };
 
 
 
     //Edita Contato
     if (modojanela == "e") {
 
-
-        //Armazena todo o formulario na variavel dados
-        const dados = {
-            n_pessoa_pessoa: id,
-            s_nome_pessoa: f_codprod.value,
-            n_tipopessoa_tipopessoa: f_tipoprod.value,
-            c_status_pessoa: f_statusprod.value,
-            numtelefones: telefones,
-            s_foto_pessoa: img_foto.getAttribute("src")
-        };
-
-        // Enviar requisição para deletar os IDs removidos
-
-        if (idsTelefones.length > 0) {
-            idsTelefones.forEach((id) => {
-                const endpoint_deletetel = `http://localhost:1880/deletetelefone/${id}`;
-                fetch(endpoint_deletetel)
-                    .then((response) => {
-                        if (!response.ok) {
-                            throw new Error(`Erro ao deletar telefone com ID ${id}`);
-                        } else {
-                            console.log(`Telefone com ID ${id} deletado com sucesso`);
-                            return response.json();
-                        }
-                    })
-            });
-        }
-
         // Enviar requisição para atualizar os dados do Produto
 
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
-        const endpointnovocolab = `${serv}/editarcolab`;
+        const endpointeditarproduto = `${serv}/editarproduto`;
         const options = {
             method: "POST",
             body: JSON.stringify(dados),
         };
-        fetch(endpointnovocolab, options)
+        fetch(endpointeditarproduto, options)
             .then((response) => {
                 if (response.status === 200) {
                     const config = {
@@ -521,22 +434,13 @@ btn_salvar.addEventListener("click", function () {
     } else if (modojanela == "n") {
 
 
-        //Armazena todo o formulario na variavel dados
-        const dados = {
-            s_nome_pessoa: f_codprod.value,
-            n_tipopessoa_tipopessoa: f_tipoprod.value,
-            c_status_pessoa: f_statusprod.value,
-            numtelefones: telefones,
-            s_foto_pessoa: img_foto.getAttribute("src")
-        };
-
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
-        const endpointnovocolab = `${serv}/novocolab`;
+        const endpointnovoproduto = `${serv}/novoproduto`;
         const options = {
             method: "POST",
             body: JSON.stringify(dados),
         };
-        fetch(endpointnovocolab, options)
+        fetch(endpointnovoproduto, options)
             .then((response) => {
                 if (response.status === 200) {
                     const config = {
@@ -571,7 +475,7 @@ btn_salvar.addEventListener("click", function () {
     setTimeout(() => { //Não da tempo de carregar a lista antes de fechar a janela
         carregarProdutos();
     }, 500);
-    
+
 
 });
 
@@ -612,7 +516,6 @@ fetch(endpoint_tipoprod)
     })
     .then((data) => {
         console.log("Carregando Tipo Produto: /n", data);
-        const f_tipoprod = document.querySelector("#f_tipoprod");
         f_tipoprod.innerHTML = "";
         const option = document.createElement("option");
         option.setAttribute("disabled", "true");
@@ -626,5 +529,32 @@ fetch(endpoint_tipoprod)
             option.value = data.n_tipoproduto_tipoproduto;
             option.textContent = data.s_desc_tipoproduto;
             f_tipoprod.appendChild(option);
+        });
+    });
+
+//Carrega o Tipo Produto e bota no Select
+const endpoint_fornecedorprod = `${serv}/fornecedorprod`;
+fetch(endpoint_fornecedorprod)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("A resposta da rede não foi bem-sucedida");
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log("Carregando Fornecedor Produto: /n", data);
+        f_forneprod.innerHTML = "";
+        const option = document.createElement("option");
+        option.setAttribute("disabled", "true");
+        option.setAttribute("selected", "true");
+        option.setAttribute("value", "");
+        option.textContent = "Selecione";
+        f_forneprod.appendChild(option);
+        f_forneprod.setAttribute("required", "true");
+        data.forEach((data) => {
+            const option = document.createElement("option");
+            option.value = data.n_fornecedor_fornecedor;
+            option.textContent = data.s_desc_fornecedor;
+            f_forneprod.appendChild(option);
         });
     });
