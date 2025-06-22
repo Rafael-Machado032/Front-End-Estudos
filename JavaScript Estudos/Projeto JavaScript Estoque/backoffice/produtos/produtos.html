@@ -17,9 +17,7 @@
         <div>Produtos</div>
         <div>
             <img src="../../img/lupa.svg" alt="Pesquisar" title="Pesquisa produto" class="btn_mainoper" id="btn_pesq">
-            <img src="../../img/listar.svg" alt="Listar" title="Lista todos produtos" class="btn_mainoper"
-                id="btn_listar">
-            <img src="../../img/move.svg" alt="Mover" title="Mover estoque" class="btn_mainoper" id="btn_move">
+            <img src="../../img/listar.svg" alt="Listar" title="Lista todos produtos" class="btn_mainoper" id="btn_listar">
             <img src="../../img/add.svg" alt="Adicionar" title="Adicionar rodutos" class="btn_mainoper" id="btn_add">
         </div>
     </div>
@@ -116,33 +114,32 @@
         <div class="janelapopup">
             <div class="titulopopup">
                 <div id="titulopopup">Movimentação de Estoque</div>
-                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_fecharpopup"
+                <img src="../../img/close.svg" alt="fechar" title="Fechar" class="btn_closepopup" id="btn_fecharxpopupmove"
                     required>
             </div>
             <div class="corpopopup">
                 <div class="campoform">
-                    <label for="">Nome Produto:</label>
-                    <input type="text" name="f_nome" id="f_nome" class="inputform">
+                    <label for="">Codico do Produto:</label>
+                    <input type="text" name="f_codprodmove" id="f_codprodmove" class="inputform">
                 </div>
                 <div class="campoform">
-                    <label for="">Tipo Produto:</label>
-                    <select name="f_tipo" id="f_tipo" class="inputform" required>
-
-                    </select>
+                    <label for="">Descrição:</label>
+                    <input type="text" name="f_descprodmove" id="f_descprodmove" class="inputform">
                 </div>
                 <div class="campoform">
-                    <label for="">Status:</label>
-                    <select name="f_status" id="f_status" class="inputform" required>
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="A">Ativo</option>
-                        <option value="I">Inativo</option>
-                    </select>
+                    <label for="">Quantidade:</label>
+                    <input type="text" name="f_qtdeprodmove" id="f_qtdeprodmove" class="inputform">
+                </div>
+                <div class="campoform">
+                    <label for="">Quantidade a ser resgistrada:</label>
+                    <input type="number" value="0" min="0" name="f_qtderesprodmove" id="f_qtderesprodmove" class="inputform">
                 </div>
                 
             </div>
             <div class="rodapepopup">
-                <button id="btn_salvar" class="btn_comandopopup">Registrar Movimentação</button>
-                <button id="btn_cancelar" class="btn_comandopopup">Cancelar</button>
+                <button id="btn_addqtde" class="btn_comandopopup">Adicionar</button>
+                <button id="btn_removeqtde" class="btn_comandopopup">Retirar</button>
+                <button id="btn_cancelarmove" class="btn_comandopopup">Cancelar</button>
             </div>
         </div>
     </div>
