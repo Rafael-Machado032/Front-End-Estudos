@@ -2,18 +2,19 @@ import { Cxmsg } from "../../utils/cxmsg.js";
 
 const dadosgrid = document.querySelector("#dadosgrid");
 const novoproduto = document.querySelector("#novoproduto");
-const img_foto = document.querySelector("#img_foto");
-const telefones = document.querySelector("#telefones");
 const pesquisa = document.querySelector("#pesquisa");
+const moveEstoque = document.querySelector("#moveEstoque");
 
 const btn_add = document.querySelector("#btn_add");
 const btn_fecharpopup = document.querySelector("#btn_fecharpopup");
+const btn_fecharxpopupmove = document.querySelector("#btn_fecharxpopupmove");
 const btn_cancelar = document.querySelector("#btn_cancelar");
 const btn_salvar = document.querySelector("#btn_salvar");
 const btn_pesquisar = document.querySelector("#btn_pesquisar");
 const btn_pesq = document.querySelector("#btn_pesq");
 const btn_fecharpopuppesq = document.querySelector("#btn_fecharpopuppesq");
 const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
+const btn_cancelarmove = document.querySelector("#btn_cancelarmove");
 const btn_listar = document.querySelector("#btn_listar");
 
 const f_codprod = document.querySelector("#f_codprod");
@@ -90,7 +91,7 @@ const criarlinha = (produto) => {
     const c2 = document.createElement("div");
     c2.classList.add("c2");
     c2.classList.add("colunalinhagrid");
-    c2.innerHTML = produto.	s_desc_produto;
+    c2.innerHTML = produto.s_desc_produto;
     linhagrid.appendChild(c2);
 
     const c3 = document.createElement("div");
@@ -129,10 +130,10 @@ const criarlinha = (produto) => {
     c5.appendChild(img_editar);
 
     //Botão de Lixeira Remover Contato
-    const img_remover = document.createElement("img");
-    img_remover.classList.add("icone_op");
-    img_remover.setAttribute("src", "../../img/delete.svg");
-    c5.appendChild(img_remover);
+    const img_mover = document.createElement("img");
+    img_mover.classList.add("icone_op");
+    img_mover.setAttribute("src", "../../img/moveb.svg");
+    c5.appendChild(img_mover);
 
     //Tratamento de evento
 
@@ -144,8 +145,8 @@ const criarlinha = (produto) => {
         novoproduto.classList.remove("ocultarpopup");
         f_codprod.disabled = true;
         id = produto.n_cod_produto; //Armazena o ID do Produto para editar
-        f_codprod.value = produto. n_cod_produto;
-        f_tipoprod.value = produto. n_tipoproduto_tipoproduto;
+        f_codprod.value = produto.n_cod_produto;
+        f_tipoprod.value = produto.n_tipoproduto_tipoproduto;
         f_descprod.value = produto.s_desc_produto;
         f_forneprod.value = produto.n_fornecedor_fornecedor;
         f_qtdeprod.value = produto.n_qtde_produto;
@@ -154,50 +155,75 @@ const criarlinha = (produto) => {
     });
 
     //Botão Remover Contato
-    img_remover.addEventListener("click", function () {
-        if (confirm(`Tem certeza que deseja remover Produto ${produto.s_desc_produto}?`)) {
-            console.log("ID do Produto a ser deletado: ", produto.n_cod_produto);
-            const iddelete = {
-                n_cod_produto : produto.n_cod_produto ,
+    img_mover.addEventListener("click", function () {
+
+        if (produto.c_status_produto == "A") {
+            moveEstoque.classList.remove("ocultarpopup");
+        } else {
+            const config = {
+                titulo: 'Atenção',
+                texto: 'Produto Desligado, não é possivel mover',
+                cor: '#f00',
+                tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                ok: function () {
+                    console.log("OK");
+                }
+                , sim: function () {
+                    console.log("Sim");
+                }
+                , nao: function () {
+                    console.log("Não");
+                }
             }
+            Cxmsg.mostrar(config);
 
-            const endpoint_removerProduto = `${serv}/deleteproduto`;
-            const options = {
-                method: "POST",
-                body: JSON.stringify(iddelete),
-            };
-            fetch(endpoint_removerProduto, options)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error("Erro ao remover Produto");
-                    }
-                    const config = {
-                        titulo: 'Aviso',
-                        texto: 'Produto Removido com sucesso!',
-                        cor: 'green',
-                        tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
-                        ok: function () {
-                            console.log("OK");
-                        }
-                        , sim: function () {
-                            console.log("Sim");
-                        }
-                        , nao: function () {
-                            console.log("Não");
-                        }
-
-                    }
-                    Cxmsg.mostrar(config);
-                    //alert("Produto removido com sucesso!");
-                    carregarProdutos();
-                })
-                .catch((erro) => {
-                    console.error("Erro ao remover Produto:", erro);
-                    alert("Erro ao remover Produto!");
-                });
-            limpar();
-            carregarProdutos();
         }
+
+        //Armazena o ID do Produto para mover
+
+        // if (confirm(`Tem certeza que deseja remover Produto ${produto.s_desc_produto}?`)) {
+        //     console.log("ID do Produto a ser deletado: ", produto.n_cod_produto);
+        //     const iddelete = {
+        //         n_cod_produto : produto.n_cod_produto ,
+        //     }
+
+        //     const endpoint_removerProduto = `${serv}/deleteproduto`;
+        //     const options = {
+        //         method: "POST",
+        //         body: JSON.stringify(iddelete),
+        //     };
+        //     fetch(endpoint_removerProduto, options)
+        //         .then((response) => {
+        //             if (!response.ok) {
+        //                 throw new Error("Erro ao remover Produto");
+        //             }
+        //             const config = {
+        //                 titulo: 'Aviso',
+        //                 texto: 'Produto Removido com sucesso!',
+        //                 cor: 'green',
+        //                 tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+        //                 ok: function () {
+        //                     console.log("OK");
+        //                 }
+        //                 , sim: function () {
+        //                     console.log("Sim");
+        //                 }
+        //                 , nao: function () {
+        //                     console.log("Não");
+        //                 }
+
+        //             }
+        //             Cxmsg.mostrar(config);
+        //             //alert("Produto removido com sucesso!");
+        //             carregarProdutos();
+        //         })
+        //         .catch((erro) => {
+        //             console.error("Erro ao remover Produto:", erro);
+        //             alert("Erro ao remover Produto!");
+        //         });
+        //     limpar();
+        //     carregarProdutos();
+        // }
 
 
     });
@@ -247,9 +273,19 @@ btn_fecharpopup.addEventListener("click", function () {
     limpar();
 });
 
+btn_fecharxpopupmove.addEventListener("click", function () {
+    moveEstoque.classList.add("ocultarpopup");
+    limpar();
+});
+
 //Botão de Cancelar
 btn_cancelar.addEventListener("click", function () {
     novoproduto.classList.add("ocultarpopup");
+    limpar();
+});
+
+btn_cancelarmove.addEventListener("click", function () {
+    moveEstoque.classList.add("ocultarpopup");
     limpar();
 });
 
@@ -310,7 +346,7 @@ btn_pesquisar.addEventListener("click", function () {
         } else {
             tipo = "Nome";
         }
-        const endpoint_pesquisa = `${serv}/pesquisarcolab/${tipo}/${f_pesq.value}`;
+        const endpoint_pesquisa = `${serv}/pesquisarproduto/${tipo}/${f_pesq.value}`;
         fetch(endpoint_pesquisa)
             .then((response) => {
                 if (!response.ok) {
@@ -335,9 +371,7 @@ btn_pesquisar.addEventListener("click", function () {
 });
 
 btn_listar.addEventListener("click", function () {
-
     carregarProdutos();
-
 });
 
 
@@ -470,7 +504,6 @@ btn_salvar.addEventListener("click", function () {
 
     }
 
-
     limpar();
     setTimeout(() => { //Não da tempo de carregar a lista antes de fechar a janela
         carregarProdutos();
@@ -478,11 +511,6 @@ btn_salvar.addEventListener("click", function () {
 
 
 });
-
-
-
-
-
 
 
 //Filtro de pesquisa
