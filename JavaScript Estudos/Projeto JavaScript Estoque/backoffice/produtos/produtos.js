@@ -8,14 +8,17 @@ const moveEstoque = document.querySelector("#moveEstoque");
 const btn_add = document.querySelector("#btn_add");
 const btn_fecharpopup = document.querySelector("#btn_fecharpopup");
 const btn_fecharxpopupmove = document.querySelector("#btn_fecharxpopupmove");
-const btn_cancelar = document.querySelector("#btn_cancelar");
+const btn_listar = document.querySelector("#btn_listar");
 const btn_salvar = document.querySelector("#btn_salvar");
 const btn_pesquisar = document.querySelector("#btn_pesquisar");
 const btn_pesq = document.querySelector("#btn_pesq");
 const btn_fecharpopuppesq = document.querySelector("#btn_fecharpopuppesq");
+const btn_cancelar = document.querySelector("#btn_cancelar");
 const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
 const btn_cancelarmove = document.querySelector("#btn_cancelarmove");
-const btn_listar = document.querySelector("#btn_listar");
+const btn_addqtde = document.querySelector("#btn_addqtde");
+const btn_removeqtde = document.querySelector("#btn_removeqtde");
+const btn_salvarmove = document.querySelector("#btn_salvarmove");
 
 const f_codprod = document.querySelector("#f_codprod");
 const f_descprod = document.querySelector("#f_descprod");
@@ -27,7 +30,10 @@ const f_filtro = document.querySelector("#f_filtro");
 const f_pesqId = document.querySelector("#f_pesqId");
 const f_pesqNome = document.querySelector("#f_pesqNome");
 const f_pesq = document.querySelector("#f_pesq");
-
+const f_codprodmove = document.querySelector("#f_codprodmove");
+const f_descprodmove = document.querySelector("#f_descprodmove");
+const f_qtdeprodmove = document.querySelector("#f_qtdeprodmove");
+const f_qtderesprodmove = document.querySelector("#f_qtderesprodmove");
 
 /**Variaveis Globais */
 
@@ -159,6 +165,10 @@ const criarlinha = (produto) => {
 
         if (produto.c_status_produto == "A") {
             moveEstoque.classList.remove("ocultarpopup");
+            
+            f_codprodmove.value = produto.n_cod_produto;
+            f_descprodmove.value = produto.s_desc_produto;
+            f_qtdeprodmove.value = produto.n_qtde_produto;
         } else {
             const config = {
                 titulo: 'Atenção',
@@ -178,53 +188,6 @@ const criarlinha = (produto) => {
             Cxmsg.mostrar(config);
 
         }
-
-        //Armazena o ID do Produto para mover
-
-        // if (confirm(`Tem certeza que deseja remover Produto ${produto.s_desc_produto}?`)) {
-        //     console.log("ID do Produto a ser deletado: ", produto.n_cod_produto);
-        //     const iddelete = {
-        //         n_cod_produto : produto.n_cod_produto ,
-        //     }
-
-        //     const endpoint_removerProduto = `${serv}/deleteproduto`;
-        //     const options = {
-        //         method: "POST",
-        //         body: JSON.stringify(iddelete),
-        //     };
-        //     fetch(endpoint_removerProduto, options)
-        //         .then((response) => {
-        //             if (!response.ok) {
-        //                 throw new Error("Erro ao remover Produto");
-        //             }
-        //             const config = {
-        //                 titulo: 'Aviso',
-        //                 texto: 'Produto Removido com sucesso!',
-        //                 cor: 'green',
-        //                 tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
-        //                 ok: function () {
-        //                     console.log("OK");
-        //                 }
-        //                 , sim: function () {
-        //                     console.log("Sim");
-        //                 }
-        //                 , nao: function () {
-        //                     console.log("Não");
-        //                 }
-
-        //             }
-        //             Cxmsg.mostrar(config);
-        //             //alert("Produto removido com sucesso!");
-        //             carregarProdutos();
-        //         })
-        //         .catch((erro) => {
-        //             console.error("Erro ao remover Produto:", erro);
-        //             alert("Erro ao remover Produto!");
-        //         });
-        //     limpar();
-        //     carregarProdutos();
-        // }
-
 
     });
     //Botão de Status
@@ -509,6 +472,88 @@ btn_salvar.addEventListener("click", function () {
         carregarProdutos();
     }, 500);
 
+
+});
+
+btn_addqtde.addEventListener("click", function () {
+    let qtdeAtual = parseInt(f_qtdeprodmove.value);
+    let qtde = parseInt(f_qtderesprodmove.value);
+    
+    if (qtde == 0) {
+        const config = {
+            titulo: 'Atenção',
+            texto: 'Quantidade inválida, digite um valor maior que 0',
+            cor: '#f00',
+            tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+            ok: function () {
+                console.log("OK");
+            }
+            , sim: function () {
+                console.log("Sim");
+            }
+            , nao: function () {
+                console.log("Não");
+            }
+        }
+        Cxmsg.mostrar(config);
+        
+        f_qtderesprodmove.focus();
+        return;
+    }
+    f_qtdeprodmove.value = qtdeAtual + qtde; // Atualiza a quantidade restante
+    f_qtderesprodmove.value = 0; // Reseta a quantidade a ser removida
+});
+
+btn_removeqtde.addEventListener("click", function () {7
+    let qtdeAtual = parseInt(f_qtdeprodmove.value);
+    let qtde = parseInt(f_qtderesprodmove.value);
+    if (qtde == 0) {
+        const config = {
+            titulo: 'Atenção',
+            texto: 'Quantidade inválida, digite um valor maior que 0',
+            cor: '#f00',
+            tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+            ok: function () {
+                console.log("OK");
+            }
+            , sim: function () {
+                console.log("Sim");
+            }
+            , nao: function () {
+                console.log("Não");
+            }
+        }
+        Cxmsg.mostrar(config);
+        f_qtdeprodmove.focus();
+        return;
+    }
+    
+    if (qtde > qtdeAtual) {
+        const config = {
+            titulo: 'Atenção',
+            texto: 'Quantidade a remover é maior que a quantidade restante',
+            cor: '#f00',
+            tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+            ok: function () {
+                console.log("OK");
+            }
+            , sim: function () {
+                console.log("Sim");
+            }
+            , nao: function () {
+                console.log("Não");
+            }
+        }
+        Cxmsg.mostrar(config);
+        f_qtderesprodmove.focus();
+        return;
+    }
+    f_qtdeprodmove.value = qtdeAtual - qtde; // Atualiza a quantidade restante
+    f_qtderesprodmove.value = 0; // Reseta a quantidade a ser removida
+    f_qtderesprodmove.focus();
+});
+
+btn_salvarmove.addEventListener("click", function () {
 
 });
 
