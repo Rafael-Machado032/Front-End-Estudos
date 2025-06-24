@@ -17,6 +17,7 @@ const btn_cancelarpesq = document.querySelector("#btn_cancelarpesq");
 const btn_listar = document.querySelector("#btn_listar");
 
 const f_nome = document.querySelector("#f_nome");
+const f_email = document.querySelector("#f_email");
 const f_tipo = document.querySelector("#f_tipo");
 const f_status = document.querySelector("#f_status");
 const f_telefone = document.querySelector("#f_telefone");
@@ -449,21 +450,22 @@ btn_salvar.addEventListener("click", function () {
         }
     });
 
+    //Armazena todo o formulario na variavel dados
+    const dados = {
+        n_pessoa_pessoa: id,
+        s_nome_pessoa: f_nome.value,
+        s_email_pessoa: f_email.value,
+        s_senha_pessoa: "",
+        n_priacess_pessoa: 1,
+        n_tipopessoa_tipopessoa: f_tipo.value,
+        c_status_pessoa: f_status.value,
+        numtelefones: telefones,
+        s_foto_pessoa: img_foto.getAttribute("src")
+    };
 
 
     //Edita Contato
     if (modojanela == "e") {
-
-
-        //Armazena todo o formulario na variavel dados
-        const dados = {
-            n_pessoa_pessoa: id,
-            s_nome_pessoa: f_nome.value,
-            n_tipopessoa_tipopessoa: f_tipo.value,
-            c_status_pessoa: f_status.value,
-            numtelefones: telefones,
-            s_foto_pessoa: img_foto.getAttribute("src")
-        };
 
         // Enviar requisição para deletar os IDs removidos
 
@@ -526,16 +528,6 @@ btn_salvar.addEventListener("click", function () {
         //Novo Contato
     } else if (modojanela == "n") {
 
-
-        //Armazena todo o formulario na variavel dados
-        const dados = {
-            s_nome_pessoa: f_nome.value,
-            n_tipopessoa_tipopessoa: f_tipo.value,
-            c_status_pessoa: f_status.value,
-            numtelefones: telefones,
-            s_foto_pessoa: img_foto.getAttribute("src")
-        };
-
         console.log("Carregando Formulario para Salvamento no BD: /n", dados);
         const endpointnovocolab = `${serv}/novocolab`;
         const options = {
@@ -577,7 +569,7 @@ btn_salvar.addEventListener("click", function () {
     setTimeout(() => { //Não da tempo de carregar a lista antes de fechar a janela
         carregarColaboradores();
     }, 500);
-    
+
 
 });
 
