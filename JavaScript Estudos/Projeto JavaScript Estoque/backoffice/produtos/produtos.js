@@ -554,7 +554,62 @@ btn_removeqtde.addEventListener("click", function () {7
 });
 
 btn_salvarmove.addEventListener("click", function () {
-
+    const qtdeAtual = parseInt(f_qtdeprodmove.value);
+    
+    const endpoint_editarqtde = `${serv}/editarqtdeproduto/${f_codprodmove.value}/${qtdeAtual}`;
+    fetch(endpoint_editarqtde)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("A resposta da rede não foi bem-sucedida");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("Quantidade atualizada com sucesso:", data);
+            const config = {
+                titulo: 'Aviso',
+                texto: 'Quantidade atualizada com sucesso!',
+                cor: 'green',
+                tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                ok: function () {
+                    console.log("OK");
+                }
+                , sim: function () {
+                    console.log("Sim");
+                }
+                , nao: function () {
+                    console.log("Não");
+                }
+            }
+            Cxmsg.mostrar(config);
+            moveEstoque.classList.add("ocultarpopup");
+            carregarProdutos();
+        })
+        .catch((erro) => {
+            console.error("Erro ao atualizar quantidade:", erro);
+            const config = {
+                titulo: 'Erro',
+                texto: 'Erro ao atualizar quantidade, tente novamente mais tarde.',
+                cor: '#f00',
+                tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                ok: function () {
+                    console.log("OK");
+                }
+                , sim: function () {
+                    console.log("Sim");
+                }
+                , nao: function () {
+                    console.log("Não");
+                }
+            }
+            Cxmsg.mostrar(config);
+        }
+    );
+    limpar();
+    setTimeout(() => { //Não da tempo de carregar a lista antes de fechar a janela
+        carregarProdutos();
+    }, 500);
+    
 });
 
 
