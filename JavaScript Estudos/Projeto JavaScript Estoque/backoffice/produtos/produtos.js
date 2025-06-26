@@ -39,7 +39,6 @@ const f_qtderesprodmove = document.querySelector("#f_qtderesprodmove");
 
 //n = Novo colaboraodr | e = Editar Produto
 let modojanela = "n";
-let idsTelefones = [];
 let id = 0; // ID do Produto a ser editado
 const serv = sessionStorage.getItem("servidor_nodered");
 
