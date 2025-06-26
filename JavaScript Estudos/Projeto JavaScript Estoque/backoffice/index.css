@@ -1,33 +1,83 @@
-.topo{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #248;
-    color: #fff;
-    height: 30px;
+/* login.css */
+
+body {
+    background: #f4f6f8;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.logo{
+.login-container {
+    width: 350px;
+    margin: 80px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 40px 30px 30px 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.config{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.btn_menuprincipal{
-    fill: #fff;
-}
-.fprincipal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background-color: #ccc;
-    width: 100%;
-    height: 100vh;
-    
+    align-items: center;
 }
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #222;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;   
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border 0.2s;
+    width: 100%;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0078d4;
+    outline: none;
+}
+
+button {
+    background: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #005fa3;
+}
+
+.login-footer {
+    color: #000000;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+
+
+
