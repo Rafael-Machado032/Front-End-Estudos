@@ -13,10 +13,33 @@
 
 <body>
 
+    <div id="primeroacesso" class="popup ocultarpopup">
+        <div class="container">
+            <h1>Bem-vindo ao Estoque</h1>
+            <p>Você está acessando o sistema pela primeira vez. Por favor, crie uma senha para continuar.</p>
+            <div class="input-group">
+                <label for="f_novoemail">E-mail:</label>
+                <input type="email" id="f_novoemail" name="f_novoemail" required>
+            </div>
+            <div class="input-group">
+                <label for="f_novasenha">Senha:</label>
+                <input type="password" id="f_novasenha" name="f_novasenha" required>
+            </div>
+            <div class="input-group">
+                <label for="f_confirmarsenha">Confirmar Senha:</label>
+                <input type="password" id="f_confirmarsenha" name="f_confirmarsenha" required>
+            </div>
+            <p>Ao criar uma conta, você concorda com os <a href="#">Termos de Serviço</a> e a <a href="#">Política de Privacidade</a>.</p>
+            <button id="btn_aceitartermos">Aceitar e Criar Senha</button>
+            <button id="btn_cancelartermos">Cancelar</button>
+        </div>
+        
+    </div>
+
     <div id="login">
-        <div class="login-container">
+        <div class="container">
             <h1>Login</h1>
-            <form id="login-form" class="login-form">
+            
                 <div class="input-group">
                     <label for="username">Usuário:</label>
                     <input type="email" id="f_email" name="f_email" required>
@@ -26,7 +49,8 @@
                     <input type="password" id="f_senha" name="f_senha" required>
                 </div>
                 <button id="btn_login">Entrar</button>
-            </form>
+                
+            
         </div>
         <div class="login-footer">
             <p>&copy; 2025 Estoque. Todos os direitos reservados.</p>

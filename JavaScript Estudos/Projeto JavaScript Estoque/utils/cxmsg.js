@@ -40,7 +40,7 @@ class Cxmsg {
         const btn_fechar = document.createElement('img');
         btn_fechar.id = 'btn_fechar';
         btn_fechar.className = 'btn_fechar_cxmsg';
-        btn_fechar.src = '../../img/close.svg';
+        btn_fechar.src = '../img/close.svg';
         btn_fechar.alt = 'X de fechar';
         btn_fechar.title = 'Fechar';
         titulo_cxmsg.appendChild(btn_fechar);
