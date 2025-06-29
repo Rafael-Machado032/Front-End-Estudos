@@ -1,12 +1,13 @@
 import { Cxmsg } from "../utils/cxmsg.js";
 
 const primeroacesso = document.getElementById("primeroacesso");
+const f_idusuario = document.getElementById("f_idusuario");
 
 const f_email = document.getElementById("f_email");
 const f_senha = document.getElementById("f_senha");
 const f_novoemail = document.getElementById("f_novoemail");
 const f_novasenha = document.getElementById("f_novasenha");
-const f_confirmasenha = document.getElementById("f_confirmasenha");
+const f_confirmarsenha = document.getElementById("f_confirmarsenha");
 
 const btn_login = document.getElementById("btn_login");
 const btn_aceitartermos = document.getElementById("btn_aceitartermos");
@@ -21,7 +22,7 @@ const endpoint_config = '../config.json';
 fetch(endpoint_config)
     .then((response) => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error("A resposta da rede não foi bem-sucedida");
         }
         return response.json();
     })
@@ -49,10 +50,18 @@ btn_login.addEventListener("click", () => {
         }
 
 
-        const response = `${serv}/login/${email}/${senha}`;
-        fetch(response)
-            .then(res => {
-                if (res.status === 200) {
+        const endpoint_login = `${serv}/login/${email}/${senha}`;
+        fetch(endpoint_login)
+            .then((resposta) => {
+                if (!resposta.ok) {
+                    throw new Error("A resposta da rede não foi bem-sucedida");
+                }
+                return resposta.json();
+            })
+            .then((data) => {
+                console.log(data);
+
+                if (data[0].retorno === 200) {
                     const config = {
                         titulo: 'Aviso',
                         texto: 'Login realizado com sucesso!',
@@ -71,7 +80,7 @@ btn_login.addEventListener("click", () => {
                     Cxmsg.mostrar(config);
                     window.location.href = "./main.html";
 
-                } else if (res.status === 208) {
+                } else if (data[0].retorno === 208) {
                     const config = {
                         titulo: 'Erro',
                         texto: 'Senha incorreta!',
@@ -88,13 +97,33 @@ btn_login.addEventListener("click", () => {
                         }
                     }
                     Cxmsg.mostrar(config);
-                    
-                } else if (res.status === 205) {
-                    
+
+                } else if (data[0].retorno === 205) {
+
                     primeroacesso.classList.remove("ocultarpopup");
                     f_novoemail.value = email;
+                    f_idusuario.value = data[0].n_pessoa_pessoa; // Armazenando o ID do usuário para uso posterior
+                    console.log(`ID do usuário: ${f_idusuario.value}`);
+
+                } else if (data[0].retorno === 210) {
+                    const config = {
+                        titulo: 'Erro',
+                        texto: 'Email não encontrado!',
+                        cor: '#f00',
+                        tipo: 'ok', //"sn" para Sim e Não ou "ok" para apenas OK
+                        ok: function () {
+                            console.log("OK");
+                        }
+                        , sim: function () {
+                            console.log("Sim");
+                        }
+                        , nao: function () {
+                            console.log("Não");
+                        }
+                    }
+                    Cxmsg.mostrar(config);
                 }
-                
+
             });
     }
 
@@ -103,7 +132,46 @@ btn_login.addEventListener("click", () => {
 
 
 btn_aceitartermos.addEventListener("click", () => {
+    const email = f_novoemail.value;
+    const senha = f_novasenha.value;
+    const confirmasenha = f_confirmarsenha.value;
 
+    console.log(`Email: ${email}, Senha: ${senha}, Confirmar Senha: ${confirmasenha}`);
+
+
+    if (senha != confirmasenha) {
+        alert("As senhas não coincidem.");
+        return;
+    }
+
+    const endpoint_criarsenha = `${serv}/criarsenha/${email}/${senha}`;
+    fetch(endpoint_criarsenha)
+        .then(res => {
+            if (res.status === 200) {
+                const config = {
+                    titulo: 'Sucesso',
+                    texto: 'Senha criada com sucesso!',
+                    cor: 'green',
+                    tipo: 'ok',
+                    ok: function () {
+                        console.log("OK");
+                    }
+                }
+                Cxmsg.mostrar(config);
+                primeroacesso.classList.add("ocultarpopup");
+            } else {
+                const config = {
+                    titulo: 'Erro',
+                    texto: 'Erro ao criar senha.',
+                    cor: '#f00',
+                    tipo: 'ok',
+                    ok: function () {
+                        console.log("OK");
+                    }
+                }
+                Cxmsg.mostrar(config);
+            }
+        });
 });
 
 btn_cancelartermos.addEventListener("click", () => {
@@ -112,5 +180,5 @@ btn_cancelartermos.addEventListener("click", () => {
     f_senha.value = "";
     f_novoemail.value = "";
     f_novasenha.value = "";
-    f_confirmasenha.value = "";
+    f_confirmarsenha.value = "";
 });
