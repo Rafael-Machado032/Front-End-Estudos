@@ -123,10 +123,8 @@ btn_login.addEventListener("click", () => {
                     }
                     Cxmsg.mostrar(config);
                 }
-
             });
     }
-
 });
 
 
