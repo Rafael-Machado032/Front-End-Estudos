@@ -61,7 +61,7 @@ btn_login.addEventListener("click", () => {
             .then((data) => {
                 console.log(data);
 
-                if (data[0].retorno === 200) {
+                if (data.retorno === 200) {
                     const config = {
                         titulo: 'Aviso',
                         texto: 'Login realizado com sucesso!',
