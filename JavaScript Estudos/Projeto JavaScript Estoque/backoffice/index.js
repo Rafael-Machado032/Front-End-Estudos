@@ -78,8 +78,10 @@ btn_login.addEventListener("click", () => {
                         }
                     }
                     Cxmsg.mostrar(config);
-                    sessionStorage.setItem('id_usuario', data[0].n_pessoa_pessoa);
-                    sessionStorage.setItem('nome_usuario', data[0].s_nome_pessoa);
+                    sessionStorage.setItem('id_usuario', data.n_pessoa_pessoa);
+                    sessionStorage.setItem('nome_usuario', data.s_nome_pessoa);
+                    sessionStorage.setItem('id_token', data.insertId);
+                    sessionStorage.setItem('token', data.token);
                     window.location.href = "./main.html";
 
                 } else if (data[0].retorno === 208) {
