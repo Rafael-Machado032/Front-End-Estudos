@@ -1,5 +1,25 @@
 import { Cxmsg } from "../../utils/cxmsg.js";
 
+const serv = sessionStorage.getItem("servidor_nodered");
+const token = sessionStorage.getItem('token');
+const endpoint_token = `${serv}/verificatoken/${token}`;
+fetch(endpoint_token)
+    .then((res) => {
+        if (!res.ok) {
+            throw new Error("A resposta da rede não foi bem-sucedida");
+        }
+        return res.json();
+    })
+    .then((data) => {
+        
+        if (data[0].retorno === 200) {
+            console.log("Token válido");
+        } else {
+            console.log("Token inválido");
+            window.location.href = "../index.html";
+        }
+    });
+
 const dadosgrid = document.querySelector("#dadosgrid");
 const novocolaborador = document.querySelector("#novocolaborador");
 const img_foto = document.querySelector("#img_foto");
@@ -34,7 +54,6 @@ const f_pesq = document.querySelector("#f_pesq");
 let modojanela = "n";
 let idsTelefones = [];
 let id = 0; // ID do colaborador a ser editado
-const serv = sessionStorage.getItem("servidor_nodered");
 
 /**Funções */
 
@@ -185,6 +204,7 @@ const criarlinha = (colaborador) => {
         novocolaborador.classList.remove("ocultarpopup");
         id = colaborador.n_pessoa_pessoa;
         f_nome.value = colaborador.s_nome_pessoa;
+        f_email.value = colaborador.s_email_pessoa;
         f_tipo.value = colaborador.n_tipopessoa_tipopessoa;
         f_status.value = colaborador.c_status_pessoa;
         console.log("id do pessoa para editar: /n", id);

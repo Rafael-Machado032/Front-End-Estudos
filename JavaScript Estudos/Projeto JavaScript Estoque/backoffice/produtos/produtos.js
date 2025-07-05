@@ -1,5 +1,25 @@
 import { Cxmsg } from "../../utils/cxmsg.js";
 
+const serv = sessionStorage.getItem("servidor_nodered");
+const token = sessionStorage.getItem('token');
+const endpoint_token = `${serv}/verificatoken/${token}`;
+fetch(endpoint_token)
+    .then((res) => {
+        if (!res.ok) {
+            throw new Error("A resposta da rede não foi bem-sucedida");
+        }
+        return res.json();
+    })
+    .then((data) => {
+        
+        if (data[0].retorno === 200) {
+            console.log("Token válido");
+        } else {
+            console.log("Token inválido");
+            window.location.href = "../index.html";
+        }
+    });
+
 const dadosgrid = document.querySelector("#dadosgrid");
 const novoproduto = document.querySelector("#novoproduto");
 const pesquisa = document.querySelector("#pesquisa");
@@ -40,7 +60,7 @@ const f_qtderesprodmove = document.querySelector("#f_qtderesprodmove");
 //n = Novo colaboraodr | e = Editar Produto
 let modojanela = "n";
 let id = 0; // ID do Produto a ser editado
-const serv = sessionStorage.getItem("servidor_nodered");
+
 
 /**Funções */
 
