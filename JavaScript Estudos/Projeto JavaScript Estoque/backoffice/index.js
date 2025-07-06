@@ -184,3 +184,15 @@ btn_cancelartermos.addEventListener("click", () => {
     f_novasenha.value = "";
     f_confirmarsenha.value = "";
 });
+
+f_senha.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        document.getElementById('btn_login').click();
+    }
+});
+
+f_email.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        document.getElementById('btn_login').click();
+    }
+});

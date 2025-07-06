@@ -16,7 +16,7 @@ fetch(endpoint_token)
             console.log("Token válido");
         } else {
             console.log("Token inválido");
-            window.location.href = "../index.html";
+            window.top.location.href = "../index.html";
         }
     });
 
