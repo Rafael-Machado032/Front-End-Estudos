@@ -50,6 +50,13 @@
                     <input type="password" id="f_senha" name="f_senha" required>
                 </div>
                 <button id="btn_login">Entrar</button>
+                <script>
+                    document.getElementById('f_senha').addEventListener('keydown', function(event) {
+                        if (event.key === 'Enter') {
+                            document.getElementById('btn_login').click();
+                        }
+                    });
+                </script>
                 
             
         </div>
