@@ -12,10 +12,14 @@ fetch(endpoint_token)
     })
     .then((data) => {
         
-        if (data[0].retorno === 200) {
+        if (data.retorno === 200) {
             console.log("Token válido");
         } else {
             console.log("Token inválido");
+            sessionStorage.removeItem('id_usuario');
+            sessionStorage.removeItem('nome_usuario');
+            sessionStorage.removeItem('token');
+            sessionStorage.removeItem('id_token');
             window.top.location.href = "../index.html";
         }
     });
