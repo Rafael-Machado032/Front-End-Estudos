@@ -1,17 +1,115 @@
 "use strict";
-/*Para compilar automaticamente deve-se executar
-o comando `tsc --watch` no terminal, na pasta do projeto.*/
-// Para compilar uma vez, basta executar o comando `tsc`
-// Quando crio uma varialvel, o TypeScript já infere o tipo dela
-let nome_teste = "João"; // string
-let idade_teste = 30; // number
-let ativo_teste = true; // boolean
-// No JavaScript, não é necessário declarar o tipo da variável.
-// pois posso atribuir qualquer valor a ela depois, sendo string, number ou boolean.
-// No TypeScript, é possível declarar o tipo da variável explicitamente.
+let nome_teste = "João";
+let idade_teste = 30;
+let ativo_teste = true;
 let nome_teste2 = "João";
 let idade_teste2 = 30;
 let ativo_teste2 = true;
-// Se eu tentar atribuir um valor de tipo diferente, o TypeScript irá gerar um erro.
-// nome_teste2 = 30; // Erro: Type 'number' is not assignable to type 'string'.
-// No TypeScript não é possivel declarar uma variável com o mesmo nome de uma variável já declarada em outro arquivo.
+let id;
+id = "123";
+id = 123;
+let ids;
+ids = ["123", "456"];
+let ids2;
+ids2 = ["123", "456"];
+let ids3;
+ids3 = ["123", 123];
+let ids4;
+ids4 = ["123", 123];
+ids.push("789");
+ids.pop();
+ids.shift();
+ids.unshift("000");
+let pessoa;
+pessoa = ["João", 30, true];
+let pessoa2;
+pessoa2 = ["João", 30, true];
+pessoa2 = ["João", true, false];
+let pessoa3;
+pessoa3 = ["João"];
+pessoa3 = ["João", 30];
+pessoa3 = ["João", 30, true];
+let pessoa4;
+pessoa4 = { nome: "João", idade: 30, ativo: true };
+let pessoa5;
+pessoa5 = { nome: "João", idade: 30, ativo: true };
+pessoa5 = { nome: "João", idade: "30", ativo: true };
+let pessoa6;
+pessoa6 = { nome: "João" };
+pessoa6 = { nome: "João", idade: 30 };
+pessoa6 = { nome: "João", idade: 30, ativo: true };
+let pessoa7;
+pessoa7 = { nome: "João", idade: 30, ativo: true };
+pessoa7 = { nome: "João", idade: "30", ativo: true };
+pessoa7 = { nome: "João", idade: 30, ativo: true, extra: "extra" };
+var Status;
+(function (Status) {
+    Status["Ativo"] = "ativo";
+    Status["Inativo"] = "inativo";
+    Status["Pendente"] = "pendente";
+})(Status || (Status = {}));
+let status1;
+status1 = Status.Ativo;
+status1 = Status.Inativo;
+status1 = Status.Pendente;
+var StatusNumerico;
+(function (StatusNumerico) {
+    StatusNumerico[StatusNumerico["Ativo"] = 1] = "Ativo";
+    StatusNumerico[StatusNumerico["Inativo"] = 2] = "Inativo";
+    StatusNumerico[StatusNumerico["Pendente"] = 3] = "Pendente";
+})(StatusNumerico || (StatusNumerico = {}));
+let status2;
+status2 = StatusNumerico.Ativo;
+status2 = StatusNumerico.Inativo;
+status2 = StatusNumerico.Pendente;
+let valorNulo = null;
+let valorIndefinido = undefined;
+let valorDesconhecido;
+valorDesconhecido = "teste";
+valorDesconhecido = 123;
+valorDesconhecido = true;
+let valor = "teste";
+if (typeof valor === "string") {
+    let tamanho = valor.length;
+    console.log(tamanho);
+}
+if (typeof valor === "string") {
+    let tamanho = valor.length;
+    console.log(tamanho);
+}
+let nvalor2;
+let svalor2;
+let uvalor2;
+uvalor2 = 123;
+nvalor2 = uvalor2;
+svalor2 = uvalor2;
+function soma(a, b) {
+    return a + b;
+}
+function exibeMensagem(mensagem) {
+    console.log(mensagem);
+}
+let resultado = soma(10, 20);
+let resultado2 = soma(10, 20).toString();
+exibeMensagem("Olá, TypeScript!");
+function saudacao(nome, idade = 18) {
+    return `Olá, ${nome}! Você tem ${idade} anos.`;
+}
+console.log(saudacao("João"));
+console.log(saudacao("Maria", 25));
+function calcularArea(base, altura) {
+    if (altura === undefined) {
+        altura = base;
+    }
+    return base * altura;
+}
+console.log(calcularArea(5));
+console.log(calcularArea(5, 10));
+const soma1 = (a, b) => {
+    return a + b;
+};
+console.log(soma1(10, 20));
+function soma2(...numeros) {
+    return numeros.reduce((total, numAtual) => total + numAtual, 0);
+}
+console.log(soma2(10, 20, 30));

@@ -65,7 +65,7 @@
     // "noEmit": true,                                   /* Desabilita a emissão de arquivos a partir de uma compilação. */
     // "outFile": "./",                                  /* Especifica um arquivo que agrupa todas as saídas em um arquivo JavaScript. Se 'declaration' for true, também designa um arquivo que agrupa toda a saída .d.ts. */
     "outDir": "./build",    //Modificado build"          /* Especifica uma pasta de saída para todos os arquivos emitidos. */
-    // "removeComments": true,                           /* Desabilita a emissão de comentários. */
+    "removeComments": true,                           /* Desabilita a emissão de comentários. */
     // "importHelpers": true,                            /* Permite importar funções auxiliares do tslib uma vez por projeto, em vez de incluí-las por arquivo. */
     // "downlevelIteration": true,                       /* Emite JavaScript mais compatível, porém mais verboso e menos performático para iteração. */
     // "sourceRoot": "",                                 /* Especifica o caminho raiz para depuradores encontrarem o código fonte de referência. */
