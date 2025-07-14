@@ -113,3 +113,16 @@ function soma2(...numeros) {
     return numeros.reduce((total, numAtual) => total + numAtual, 0);
 }
 console.log(soma2(10, 20, 30));
+class Pessoa {
+    nome;
+    idade;
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+    apresentar() {
+        return `Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
+    }
+}
+const pessoa1 = new Pessoa("João", 30);
+console.log(pessoa1.apresentar());
