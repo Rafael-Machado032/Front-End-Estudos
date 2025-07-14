@@ -249,3 +249,25 @@ console.log(soma2(10, 20, 30)); // OK, a função com Rest Parameters é chamada
 // Se eu tentar passar um argumento de tipo diferente, o TypeScript irá gerar um erro.
 // soma2(10, "20", 30); // Erro: Argument of type 'string' is not assignable to parameter of type 'number'.
 
+/* POO Classe */
+
+// Programação Orientada a Objetos (POO) é um paradigma de programação que permite organizar o código em classes e objetos.
+// Classes são modelos que definem as propriedades e comportamentos de um objeto.
+// Objetos são instâncias de classes que possuem suas próprias propriedades e comportamentos.
+
+class Pessoa {
+  nome: string;
+  idade: number;
+
+  constructor(nome: string, idade: number) {
+    this.nome = nome;
+    this.idade = idade;
+  }
+
+  apresentar(): string {
+    return `Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
+  }
+}
+
+const pessoa1 = new Pessoa("João", 30);
+console.log(pessoa1.apresentar()); // OK, chama o método da classe

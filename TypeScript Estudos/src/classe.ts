@@ -1,5 +1,5 @@
 // Ao execultar o comando `tsc classe.ts` o arquivo `classe.js` será gerado
-// porem o arquivo gerado sera uma versão mais antiga do JavaScript
+
 
 
 class Curso {
