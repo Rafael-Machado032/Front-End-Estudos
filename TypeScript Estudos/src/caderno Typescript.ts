@@ -256,18 +256,58 @@ console.log(soma2(10, 20, 30)); // OK, a função com Rest Parameters é chamada
 // Objetos são instâncias de classes que possuem suas próprias propriedades e comportamentos.
 
 class Pessoa {
-  nome: string; // Propriedade serve para armazenar caractericas do objeto
-  idade: number;
+  private nome: string; // Propriedades são variáveis que pertencem a uma classe e definem o estado do objeto.
+  public idade: number; // Se não for especificado, o TypeScript assume que a propriedade é pública por padrão.
+  protected matricula: string; // Propriedades protegidas só podem ser acessadas dentro da classe e suas subclasses.
 
-  constructor(nome: string, idade: number) { //Construtor
+  constructor(nome: string, idade: number, matricula: string) { //Construtor serve para inicializar as propriedades do objeto
     this.nome = nome;
     this.idade = idade;
+    this.matricula = matricula;
   }
 
-  apresentar(): string { //
+  apresentar(): string { // Método serve para definir comportamentos do objeto.
     return `Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
   }
+  mudarNome(novoNome: string): void { // Método para mudar o nome da pessoa
+    this.nome = novoNome; // A palavra-chave `this` é usada para referenciar as propriedades e métodos da própria classe.
+  } // Void indica que o método não retorna nenhum valor.
+  getNome(): string { // Método getter para acessar o nome da pessoa
+    return this.nome; // Retorna o nome da pessoa
+  }
+
 }
 
-const pessoa1 = new Pessoa("João", 30);
-console.log(pessoa1.apresentar()); // OK, chama o método da classe.
+// A palavra-chave `private` é usada para declarar uma propriedade ou método que só pode ser acessado dentro da própria classe.
+// A palavra-chave `public` é usada para declarar uma propriedade ou método que pode ser acessado de qualquer lugar, tanto dentro da classe quanto fora dela.
+// A palavra-chave `protected` é usada para declarar uma propriedade ou método que só pode ser acessado dentro da própria classe e em subclasses, mas não fora delas.
+// A palavra-chave `readonly` é usada para declarar uma propriedade que não pode ser modificada após a inicialização, ou seja, é somente leitura.
+// A palavra-chave `static` é usada para declarar uma propriedade ou método que pertence à classe em si, e não a uma instância específica da classe.
+// Isso significa que uma propriedade ou método estático pode ser acessado diretamente pela classe, sem precisar criar uma instância da classe.
+
+const pessoa1 = new Pessoa("João", 30, "12345"); // A palavra-chave `new` é usada para criar uma nova instância da classe Pessoa.
+//console.log(pessoa1.nome); // Erro, a propriedade nome é privada e não pode ser acessada diretamente fora da classe.
+console.log(pessoa1.idade); // OK, acessa a propriedade idade do objeto pessoa1
+console.log(pessoa1.apresentar()); // OK, chama o método apresentar do objeto pessoa1
+console.log(pessoa1.getNome()); // OK, chama o método getter getNome do objeto pessoa1
+pessoa1.mudarNome("Maria"); // OK, chama o método mudarNome do objeto pessoa1
+//pessoa1.matricula = "67890"; // Erro, a propriedade matricula é protegida e não pode ser acessada diretamente fora da classe.
+console.log(pessoa1.apresentar()); // OK, chama o método apresentar do objeto pessoa1 novamente, agora com o novo nome
+
+/* Herança */
+// Herança é um recurso da POO que permite criar uma nova classe baseada em uma classe existente.
+// A nova classe herda as propriedades e métodos da classe base, podendo adicionar novas propriedades e métodos ou sobrescrever os existentes.
+// A palavra-chave `extends` é usada para indicar que uma classe herda de outra classe.
+
+class Aluno extends Pessoa { // A classe Aluno herda da classe Pessoa
+  private curso: string; // Propriedade específica da classe Aluno
+
+  constructor(nome: string, idade: number, matricula: string, curso: string) {
+    super(nome, idade, matricula); // A palavra-chave `super` é usada para chamar o construtor da classe base e acessar métodos ou propriedades da classe base.
+    this.curso = curso;
+  }
+
+  apresentar(): string {
+    return `${super.apresentar()} Estou cursando ${this.curso}.`;
+  }
+}
