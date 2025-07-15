@@ -116,13 +116,35 @@ console.log(soma2(10, 20, 30));
 class Pessoa {
     nome;
     idade;
-    constructor(nome, idade) {
+    matricula;
+    constructor(nome, idade, matricula) {
         this.nome = nome;
         this.idade = idade;
+        this.matricula = matricula;
     }
     apresentar() {
         return `Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
     }
+    mudarNome(novoNome) {
+        this.nome = novoNome;
+    }
+    getNome() {
+        return this.nome;
+    }
 }
-const pessoa1 = new Pessoa("João", 30);
+const pessoa1 = new Pessoa("João", 30, "12345");
+console.log(pessoa1.idade);
 console.log(pessoa1.apresentar());
+console.log(pessoa1.getNome());
+pessoa1.mudarNome("Maria");
+console.log(pessoa1.apresentar());
+class Aluno extends Pessoa {
+    curso;
+    constructor(nome, idade, matricula, curso) {
+        super(nome, idade, matricula);
+        this.curso = curso;
+    }
+    apresentar() {
+        return `${super.apresentar()} Estou cursando ${this.curso}.`;
+    }
+}
