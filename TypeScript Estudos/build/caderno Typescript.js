@@ -148,3 +148,74 @@ class Aluno extends Pessoa {
         return `${super.apresentar()} Estou cursando ${this.curso}.`;
     }
 }
+class Conta {
+    numero;
+    titular;
+    saldoconta;
+    constructor(titular) {
+        this.numero = this.gerarNumeroConta();
+        this.titular = titular;
+        this.saldoconta = 0;
+    }
+    gerarNumeroConta() {
+        return Math.floor(Math.random() * 1000000);
+    }
+    info() {
+        console.log(`Conta número: ${this.numero}, Titular: ${this.titular}`);
+    }
+    saldo() {
+        return this.saldoconta;
+    }
+    depositar(valor) {
+        if (valor > 0) {
+            this.saldoconta += valor;
+            console.log(`Depósito de R$${valor} realizado com sucesso!`);
+        }
+        else {
+            console.log("Valor inválido para depósito.");
+        }
+    }
+    sacar(valor) {
+        if (valor > 0 && valor <= this.saldoconta) {
+            this.saldoconta -= valor;
+            console.log(`Saque de R$${valor} realizado com sucesso!`);
+        }
+        else {
+            console.log("Valor inválido para saque ou saldo insuficiente.");
+        }
+    }
+}
+class ContaPF extends Conta {
+    cpf;
+    constructor(titular, cpf, saldo = 0) {
+        super(titular);
+        this.cpf = cpf;
+    }
+    info() {
+        super.info();
+        return `CPF: ${this.cpf}`;
+    }
+    depositar(valor) {
+        super.depositar(valor);
+    }
+    sacar(valor) {
+        super.sacar(valor);
+    }
+}
+class ContaPJ extends Conta {
+    cnpj;
+    constructor(titular, cnpj) {
+        super(titular);
+        this.cnpj = cnpj;
+    }
+    info() {
+        super.info();
+        return `CNPJ: ${this.cnpj}`;
+    }
+}
+const conta1 = new ContaPF("João", "123.456.789-00");
+console.log(conta1.info());
+const conta2 = new ContaPJ("Maria", "12.345.1234.5678");
+console.log(conta2.info());
+conta1.info();
+conta2.info();

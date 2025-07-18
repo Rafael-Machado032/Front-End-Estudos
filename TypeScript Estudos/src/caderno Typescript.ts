@@ -311,3 +311,92 @@ class Aluno extends Pessoa { // A classe Aluno herda da classe Pessoa
     return `${super.apresentar()} Estou cursando ${this.curso}.`;
   }
 }
+
+//Ex2:
+class Conta{
+  public numero: number;
+  public titular: string;
+  private saldoconta: number; // Propriedade privada para armazenar o saldo da conta
+
+  constructor(titular: string) {
+    this.numero = this.gerarNumeroConta(); // Gera um número de conta aleatório
+    this.titular = titular;
+    this.saldoconta = 0; // Inicializa o saldo da conta como zero
+  }
+
+  private gerarNumeroConta():number {
+    return Math.floor(Math.random() * 1000000); // Gera um número de conta aleatório
+  }
+
+  protected info(): void {
+    
+    console.log(`Conta número: ${this.numero}, Titular: ${this.titular}`);
+  }
+
+  public saldo(): number {
+    return this.saldoconta; // Método público para acessar o saldo da conta
+  }
+
+  protected depositar(valor: number): void {
+    if (valor > 0) {
+      this.saldoconta += valor; // Adiciona o valor ao saldo da conta
+      console.log(`Depósito de R$${valor} realizado com sucesso!`);
+    } else {
+      console.log("Valor inválido para depósito.");
+    }
+  }
+
+  protected sacar(valor: number): void {
+    if (valor > 0 && valor <= this.saldoconta) {
+      this.saldoconta -= valor; // Subtrai o valor do saldo da conta
+      console.log(`Saque de R$${valor} realizado com sucesso!`);
+    } else {
+      console.log("Valor inválido para saque ou saldo insuficiente.");
+    }
+  }
+}
+
+class ContaPF extends Conta {
+  private cpf: string;
+
+  constructor(titular: string, cpf: string, saldo: number = 0) {
+    super(titular); // Chama o construtor da classe base Conta
+    this.cpf = cpf;
+  }
+
+  public info(): string { // Método getter para acessar o CPF do titular
+    
+    super.info(); // Chama o método info da classe base Conta
+    return `CPF: ${this.cpf}`;
+  }
+
+  public depositar(valor: number): void {
+    super.depositar(valor); // Chama o método depositar da classe base Conta
+  }
+
+  public sacar(valor: number): void {
+    super.sacar(valor); // Chama o método sacar da classe base Conta
+  }
+}
+
+class ContaPJ extends Conta {
+  private cnpj: string;
+
+  constructor(titular: string, cnpj: string) {
+    super(titular); // Chama o construtor da classe base Conta
+    this.cnpj = cnpj;
+  }
+
+  public info(): string { // Método getter para acessar o CNPJ do titular
+    
+    super.info(); // Chama o método info da classe base Conta
+    return `CNPJ: ${this.cnpj}`; // Retorna o CNPJ do titular
+  }
+}
+
+const conta1 = new ContaPF("João", "123.456.789-00");
+console.log(conta1.info()); // OK, chama o método info da classe ContaPF
+const conta2 = new ContaPJ("Maria", "12.345.1234.5678");
+console.log(conta2.info()); // OK, chama o método info da classe ContaPJ
+conta1.info(); // OK, chama o método info da classe base Conta
+conta2.info(); // OK, chama o método info da classe base Conta
