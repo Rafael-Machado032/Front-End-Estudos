@@ -313,9 +313,10 @@ class Aluno extends Pessoa { // A classe Aluno herda da classe Pessoa
 }
 
 //Ex2:
-class Conta{
-  public numero: number;
-  public titular: string;
+abstract class Conta{ // Classe abstrata Conta, que serve como base para outras classes de conta
+  // Classes abstratas não podem ser instanciadas diretamente, mas podem ser estendidas.
+  private readonly numero: number; // "readonly" Propriedade somente leitura
+  protected titular: string;
   private saldoconta: number; // Propriedade privada para armazenar o saldo da conta
 
   constructor(titular: string) {
@@ -332,10 +333,22 @@ class Conta{
     
     console.log(`Conta número: ${this.numero}, Titular: ${this.titular}`);
   }
-
-  public saldo(): number {
+  // Método público para acessar as informações da conta
+  get saldo(): number {  // Método getter para acessar o saldo da conta e não precisa ser chamado com parênteses pois vira uma propriedade
     return this.saldoconta; // Método público para acessar o saldo da conta
   }
+
+  set saldo(valor: number) { // Método setter para definir o saldo da conta
+    if (valor >= 0) {
+      this.saldoconta = valor; // Define o saldo da conta
+    } else {
+      console.log("Valor inválido para o saldo da conta.");
+    }
+  }
+  // Métodos protegidos para depositar e sacar valores da conta
+  // Esses métodos só podem ser acessados dentro da classe Conta e suas subclasses.
+  // Isso significa que não podem ser acessados diretamente fora da classe Conta.
+  // Isso é útil para garantir que o saldo da conta só possa ser modificado por meio
 
   protected depositar(valor: number): void {
     if (valor > 0) {
@@ -356,7 +369,13 @@ class Conta{
   }
 }
 
-class ContaPF extends Conta {
+interface Tributos {
+  baseCalculo: number; // Propriedade para a base de cálculo do imposto
+  calcularImposto(taxa: number): number; // Método para calcular o imposto
+}
+
+class ContaPF extends Conta implements Tributos { // A classe ContaPF herda da classe Conta e implementa a interface Tributos
+  baseCalculo = 0; // Propriedade para a base de cálculo do imposto
   private cpf: string;
 
   constructor(titular: string, cpf: string, saldo: number = 0) {
@@ -365,7 +384,6 @@ class ContaPF extends Conta {
   }
 
   public info(): string { // Método getter para acessar o CPF do titular
-    
     super.info(); // Chama o método info da classe base Conta
     return `CPF: ${this.cpf}`;
   }
@@ -377,6 +395,12 @@ class ContaPF extends Conta {
   public sacar(valor: number): void {
     super.sacar(valor); // Chama o método sacar da classe base Conta
   }
+
+  public calcularImposto(taxa: number): number { // Método para calcular o imposto
+    this.baseCalculo = this.saldo; // Define a base de cálculo como o saldo da conta
+    return this.baseCalculo * taxa; // Retorna o valor do imposto calculado
+  }
+
 }
 
 class ContaPJ extends Conta {
@@ -392,6 +416,13 @@ class ContaPJ extends Conta {
     super.info(); // Chama o método info da classe base Conta
     return `CNPJ: ${this.cnpj}`; // Retorna o CNPJ do titular
   }
+  public depositar(valor: number): void {
+    super.depositar(valor); // Chama o método depositar da classe base Conta
+  }
+
+  public sacar(valor: number): void {
+    super.sacar(valor); // Chama o método sacar da classe base Conta
+  }
 }
 
 const conta1 = new ContaPF("João", "123.456.789-00");
@@ -400,3 +431,105 @@ const conta2 = new ContaPJ("Maria", "12.345.1234.5678");
 console.log(conta2.info()); // OK, chama o método info da classe ContaPJ
 conta1.info(); // OK, chama o método info da classe base Conta
 conta2.info(); // OK, chama o método info da classe base Conta
+
+
+conta1.depositar(1000); // OK, chama o método depositar da classe ContaPF
+conta2.depositar(2000); // OK, chama o método depositar da classe ContaPJ
+conta1.saldo = 500; // SET OK, usa o setter para definir o saldo da conta de João
+conta2.saldo = 1000; // SET OK, usa o setter para definir o saldo da conta de Maria
+console.log(`Saldo da conta de ${conta1.info()}: R$${conta1.saldo}`); //GET OK, acessa o saldo da conta de João
+console.log(`Saldo da conta de ${conta2.info()}: R$${conta2.saldo}`); //GET OK, acessa o saldo da conta de Maria
+
+/* Objetos Literiais*/
+// Objetos literais são uma forma de criar objetos diretamente, sem a necessidade de definir uma classe.
+
+interface Cursos { // Declara uma interface Cursos
+  // A interface define a estrutura de um objeto, ou seja, quais propriedades e tipos ele deve ter.
+  // É uma forma de garantir que um objeto tenha uma estrutura específica.
+  titulo: string;
+  duracao: number;
+  ativo: boolean;
+  maximoAlunos?: number; // Propriedade opcional, indicada pelo "?".
+  iniciarCurso?(teste:string): void; // Método que deve ser implementado por qualquer objeto que implemente a interface Cursos
+};
+
+interface cursoProg extends Cursos { // Declara uma interface que estende a interface Cursos
+  // A interface cursoProg herda todas as propriedades e métodos da interface Cursos.
+  // Isso significa que qualquer objeto que implemente a interface cursoProg deve ter todas as propriedades
+  // e métodos da interface Cursos, além de poder adicionar novas propriedades e métodos.
+  programa: string; // Propriedade específica da interface cursoProg
+  // A interface cursoProg pode ser usada para criar objetos que representam cursos de programação,
+  // garantindo que eles tenham todas as propriedades e métodos da interface Cursos, além de ter a
+  // propriedade programa.
+};
+
+let curso1: cursoProg; // Declara uma variável do tipo Cursos
+let curso2: cursoProg; // Declara outra variável do tipo Cursos
+
+
+
+curso1 = {
+  titulo: "Curso de TypeScript",
+  duracao: 30,
+  ativo: true,
+  programa: "TypeScript",
+  iniciarCurso: (teste: string) => {
+    console.log(`Iniciando o curso: ${teste}`);
+  },
+};
+
+curso2 = {
+  titulo: "Curso de JavaScript",
+  duracao: 40,
+  ativo: false,
+  maximoAlunos: 100,
+  programa: "JavaScript",
+};
+
+/** Generic Types */
+// Generics são uma forma de criar funções e classes que podem trabalhar com diferentes tipos de dados
+// sem precisar duplicar o código para cada tipo específico.
+
+function exibirDados<T>(dados: T): T {// Função genérica que aceita um parâmetro de tipo genérico T
+  // O tipo genérico T pode ser qualquer tipo, como string, number, boolean, ou até mesmo objetos complexos.
+  //O T pode ser substuiido por qualquer letra, mas é comum usar T para indicar que é um tipo genérico.
+  return dados; // Retorna os dados recebidos como parâmetro
+}
+function exibirDados2<T, U>(dados: T, r: U): U { // Outra função genérica com dois parâmetros de tipos genéricos T e U
+  // Essa função aceita dois parâmetros, um do tipo T e outro do tipo U, e retorna o segundo parâmetro do tipo U.
+  // Isso permite que a função trabalhe com dois tipos diferentes de dados.
+  // O T e U podem ser substituídos por qualquer letra,
+  // mas é comum usar T e U para indicar que são tipos genéricos.
+  return r; 
+}
+
+console.log(exibirDados<string>("Olá, TypeScript!")); //Na chamada da função exibirDados, o tipo genérico T é substituído por string.
+console.log(exibirDados<number>(123));
+console.log(exibirDados2<boolean, boolean>(true, false));//Obrigado usar 2 tipos de parametros, o TypeScript consegue inferir os tipos corretos para T e U.
+
+class Caixa<T> {
+  private conteudo: T;
+
+  constructor(conteudo: T) {
+    this.conteudo = conteudo;
+  }
+
+  public obterConteudo(): T {
+    return this.conteudo;
+  }
+}
+
+const caixaString = new Caixa<string>("Texto dentro da caixa");
+const caixaNumero = new Caixa<number>(12345);
+
+/*Módulos e Importação */
+// Módulos são uma forma de organizar o código em arquivos separados, permitindo que possamos dividir o código em partes menores e reutilizáveis.
+// No TypeScript, podemos usar a palavra-chave `export` para exportar uma classe, função ou variável de um módulo, 
+// e a palavra-chave `import` para importar uma classe, função ou variável de outro módulo.
+
+
+
+
+
+
+

@@ -163,8 +163,16 @@ class Conta {
     info() {
         console.log(`Conta número: ${this.numero}, Titular: ${this.titular}`);
     }
-    saldo() {
+    get saldo() {
         return this.saldoconta;
+    }
+    set saldo(valor) {
+        if (valor >= 0) {
+            this.saldoconta = valor;
+        }
+        else {
+            console.log("Valor inválido para o saldo da conta.");
+        }
     }
     depositar(valor) {
         if (valor > 0) {
@@ -186,6 +194,7 @@ class Conta {
     }
 }
 class ContaPF extends Conta {
+    baseCalculo = 0;
     cpf;
     constructor(titular, cpf, saldo = 0) {
         super(titular);
@@ -201,6 +210,10 @@ class ContaPF extends Conta {
     sacar(valor) {
         super.sacar(valor);
     }
+    calcularImposto(taxa) {
+        this.baseCalculo = this.saldo;
+        return this.baseCalculo * taxa;
+    }
 }
 class ContaPJ extends Conta {
     cnpj;
@@ -212,6 +225,12 @@ class ContaPJ extends Conta {
         super.info();
         return `CNPJ: ${this.cnpj}`;
     }
+    depositar(valor) {
+        super.depositar(valor);
+    }
+    sacar(valor) {
+        super.sacar(valor);
+    }
 }
 const conta1 = new ContaPF("João", "123.456.789-00");
 console.log(conta1.info());
@@ -219,3 +238,49 @@ const conta2 = new ContaPJ("Maria", "12.345.1234.5678");
 console.log(conta2.info());
 conta1.info();
 conta2.info();
+conta1.depositar(1000);
+conta2.depositar(2000);
+conta1.saldo = 500;
+conta2.saldo = 1000;
+console.log(`Saldo da conta de ${conta1.info()}: R$${conta1.saldo}`);
+console.log(`Saldo da conta de ${conta2.info()}: R$${conta2.saldo}`);
+;
+;
+let curso1;
+let curso2;
+curso1 = {
+    titulo: "Curso de TypeScript",
+    duracao: 30,
+    ativo: true,
+    programa: "TypeScript",
+    iniciarCurso: (teste) => {
+        console.log(`Iniciando o curso: ${teste}`);
+    },
+};
+curso2 = {
+    titulo: "Curso de JavaScript",
+    duracao: 40,
+    ativo: false,
+    maximoAlunos: 100,
+    programa: "JavaScript",
+};
+function exibirDados(dados) {
+    return dados;
+}
+function exibirDados2(dados, r) {
+    return r;
+}
+console.log(exibirDados("Olá, TypeScript!"));
+console.log(exibirDados(123));
+console.log(exibirDados2(true, false));
+class Caixa {
+    conteudo;
+    constructor(conteudo) {
+        this.conteudo = conteudo;
+    }
+    obterConteudo() {
+        return this.conteudo;
+    }
+}
+const caixaString = new Caixa("Texto dentro da caixa");
+const caixaNumero = new Caixa(12345);
