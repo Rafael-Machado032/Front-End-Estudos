@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 let nome_teste = "João";
 let idade_teste = 30;
 let ativo_teste = true;
@@ -284,3 +285,9 @@ class Caixa {
 }
 const caixaString = new Caixa("Texto dentro da caixa");
 const caixaNumero = new Caixa(12345);
+const modulo_1 = require("./modulo");
+const p1 = new modulo_1.PessoaModel("João", 1.75, 30);
+const p2 = new modulo_1.PessoaModel2("Maria", 1.65, 25);
+console.log(p1.nome);
+console.log(p1.altura);
+console.log(p2.idade);

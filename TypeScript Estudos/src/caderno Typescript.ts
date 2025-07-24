@@ -243,7 +243,7 @@ console.log(soma1(10, 20)); // OK, a função anônima é chamada com os tipos c
 // É útil quando queremos criar uma função que pode receber um número indefinido de argumentos.
 function soma2(...numeros: number[]): number { // Parâmetro rest, que aceita um número variável de argumentos do tipo number
   return numeros.reduce((total, numAtual) => total + numAtual, 0); // Soma todos os números passados como argumentos
-// O método `reduce` é usado para iterar sobre o array de números e somar todos os valores, começando com um acumulador inicial de 0.
+  // O método `reduce` é usado para iterar sobre o array de números e somar todos os valores, começando com um acumulador inicial de 0.
 }
 console.log(soma2(10, 20, 30)); // OK, a função com Rest Parameters é chamada com os tipos corretos
 // Se eu tentar passar um argumento de tipo diferente, o TypeScript irá gerar um erro.
@@ -313,7 +313,7 @@ class Aluno extends Pessoa { // A classe Aluno herda da classe Pessoa
 }
 
 //Ex2:
-abstract class Conta{ // Classe abstrata Conta, que serve como base para outras classes de conta
+abstract class Conta { // Classe abstrata Conta, que serve como base para outras classes de conta
   // Classes abstratas não podem ser instanciadas diretamente, mas podem ser estendidas.
   private readonly numero: number; // "readonly" Propriedade somente leitura
   protected titular: string;
@@ -325,12 +325,12 @@ abstract class Conta{ // Classe abstrata Conta, que serve como base para outras 
     this.saldoconta = 0; // Inicializa o saldo da conta como zero
   }
 
-  private gerarNumeroConta():number {
+  private gerarNumeroConta(): number {
     return Math.floor(Math.random() * 1000000); // Gera um número de conta aleatório
   }
 
   protected info(): void {
-    
+
     console.log(`Conta número: ${this.numero}, Titular: ${this.titular}`);
   }
   // Método público para acessar as informações da conta
@@ -412,7 +412,7 @@ class ContaPJ extends Conta {
   }
 
   public info(): string { // Método getter para acessar o CNPJ do titular
-    
+
     super.info(); // Chama o método info da classe base Conta
     return `CNPJ: ${this.cnpj}`; // Retorna o CNPJ do titular
   }
@@ -450,7 +450,7 @@ interface Cursos { // Declara uma interface Cursos
   duracao: number;
   ativo: boolean;
   maximoAlunos?: number; // Propriedade opcional, indicada pelo "?".
-  iniciarCurso?(teste:string): void; // Método que deve ser implementado por qualquer objeto que implemente a interface Cursos
+  iniciarCurso?(teste: string): void; // Método que deve ser implementado por qualquer objeto que implemente a interface Cursos
 };
 
 interface cursoProg extends Cursos { // Declara uma interface que estende a interface Cursos
@@ -500,7 +500,7 @@ function exibirDados2<T, U>(dados: T, r: U): U { // Outra função genérica com
   // Isso permite que a função trabalhe com dois tipos diferentes de dados.
   // O T e U podem ser substituídos por qualquer letra,
   // mas é comum usar T e U para indicar que são tipos genéricos.
-  return r; 
+  return r;
 }
 
 console.log(exibirDados<string>("Olá, TypeScript!")); //Na chamada da função exibirDados, o tipo genérico T é substituído por string.
@@ -527,7 +527,15 @@ const caixaNumero = new Caixa<number>(12345);
 // No TypeScript, podemos usar a palavra-chave `export` para exportar uma classe, função ou variável de um módulo, 
 // e a palavra-chave `import` para importar uma classe, função ou variável de outro módulo.
 
+import { PessoaModel, PessoaModel2 } from "./modulo"; // Importa 2 classes do módulo modulo.ts
+//import PessoaModel from "./modulo"; // Importa a classe PessoaModel como exportação padrão do módulo modulo.ts
 
+const p1 = new PessoaModel("João", 1.75, 30); // Importa a classe PessoaModel do módulo modulo.ts
+const p2 = new PessoaModel2("Maria", 1.65, 25); // Importa a classe PessoaModel2 do módulo modulo.ts
+
+console.log(p1.nome); // Acessa a propriedade nome da instância p1
+console.log(p1.altura); // Acessa a propriedade altura da instância p1
+console.log(p2.idade); // Acessa a propriedade idade da instância p1
 
 
 
