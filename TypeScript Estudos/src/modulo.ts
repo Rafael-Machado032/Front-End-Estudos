@@ -136,3 +136,33 @@ carro1.desligarMotor(); // Desliga o motor do carro esportivo
 console.log(carro1.estouLigado); // Verifica se o motor do carro esportivo está desligado
 console.log(carro1.potenciaMotor); // Exibe a potência do motor do carro esportivo após desligar
 
+//Static
+
+export abstract class Globais {
+    public static readonly PI = 3.14159;
+    public static readonly VELOCIDADE_LUZ = 299792458; // em metros por segundo
+    public static readonly GRAVIDADE = 9.80665; // em metros por segundo ao quadrado
+    public static teste:number = 0;
+    public static ateste: number[] = [];
+    public static objeto = {
+        nome: "Rafarl",
+        email: "rafael@rafael.com"
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -291,5 +291,23 @@ const p2 = new modulo_1.PessoaModel2("Maria", 1.65, 25);
 console.log(p1.nome);
 console.log(p1.altura);
 console.log(p2.idade);
-let aa, bb, cc, dd;
+const modulo_2 = require("./modulo");
+modulo_2.Globais.teste = 10;
 let av = [10, 20, 30, 40];
+let [aa, bb, cc, dd] = av;
+const obj = {
+    cor1: "verde",
+    cor2: "azul",
+    cor3: "vermelho",
+    cor4: "amarelo"
+};
+let { cor1, cor2, cor3, cor4 } = obj;
+let [nu1 = 0, nu2 = 0, nu3 = 0, nu4 = 0] = [10];
+let [n1, n2, ...nt] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+const fcores = () => {
+    return ["Verde", "Amarelo", "Azul", "Branco"];
+};
+let [co1, co2, co3, co4] = fcores();
+let texto = "Curso de Typescript";
+let [...t] = texto.split(" ");
+let [pa1, pa2, pa3] = texto.split(" ");
