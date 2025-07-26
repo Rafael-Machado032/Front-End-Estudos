@@ -537,9 +537,44 @@ console.log(p1.nome); // Acessa a propriedade nome da instância p1
 console.log(p1.altura); // Acessa a propriedade altura da instância p1
 console.log(p2.idade); // Acessa a propriedade idade da instância p1
 
-/* Destruturação */
+import { Globais } from "./modulo"; // Importa a classe Globais do módulo modulo.ts
 
-let aa,bb,cc,dd;
-let av = [10,20,30,40]
+Globais.teste = 10;
+
+
+/* Desestruturação */
+// É a distribuição de valores de um array para variaveis unicos
+let av = [10, 20, 30, 40] // Array com 4 elementos
+let [aa, bb, cc, dd] = av // Desestruturação do array em 4 variáveis
+
+//Ex2:
+
+const obj = {
+  cor1: "verde",
+  cor2: "azul",
+  cor3: "vermelho",
+  cor4: "amarelo"
+}
+
+let { cor1, cor2, cor3, cor4 } = obj
+
+//Ex3:
+let [nu1 = 0, nu2 = 0, nu3 = 0, nu4 = 0] = [10] //Desestrutura na primeira posição
+
+let [n1, n2, ...nt] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+//"n1" recebe o primeiro posição, "n2" recebe a segunda posição e o "nt" resebe o restante dos valores.
+
+const fcores = () => {
+  return ["Verde", "Amarelo", "Azul", "Branco"]
+}
+
+let [co1,co2,co3,co4] = fcores();
+
+let texto = "Curso de Typescript"
+
+let [...t] = texto.split(" "); //O t vira um array com 3 palavras
+let [pa1,pa2,pa3] = texto.split(" "); // Desestruturação do texto em 3 variáveis
+
+
 
 

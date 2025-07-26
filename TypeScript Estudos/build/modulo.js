@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PessoaModel2 = exports.PessoaModel = void 0;
+exports.Globais = exports.PessoaModel2 = exports.PessoaModel = void 0;
 class PessoaModel {
     nome;
     altura;
@@ -121,3 +121,15 @@ console.log(carro1.potenciaMotor);
 carro1.desligarMotor();
 console.log(carro1.estouLigado);
 console.log(carro1.potenciaMotor);
+class Globais {
+    static PI = 3.14159;
+    static VELOCIDADE_LUZ = 299792458;
+    static GRAVIDADE = 9.80665;
+    static teste = 0;
+    static ateste = [];
+    static objeto = {
+        nome: "Rafarl",
+        email: "rafael@rafael.com"
+    };
+}
+exports.Globais = Globais;
