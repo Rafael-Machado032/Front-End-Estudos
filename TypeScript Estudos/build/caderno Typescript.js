@@ -291,3 +291,5 @@ const p2 = new modulo_1.PessoaModel2("Maria", 1.65, 25);
 console.log(p1.nome);
 console.log(p1.altura);
 console.log(p2.idade);
+let aa, bb, cc, dd;
+let av = [10, 20, 30, 40];
