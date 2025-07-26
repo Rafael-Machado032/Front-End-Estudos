@@ -537,7 +537,9 @@ console.log(p1.nome); // Acessa a propriedade nome da instância p1
 console.log(p1.altura); // Acessa a propriedade altura da instância p1
 console.log(p2.idade); // Acessa a propriedade idade da instância p1
 
+/* Destruturação */
 
-
+let aa,bb,cc,dd;
+let av = [10,20,30,40]
 
 
