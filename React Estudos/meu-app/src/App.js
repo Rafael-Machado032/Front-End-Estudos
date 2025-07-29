@@ -1,4 +1,4 @@
-
+import Led from './componentes/Led';
 import Header from './componentes/Header';
 import Corpo from './componentes/Corpo'; // Importando o componente Corpo
 import './App.css'; // Importando o CSS do App 
@@ -12,6 +12,7 @@ export default function App() {
     <> {/* Importando o componentes */}
       <Header />
       <Corpo />
+      <Led />
       
       {/* <Dados nome="Rafael" curso="React" ano={2023} /> */}
       {/* Exemplo de como passar props para o componente Dados */}
