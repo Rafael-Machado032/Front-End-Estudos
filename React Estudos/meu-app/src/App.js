@@ -1,9 +1,17 @@
-import React from 'react'; // Importando o React
+import React, { useEffect } from 'react'; // Importando o React
 import Led from './componentes/Led';
 import Header from './componentes/Header';
 import Corpo from './componentes/Corpo'; // Importando o componente Corpo
 import './App.css'; // Importando o CSS do App 
 // Se importar o CSS do App, ele será aplicado a todos os componentes
+import Nota from './componentes/Nota'; // Importando o componente Nota
+import Resultado from './componentes/Resultado'; // Importando o componente Resultado
+import Caixa from './componentes/Caixa';
+
+
+
+
+
 
 export default function App() {
 
@@ -52,6 +60,35 @@ export default function App() {
     senha: '',
   });
 
+  const [nota1, setNota1] = React.useState(0);
+  const [nota2, setNota2] = React.useState(0);
+  const [nota3, setNota3] = React.useState(0);
+  const [nota4, setNota4] = React.useState(0);
+
+  const [contagem, setContagem] = React.useState(0);
+  useEffect(() => {
+    console.log('O componente App foi montado');
+  }); // useEffect é um hook que permite executar quando o componente é montado ou atualizado
+
+
+  localStorage.setItem('nome', 'Rafael'); // Armazenando um valor no localStorage
+  localStorage.getItem('nome'); // Recuperando o valor do localStorage
+  localStorage.removeItem('nome'); // Removendo o valor do localStorage
+
+  const [nomeArmazenado, setNomeArmazenado] = React.useState(''); // Estado para armazenar o nome a ser salvo no localStorage
+  const armazenar = (chave,valor) => {
+    localStorage.setItem(chave, valor); // Função para armazenar um valor no localStorage
+  }
+
+  const consultar = (chave) => {
+    alert(localStorage.getItem(chave)); // Função para consultar um valor no localStorage
+  }
+
+  const apagar = (chave) => {
+    localStorage.removeItem(chave); // Função para apagar um valor do localStorage
+  }
+
+
   return (
 
     <> {/* Importando o componentes */}
@@ -60,6 +97,7 @@ export default function App() {
       <Header />
       <Corpo />
       <Led />
+
       {cumprimento()}
       <button onClick={() => setLog(!log)}>{log ? 'Logout' : 'Login'}</button>
       {msglogin()}
@@ -100,6 +138,30 @@ export default function App() {
       <p>Nome: {formulario.nome}</p>
       <p>Email: {formulario.email}</p>
       <p>Senha: {formulario.senha}</p>
+
+      <Nota numero={1} nota={nota1} setNota={setNota1} />
+      <Nota numero={2} nota={nota2} setNota={setNota2} />
+      <Nota numero={3} nota={nota3} setNota={setNota3} />
+      <Nota numero={4} nota={nota4} setNota={setNota4} />
+      <Resultado somaNotas={parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4)} />
+    
+      <Caixa site="https://www.meusite.com">
+        <h1>Caixa de Conteúdo</h1>
+        <p>Este é um exemplo de como usar o componente Caixa.</p>
+      </Caixa>
+
+      <p>Contagem: {contagem}</p>
+      <button onClick={() => setContagem(contagem + 1)}>Adicionar</button>
+      <button onClick={() => setContagem(contagem - 1)}>Remover</button>
+      <button onClick={() => setContagem(0)}>Zerar</button>
+        
+      <p>Armazenar nome: </p>
+      <input type="text" value={nomeArmazenado} onChange={(e) => setNomeArmazenado(e.target.value)} />
+      <button onClick={() => armazenar('nome', nomeArmazenado)}>Salvar</button>
+      <button onClick={() => consultar('nome')}>Consultar</button>
+      <button onClick={() => apagar('nome')}>Apagar</button>
+      
+
     </>
   );
 }
