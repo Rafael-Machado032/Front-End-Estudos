@@ -1,7 +1,18 @@
 import React, { useEffect } from 'react'; // Importando o React
+import Componentes from "./App/Componentes"
+import Estrutura from "./App/Estrutura_Basica"
+import Funcao from "./App/Funcao"
+import JSX from "./App/JSX"
+import Props from "./App/Props"
+import State from "./App/State"
+
+
+
+
+
+
+
 import Led from './componentes/Led';
-import Header from './componentes/Header';
-import Corpo from './componentes/Corpo'; // Importando o componente Corpo
 import './App.css'; // Importando o CSS do App 
 // Se importar o CSS do App, ele será aplicado a todos os componentes
 import Nota from './componentes/Nota'; // Importando o componente Nota
@@ -93,9 +104,15 @@ export default function App() {
 
     <> {/* Importando o componentes */}
 
+      <Componentes />
+      <Estrutura />
+      <JSX />
+      <Props />
+      <Funcao />
+      <State />
 
-      <Header />
-      <Corpo />
+      
+      
       <Led />
 
       {cumprimento()}
