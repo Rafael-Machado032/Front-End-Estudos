@@ -1,6 +1,6 @@
 # Front-end
 ## Nivel 1
-- [ ] **HTML - Fundamentos**:
+- [x] **HTML - Fundamentos**:
    - HTML é uma linguagem de marcação que define a estrutura do seu conteúdo. HTML consiste em uma série de elementos que você usa para mostrar algo de uma determinada maneira ou agir de uma certo modo. As tags podem criar um hiperlink de uma palavra ou imagem para outro lugar, podem colocar palavras em itálico, podem aumentar ou diminuir a fonte e assim por diante.
    - Aprender quais tags são necessárias para um HTML básico
    - Criar um parágrafo de texto
@@ -13,7 +13,7 @@
    - Conectar com um arquivo de CSS
    - Criar uma tabela
    - Adicionar IDs e classes
-- [ ] **CSS - Fundamentos**:
+- [x] **CSS - Fundamentos**:
    - Cascading Style Sheets (CSS) é uma linguagem usada para descrever a apresentação de um documento escrito em uma linguagem de marcação como HTML ou XML. CSS pode ser usado para estilos de texto de documentos muito básicos — por exemplo, para alterar a cor e o tamanho de títulos e links. Ele pode ser usado para criar um layout — por exemplo, transformar uma única coluna de texto em um layout com uma área de conteúdo principal e uma barra lateral para informações relacionadas. Pode até ser usado para efeitos como animações.
    - Aprender a estrutura visual de uma página, com 'margin' e 'padding'
    - Estabelecer o tamanho com 'width' e 'height'
@@ -58,12 +58,12 @@
    - Entender como o Google classifica páginas
    - Conhecer os fatores de rankeamento
    - Fazer Link Building
-- [ ] **Design Responsivo**:
+- [x] **Design Responsivo**:
    - Ajustar suas páginas para o tamanho da tela do usuário
    - Media queries
    - Conhecer o conceito de Mobile first
 ## Nivel 2
-- [ ] **JavaScript - Callbacks e Promises**:
+- [x] **JavaScript - Callbacks e Promises**:
    - Uma promessa (Promise) é um proxy para um valor não necessariamente conhecido quando a promessa é criada. Isso permite que métodos assíncronos retornem valores como métodos síncronos - em vez de retornar imediatamente o valor final, o método assíncrono retorna uma promessa de fornecer o valor em algum momento no futuro.
    - Uma função de Callback é uma função passada para outra função como um argumento, que é então invocado dentro da função externa para completar algum tipo de rotina ou ação.
    - Uma função assíncrona (async) é uma função declarada com a palavra-chave `async`, e a palavra-chave `await` é permitida dentro dela. As palavras-chave `async` e `await` permitem que o comportamento assíncrono e baseado em promessas seja escrito em um estilo mais limpo, evitando a necessidade de configurar explicitamente as cadeias de promessas.
@@ -86,7 +86,7 @@
    - Usar 'try' e 'catch' para tratamento de erros
    - Em que ocasiões e de que forma utilizar o `throw`
    - Criar exceções específicas de acordo com a necessidade de sua aplicação
-- [ ] **JavaScript - ES6**:
+- [x] **JavaScript - ES6**:
    - Conhecer as diferenças dessa versão do JavaScript
 - [ ] **JavaScript - Modularização**:
    - Isolar partes do código em módulos
@@ -103,7 +103,7 @@
    - No contexto dos computadores, uma estrutura de dados é uma forma específica de armazenar e organizar os dados na memória do computador para que esses dados possam ser facilmente recuperados e utilizados de forma eficiente quando necessário posteriormente.
    - Conhecer as principais estruturas de dados
    - Implementar as principais estruturas de dados
-- [X] **Conceitos de Orientação a Objetos**:
+- [x] **Conceitos de Orientação a Objetos**:
    - A Programação Orientada a Objetos é um paradigma de programação de software baseado na composição e interação entre diversas unidades chamadas de 'objetos' e as classes, que contêm uma identidade, propriedades e métodos). Ela é baseada em quatro componentes da programação: abstração digital, encapsulamento, herança e polimorfismo.
    - Como funcionam objetos
    - Criar e utilizar construtores
@@ -114,14 +114,14 @@
    - O que é polimorfismo
    - Como funcionam interfaces
    - O que são abstrações
-- [ ] **JavaScript - Armazenamento**:
+- [x] **JavaScript - Armazenamento**:
    - Armazenar dados no front-end com localStorage
    - Manipular dados armazenados
    - Persistir dados armazenados
 - [ ] **JavaScript - Concorrência**:
    - Programação concorrente é um paradigma de programação para a construção de programas que fazem uso da execução simultânea de várias tarefas computacionais interativas, que podem ser implementadas como programas separados ou como um conjunto de threads criadas por um único programa.
    - Executar tarefas paralelamente
-- [ ] **TypeScript - Fundamentos**:
+- [x] **TypeScript - Fundamentos**:
    - TypeScript é uma linguagem de programação fortemente tipada que se baseia em JavaScript.
    - Entender a fundo o que são tipos e a importância da tipagem
    - Aprender o que é o TypeScript, por que foi criado, como ele funciona e sua relação com o JavaScript
@@ -138,7 +138,7 @@
    - Utilizar o Apollo para criar um servidor GraphQL
    - Conectar com uma API
 ## Habilidade Auxiliar: Infraestrutura e Back-end 
-- [ ] **Git e GitHub - Fundamentos**:
+- [x] **Git e GitHub - Fundamentos**:
    - Git é um sistema de controle de versão distribuído gratuito e de código aberto projetado para lidar com tudo, desde projetos pequenos a muito grandes com velocidade e eficiência.
    - GitHub é um serviço de hospedagem para desenvolvimento de software e controle de versão usando Git.
    - Criar um repositório
@@ -154,7 +154,7 @@
    - Saber fazer uma requisição HTTP na linha de comando com WGET
    - Baixar uma imagem com WGET
    - Fazer um post
-- [ ] **JSON**:
+- [x] **JSON**:
    - JSON significa JavaScript Object Notation (notação de objeto JavaScript). É um formato de texto para armazenar e transmitir dados.
    - Criar um objeto
    - Transformar um objeto em uma string
