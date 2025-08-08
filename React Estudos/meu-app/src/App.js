@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react'; // Importando o React
+import './App.css'; // Importando o CSS do App
 import Componentes from "./App/Componentes"
 import Estrutura from "./App/Estrutura_Basica"
 import Funcao from "./App/Funcao"
 import JSX from "./App/JSX"
 import Props from "./App/Props"
 import State from "./App/State"
+import Eventos from './App/Eventos';
+import RenderizarCondicao from './App/RenderizarCondicao';
 
 
 
@@ -12,8 +15,7 @@ import State from "./App/State"
 
 
 
-import Led from './componentes/Led';
-import './App.css'; // Importando o CSS do App 
+
 // Se importar o CSS do App, ele será aplicado a todos os componentes
 import Nota from './componentes/Nota'; // Importando o componente Nota
 import Resultado from './componentes/Resultado'; // Importando o componente Resultado
@@ -26,27 +28,10 @@ import Caixa from './componentes/Caixa';
 
 export default function App() {
 
-  const [log, setLog] = React.useState(false);
-
-  const msglogin = () => {
-    if (log) {
-      return <p>Você está logado!</p>;
-    } else {
-      return <p>Você não está logado!</p>;
-    }
-  }
 
 
-  const cumprimento = () => {
-    const hora = new Date().getHours();
-    if (hora < 12) {
-      return <p>Bom dia!</p>;
-    } else if (hora < 18) {
-      return <p>Boa tarde!</p>;
-    } else {
-      return <p>Boa noite!</p>;
-    }
-  }
+
+  
 
   const carros = [
     { Categoria: "Esportivos", preco: 200000, marca: "Ferrari", modelo: "F8 Tributo" },
@@ -110,14 +95,15 @@ export default function App() {
       <Props />
       <Funcao />
       <State />
+      <Eventos />
+      <RenderizarCondicao />
 
       
       
-      <Led />
+      
 
-      {cumprimento()}
-      <button onClick={() => setLog(!log)}>{log ? 'Logout' : 'Login'}</button>
-      {msglogin()}
+      
+      
       {/* <Dados nome="Rafael" curso="React" ano={2023} /> */}
       {/* Exemplo de como passar props para o componente Dados */}
       <ul>
