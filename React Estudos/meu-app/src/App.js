@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'; // Importando o React
+import React from 'react'; // Importando o React
 import './App.css'; // Importando o CSS do App
+// Se importar o CSS do App, ele será aplicado a todos os componentes
 import Componentes from "./App/Componentes"
 import Estrutura from "./App/Estrutura_Basica"
 import Funcao from "./App/Funcao"
@@ -12,40 +13,14 @@ import Map from './App/Map'; // Importando o componente Map
 import Formulario from './App/Formulario'; // Importando o componente Formulario
 import ManipularState from './App/ManipularState'; // Importando o componente ManipularState
 import ElevacaoState from './App/ElevacaoState'; // Importando o componente ElevacaoState
-
-
-
-
-// Se importar o CSS do App, ele será aplicado a todos os componentes
-
-
-import Caixa from './componentes/Caixa';
-
-
+import ElevacaoStateHandle from './App/ElevacaoStateHandle'; // Importando o componente ElevacaoStateHandle
+import Contecao from './App/Contecao';
+import UseEffect from './App/UseEffect';
 
 
 
 
 export default function App() {
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
- 
-
-  const [contagem, setContagem] = React.useState(0);
-  useEffect(() => {
-    console.log('O componente App foi montado');
-  }); // useEffect é um hook que permite executar quando o componente é montado ou atualizado
 
 
   localStorage.setItem('nome', 'Rafael'); // Armazenando um valor no localStorage
@@ -82,16 +57,9 @@ export default function App() {
       <Formulario />
       <ManipularState />
       <ElevacaoState />
-
-      
-      
-      
-
-      
-      
-      
-      
-      
+      <ElevacaoStateHandle />
+      <Contecao />
+      <UseEffect />
 
 
       
@@ -99,15 +67,9 @@ export default function App() {
       
       
     
-      <Caixa site="https://www.meusite.com">
-        <h1>Caixa de Conteúdo</h1>
-        <p>Este é um exemplo de como usar o componente Caixa.</p>
-      </Caixa>
+      
 
-      <p>Contagem: {contagem}</p>
-      <button onClick={() => setContagem(contagem + 1)}>Adicionar</button>
-      <button onClick={() => setContagem(contagem - 1)}>Remover</button>
-      <button onClick={() => setContagem(0)}>Zerar</button>
+      
         
       <p>Armazenar nome: </p>
       <input type="text" value={nomeArmazenado} onChange={(e) => setNomeArmazenado(e.target.value)} />
