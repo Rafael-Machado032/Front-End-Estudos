@@ -17,6 +17,12 @@ import ElevacaoStateHandle from './App/ElevacaoStateHandle'; // Importando o com
 import Contecao from './App/Contecao';
 import UseEffect from './App/UseEffect';
 import LocalStorage from './App/LocalStorage'; // Importando o componente LocalStorage
+import ComponenteClasse from './App/ComponenteClasse'; // Importando o componente de classe
+import ClasseState from './App/ClasseState';
+
+
+
+
 
 
 
@@ -41,6 +47,13 @@ export default function App() {
       <Contecao />
       <UseEffect />
       <LocalStorage />
+      <ComponenteClasse />
+      <ClasseState />
+
+
+
+
+      
 
     </>
   );
