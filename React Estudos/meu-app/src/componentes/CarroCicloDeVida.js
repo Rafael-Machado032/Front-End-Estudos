@@ -1,12 +1,14 @@
 import React from "react";
 
-class Carro extends React.Component {
+class CarroCicloDeVida extends React.Component {
+
     // Este é um componente de classe
     constructor(props) {
         super(props); // Chama o construtor da classe pai
         this.modelo = "Golf"; // Atributo de instância
         this.ano = 2020; // Atributo de instância
         // Você pode definir o estado aqui se necessário
+        this.mensagem = "Componente montado!";
         this.state = {
             ligado: false,
             velAtual: 0,
@@ -38,8 +40,23 @@ class Carro extends React.Component {
         }
     };
 
+    componentDidMount() {
+        this.mensagem = "Componente montado!";
+        console.log("Componente montado!");
+    }
+
+    componentDidUpdate() {
+        this.mensagem = "Componente atualizado!";
+        console.log("Componente atualizado!");
+    }
+
+    componentWillUnmount() {
+        this.mensagem = "Componente desmontado!";
+        console.log("Componente desmontado!");
+    }
+
     render() { // Método render é responsável por renderizar o componente
-        return(
+        return (
             <div>
                 <h1>Meu Carro</h1>
                 <p>Modelo: {this.modelo}</p>
@@ -51,9 +68,10 @@ class Carro extends React.Component {
                 </button>
                 <button onClick={() => this.acelerar()}>Acelerar</button>
                 <button onClick={this.frearB}>Frear</button>
+                <p>Estado do componente: {this.mensagem}</p>
             </div>
         );
     }
 }
 
-export default Carro;
+export default CarroCicloDeVida;

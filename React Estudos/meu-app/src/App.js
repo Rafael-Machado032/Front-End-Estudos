@@ -19,7 +19,8 @@ import UseEffect from './App/UseEffect';
 import LocalStorage from './App/LocalStorage'; // Importando o componente LocalStorage
 import ComponenteClasse from './App/ComponenteClasse'; // Importando o componente de classe
 import ClasseState from './App/ClasseState';
-
+import CicloDeVidaComponente from './App/CicloDeVidaComponete'; // Importando o componente CicloDeVidaComponente
+import BaseClasse from './componentes/BaseClasse';
 
 
 
@@ -49,8 +50,8 @@ export default function App() {
       <LocalStorage />
       <ComponenteClasse />
       <ClasseState />
-
-
+      <CicloDeVidaComponente />
+      <BaseClasse />
 
 
       
