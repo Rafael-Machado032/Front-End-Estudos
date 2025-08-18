@@ -35,6 +35,8 @@ export default class BaseClasse extends React.Component {
                 <h1>Contador: {this.state.contador}</h1>
                 {/*Chamada da função com "bind"*/}
                 <button onClick={this.maisUm}>Incrementar</button>
+                <p>Curso: {this.state.curso}</p>
+                <p>Status: {this.status ? "Positivo" : "Negativo"}</p>
             </div>
         );
     }
