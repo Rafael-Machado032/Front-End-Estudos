@@ -20,7 +20,7 @@ import LocalStorage from './App/LocalStorage'; // Importando o componente LocalS
 import ComponenteClasse from './App/ComponenteClasse'; // Importando o componente de classe
 import ClasseState from './App/ClasseState';
 import CicloDeVidaComponente from './App/CicloDeVidaComponete'; // Importando o componente CicloDeVidaComponente
-import BaseClasse from './componentes/BaseClasse';
+import BaseDeClasse from './App/BaseDeClasse';
 
 
 
@@ -51,7 +51,7 @@ export default function App() {
       <ComponenteClasse />
       <ClasseState />
       <CicloDeVidaComponente />
-      <BaseClasse />
+      <BaseDeClasse />
 
 
       
