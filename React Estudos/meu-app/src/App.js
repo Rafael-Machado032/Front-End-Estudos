@@ -21,8 +21,8 @@ import ComponenteClasse from './App/ComponenteClasse'; // Importando o component
 import ClasseState from './App/ClasseState';
 import CicloDeVidaComponente from './App/CicloDeVidaComponete'; // Importando o componente CicloDeVidaComponente
 import BaseDeClasse from './App/BaseDeClasse';
-
-
+import VariaveisGlobais from './App/VariaveisGlobais';
+import NavegarTelasNativa from './App/NavegarTelasNativa';
 
 
 
@@ -52,7 +52,8 @@ export default function App() {
       <ClasseState />
       <CicloDeVidaComponente />
       <BaseDeClasse />
-
+      <VariaveisGlobais />
+      <NavegarTelasNativa />
 
       
 
