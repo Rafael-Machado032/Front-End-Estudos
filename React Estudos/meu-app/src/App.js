@@ -23,7 +23,8 @@ import CicloDeVidaComponente from './App/CicloDeVidaComponete'; // Importando o 
 import BaseDeClasse from './App/BaseDeClasse';
 import VariaveisGlobais from './App/VariaveisGlobais';
 import NavegarTelasNativa from './App/NavegarTelasNativa';
-
+import Filtro from './App/Filtro'; // Importando o componente Exercicios1
+import Calculadora from './App/Calculadora'; // Importando o componente Calculadora
 
 
 
@@ -54,9 +55,8 @@ export default function App() {
       <BaseDeClasse />
       <VariaveisGlobais />
       <NavegarTelasNativa />
-
-      
-
+      <Filtro />
+      <Calculadora />
     </>
   );
 }
