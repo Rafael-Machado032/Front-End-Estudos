@@ -26,7 +26,7 @@ import NavegarTelasNativa from './App/NavegarTelasNativa';
 import Filtro from './App/Filtro'; // Importando o componente Exercicios1
 import Calculadora from './App/Calculadora'; // Importando o componente Calculadora
 import CalculadoraComClasse from './App/CalculadoraComClasse'; // Importando o componente CalculadoraComClasse
-
+import CalculadoraMatematica from './App/CalculadoraMatematica';
 
 
 
@@ -59,6 +59,7 @@ export default function App() {
       <Filtro />
       <Calculadora />
       <CalculadoraComClasse />
+      <CalculadoraMatematica />
     </>
   );
 }
