@@ -25,6 +25,7 @@ import VariaveisGlobais from './App/VariaveisGlobais';
 import NavegarTelasNativa from './App/NavegarTelasNativa';
 import Filtro from './App/Filtro'; // Importando o componente Exercicios1
 import Calculadora from './App/Calculadora'; // Importando o componente Calculadora
+import CalculadoraComClasse from './App/CalculadoraComClasse'; // Importando o componente CalculadoraComClasse
 
 
 
@@ -57,6 +58,7 @@ export default function App() {
       <NavegarTelasNativa />
       <Filtro />
       <Calculadora />
+      <CalculadoraComClasse />
     </>
   );
 }
