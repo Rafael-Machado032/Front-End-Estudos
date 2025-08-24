@@ -27,10 +27,13 @@ import Filtro from './App/Filtro'; // Importando o componente Exercicios1
 import Calculadora from './App/Calculadora'; // Importando o componente Calculadora
 import CalculadoraComClasse from './App/CalculadoraComClasse'; // Importando o componente CalculadoraComClasse
 import CalculadoraMatematica from './App/CalculadoraMatematica';
-
-
+import JogoDaVelha from './App/JogoDaVelha'; // Importando o componente JogoDaVelha
+import APIcomAxios from './App/APIcomAxios'; // Importando o componente APIcomAxios
 
 export default function App() {
+  const carros = [
+    
+  ];
   return (
     <> {/* Importando o componentes */}
 
@@ -60,6 +63,9 @@ export default function App() {
       <Calculadora />
       <CalculadoraComClasse />
       <CalculadoraMatematica />
+      <JogoDaVelha />
+      <APIcomAxios />
+
     </>
   );
 }
