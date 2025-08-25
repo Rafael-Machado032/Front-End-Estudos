@@ -22,7 +22,7 @@ export default class ListaCarros extends React.Component {
     render() {
         return (
             <div>
-                <h2>Lista de Carros</h2>
+                <h2>Lista de Carros Axios</h2>
                 <ul>
                     {this.state.carros.map((carro) => (
                         <li key={carro.id}>

@@ -29,10 +29,12 @@ import CalculadoraComClasse from './App/CalculadoraComClasse'; // Importando o c
 import CalculadoraMatematica from './App/CalculadoraMatematica';
 import JogoDaVelha from './App/JogoDaVelha'; // Importando o componente JogoDaVelha
 import APIcomAxios from './App/APIcomAxios'; // Importando o componente APIcomAxios
+import RotasNavegacao from './App/RotasNavegacao'; // Importando o componente RotasNavegacao
+import Key from './App/Key'; // Importando o componente Key
 
 export default function App() {
   const carros = [
-    
+
   ];
   return (
     <> {/* Importando o componentes */}
@@ -65,7 +67,8 @@ export default function App() {
       <CalculadoraMatematica />
       <JogoDaVelha />
       <APIcomAxios />
-
+      <RotasNavegacao />
+      <Key />
     </>
   );
 }
