@@ -6,7 +6,8 @@ import Componentes from "./aulas/Componentes";
 import RederizarCondicional from "./aulas/RederizarCondicional";
 import ArrayObjeto from "./aulas/ArrayObjeto";
 import Links from "./aulas/Links";
-
+import LinksComParametros from "./aulas/LinksComParametros";
+import Children from "./aulas/Children";
 
 
 
@@ -21,6 +22,8 @@ export default function Home() {
       <RederizarCondicional />
       <ArrayObjeto />
       <Links />
+      <LinksComParametros />
+      <Children />
     </div>
 
   );
