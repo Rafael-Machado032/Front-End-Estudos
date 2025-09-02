@@ -8,6 +8,12 @@ import ArrayObjeto from "./aulas/ArrayObjeto";
 import Links from "./aulas/Links";
 import LinksComParametros from "./aulas/LinksComParametros";
 import Children from "./aulas/Children";
+import UseState from "./aulas/UseState";
+import UseStateComponente from "./aulas/UseStateComponente";
+import FuncoesComponente from "./aulas/FuncoesComponente";
+import FuncoesState from "./aulas/FuncoesState";
+import StateInput from "./aulas/StateInput";
+
 
 
 
@@ -24,6 +30,11 @@ export default function Home() {
       <Links />
       <LinksComParametros />
       <Children />
+      <UseState />
+      <UseStateComponente />
+      <FuncoesComponente />
+      <FuncoesState />
+      <StateInput />
     </div>
 
   );
