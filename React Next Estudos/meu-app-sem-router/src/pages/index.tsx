@@ -1,3 +1,5 @@
+import React from "react";
+
 import Variaveis from "./aulas/Variaveis";
 import Funcoes from "./aulas/Funcoes";
 import Tailwind from "./aulas/Tailwind";
@@ -13,8 +15,10 @@ import UseStateComponente from "./aulas/UseStateComponente";
 import FuncoesComponente from "./aulas/FuncoesComponente";
 import FuncoesState from "./aulas/FuncoesState";
 import StateInput from "./aulas/StateInput";
-
-
+import Select from "./aulas/Select";
+import Lista from "./aulas/Lista";
+import UseEffect from "./aulas/UseEffect";
+import VariaveisGlobais from "./aulas/VariaveisGlobais";
 
 
 export default function Home() {
@@ -35,6 +39,10 @@ export default function Home() {
       <FuncoesComponente />
       <FuncoesState />
       <StateInput />
+      <Select />
+      <Lista />
+      <UseEffect />
+      <VariaveisGlobais />
     </div>
 
   );
