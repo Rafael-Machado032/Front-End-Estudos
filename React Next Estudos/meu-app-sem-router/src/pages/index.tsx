@@ -19,7 +19,8 @@ import Select from "./aulas/Select";
 import Lista from "./aulas/Lista";
 import UseEffect from "./aulas/UseEffect";
 import VariaveisGlobais from "./aulas/VariaveisGlobais";
-
+import FiltragemSelect from "./aulas/FiltragemSelect";
+import Fetch from "./aulas/Fetch";
 
 export default function Home() {
   return (
@@ -43,6 +44,8 @@ export default function Home() {
       <Lista />
       <UseEffect />
       <VariaveisGlobais />
+      <FiltragemSelect />
+      <Fetch />
     </div>
 
   );
