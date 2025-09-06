@@ -1,7 +1,7 @@
 export default function TabelaImc() {
     return (
 
-        <div className="m-4 p-4 w-[90%] text-center">
+        <div className=" pb-4 w-[90%] text-center">
             <h2 className="font-bold mb-2">Tabela de IMC</h2>
             <table className="w-full border-2 border-black text-center">
                 <thead>
