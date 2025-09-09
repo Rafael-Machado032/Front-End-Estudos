@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        
+    </style>
+    <title>Metodo Target</title>
+</head>
+
+<body>
+    <p id="texto1">JQuery</p>
+    <br>
+    <p id="resultado"></p>
+
+    <script> 
+        $(document).on({ 
+            click:()=>{$("#resultado").text(event.type + ": "+ event.which)}, //event.type = tipo do evento, event.which = qual botao do mouse
+            keydown:()=>{$("#resultado").text(event.type + ": "+ event.which)
+                if(event.which==13){
+                    alert("Enter pressionado!")// 13 é o enter
+                }
+            },//event.type = tipodo evento, event.which = qual botao do teclado
+        
+        })
+    </script>
+</body>
+
+</html>

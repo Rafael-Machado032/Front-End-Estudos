@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        #bloco1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #bloco2 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+    <title>Evento Dinamico</title>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: space-around;">
+        <div id="bloco1"></div>
+        <div id="bloco2"></div>
+    </div>
+    <div style="display: flex; justify-content: space-around;">
+        <p id="mensagem1"></p>
+        <p id="mensagem2"></p>
+    </div>
+
+    <script> //Aqui não é necessário o $(document).ready() pq o script está no final do body
+        $("#bloco1").on({ //Usando o on para adicionar multiplos eventos no mesmo elemento
+            click: () => { $("#mensagem1").text("Clicado no bloco vermelho") },
+            mouseenter: () => { $("#mensagem1").text("Mouse entrou no bloco vermelho") },
+            mouseleave: () => { $("#mensagem1").text("Mouse saiu do bloco vermelho") }
+        })
+
+        $("#bloco2").on({ //Usando o on para adicionar multiplos eventos no mesmo elemento
+            click: () => { $("#mensagem2").text("Clicado no bloco azul") },
+            mouseenter: () => { $("#mensagem2").text("Mouse entrou no bloco azul") },
+            mouseleave: () => { $("#mensagem2").text("Mouse saiu do bloco azul") }
+        })
+
+        $("#bloco1").click(()=>{
+            $("#bloco2").trigger("click") //Disparando o evento click do bloco2 sem clicar nele
+        })
+    </script>
+</body>
+
+</html>

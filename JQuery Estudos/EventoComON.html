@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        #bloco {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+    <title>Evento com ON</title>
+</head>
+
+<body>
+    <div id="bloco"></div>
+    <p id="mensagem"></p>
+    <input type="text" id="campoTexto">
+    <p id="textoCampo"></p>
+    <script> //Aqui não é necessário o $(document).ready() pq o script está no final do body
+        $("#bloco").on({ //Usando o on para adicionar multiplos eventos no mesmo elemento
+            click: () => { $("#mensagem").text("Clicado no bloco vermelho") },
+            mouseenter: () => { $("#mensagem").text("Mouse entrou no bloco vermelho") },
+            mouseleave: () => { $("#mensagem").text("Mouse saiu do bloco vermelho") }
+        })
+        $("#campoTexto").on("keyup input", () => {//Adicionando multiplos eventos no mesmo elemento
+            $("#textoCampo").text($("#campoTexto").val()); //val() pega o valor do campo
+        })
+    </script>
+</body>
+
+</html>
