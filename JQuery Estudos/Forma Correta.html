@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(rodar);
+        function rodar() { // O ready so executa quando o DOM estiver totalmente carregado
+            $("#forma-correta").text("Forma correta de utilizar JQuery");
+        }
+        $("#forma-correta").text("Forma errada de utilizar JQuery");// Essa linha nao rederiza na pagina porque o jquery ainda nao foi carregado
+    </script>
+    <title>Forma Correta</title>
+</head>
+
+<body>
+    <p id="forma-correta"></p>
+</body>
+
+</html>

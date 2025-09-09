@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.7.1.min.js"></script>
+    <title>Formulario</title>
+</head>
+<body>
+    <div id="calculadora">
+        <label for="v1">Valor 1:</label>
+        <input type="text" id="v1" name="v1" value="0"><br><br>
+        <label for="v2">Valor 2:</label>
+        <input type="email" id="v2" name="v2" value="0"><br><br>
+        <label for="res">Resultado:</label>
+        <input type="text" id="res" name="res" value="0" readonly><br><br>
+        <button id="btn_somarjs">Somar JS</button>
+        <button id="btn_somarjq">Somar JQuery</button>
+    </div>
+    
+    <script>
+        document.getElementById("btn_somarjs").onclick = function() {
+            var v1 = parseFloat(document.getElementById("v1").value);
+            var v2 = parseFloat(document.getElementById("v2").value);
+            var res = v1 + v2;
+            document.getElementById("res").value = res;
+        };
+
+        // Usando JQuery
+
+        $("#btn_somarjq").click(function() { // Para apontar para o elemento utilizo o cifrão $
+            var v1 = parseFloat($("#v1").val());
+            var v2 = parseFloat($("#v2").val());
+            var res = v1 + v2;
+            $("#res").val(res);
+        });
+    </script>
+</body>
+</html>

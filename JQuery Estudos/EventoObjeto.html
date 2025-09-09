@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        
+    </style>
+    <title>Evento Objeto</title>
+</head>
+
+<body>
+    <p id="texto"></p>
+
+    <script>
+        $(document).mousemove((evento) => { //evento é o objeto do evento
+            let posicaoX = evento.pageX; //posição do mouse no eixo X
+            let posicaoY = evento.pageY; //posição do mouse no eixo Y
+            $("#texto").text(`Posição do mouse: X: ${posicaoX} Y: ${posicaoY}`);
+        })
+    </script>
+</body>
+
+</html>
