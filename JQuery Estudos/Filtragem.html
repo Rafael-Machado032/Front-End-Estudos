@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+
+    </style>
+    <title>Filtragem</title>
+</head>
+
+<body>
+
+    <p>Curso</p>
+    <h3>Curso</h3>
+    <p>Curso JQuery</p>
+    <h3>Curso JQuery</h3>
+    <p>Rafael Machado</p>
+    <h3>Rafael Machado</h3>
+    <p>Filtragem</p>
+    <h3>Filtragem</h3>
+    <p>Aula</p>
+    <h3>Aula</h3>
+    
+    <script>
+        //first aponta o PRIMEIRO elemento selecionado
+        $("p").first().css({"border":"5px solid grey"})
+
+        //last aponta o ULTIMO elemento selecionado
+        $("p").last().css({"border":"5px solid red"})
+        
+        //eq aponta a POSIÇÃO do elemento selecionado (o primeiro é 0)
+        $("p").eq(2).css({"border":"5px solid green"})
+    </script>
+</body>
+
+</html>

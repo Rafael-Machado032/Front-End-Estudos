@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+
+    </style>
+    <title>Children</title>
+</head>
+
+<body>
+    <div>
+        <span>
+            <p>
+                Curso
+            </p>
+            <h2>
+                Rafael Machado
+            </h2>
+            <h3>
+                Seletores Siblings
+            </h3>
+            <p>
+                Seletores Siblings
+            </p>
+        </span>
+    </div>
+    <script>
+        //siblings apartir do selecionado aponta para os irmãos
+        $("h3").siblings().css({ "border": "2px solid yellow" })
+        
+        //siblings apartir do selecionado aponta para os irmãos selecionado
+        $("h3").siblings("p").css({ "border": "2px solid blue" })
+
+        //next apartir do selecionado aponta para o PROXIMO irmão (BAIXO)
+        $("h3").next().css({ "border": "2px solid black" })
+
+        //prev apartir do selecionado aponta para o irmão ATERIOR (CIMA)
+        $("h2").prev().css({ "border": "2px solid green" })
+
+         //nextAll apartir do selecionado aponta para todos os PROXIMOS irmãos (BAIXO)
+        $("h3").nextAll().css({ "border": "2px solid violet" })
+
+        //prevAll apartir do selecionado aponta para todos os irmãos ATERIOR (CIMA)
+        $("h2").prevAll().css({ "border": "2px solid pink" })
+
+        //nextUntil apartir do selecionado aponta ate o PROXIMO irmão selecionado (BAIXO)
+        $("h3").nextUntil("p").css({ "border": "2px solid grey" })
+
+        //prevUntil apartir do selecionado aponta ate o irmão ATERIOR selecionado (CIMA)
+        $("h2").prevUntil("p").css({ "border": "2px solid red" })
+    </script>
+</body>
+
+</html>
