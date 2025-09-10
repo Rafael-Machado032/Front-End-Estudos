@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+
+    </style>
+    <title>Filhos</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                Curso
+            </li>
+            <li>
+                Rafael Machado
+            </li>
+            <li>
+                Seletores children
+            </li>
+        </ul>
+        <ul>
+            <li>
+                Curso
+            </li>
+            <li>
+                Rafael Machado
+            </li>
+            <li>
+                Seletores children
+            </li>
+        </ul>
+    </div>
+    <script>
+        //children aponto direto para o elemento filho
+        $("ul").children().css({ "border": "2px solid yellow" })
+
+        //find apartir do elemento selecionado encontre o segundo elemento selecionado
+        $("div").find("ul").css({ "border": "2px solid blue" })
+
+        //find apartir do elemento selecionado encontre o PRIMERO elemento do segundo selecionado
+        $("div").find("ul:first").css({ "border": "5px solid black" })
+
+        //find apartir do elemento selecionado encontre o ULTIMO elemento do segundo selecionado
+        $("div").find("ul:last").css({ "border": "5px solid green" })
+
+        //find apartir do elemento selecionado encontre TODOS elementos filhos
+        $("div").find("*").css({ "border": "5px solid pink" })
+
+    </script>
+</body>
+
+</html>

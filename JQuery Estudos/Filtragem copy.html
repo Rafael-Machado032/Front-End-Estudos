@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        p{
+            background-color: red;
+        }
+        h3{
+            background-color: green;
+        }
+        .borda{
+            border: 5px solid blue;
+        }
+
+    </style>
+    <title>Filtragem</title>
+</head>
+
+<body>
+
+    <p class="borda">Curso</p>
+    <h3>Curso</h3>
+    <p>Curso JQuery</p>
+    <h3>Curso JQuery</h3>
+    <p>Rafael Machado</p>
+    <h3>Rafael Machado</h3>
+    <p class="borda">Filtragem</p>
+    <h3>Filtragem</h3>
+    <p>Aula</p>
+    <h3>Aula</h3>
+    
+    <script>
+        //filter aponta para o elemento que tem essa especificação
+        $("p").filter(".borda").css({"color":"yellow"})
+
+        //not aponta para o elemento que não tem essa especificação
+        $("p").not(".borda").css({"color":"pink"})
+    </script>
+</body>
+
+</html>
