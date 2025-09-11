@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        
+    </style>
+    <title>Manipulação</title>
+</head>
+
+<body>
+    <h2 id="caixa">Curso JQuery</h2>
+    <div id="texto">
+        <h3>Aluno:</h3>
+        <p>Rafael Machado</p>
+    </div>
+    <input type="text" id="nome">
+    
+    <script>
+        $("#caixa").click(
+            function(){
+                alert("Texto: " + $(this).text()) //this seleciona o proprio elemento 
+            }// .text pega o conteudo da tag
+        )
+        $("#nome").click(
+            function(){
+                alert("Input: " + $(this).val()) //this seleciona o proprio elemento 
+            }// .val pega o conteudo de um formulario
+        )
+        $("#texto").click(
+            function(){
+                alert("HTML: " + $(this).html()) //this seleciona o proprio elemento 
+            }// .html pega o conteudo html do elecionado
+        )
+    </script>
+</body>
+
+</html>

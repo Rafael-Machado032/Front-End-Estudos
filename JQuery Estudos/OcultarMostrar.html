@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        #caixa {
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <title>Mostrar e Ocultar</title>
+</head>
+
+<body>
+
+    <div id="caixa" >
+        <h3>Aluno:</h3>
+        <p>Rafael Machado</p>
+    </div>
+    <button id="btn_mostrar">Mostrar</button>
+    <button id="btn_ocultar">ocultar</button>
+    <button id="btn_mostraoculta">Ocultar</button>
+
+    <script>
+        $("#btn_ocultar").click(
+            function () {
+                $("#caixa").hide()
+            }//hide oculta
+        )
+        $("#btn_mostrar").click(
+            function () {
+                $("#caixa").show()
+            }//show mostra
+        )
+        $("#btn_mostraoculta").click(
+            function () {
+                $("#caixa").toggle()//toggle mostra ou oculta
+                if($("#caixa").is(":visible")){
+                    $("#btn_mostraoculta").text("Ocultar")//Troca o nome do botão
+                }else{
+                    $("#btn_mostraoculta").text("Mostar")
+                }
+            }
+        )
+    </script>
+</body>
+
+</html>
