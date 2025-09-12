@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        #caixa {
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            color: white;
+            position: absolute;
+            top: 50px;
+            right: inherit;
+        }
+    </style>
+    <title>Delay</title>
+</head>
+
+<body>
+
+    <div id="caixa">
+        <h3>Aluno:</h3>
+        <p>Rafael Machado</p>
+    </div>
+    <button id="btn_aumentar">Aumentar</button>
+    <button id="btn_diminuir">Diminuir</button>
+    
+
+    <script>
+        $("#btn_aumentar").click(
+            function(){//delay espera o tempo configurardo para execultar
+                $("#caixa").delay(2000).animate({
+                    width: "600px",
+                    height: "600px"
+                },{duration: 3000})
+            }//toggle vai do minimo ao maximo
+        )
+        $("#btn_diminuir").click(
+            function(){
+                $("#caixa").animate({
+                    width: "200px",
+                    height: "200px"
+                },{duration: 3000})
+            }//toggle vai do minimo ao maximo
+        )
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+        }
+        .menu{
+            background-color: aliceblue;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .itemMenu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+        .submenu{
+            display: none;
+            border: 1px solid black;
+            width: 100%;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+        .itemSubMenu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: blue;
+            color: aliceblue;
+            text-transform: capitalize;
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Mostrar e Ocultar com Tempo</title>
+</head>
+
+<body>
+
+    <div id="menu" class="menu">
+        <div class="itemMenu">Home</div>
+        <div class="itemMenu" id="menujquery">JQuery</div>
+        <div class="itemMenu" id="menucanvas">Canvas</div>
+        <div class="itemMenu" id="menupython">Python</div>
+        <div class="itemMenu" id="menuarduino">Arduino</div>
+    </div>
+
+    <div id="submenu_jquery" class="submenu">
+        <div class="itemSubMenu">Aulas JQuery</div>
+        <div class="itemSubMenu">Material JQuery</div>
+    </div>
+
+    <div id="submenu_canvas" class="submenu">
+        <div class="itemSubMenu">Aulas Canvas</div>
+        <div class="itemSubMenu">Material Canvas</div>
+    </div>
+
+    <div id="submenu_python" class="submenu">
+        <div class="itemSubMenu">Aulas Python</div>
+        <div class="itemSubMenu">Material Python</div>
+    </div>
+
+    <div id="submenu_arduino" class="submenu">
+        <div class="itemSubMenu">Aulas Arduino</div>
+        <div class="itemSubMenu">Material Arduino</div>
+    </div>
+    
+
+    <script>
+        $(".itemMenu").mouseover(
+            function(){
+                $(this).fadeTo(100,0.1)//fadeTo (Velocidade,Opacidade)
+            }
+        )
+        $(".itemMenu").mouseleave(
+            function(){
+                $(this).fadeTo(100,1)//fadeTo (Velocidade,Opacidade)
+            }
+        )
+        $("#menujquery").click(
+            function(){
+                $("#submenu_jquery").fadeToggle()
+                $("#submenu_jquery").css("display","flex")
+            }
+        )
+        $("#menucanvas").click(
+            function(){
+                $("#submenu_canvas").fadeToggle()
+                $("#submenu_canvas").css("display","flex")
+            }
+        )
+        $("#menupython").click(
+            function(){
+                $("#submenu_python").fadeToggle()
+                $("#submenu_python").css("display","flex")
+            }
+        )
+        $("#menuarduino").click(
+            function(){
+                $("#submenu_arduino").fadeToggle()
+                $("#submenu_arduino").css("display","flex")
+            }
+        )
+
+    </script>
+</body>
+
+</html>

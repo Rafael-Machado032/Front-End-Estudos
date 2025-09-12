@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixa{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <title>Interroper Animação</title>
+</head>
+
+<body>
+
+    <p>
+        <button id="btn_aumentar">Aumentar</button>
+        <button id="btn_diminuir">Diminuir</button>
+    </p>
+    <p id="info">0</p>
+    <p>
+        <button id="btn_finalizar">Finalizar</button>
+    </p>
+
+    <div id="caixa" class="caixa"></div>
+    
+
+    <script>
+        const cx = $("#caixa")
+        $("#btn_aumentar").click(function(){
+                $("#caixa").animate({width:800},{duration:5000,complete:()=>{$("#info").text(cx.queue().length)}})
+                $("#info").text($("#caixa").queue().length)
+        })
+        $("#btn_diminuir").click(function(){
+                $("#caixa").animate({width:100},{duration:5000,complete:()=>{$("#info").text(cx.queue().length)}})
+                $("#info").text($("#caixa").queue().length)
+        })
+        $("#btn_finalizar").click(function(){
+                $("#caixa").finish()//finish Finaliza o processo antes de acabar o tempo
+        })
+        
+
+    </script>
+</body>
+
+</html>
