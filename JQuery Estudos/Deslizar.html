@@ -44,7 +44,7 @@
             margin: 5px;
         }
     </style>
-    <title>Mostrar e Ocultar com Tempo</title>
+    <title>Deslizar</title>
 </head>
 
 <body>
@@ -60,6 +60,7 @@
         <div id="controle">
             <button id="btn_cima">Ocultar</button>
             <button id="btn_baixo">Mostrar</button>
+            <button id="btn_menu">Ocultar/Mostrar</button>
         </div>
     </div>
     
@@ -71,6 +72,9 @@
         })                          //opcional: slideUp(Tempo,função complete)
         $("#btn_baixo").click(function(){
                 $("#menus").slideDown()//slideDonw desliza para Baixo
+        })
+        $("#btn_menu").click(function(){
+                $("#menus").slideToggle()//slideToggle desliza para Baixo
         })
     </script>
 </body>

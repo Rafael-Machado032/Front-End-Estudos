@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixa {
+            background-color: #bbb;
+            border: 3px solid #000;
+            border-radius: 10px;
+            padding: 10px 0px 0px 0xp;
+            display: flex;
+            width: 100%;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+            /*Quebra de linha */
+        }
+
+        .subcaixa {
+            width: 100px;
+            height: 100px;
+            margin: 10px 0px 10px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: large;
+
+        }
+    </style>
+    <title>Adicionando Elemento</title>
+</head>
+
+<body>
+
+    <p>
+        <button id="btn_add">Adicionar a Direita</button>
+        <button id="btn_add5">Adicionar a Direita 5x</button>
+        <button id="btn_addf">Adicionar a Esquerda</button>
+        <button id="btn_add5f">Adicionar a Esquerda 5x</button>
+        <button id="btn_addCaixaCima">Adicionar Fora em Cima</button>
+        <button id="btn_addCaixaBaixo">Adicionar Fora em Baixo</button>
+    </p>
+    <div id="caixa" class="caixa"></div>
+
+
+    <script>
+        let r, g, b;
+        let num = 1;
+        $("#btn_add").click(() => {
+            r = Math.floor(Math.random() * 255)
+            g = Math.floor(Math.random() * 255)
+            b = Math.floor(Math.random() * 255)
+            $("#caixa").append("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>"+num+"</div>")// Adiciona o elemento
+            num++;
+        })
+        $("#btn_add5").click(() => {
+            for (let index = 0; index < 5; index++) {
+                r = Math.floor(Math.random() * 255)
+                g = Math.floor(Math.random() * 255)
+                b = Math.floor(Math.random() * 255)
+                $("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'></div>").appendTo($("#caixa")).text(num)//O elemeto seja adicionado
+                num++;
+            }
+        })
+        $("#btn_addf").click(() => {
+            r = Math.floor(Math.random() * 255)
+            g = Math.floor(Math.random() * 255)
+            b = Math.floor(Math.random() * 255)
+            $("#caixa").prepend("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>"+num+"</div>")// Adiciona o elemento
+            num++;
+        })
+        $("#btn_add5f").click(() => {
+            for (let index = 0; index < 5; index++) {
+                r = Math.floor(Math.random() * 255)
+                g = Math.floor(Math.random() * 255)
+                b = Math.floor(Math.random() * 255)
+                $("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'></div>").prependTo($("#caixa")).text(num)//O elemeto seja adicionado
+                num++;
+            }
+        })
+        $("#btn_addCaixaCima").click(() => {
+           r = Math.floor(Math.random() * 255)
+            g = Math.floor(Math.random() * 255)
+            b = Math.floor(Math.random() * 255)
+            $("#caixa").before("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>"+num+"</div>")// Adiciona antes do elemento
+        })
+        $("#btn_addCaixaBaixo").click(() => {
+                r = Math.floor(Math.random() * 255)
+            g = Math.floor(Math.random() * 255)
+            b = Math.floor(Math.random() * 255)
+            $("#caixa").after("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>"+num+"</div>")// Adiciona depois do elemento
+        })
+
+    </script>
+</body>
+
+</html>
