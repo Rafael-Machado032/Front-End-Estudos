@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixa {
+            border: 3px solid #000;
+            border-radius: 10px;
+            padding: 10px 0px 0px 0xp;
+            display: flex;
+            width: 100%;
+            height: 100px;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+            /*Quebra de linha */
+        }
+
+        .verde {
+            background-color: green;
+        }
+
+        .vermelho {
+            background-color: red;
+        }
+
+        .azul {
+            background-color: blue;
+        }
+    </style>
+    <title>Clonar</title>
+</head>
+
+<body>
+
+    <div>
+        <button id="btn_clonar">Clonar</button>
+    </div>
+    <div id="caixa" class="caixa vermelho">
+
+    </div>
+
+    <script>
+        let alert = setInterval(() => {
+            $("#caixa").toggleClass("azul")
+        }, 300)
+
+        $("#btn_clonar").click(() => {
+            $("#caixa").clone().appendTo("body")
+        })
+
+
+    </script>
+</body>
+
+</html>

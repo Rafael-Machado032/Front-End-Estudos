@@ -30,21 +30,31 @@
 
         }
     </style>
-    <title>Adicionando Elemento</title>
+    <title>Manipulando Elemento</title>
 </head>
 
 <body>
-
-    <p>
+    <div>
         <button id="btn_add">Adicionar a Direita</button>
         <button id="btn_add5">Adicionar a Direita 5x</button>
         <button id="btn_addf">Adicionar a Esquerda</button>
         <button id="btn_add5f">Adicionar a Esquerda 5x</button>
+    </div>
+    <div>
         <button id="btn_addCaixaCima">Adicionar Fora em Cima</button>
         <button id="btn_addCaixaBaixo">Adicionar Fora em Baixo</button>
-    </p>
-    <div id="caixa" class="caixa"></div>
-
+        <button id="btn_remover">Remover</button>
+        <button id="btn_removerTudo">Remover Tudo</button>
+    </div>
+    <div>
+        <button id="btn_verde">Verde</button>
+        <button id="btn_vermelho">Vermelho</button>
+        <button id="btn_azul">Azul</button>
+        <button id="btn_consulta">Consuta Cor</button>
+    </div>
+    <div id="caixa" class="caixa">
+        <div id="d0" class='subcaixa' style='background-color: rgb(255,255,255);'> 0 </div>
+    </div>
 
     <script>
         let r, g, b;
@@ -53,7 +63,7 @@
             r = Math.floor(Math.random() * 255)
             g = Math.floor(Math.random() * 255)
             b = Math.floor(Math.random() * 255)
-            $("#caixa").append("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>"+num+"</div>")// Adiciona o elemento
+            $("#caixa").append("<div id=d" + num + " class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>" + num + "</div>")// Adiciona o elemento
             num++;
         })
         $("#btn_add5").click(() => {
@@ -61,7 +71,7 @@
                 r = Math.floor(Math.random() * 255)
                 g = Math.floor(Math.random() * 255)
                 b = Math.floor(Math.random() * 255)
-                $("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'></div>").appendTo($("#caixa")).text(num)//O elemeto seja adicionado
+                $("<div id=d" + num + " class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'></div>").appendTo($("#caixa")).text(num)//O elemeto seja adicionado
                 num++;
             }
         })
@@ -69,7 +79,7 @@
             r = Math.floor(Math.random() * 255)
             g = Math.floor(Math.random() * 255)
             b = Math.floor(Math.random() * 255)
-            $("#caixa").prepend("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>"+num+"</div>")// Adiciona o elemento
+            $("#caixa").prepend("<div id=d" + num + " class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>" + num + "</div>")// Adiciona o elemento
             num++;
         })
         $("#btn_add5f").click(() => {
@@ -77,23 +87,46 @@
                 r = Math.floor(Math.random() * 255)
                 g = Math.floor(Math.random() * 255)
                 b = Math.floor(Math.random() * 255)
-                $("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'></div>").prependTo($("#caixa")).text(num)//O elemeto seja adicionado
+                $("<div id=d" + num + " class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'></div>").prependTo($("#caixa")).text(num)//O elemeto seja adicionado
                 num++;
             }
         })
         $("#btn_addCaixaCima").click(() => {
-           r = Math.floor(Math.random() * 255)
+            r = Math.floor(Math.random() * 255)
             g = Math.floor(Math.random() * 255)
             b = Math.floor(Math.random() * 255)
-            $("#caixa").before("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>"+num+"</div>")// Adiciona antes do elemento
+            $("#caixa").before("<div id=d" + num + " class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>" + num + "</div>")// Adiciona antes do elemento
+            num++;
         })
         $("#btn_addCaixaBaixo").click(() => {
-                r = Math.floor(Math.random() * 255)
+            r = Math.floor(Math.random() * 255)
             g = Math.floor(Math.random() * 255)
             b = Math.floor(Math.random() * 255)
-            $("#caixa").after("<div class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>"+num+"</div>")// Adiciona depois do elemento
+            $("#caixa").after("<div id=d" + num + " class='subcaixa' style='background-color: rgb(" + r + "," + g + "," + b + ");'>" + num + "</div>")// Adiciona depois do elemento
+            num++;
         })
+        $("#btn_remover").click(() => {
 
+            $("#d" + (num - 1)).remove()// remove elemento por id
+            num--
+        })
+        $("#btn_removerTudo").click(() => {
+
+            $("#caixa").empty()// Remove os filhos do elemento
+            num = 1;
+        })
+        $("#btn_verde").click(() => {
+            $("#caixa").css({"background-color":"#0f0","color":"#f0f"})
+        })
+        $("#btn_vermelho").click(() => {
+            $("#caixa").css({"background-color":"#f00","color":"#0ff"})
+        })
+        $("#btn_azul").click(() => {
+            $("#caixa").css({"background-color":"#00f","color":"#ff0"})
+        })
+        $("#btn_consulta").click(()=>{
+            alert($("#caixa").css("background-color"));
+        })
     </script>
 </body>
 

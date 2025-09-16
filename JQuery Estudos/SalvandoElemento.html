@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixa {
+            background-color: #bbb;
+            border: 3px solid #000;
+            border-radius: 10px;
+            display: flex;
+            width: 100%;
+            height: 100px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            /*Quebra de linha */
+
+        }
+
+        .item {
+            border-radius: 10px;
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: large;
+            color: white;
+        }
+        .cor1{
+            background-color: red;
+        }
+        .cor2{
+            background-color: blue;
+        }
+        .cor3{
+            background-color: green;
+        }
+        .cor4{
+            background-color: yellow;
+        }
+        .cor5{
+            background-color: gray;
+        }
+    </style>
+    <title>Salvando Elemento</title>
+</head>
+
+<body>
+    <p>
+        <button id="btn_reset">Reset</button>
+        <button id="btn_mudar">Mudar</button>
+    </p>
+    <div id="caixa1" class="caixa">
+        <div id="item" class="item cor1">1</div>
+        <div id="item" class="item cor2">2</div>
+        <div id="item" class="item cor3">3</div>
+        <div id="item" class="item cor4">4</div>
+        <div id="item" class="item cor5">5</div>
+    </div>
+    
+    <div id="caixa2" class="caixa">
+        
+    </div>
+
+    <script>
+        let itens = $(".item")
+        let i = 0
+        
+        $("#btn_reset").click(()=>{
+            for (let i = 0; i < itens.length; i++) {
+                let item =$(itens[i]).detach()
+                $("#caixa1").append(item)
+            }
+            i=0
+        })
+        $("#btn_mudar").click(()=>{
+            let item =$(itens[i]).detach() //detach desanexa o elemento
+            i++
+            $("#caixa2").append(item)
+        })
+    </script>
+</body>
+
+</html>
