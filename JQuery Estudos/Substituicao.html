@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixas{
+            display: flex;
+            width: 100%;
+        }
+        .caixa {
+            background-color: #bbb;
+            border: 3px solid #000;
+            border-radius: 10px;
+            display: flex;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            margin-right: 10px;
+            flex-wrap: wrap;/*Quebra de linha */
+            justify-content: center;
+            align-items: center;
+
+        }
+        .ocultar{
+            display: none;
+        }
+        .cor{
+            color: red;
+        }
+        .menu{
+            display: flex;
+            flex-direction: column;
+        }
+        
+    </style>
+    <title>Substituição</title>
+</head>
+
+<body>
+    <div class="menu">
+        <button id="btn_replace1">Replace All</button>
+        <button id="btn_replace2">Replace All 2</button>
+        <button id="btn_replace3">Replace With</button>
+        <button id="btn_replace4">Replace With 2</button>
+    </div>
+    <div>
+        <h1 class="cor">Curso</h1>
+        <h2 class="cor">JQuery</h2>
+        <h3 class="cor">Replace All</h3>
+        <h4 class="cor">Replace With</h4>
+    </div>
+
+    <script>
+
+        $("#btn_replace1").click(()=>{
+            $("<p>trocado R</p>").replaceAll(".cor") //replaceAll Troca o elemento selecionado
+        })//
+        $("#btn_replace2").click((e)=>{
+            $("<div>"+$(e.currentTarget).text()+"</div>").replaceAll(e.currentTarget)
+        })//Troca o proprio elemento
+
+        $("#btn_replace3").click(()=>{
+            $(".cor").replaceWith("<p>trocado W</p>")
+        })
+        $("#btn_replace4").click((e)=>{
+            $(e.currentTarget).replaceWith("<div>"+$(e.currentTarget).text()+"</div>")
+        })
+        
+        
+    </script>
+</body>
+
+</html>
