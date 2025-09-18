@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .pacote{
+            background-color: yellow;
+            border: 2px solid red;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .menu{
+            display: flex;
+            flex-direction: column;
+        }
+        
+    </style>
+    <title>Empocatar</title>
+</head>
+
+<body>
+    <div class="menu">
+        <button id="btn_pacote">Empacotar / Desempacotar</button>
+        <button id="btn_empacotartudo">Empacotar Tudo</button>
+        <button id="btn_empacotardepois">Empacotar Depois</button>
+    </div>
+
+    <p>Curso JQuery</p>
+    <p>Curso JQuery</p>
+    <p>Curso JQuery</p>
+    <p>Curso JQuery</p>
+    <p>Curso JQuery</p>
+
+    <script>
+
+        let elemento_p=$("p")
+
+        $("#btn_pacote").click(()=>{
+            if(elemento_p.parent().is("div")){ //testa sem tem pai div
+                elemento_p.unwrap() //tira o pai
+            } else {
+                elemento_p.wrap("<div class='pacote'></div>") //insere o pai
+            }
+            
+        })//
+        $("#btn_empacotartudo").click((e)=>{
+            elemento_p.wrapAll("<div class='pacote'></div>")//insere a div que engloba todos
+        })
+        $("#btn_empacotardepois").click(()=>{
+            elemento_p.wrapInner("<div class='pacote'></div>")//insere a div dentro do elemento
+        })
+        
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .cor{
+            background-color: yellow;
+            border: 2px solid red;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        
+        
+    </style>
+    <title>Aplicar Funçõens</title>
+</head>
+
+<body>
+    <div class="menu">
+        <button id="btn_each">Função each()</button>
+        <button id="btn_cor">Classe cor</button>
+    </div>
+
+    <p>Curso</p>
+    <p>JQuery</p>
+    <p>Rafael</p>
+    <p>Machado</p>
+    <p>Guaiba</p>
+
+    <script>
+
+        $("#btn_each").click(()=>{
+            $("p").each(function(){ //aplica a função em cada "p"
+                alert($(this).text())
+            })
+        })//
+        $("#btn_cor").click(()=>{
+            $("p").each(function(){
+                $(this).addClass("cor")
+            })
+        })
+        
+    </script>
+</body>
+
+</html>
