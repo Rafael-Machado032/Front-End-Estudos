@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixas{
+            display: flex;
+            width: 100%;
+        }
+        .caixa {
+            background-color: #bbb;
+            border: 3px solid #000;
+            border-radius: 10px;
+            display: flex;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            margin-right: 10px;
+            flex-wrap: wrap;/*Quebra de linha */
+            justify-content: center;
+            align-items: center;
+
+        }
+        .ocultar{
+            display: none;
+        }
+        .cor{
+            color: red;
+        }
+        .menu{
+            display: flex;
+            flex-direction: column;
+        }
+        
+    </style>
+    <title>Rolagem</title>
+</head>
+
+<body>
+    <div class="menu">
+        <button id="btn_rolarleft">Rolar Left</button>
+        <button id="btn_rolartop">Rolar Top</button>
+        <button id="btn_posleft">Posição Left</button>
+        <button id="btn_postop">Posição Top</button>
+        <button id="btn_resetpos">Resetar Posição</button>
+    </div>
+    <div id="texto" style="border: 1px solid black; width: 80px; height: 150px; overflow: auto;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ad? Possimus, dignissimos excepturi neque ipsa aut, maxime blanditiis culpa dolore nemo vel, molestiae necessitatibus quod voluptates inventore distinctio perferendis aperiam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ad? Possimus, dignissimos excepturi neque ipsa aut, maxime blanditiis culpa dolore nemo vel, molestiae necessitatibus quod voluptates inventore distinctio perferendis aperiam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ad? Possimus, dignissimos excepturi neque ipsa aut, maxime blanditiis culpa dolore nemo vel, molestiae necessitatibus quod voluptates inventore distinctio perferendis aperiam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ad? Possimus, dignissimos excepturi neque ipsa aut, maxime blanditiis culpa dolore nemo vel, molestiae necessitatibus quod voluptates inventore distinctio perferendis aperiam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ad? Possimus, dignissimos excepturi neque ipsa aut, maxime blanditiis culpa dolore nemo vel, molestiae necessitatibus quod voluptates inventore distinctio perferendis aperiam.
+    </div>
+
+    <script>
+
+        $("#btn_rolarleft").click(()=>{
+            $("#texto").scrollLeft(15) // barra de rolagem 
+        })//
+        $("#btn_rolartop").click((e)=>{
+            $("#texto").scrollTop(150)
+        })
+        $("#btn_posleft").click(()=>{
+            alert($("#texto").scrollLeft())
+        })
+        $("#btn_postop").click((e)=>{
+            alert($("#texto").scrollTop())
+        })
+        $("#btn_resetpos").click((e)=>{
+            $("#texto").scrollLeft(0).scrollTop(0)
+        })
+        
+        
+    </script>
+</body>
+
+</html>

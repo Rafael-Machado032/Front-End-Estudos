@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixa {
+            background-color: yellow;
+            padding: 10px;
+            border: 3px solid red;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Index</title>
+</head>
+
+<body>
+    <div id="caixa" class="caixa">
+        <h2 id="p1">Curso</h2>
+        <h2 id="p2">JQuery</h2>
+        <h2 id="p3">Rafael</h2>
+        <h2 id="p4">Machado</h2>
+        <h2 id="p5">Guaiba</h2>
+    </div>
+
+    <p id="p1">Curso</p>
+    <p id="p2">JQuery</p>
+    <p id="p3">Rafael</p>
+    <p id="p4">Machado</p>
+    <p id="p5">Guaiba</p>
+
+    <script>
+        let rafa = $.noConflict() // Substitui para variavel rafa
+        jQuery("p").click((e) => {
+            alert(jQuery(e.currentTarget).index())//JQuery é um seletor padrão e tambem o sifrão "$"
+        })
+        rafa("h2").click(function () {
+            alert(rafa(this).index())//agora utiliza o rafa para selecionar
+        })
+        
+    </script>
+</body>
+
+</html>

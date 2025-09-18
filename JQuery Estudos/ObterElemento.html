@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixa{
+            background-color: yellow;
+            padding: 10px;
+            border: 3px solid red;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        
+    </style>
+    <title>Obter Elemento</title>
+</head>
+
+<body>
+    <div class="menu">
+        <button id="btn_get">Obter Elementos</button>
+    </div>
+
+    <div id="elementos" class="caixa">
+
+    </div>
+
+    <p>Curso</p>
+    <p>JQuery</p>
+    <p>Rafael</p>
+    <p>Machado</p>
+    <p>Guaiba</p>
+
+    <script>
+
+        $("#btn_get").click(()=>{
+            $("#elementos").append($("p").get())//obtem todos os elementos
+        })
+        
+        
+    </script>
+</body>
+
+</html>
