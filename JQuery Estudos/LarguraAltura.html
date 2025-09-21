@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caixa {
+            background-color: yellow;
+            width: 200px;
+            height: 250px;
+            padding: 10px;
+            border: 5px solid black;
+            margin: 5px;
+        }
+    </style>
+    <title>Largura Altura</title>
+</head>
+
+<body>
+    <button id="btn_alterar">Alterar</button>
+    <div style="display: flex;">
+        <div id="caixa1" class="caixa">
+            JQuery
+        </div>
+        <div id="info" class="caixa">
+
+        </div>
+        <img src="./img_jquerydim.gif" alt="">
+    </div>
+
+    <script>
+        let cx = $("#caixa1");
+        $("#info").html(
+            "width: " + cx.width() + "</br>height: " + cx.height() +
+            "</br>innerWidth: " + cx.innerWidth() + "</br>innerHeight: " + cx.innerHeight() +
+            "</br>outerWidth: " + cx.outerWidth() + "</br>outerHeight: " + cx.outerHeight() +
+            "</br>outerWidth(true): " + cx.outerWidth(true) + "</br>outerHeight(true): " + cx.outerHeight(true)
+        )
+        $("#btn_alterar").click(()=>{
+            cx.width(300)
+            cx.height(100)
+            $("#info").html(
+                "width: " + cx.width() + "</br>height: " + cx.height() +
+                "</br>innerWidth: " + cx.innerWidth() + "</br>innerHeight: " + cx.innerHeight() +
+                "</br>outerWidth: " + cx.outerWidth() + "</br>outerHeight: " + cx.outerHeight() +
+                "</br>outerWidth(true): " + cx.outerWidth(true) + "</br>outerHeight(true): " + cx.outerHeight(true)
+            )
+        })
+        
+    </script>
+</body>
+
+</html>
