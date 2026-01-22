@@ -1,0 +1,23 @@
+body{
+    background-color: aquamarine;
+}
+p{
+    color: blue;
+    font-size: 20px;
+    background-color: lightgray;
+}
+
+#div1 > h1{ /* Com o sinal ">" apenas a filha h1 dentro da div1 */
+    color: green;
+    font-family: Arial, sans-serif;
+}
+.div2 h1{ /* Todas as h1 dentro da div2 */
+    color: orange;
+    font-family: 'Times New Roman', serif;
+}
+/* 
+"#" Seleciona por ID
+"." Seleciona por Classe
+">" Seleciona o elemento filho direto
+" " (espaço) Seleciona todos os elementos descendentes
+*/

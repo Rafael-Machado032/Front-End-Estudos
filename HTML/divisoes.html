@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisão</title>
+</head>
+
+<body>
+    <h1>Divisões em HTML</h1>
+    <div style="border: 2px solid black; padding: 10px; margin-bottom: 10px;">
+        <h2>Divisão 1</h2>
+        <p>Esta é a primeira divisão.</p>
+    </div>
+    <div style="border: 2px solid blue; padding: 10px;">
+        <h2>Divisão 2</h2>
+        <p>Esta é a segunda divisão.</p>
+    </div>
+
+    <table width="50%" border="1" align="center" style="margin-top: 20px;">
+        <thead><!-- thead define o cabeçalho da tabela -->
+            <caption>Exemplo de Tabela</caption><!-- caption define o título da tabela -->
+            <tr><!-- tr define uma linha na tabela -->
+                <th>Nome</th><!-- th é uma tag para células de cabeçalho -->
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody><!-- tbody define o corpo da tabela -->
+            <tr>
+                <td>Ana</td><!-- td define uma célula de dados na tabela -->
+                <td>28</td>
+            </tr>
+            <tr>
+                <td>Bruno</td>
+                <td>34</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form>
+        <label for="nome">Nome:</label>
+        <!--"for" define o label para o input correspondente -->
+        <input type="text" id="nome" name="nome"><br><br>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade"><br><br>
+        <input type="submit" value="Enviar">
+        <textarea></textarea>
+    </form>
+</body>
+
+</html>
