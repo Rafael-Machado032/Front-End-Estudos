@@ -1,4 +1,5 @@
 /* Cabeçalho */
+
 header{
     width: 100%;
     height: 80px;
@@ -18,6 +19,7 @@ header{
 /* Cabeçalho */
 
 /* Cadastro */
+
 article.cadastro{
     width: 100%;
     height: 550px;
@@ -80,6 +82,7 @@ form button{
     font-size: large;
 }
 /* Cadastro */
+
 /* Apresentação do Curso */
 
 article.apresentacao1{
@@ -98,7 +101,9 @@ article.apresentacao1{
     justify-content: space-around;
 }
 /* Apresentação do Curso */
+
 /* Seta */
+
 .seta{
     width: 40px;
     height: 40px;
@@ -109,7 +114,9 @@ article.apresentacao1{
     top: -20px;
 }
 /* Seta */
+
 /* Conteúdo do Curso */
+
 article.apresentacao2{
     width: 100%;
     height: 400px;
@@ -142,7 +149,9 @@ article.apresentacao2{
     background-position: center;
 }
 /* Conteúdo do Curso */
+
 /* Rodapé */
+
 footer{
     width: 100%;
     height: 60px;
