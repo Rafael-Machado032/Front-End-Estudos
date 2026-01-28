@@ -1,0 +1,154 @@
+/* Cabeçalho */
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 120px;
+    height: 20px;
+    background-image: url('../img/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    
+}
+/* Cabeçalho */
+
+/* Cadastro */
+article.cadastro{
+    width: 100%;
+    height: 550px;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(../img/header_bg.png);
+    
+}
+section{
+    height: 300px;
+    padding: 50px;
+    background-color: rgba(51, 51, 51, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: white;
+    align-items: center;
+}
+section button{
+    width: 150px;
+    height: 40px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+form{
+    width: 450px;
+    height: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 10px solid rgba(216, 216, 216, 0.9);
+}
+form div{
+    width: 100%;
+    margin: 10px 0;
+}
+form input[type="text"],
+form input[type="email"]{
+    width: 100%;
+    height: 60px;
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-size: medium;
+}
+form button{
+    width: 60%;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+}
+/* Cadastro */
+/* Apresentação do Curso */
+
+article.apresentacao1{
+    width: 100%;
+    background-color: #a0a0a0;
+    text-align: center;
+    
+}
+.aprecont1{
+    width: 55%;
+    height: 200px;
+    margin: 0 auto;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+/* Apresentação do Curso */
+/* Seta */
+.seta{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background-image: url(../img/arrow.png);
+    background-size: contain;
+    position: relative;
+    top: -20px;
+}
+/* Seta */
+/* Conteúdo do Curso */
+article.apresentacao2{
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.aprecont2{
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.explicacao{
+    width: 20%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.pc{
+    width: 100px;
+    height: 100px;
+    background-image: url(../img/icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* Conteúdo do Curso */
+/* Rodapé */
+footer{
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
