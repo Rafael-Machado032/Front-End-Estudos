@@ -25,6 +25,12 @@ div p:nth-of-type(1){/*Seleciona o elemento que quiser alterar no exemplo seleci
 p:nth-of-type(3n+1) { /*Seleciona o elemento com formula no exemplo multiplica por 3 (3n) e começa no primeiro elemento (1)*/
 	background: red;
 }
+div:nth-of-type(even){ /*Seleciona o elemento par*/
+    flex-direction: row-reverse;
+}
+div:nth-of-type(odd){ /*Seleciona o elemento impar*/
+    flex-direction: row-reverse;
+}
 @media screen and (max-width: 320px) { /*Usado para mudar a tela no modo responsivo*/
 	.box{
 		width: 100%;
@@ -146,8 +152,6 @@ Regra de 3
 	transform: translate(-50%,-50%); /*Para centralizar o elemento do seu eixo caso use "position: absolute;" ex: transform: translate(X,Y);*/
 	position: fixed; /*Cria um novo contexto e fica fixa tem que setar sua largura*/
 	resize: none; /*desabilita o redirecionamento da textarea*/
-	background-clip: padding-box; /*Ajuste do fundo a partir da borda*/
-	background-origin: border-box;/*Mesmo efeito do background-clip porem é para imagens*/
 	text-transform: uppercase; /*Todo texto em maiúscula*/
 	box-shadow: 10px 20px 30px black;
 }
@@ -309,4 +313,14 @@ Regra de 3
 	padding: 10px 20px; /*Em cima e baixo tem 10px e o lado esquerdo e direito tem 20px*/
 	padding: 10px 20px 30px; /*Em cima tem 10px, lado direito e esquerdo tem 20px e em baixo tem 30px*/
 	padding: 10px 20px 30px 40px; /*Em cima 10px, Esquerdo 20px, Baixo 30px e Direito 40px*/
+}
+
+/* Espaçamento uniformes */
+/* Aplica espaçamento uniforme em display flex ou grid */
+
+.espaco_uniforme{
+	gap: 10px; /*Define o espaçamento entre linhas e colunas em um contêiner flexível ou de grade*/
+	gap: 10px 20px; /*O primeiro valor define o espaçamento entre as linhas e o segundo valor define o espaçamento entre as colunas*/
+	row-gap: 10px; /*Define o espaçamento entre as linhas em um contêiner flexível ou de grade*/
+	column-gap: 20px; /*Define o espaçamento entre as colunas em um contêiner flexível ou de grade*/
 }
