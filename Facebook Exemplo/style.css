@@ -1,245 +1,163 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-    list-style-type: none;
-    text-decoration: none;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-div.center{
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2%;
-}
-header{
-    background-color: #3b5998;
-    padding: 8px 0;
-}
-div.logo{
-    float: left;
-    color: white;
-}
-div.logo h2{
-    font-size: 29px;
-    font-weight: normal;
-}
-div.clear{
-    clear: both;
-}
-form.form-login{
-    float: right;
+.flex {
+  display: flex;
+  align-items: center;
 }
 
-form.form-login div.form-element{
-    display: inline-block;
-    margin-right: 15px;
+.container {
+  padding: 0 15px;
+  min-height: 100vh;
+  justify-content: center;
+  background: #f0f2f5;
 }
 
-form.form-login div.form-element p{
-    color: white;
-    font-size: 14px;
-}
-form.form-login div.form-element input[type=email], 
-form.form-login div.form-element input[type=password]{
-    margin-top: 5px;
-    border: 0;
-    padding: 3px;
-    outline: none;
-}
-form.form-login div.form-element input[type=submit]{
-    cursor: pointer;
-    border: none;
-    background-color: #3a6cd6;
-    color: white;
-    padding: 3px 5px;
-}
-form.form-login div.form-element input[type=submit]:hover{
-    background-color: #1f4ba6;
+.facebook-page {
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
 }
 
-section.main{
-    background: linear-gradient(white, #D3D8E8);
-    padding: 40px 0;
+.facebook-page .text {
+  margin-bottom: 90px;
 }
 
-div.img-pessoas{
-    float: left;
-    width: 60%;
-}
-div.img-pessoas img{
-    max-width: 100%;
-}
-div.img-pessoas h3{
-    max-width: 460px;
-    font-size: 20px;
-    color: #0e385f;
-}
-div.abrir-conta{
-    float: left;
-    width: 40%;
+.facebook-page h1 {
+  color: #1877f2;
+  font-size: 4rem;
+  margin-bottom: 10px;
 }
 
-div.abrir-conta h2{
-    color: #333;
-    font-size: 35px;
+.facebook-page p {
+  font-size: 1.75rem;
+  white-space: nowrap;
 }
 
-div.abrir-conta h3{
-    color: rgb(30, 30, 30);
-    font-size: 19px;
-    margin-top: 10px;
-    font-weight: normal;
+form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
 }
 
-form.criar-conta{
-    margin-top: 10px;
+form input {
+  height: 55px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  padding: 0 14px;
 }
 
-.w50{
-    width: 50%;
-    float: left;
-    padding: 5px 5px 0 0;
+form input:focus {
+  outline: none;
+  border-color: #1877f2;
 }
 
-.w100{
-    width: 100%;
-    float: left;
-    padding: 5px 5px 0 0;
-}
-form.criar-conta input{
-    width: 100%;
-}
-form.criar-conta input[type=email], 
-form.criar-conta input[type=text],
-form.criar-conta input[type=password]{
-    font-size: 18px;
-    padding: 8px 10px;
-    border: 1px solid #ccd0d5;
-    border-radius: 5px;
-    outline: none;
+::placeholder {
+  color: #777;
+  font-size: 1.063rem;
 }
 
-form.criar-conta input[type=submit]{
-    background: linear-gradient(#67ae55, #578843);
-    background-color: #69a74e;
-    border: 1px solid;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 18px;
-}
-form.criar-conta input[type=submit]:hover{
-    background-color: #67ae55;
-    background: linear-gradient(#81d66c, #75b85b);
+.link {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
 }
 
-form.criar-conta .w100 h3{
-    color: #90949c;
-    font-weight: bold;
-}
-form.criar-conta select.nascimento{
-    font-size: 18px;
-    float: left;
-    padding: 5px 10px;
-    border: 1px solid #ccd0d5;
-    border-radius: 5px;
-    outline: none;
-    margin-top: 5px;
-}
-
-form.criar-conta .input-radio{
-    display: inline-block;
-    padding: 0 10px 0 0;
-    margin: 0 0 15px 0;
-}
-form.criar-conta .input-radio label{
-    display: inline-block;
-    padding: 5px 5px 0 0;
-}
-form.criar-conta .input-radio input[type=radio]{
-    width: auto !important; 
-    display: inline-block;
+.link .login {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #1877f2;
+  padding: 15px 0;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
-label{
-    color: #1d2129;
-    font-size: 18px;
-    font-weight: normal;
+.link .login:hover {
+  background: #0d65d9;
 }
 
-section.linguas{
-    padding: 10px 0;
-}
-section.linguas nav ul li{
-    display: inline-block;
-}
-section.linguas nav ul li a{
-    color: #385898;
-    font-size: 14px;
-    padding-right: 10px;
-}
-section.linguas nav ul li a:hover{
-    text-decoration: underline;
-}
-section.linguas nav ul li a.selected{
-    color: #737373;
-    cursor: auto;
-}
-section.linguas nav ul li a.selected:hover{
-    text-decoration: none;
-}
-section.linguas .center{
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-section.linguas .center:last-child{
-    border: none;
-    padding-top: 8px;
+form a {
+  text-decoration: none;
 }
 
-@media screen and (max-width: 768px){
-    .logo,
-    form.form-login{
-        width: 100%;
-        text-align: center;
-        float: none;
-    }
-    form.form-login{
-        display: inline-block;
-        margin-top: 20px;
-    }
+.link .forgot {
+  color: #1877f2;
+  font-size: 0.875rem;
+}
 
-    form.form-login div.form-element{
-        display: block;
-        margin: 10px 0;
-    }
-    
-    form.form-login div.form-element p{
-        color: white;
-        font-size: 14px;
-    }
-    form.form-login div.form-element input[type=email], 
-    form.form-login div.form-element input[type=password]{
-        margin-top: 5px;
-        border: 0;
-        padding: 5px;
-        outline: none;
-        width: 100%;
-        max-width: 320px;
-    }
-    form.form-login div.form-element input[type=submit]{
-        width: 140px;
-    }
+.link .forgot:hover {
+  text-decoration: underline;
+}
 
-    div.img-pessoas{
-        display: none;
-    }
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 
-    div.abrir-conta{
-        width: 100%;
-    }
+.button {
+  margin-top: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button a {
+  padding: 15px 20px;
+  background: #42b72a;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.063rem;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.button a:hover {
+  background: #3ba626;
+}
+
+@media (max-width: 900px) {
+  .facebook-page {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .facebook-page .text {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 460px) {
+  .facebook-page h1 {
+    font-size: 3.5rem;
+  }
+
+  .facebook-page p {
+    font-size: 1.3rem;
+  }
+
+  form {
+    padding: 15px;
+  }
 }
