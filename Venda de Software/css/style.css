@@ -1,6 +1,6 @@
 /* Cabecalho */
 
-header{
+header {
     width: 100%;
     height: 600px;
     background-image: url(../img/capa.png);
@@ -11,38 +11,49 @@ header{
     align-items: center;
     padding: 0 10px;
 }
-.cabecalho{
+
+.cabecalho {
     width: 100%;
     max-width: 1280px;
     height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px;
+    padding: 0 50px;
 }
-.logo1{
+
+.logo1 {
     width: 150px;
     height: 40px;
     background-image: url(../img/logo-danki.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
-.cabecalho>nav ul{
+
+.cabecalho>nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
 }
-a{
+
+a {
     text-decoration: none;
     color: white;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
-.botao-menu{
-    display: none
+
+.botao-menu {
+    width: 30px;
+    height: 30px;
+    display: none;
+    background-image: url(../img/menu.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.apresentacao1{
+.apresentacao1 {
     width: 100%;
     max-width: 900px;
     height: 60%;
@@ -52,17 +63,18 @@ a{
 }
 
 
-header section{
+header section {
 
     width: 100%;
     max-width: 500px;
     color: white;
 }
+
 /* Cabecalho */
 
 /*Artigo 1*/
 
-.artigo1{
+.artigo1 {
     width: 100%;
     height: 100%;
     max-height: 300px;
@@ -74,16 +86,15 @@ header section{
     padding: 0 10px;
 }
 
-.apresentacao2{
+.apresentacao2 {
     height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     list-style-position: inside;
-    
-
 }
-button{
+
+button {
     width: 70%;
     margin: 0 auto;
     padding: 15px;
@@ -95,7 +106,7 @@ button{
     font-size: 14pt;
 }
 
-.celular{
+.celular {
     width: 400px;
     padding-top: 340px;
     transform: translateY(-21px);
@@ -103,23 +114,24 @@ button{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
 }
 
 /*Artigo 1*/
 
 /*Artigo 2*/
 
-.artigo2{
+.artigo2 {
     height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    
-    
+    padding: 0 10px;
+
 }
-.artigo2 > div:first-child{
+
+.artigo2>div:first-child {
     width: 100%;
     max-width: 800px;
     height: 250px;
@@ -128,10 +140,9 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-    
 }
-.tela{
+
+.tela {
     width: 100%;
     max-width: 800px;
     height: 500px;
@@ -140,44 +151,49 @@ button{
     background-repeat: no-repeat;
     background-size: contain;
     transform: translateY(50px);
+
+
 }
 
 /*Artigo 2*/
 
 /*Artigo 3*/
 
-.artigo3{
+.artigo3 {
     width: 100%;
     min-height: 300px;
     display: flex;
 }
-.desc1{
+
+.desc1 {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 70px;
-    gap:30px;
+    gap: 30px;
     background-color: #835FA7;
     color: white;
 }
-.desc2{
+
+.desc2 {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 120px 70px;
-    gap:30px
+    gap: 30px
 }
-.desc2 > div:first-child{
+
+.desc2>div:first-child {
     width: 100%;
     max-width: 280px;
     display: flex;
     justify-content: space-between;
 }
 
-.foto{
+.foto {
     width: 50px;
     height: 50px;
     border-radius: 80px;
@@ -186,7 +202,8 @@ button{
     background-size: contain;
     background-repeat: no-repeat;
 }
-span{
+
+span {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -196,58 +213,81 @@ span{
     margin-top: 10px;
     margin-right: 5px;
 }
+
 .selecionado {
     background-color: rgb(150, 150, 150);
 }
-    
-span:hover{
-    background-color: rgb(150,150, 150);
+
+span:hover {
+    background-color: rgb(150, 150, 150);
 }
 
 /*Artigo 3*/
 
 /*Artigo 4*/
 
-.artigo4{
+.artigo4 {
     width: 100%;
     min-height: 400px;
     display: flex;
     background-color: #472563;
     color: white;
 }
-.contato{
+
+.contato {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px 0;
 }
-form{
+
+form {
     width: 100%;
     max-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 0 10px;
 }
-form input{
+
+form input {
     height: 50px;
 }
-form textarea{
+
+form textarea {
     height: 100px;
     size: none;
     resize: none;
 }
-form button{
+
+form button {
     height: 50px;
     font-size: 16pt;
 }
-.mapa{
+
+.mapa {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.localizacao {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    border: 5px solid white;
+    background-color: aqua;
 }
 
 /*Artigo 4*/
 
-footer{
+/* Footer */
+
+footer {
     width: 100%;
     height: 100px;
     background: #192123;
@@ -255,4 +295,77 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Footer */
+
+/* Responsivo */
+
+@media screen and (max-width: 750px) {
+
+    .cabecalho {
+
+        padding: 0;
+    }
+
+    .cabecalho>nav ul {
+        display: none;
+    }
+
+    .botao-menu {
+        display: flex;
+    }
+
+    .apresentacao1 {
+        padding: 0 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .celular {
+        display: none;
+    }
+
+    .artigo1 {
+
+        height: 600px;
+    }
+
+    .apresentacao2 {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .artigo2>div:first-child {
+        padding: 0 20px;
+    }
+
+    .artigo3 {
+        flex-direction: column;
+    }
+
+    .desc1,
+    .desc2 {
+        width: 100%;
+    }
+
+    .desc2 {
+        padding: 70px;
+    }
+
+    .artigo4 {
+        flex-direction: column;
+    }
+
+    .contato {
+        width: 100%;
+    }
+
+    .mapa {
+        width: 100%;
+        padding: 40px 10px;
+    }
+
+
+
 }
