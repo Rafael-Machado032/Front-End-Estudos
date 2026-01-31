@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <!--Tipo de texto padrão-->
@@ -14,44 +15,60 @@
     <link rel="stylesheet" href="./css/reset.css">
     <title>Semântica HTML - Exemplos</title>
 </head>
+
 <body>
+
     <!-- CABEÇALHO DO SITE -->
-    <header>
-        <h1>Meu Blog</h1>
-        <p>Bem-vindo ao meu espaço</p>
+    <header><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
+
+        <h1>Logo da Minha Empresa</h1>
+
+        <!-- NAVEGAÇÃO PRINCIPAL -->
+        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- NAVEGAÇÃO PRINCIPAL -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
-
     <!-- CONTEÚDO PRINCIPAL -->
-    <main>
-        <!-- ARTIGO -->
-        <article>
-            <h2>Meu Primeiro Artigo</h2>
-            <p>Publicado em <time datetime="2024-01-15">15 de Janeiro</time></p>
-            <p>Conteúdo do artigo aqui...</p>
-        </article>
+    <main><!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
+        
+        <!-- SEÇÃO TEMATICA -->
+        <section id="blog"><!-- <section>: Define seções temáticas dentro de um documento -->
+            <h2>Últimas Postagens</h2>
+            
+            <!-- ARTIGO -->
+            <article><!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
+                <h3>Como aprender HTML Semântico</h3>
+                <p>O HTML semântico é fundamental para SEO...</p>
+            </article>
+
+            <article>
+                <h3>Dicas de CSS Moderno</h3>
+                <p>Aprenda a usar Grid e Flexbox com facilidade...</p>
+            </article>
+        </section>
+
+        <section id="servicos">
+            <h2>Nossos Serviços</h2>
+            <p>Oferecemos consultoria em acessibilidade digital.</p>
+        </section>
 
         <!-- ASIDE (BARRA LATERAL) -->
-        <aside>
-            <h3>Artigos Relacionados</h3>
-            <ul>
-                <li><a href="#">Artigo 1</a></li>
-                <li><a href="#">Artigo 2</a></li>
-            </ul>
+        <aside><!-- <aside>: Conteúdo relacionado apenas indiretamente ao conteúdo principal, como barras laterais ou anúncios. -->
+            <h4>Links Úteis</h4>
+            <p>Confira a documentação oficial na <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Reference/Elements">MDN Web Docs</a>.</p>
         </aside>
+
     </main>
 
     <!-- RODAPÉ -->
-    <footer>
-        <p>&copy; 2026 Rafael Machado. Todos os direitos reservados.</p>
+    <footer><!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
+        <p>&copy; 2024 - Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
