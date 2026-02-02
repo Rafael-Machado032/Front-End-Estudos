@@ -153,7 +153,9 @@ Regra de 3
 	position: fixed; /*Cria um novo contexto e fica fixa tem que setar sua largura*/
 	resize: none; /*desabilita o redirecionamento da textarea*/
 	text-transform: uppercase; /*Todo texto em maiúscula*/
-	box-shadow: 10px 20px 30px black;
+	box-shadow: 10px 20px 30px black; /* Cria uma sombra no elemento*/
+	aspect-ratio: 1/1; /* Usa o valor do width ou height e copia para width ou height que não foi preenchido*/
+	/*Ex: 1/1 um para um width: 100px; preenche o heght para 100px, 1/2 um para dois witdh:100px; preenche o heght para 200px*/
 }
 
 .Display{
