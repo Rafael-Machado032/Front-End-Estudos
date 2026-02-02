@@ -1,0 +1,92 @@
+/* Cabecalho */
+header{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 50px;
+
+}
+
+.logo{
+    width: 250px;
+    height: 100%;
+    background-image: url(../img/logo.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    list-style: none;
+
+}
+a{
+    text-decoration: none;
+    color: #b4b4b4;
+}
+
+/* Moisaco */
+
+.mosaico{
+    width: 100%;
+    max-width: 1280px;
+    
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.mosaico > div{
+    display: flex;
+}
+
+.foto{
+    background-color: #ccc;
+    width: calc(100%/6);
+    aspect-ratio: 1/1;
+    margin: 5px;
+}
+
+.servico{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-30px);
+}
+.servico > article:nth-of-type(2){
+    height: 260px;
+    background-color: #688293;
+    padding: 90px 0;
+}
+
+
+.servico article{
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    background-color: #576975;
+    color: white;
+    transform: translateY(-10px);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.dente{
+    width: 40px;
+    aspect-ratio: 1/1;
+    background-image: url(../img/icone_dente.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
