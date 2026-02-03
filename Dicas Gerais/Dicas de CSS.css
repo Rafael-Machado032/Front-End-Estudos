@@ -133,7 +133,7 @@ Regra de 3
 	--><div><dic/><!--
 	--><div><dic/>
 	Remove o espaço do "display: inline-block;"*/
-	text-align: center; /*Também usado para alinhar os elementos e usa no pai e os filhos usando "display: inline-block;"*/
+	text-align: center; /*Também usado para alinhar os elementos horizontal e usa no pai e os filhos usando "display: inline-block;"*/
 	margin-left: auto; /*Empurra o elemento para direita preenchendo a esquerda mais a largura tem que esta setada*/
 	margin: 0 auto; /*Centraliza o elemento mais a largura tem que esta setada*/
 	text-align: justify; /*Distribui o elementos porem se for uma linha nao acontece nada para resolver isso usa uma propriedade do css
@@ -143,6 +143,7 @@ Regra de 3
 		width: 100%; 		ocupa a linha toda
 	}
 	Assim ele distribui o elemento lembrando que o "text-align: justify;" coloca no pai*/
+	align-content: center; /*Centraliza o elemento vertical*/
 	overflow: hidden; /*Ele verifica os elementos que estão flutuando e recalcula considerado os elementos flutuando nele e caso setado a altura dele esconde os elementos flutuando*/
 	clear: both; /*Verifica se ah elementos flutuando em ambos os lados e o conteúdo pula pra linha de baixo*/
 	line-height: 35px; /*Espaços entre linhas*/
@@ -156,6 +157,8 @@ Regra de 3
 	box-shadow: 10px 20px 30px black; /* Cria uma sombra no elemento*/
 	aspect-ratio: 1/1; /* Usa o valor do width ou height e copia para width ou height que não foi preenchido*/
 	/*Ex: 1/1 um para um width: 100px; preenche o heght para 100px, 1/2 um para dois witdh:100px; preenche o heght para 200px*/
+	aspect-ratio: 16 / 9; /* Formato de vídeo/TV */
+	aspect-ratio: 4 / 3;  /* Formato de foto antiga */
 }
 
 .Display{
