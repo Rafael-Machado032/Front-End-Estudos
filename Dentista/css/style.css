@@ -1,5 +1,5 @@
 /* Cabecalho */
-header{
+header {
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -11,7 +11,7 @@ header{
 
 }
 
-.logo{
+.logo {
     width: 250px;
     height: 100%;
     background-image: url(../img/logo.png);
@@ -19,54 +19,60 @@ header{
     background-size: contain;
     background-repeat: no-repeat;
 }
-nav ul{
+
+nav ul {
     display: flex;
     justify-content: space-between;
     width: 400px;
     list-style: none;
 
 }
-a{
+
+a {
     text-decoration: none;
     color: #b4b4b4;
 }
 
 /* Moisaco */
 
-.mosaico{
+.mosaico {
     width: 100%;
     max-width: 1280px;
-    
+
     margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
-.mosaico > div{
+
+.mosaico>div {
     display: flex;
 }
 
-.foto{
+.foto {
     background-color: #ccc;
     width: calc(100%/6);
     aspect-ratio: 1/1;
     margin: 5px;
 }
 
-.servico{
+/* Serviço */
+
+.servico {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     transform: translateY(-30px);
 }
-.servico > article:nth-of-type(2){
+
+.servico>article:nth-of-type(2) {
     height: 260px;
     background-color: #688293;
     padding: 90px 0;
 }
 
 
-.servico article{
+.servico article {
     width: 100%;
     max-width: 300px;
     height: 200px;
@@ -75,14 +81,14 @@ a{
     transform: translateY(-10px);
     display: flex;
     flex-direction: column;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     padding: 20px 0;
 }
 
-.dente{
-    width: 40px;
+.dente {
+    width: 30px;
     aspect-ratio: 1/1;
     background-image: url(../img/icone_dente.png);
     background-position: center;
@@ -90,3 +96,217 @@ a{
     background-repeat: no-repeat;
 }
 
+/* Apresentação */
+
+.apresetacao {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    color: #698293;
+}
+
+.foto-dentista {
+    width: 40%;
+    height: 500px;
+    background-image: url(../img/img_perfil.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.apresetacao>article {
+    width: 60%;
+    padding: 30px;
+}
+
+/* Youtube */
+
+.youtube {
+    width: 100%;
+    max-width: 1400px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.youtube > div{
+    width: calc(100%/3);
+    aspect-ratio: 16/9;
+    padding: 10px;
+}
+
+/* Tratamento */
+
+.tratamento{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    color: #698293;
+}
+
+.tratamento > div{
+    display: flex;
+    margin: 30px 0;
+}
+
+.tratamento h2{
+    margin-top: 50px;
+    
+}
+.tratamento p{
+    text-align: justify;
+    padding: 20px;
+    color: #b4b4b4;
+}
+
+/* Depoimentos */
+
+.depoimentos{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    color: #b4b4b4;
+    padding-top: 200px;
+}
+
+.depoimentos h3{
+    margin: 50px 0;
+    color: #698293;
+}
+.depoimentos > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-depo{
+    width: 50px;
+    aspect-ratio: 1/1;
+    background-image: url(../img/depoimento1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 30px 20px;
+}
+
+/* Rede*/
+
+.rede{
+    width: 100%;
+    
+}
+
+.instagram, .facebook{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #98a5ae;
+    color: white;
+}
+
+.facebook{
+    background-color: #576975;
+}
+
+.logo-insta{
+    width: 40px;
+    aspect-ratio: 1/1;
+    background-image: url(../img/inst.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 20px 0;
+}
+.fotos-rede{
+    display: flex;
+}
+.foto-redebox{
+    width: calc(100%/9);
+    aspect-ratio: 1/1;
+    background-color: #d2d2d2;
+    margin: 7px;
+    text-align: center;
+    align-content: center;
+}
+
+.logo-face{
+    width: 40px;
+    aspect-ratio: 1/1;
+    background-image: url(../img/fb.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 20px 0;
+}
+
+/* Contato */
+
+.contato{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 100%;
+    max-width: 500px;
+    margin: 50px 10px;
+    padding: 5px;
+}
+
+input{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    
+}
+form > div:nth-child(1){
+    padding: 0 5px;
+}
+
+form > div:nth-child(2){
+    width: 100%;
+    display: flex;
+}
+form > div > div{
+    width: 50%;
+    margin: 5px;
+}
+
+form > div:nth-child(3){
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+textarea{
+    margin: 10px 0;
+    size: none;
+    resize: none;
+}
+button{
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #688293;
+    color: white;
+}
+
+/* Rodape */
+footer{
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #688293;
+    color: white;
+}
