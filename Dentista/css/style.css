@@ -109,7 +109,8 @@ a {
 
 .foto-dentista {
     width: 40%;
-    height: 500px;
+    aspect-ratio: 2/3;
+    margin: 0 10px;
     background-image: url(../img/img_perfil.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -132,7 +133,7 @@ a {
     justify-content: center;
 }
 
-.youtube > div{
+.youtube>div {
     width: calc(100%/3);
     aspect-ratio: 16/9;
     padding: 10px;
@@ -140,7 +141,7 @@ a {
 
 /* Tratamento */
 
-.tratamento{
+.tratamento {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
@@ -148,16 +149,16 @@ a {
     color: #698293;
 }
 
-.tratamento > div{
+.tratamento>div {
     display: flex;
     margin: 30px 0;
 }
 
-.tratamento h2{
-    margin-top: 50px;
-    
+.tratamento h3 {
+    margin: 50px 5px 0;
 }
-.tratamento p{
+
+.tratamento p {
     text-align: justify;
     padding: 20px;
     color: #b4b4b4;
@@ -165,26 +166,26 @@ a {
 
 /* Depoimentos */
 
-.depoimentos{
+.depoimentos {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
     color: #b4b4b4;
-    padding-top: 200px;
 }
 
-.depoimentos h3{
+.depoimentos h3 {
     margin: 50px 0;
     color: #698293;
 }
-.depoimentos > div{
+
+.depoimentos>div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.foto-depo{
+.foto-depo {
     width: 50px;
     aspect-ratio: 1/1;
     background-image: url(../img/depoimento1.png);
@@ -196,12 +197,13 @@ a {
 
 /* Rede*/
 
-.rede{
+.rede {
     width: 100%;
-    
+
 }
 
-.instagram, .facebook{
+.instagram,
+.facebook {
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -211,11 +213,11 @@ a {
     color: white;
 }
 
-.facebook{
+.facebook {
     background-color: #576975;
 }
 
-.logo-insta{
+.logo-insta {
     width: 40px;
     aspect-ratio: 1/1;
     background-image: url(../img/inst.png);
@@ -224,10 +226,12 @@ a {
     background-size: contain;
     margin: 20px 0;
 }
-.fotos-rede{
+
+.fotos-rede {
     display: flex;
 }
-.foto-redebox{
+
+.foto-redebox {
     width: calc(100%/9);
     aspect-ratio: 1/1;
     background-color: #d2d2d2;
@@ -236,7 +240,7 @@ a {
     align-content: center;
 }
 
-.logo-face{
+.logo-face {
     width: 40px;
     aspect-ratio: 1/1;
     background-image: url(../img/fb.png);
@@ -248,50 +252,54 @@ a {
 
 /* Contato */
 
-.contato{
+.contato {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-form{
+form {
     width: 100%;
     max-width: 500px;
     margin: 50px 10px;
     padding: 5px;
 }
 
-input{
+input {
     width: 100%;
     height: 40px;
     margin: 10px 0;
-    
+
 }
-form > div:nth-child(1){
+
+form>div:nth-child(1) {
     padding: 0 5px;
 }
 
-form > div:nth-child(2){
+form>div:nth-child(2) {
     width: 100%;
     display: flex;
 }
-form > div > div{
+
+form>div>div {
     width: 50%;
     margin: 5px;
 }
 
-form > div:nth-child(3){
+form>div:nth-child(3) {
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 0 5px;
 }
-textarea{
+
+textarea {
     margin: 10px 0;
     size: none;
     resize: none;
 }
-button{
+
+button {
     width: 50%;
     height: 50px;
     margin: 0 auto;
@@ -300,7 +308,7 @@ button{
 }
 
 /* Rodape */
-footer{
+footer {
     width: 100%;
     margin: 0 auto;
     padding: 30px;
@@ -309,4 +317,111 @@ footer{
     align-items: center;
     background-color: #688293;
     color: white;
+}
+
+/* Responsivo */
+
+@media screen and (max-width: 1000px) {
+    .foto-redebox:nth-last-child(-n+3) {
+        display: none;
+    }
+
+    .foto-redebox {
+        width: calc(100%/6);
+    }
+}
+
+@media screen and (max-width: 780px) {
+    header {
+        padding: 0 20px;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu {
+        width: 30px;
+        height: 30px;
+        background-image: url(../img/menu-mobile.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .servico {
+        flex-direction: column;
+        transform: translateY(-8px);
+        font-size: small;
+    }
+
+    .servico>article:nth-of-type(2) {
+        max-width: 335px;
+        height: 150px;
+        padding: 30px 0;
+    }
+
+
+    .servico article {
+        width: 100%;
+        max-width: 300px;
+        height: 150px;
+        padding: 10px;
+    }
+
+    .tratamento p {
+        font-size: 10pt;
+    }
+
+    .apresetacao {
+        flex-direction: column;
+        text-align: justify;
+        font-size: small;
+    }
+
+    .foto-dentista {
+        width: 85%;
+        max-width: 400px;
+    }
+
+    .apresetacao>article {
+        width: 100%;
+    }
+
+    .youtube {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .youtube div {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .foto-redebox:nth-last-child(-n+6) {
+        display: none;
+    }
+
+    .foto-redebox {
+        width: calc(100%/3);
+    }
+
+    form>div:nth-child(2) {
+        flex-direction: column;
+        
+    }
+
+    form>div>div {
+        width: 98%;
+    }
+
+    footer {
+        flex-direction: column;
+        height: 300px;
+        text-align: center;
+    }
 }
