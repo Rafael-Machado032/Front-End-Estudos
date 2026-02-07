@@ -12,6 +12,10 @@
     <meta name="keywords" content="palavras-chaves,separados,por,virgula">
     <meta name="author" content="Rafael Machado">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/venda.css">
+    <link rel="stylesheet" href="./css/veiculo.css">
+    <link rel="stylesheet" href="./css/sobre.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/reset.css">
     <title>Venda de Carros</title>
@@ -21,18 +25,20 @@
 
     <!-- CABEÇALHO DO SITE -->
     <header><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
+        <div>
+            <div class="logo"></div>
 
-        <div class="logo"></div>
-
-        <!-- NAVEGAÇÃO PRINCIPAL -->
-        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
-            <ul>
-                <li><a class="selecionado" href="index.html">Home</a></li>
-                <li><a href="venda.html">Venda</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+            <!-- NAVEGAÇÃO PRINCIPAL -->
+            <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+                <ul>
+                    <li><a class="selecionado" href="index.html">Home</a></li>
+                    <li><a href="venda.html">Venda</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="menu"></div>
+        </div>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -40,16 +46,18 @@
 
         <!-- SEÇÃO TEMATICA -->
         <section class="banner"><!-- <section>: Define seções temáticas dentro de um documento -->
-
+            <div>
+                <article class="texto-banner">
+                    <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
+                    <div>CONSUTORIA</div>
+                    <div>COMPRA</div>
+                    <div>VENDA</div>
+                    <div>E-MAIL@HOTMAIL.COM</div>
+                </article>
+                <div></div>
+            </div>
             <!-- ARTIGO -->
-            <article class="texto-banner">
-                <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
-                <div>CONSUTORIA</div>
-                <div>COMPRA</div>
-                <div>VENDA</div>
-                <div>E-MAIL@HOTMAIL.COM</div>
-            </article>
-            <div></div>
+
         </section>
 
         <div class="linha">
@@ -64,19 +72,19 @@
                 <div class="foto-veiculo"></div>
                 <h2>Volkswagen Karmann-ghia</h2>
                 <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                <button>Mais Detalhes</button>
+                <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
             </article>
             <article>
                 <div class="foto-veiculo"></div>
                 <h2>Volkswagen Karmann-ghia</h2>
                 <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                <button>Mais Detalhes</button>
+                <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
             </article>
             <article>
                 <div class="foto-veiculo"></div>
                 <h2>Volkswagen Karmann-ghia</h2>
                 <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                <button>Mais Detalhes</button>
+                <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
             </article>
         </section>
 

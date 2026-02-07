@@ -1,0 +1,54 @@
+/* Veiculo */
+
+.veiculo-detalhe{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.carro{
+    width: 70%;
+}
+.caminho{
+    margin: 20px 0;
+}
+.fotos-carro{
+    margin-top: 30px;
+    display: flex;
+}
+.fotos-carro div:nth-child(2), div:nth-child(3),div:nth-child(4){
+    width: 100%;
+}
+
+.fotos-carro > .foto-veiculo:nth-child(2){
+    background-color: #d2d2d2;
+    border: 10px solid #d2d2d2;
+}
+
+.fotos-carro > .foto-veiculo:nth-child(3),
+.foto-veiculo:nth-child(4){
+    border: 10px solid white;
+}
+
+.veiculo-detalhe article:nth-child(2){
+    width: 30%;
+    padding: 50px 20px;
+}
+
+
+
+@media (max-width: 780px) {
+    .veiculo-detalhe{
+        flex-direction: column;
+    }
+
+    .carro{
+        width: 100%;
+    }
+    .veiculo-detalhe article:nth-child(2){
+        width: 100%;
+        text-align: center;
+    }
+
+}

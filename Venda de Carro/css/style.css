@@ -2,15 +2,17 @@
 
 header{
     width: 100%;
+    font-size: 18pt;
+    border-bottom: 2px solid red;
+    color: black;
+}
+header > div{
     max-width: 1400px;
     padding: 10px 30px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 18pt;
-    
-    color: black;
 }
 .logo{
     width: 200px;
@@ -29,6 +31,9 @@ a{
     padding: 0 30px;
     color: black;
 }
+.menu{
+    display: none;
+}
 
 /* Banner */
 .banner{
@@ -36,27 +41,36 @@ a{
     max-height: 650px;
     aspect-ratio: 4/3;
     background-image: url(../img/bg.jpg);
-    background-position: right;
+    background-position: right bottom;
     background-repeat: no-repeat;
     background-size: contain;
     background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner > div{
+    width: 100%;
+    max-width: 1500px;
+    padding: 0 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .texto-banner{
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 0 150px;
 }
 
 .texto-banner div{
     width: 100%;
-    font-size: 18pt;
+    font-size: 16pt;
     font-style: italic;
     align-content: center;
     padding: 20px 50px;
@@ -86,6 +100,8 @@ a{
 
 .linha{
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 80px 50px 10px;
     display: flex;
     flex-direction: column;
@@ -117,10 +133,8 @@ a{
 .destaque article{
     width: calc(100%/3);
     border: 10px solid white;
-    
 }
 .foto-veiculo{
-    width: 100%;
     aspect-ratio: 4/3;
     background-image: url(../img/carro1.jpg);
     background-position: center;
@@ -217,6 +231,7 @@ figure > div > div{
 form{
     width: 100%;
     max-width: 600px;
+    margin: 0 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -230,7 +245,7 @@ form > div{
 input[type="email"],input[type="tel"]{
     width: 48%;
 }
-input ,textarea{
+form input ,textarea{
     width: 100%;
     height: 60px;
     padding-left: 15px;
@@ -262,3 +277,86 @@ footer a{
 .selecionado{
     color: red !important;
 }
+
+/* Responsivel */
+
+@media (max-width: 1280px) {
+    .apresentacao article {
+        width: 100%;
+        height: 400px;
+        flex-direction: column;
+    }
+    .apresentacao button {
+        margin: 10px 30px 0;
+    }
+
+}
+
+@media (max-width: 780px) {
+
+    /* Home */
+
+    nav {
+        display: none;
+    }
+
+    .menu {
+        width: 30px;
+        height: 30px;
+        background-image: url(../img/icon_menu.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex !important;
+    }
+
+    .banner {
+        background-size: cover;
+        background-position: 100px center;
+        aspect-ratio: 1/2;
+        align-items: flex-start;
+    }
+    .banner > div{
+        padding: 40px 0 0 40px;
+        flex-direction: column;
+    }
+
+    
+
+    .destaque {
+        flex-direction: column;
+    }
+
+    .destaque article {
+        width: 100%;
+        text-align: center;
+    }
+
+    .apresentacao {
+        flex-direction: column;
+    }
+
+    
+
+    .apresentacao article>div {
+        font-size: 14pt;
+    }
+
+    
+
+    form>div {
+        height: 140px;
+        flex-direction: column;
+    }
+
+    input[type="email"],
+    input[type="tel"] {
+        width: 100%;
+    }
+
+}
+
+
+
+
+
