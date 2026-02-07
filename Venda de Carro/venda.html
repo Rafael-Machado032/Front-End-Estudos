@@ -12,6 +12,9 @@
     <meta name="keywords" content="palavras-chaves,separados,por,virgula">
     <meta name="author" content="Rafael Machado">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="./css/venda.css">
+    <link rel="stylesheet" href="./css/veiculo.css">
+    <link rel="stylesheet" href="./css/sobre.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/reset.css">
     <title>Venda de Carros</title>
@@ -21,18 +24,21 @@
 
     <!-- CABEÇALHO DO SITE -->
     <header><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
+        <div>
+            <div class="logo"></div>
 
-        <div class="logo"></div>
+            <!-- NAVEGAÇÃO PRINCIPAL -->
+            <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="selecionado" href="venda.html">Venda</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="menu"></div>
+        </div>
 
-        <!-- NAVEGAÇÃO PRINCIPAL -->
-        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a class="selecionado"  href="venda.html">Venda</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -49,10 +55,14 @@
                 <div>
                     <h3>Filtre por preço</h3>
                     <div class="barra">
+                        <div class="progreso"></div>
                         <div class="bolinha"></div>
                     </div>
-                    <p>R$0,00</p>
-                    <p>R$70.000,00</p>
+                    <div>
+                        <p>R$0,00</p>
+                        <p>R$70.000,00</p>
+                    </div>
+
                 </div>
                 <div>
                     <h3>Filtre por ano</h3>
@@ -74,25 +84,26 @@
                     </div>
                 </div>
             </div>
+
             <div class="veiculo">
                 <div>
                     <article>
                         <div class="foto-veiculo"></div>
                         <h2>Volkswagen Karmann-ghia</h2>
                         <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                        <button>Mais Detalhes</button>
+                        <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
                     </article>
                     <article>
                         <div class="foto-veiculo"></div>
                         <h2>Volkswagen Karmann-ghia</h2>
                         <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                        <button>Mais Detalhes</button>
+                        <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
                     </article>
                     <article>
                         <div class="foto-veiculo"></div>
                         <h2>Volkswagen Karmann-ghia</h2>
                         <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                        <button>Mais Detalhes</button>
+                        <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
                     </article>
                 </div>
                 <div>
@@ -100,19 +111,19 @@
                         <div class="foto-veiculo"></div>
                         <h2>Volkswagen Karmann-ghia</h2>
                         <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                        <button>Mais Detalhes</button>
+                        <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
                     </article>
                     <article>
                         <div class="foto-veiculo"></div>
                         <h2>Volkswagen Karmann-ghia</h2>
                         <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                        <button>Mais Detalhes</button>
+                        <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
                     </article>
                     <article>
                         <div class="foto-veiculo"></div>
                         <h2>Volkswagen Karmann-ghia</h2>
                         <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                        <button>Mais Detalhes</button>
+                        <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
                     </article>
                 </div>
             </div>

@@ -321,8 +321,8 @@ Regra de 3
 .padding{
 	padding: 10px; /*Todos os lados tem espaço de 10px*/
 	padding: 10px 20px; /*Em cima e baixo tem 10px e o lado esquerdo e direito tem 20px*/
-	padding: 10px 20px 30px; /*Em cima tem 10px, lado direito e esquerdo tem 20px e em baixo tem 30px*/
-	padding: 10px 20px 30px 40px; /*Em cima 10px, Esquerdo 20px, Baixo 30px e Direito 40px*/
+	padding: 10px 20px 30px; /*Em cima tem 10px, Direito e Esquerdo tem 20px e em baixo tem 30px*/
+	padding: 10px 20px 30px 40px; /*Em cima 10px, Direito 20px, Baixo 30px e Esquerdo 40px*/
 }
 
 /* Espaçamento uniformes */

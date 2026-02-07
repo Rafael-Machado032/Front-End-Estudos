@@ -1,0 +1,42 @@
+/* Pagina Sobre */
+
+.sobre{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: larger;
+    padding: 0 10px;
+}
+
+.foto{
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #ccc;
+}
+.sobre > div:nth-child(2){
+    margin: 30px 0;
+}
+
+.sobre > div:nth-child(3){
+    display: flex;
+}
+.sobre > div:nth-child(3) p{
+    margin-top: 20px;
+}
+.foto2{
+    width: 100%;
+    aspect-ratio: 1/1;
+    margin-right: 20px;
+    background-color: #ccc;
+}
+
+@media (max-width: 580px) {
+
+    .sobre > div:nth-child(3){
+        flex-direction: column;
+    }
+    .foto2{
+        aspect-ratio: 16/9;
+    }
+
+}

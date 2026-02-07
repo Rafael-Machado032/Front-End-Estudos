@@ -12,6 +12,9 @@
     <meta name="keywords" content="palavras-chaves,separados,por,virgula">
     <meta name="author" content="Rafael Machado">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="./css/venda.css">
+    <link rel="stylesheet" href="./css/veiculo.css">
+    <link rel="stylesheet" href="./css/sobre.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/reset.css">
     <title>Venda de Carros</title>
@@ -21,18 +24,21 @@
 
     <!-- CABEÇALHO DO SITE -->
     <header><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
+        <div>
+            <div class="logo"></div>
 
-        <div class="logo"></div>
+            <!-- NAVEGAÇÃO PRINCIPAL -->
+            <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="selecionado" href="venda.html">Venda</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="menu"></div>
+        </div>
 
-        <!-- NAVEGAÇÃO PRINCIPAL -->
-        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="venda.html">Venda</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -44,30 +50,32 @@
             <h1>VEICULO PARA VENDA</h1>
         </div>
 
-        <section class="veiculo">
-            <div class="caminho">
-                <a href="">HOME</a>
-                <span>></span>
-                <a href="">VENDA</a>
-                <span>></span>
-                <a href="">VEICULO</a>
-            </div>
+        <section class="veiculo-detalhe">
+
             <article class="carro">
+                <div class="caminho">
+                    <a href="index.html">HOME</a>
+                    <span>></span>
+                    <a href="venda.html">VENDA</a>
+                    <span>></span>
+                    <a class="selecionado" href="veiculo.html">VEICULO</a>
+                </div>
                 <div class="foto-veiculo"></div>
-                <div>
-                    <h3>R$20.000,00</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dolor elementum, aliquet diam
-                        non, placerat risus. Suspendisse fringilla sollicitudin velit sed elementum</p>
-                    <button>Entre em contato</button>
+                <div class="fotos-carro">
+                    <div class="setaesq"></div>
+                    <div class="foto-veiculo"></div>
+                    <div class="foto-veiculo"></div>
+                    <div class="foto-veiculo"></div>
+                    <div class="setadir"></div>
                 </div>
             </article>
-            <div class="fotos-carro">
-                <button></button>
-                <div></div>
-                <div></div>
-                <div></div>
-                <button></button>
-            </div>
+
+            <article>
+                <h3>R$20.000,00</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dolor elementum, aliquet diam
+                    non, placerat risus. Suspendisse fringilla sollicitudin velit sed elementum</p>
+                <button>Entre em contato</button>
+            </article>
         </section>
 
         <div class="linha">
@@ -75,11 +83,13 @@
             <h1>CONTATO</h1>
         </div>
 
-        <section>
+        <section class="contato">
             <form>
                 <input type="text" placeholder="Nome" required>
-                <input type="email" placeholder="Email" required>
-                <input type="tel" placeholder="Tlefone" required>
+                <div>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Telefone" required>
+                </div>
                 <textarea placeholder="Mensagem"></textarea>
                 <button>Enviar</button>
             </form>
@@ -91,7 +101,7 @@
         <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="venda.html">Venda</a></li>
+                <li><a class="selecionado" href="venda.html">Venda</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
