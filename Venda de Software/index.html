@@ -21,9 +21,10 @@
     <!-- CABEÇALHO DO SITE -->
     <header>
         <div class="cabecalho">
+
             <div class="logo1"></div>
             <!-- NAVEGAÇÃO PRINCIPAL -->
-            <nav>
+            <nav class="menu">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#servicos">Serviços</a></li>
@@ -31,8 +32,19 @@
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
-            <div class="botao-menu"></div>
+            <div class="botao-mobile" id="botao-mobile"></div>
+
         </div>
+
+        <nav class="menu-mobile" id="menu-mobile">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
         <div class="apresentacao1">
             <div></div>
             <section>
@@ -52,7 +64,7 @@
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
         <!-- ARTIGO 1 -->
-        <section class="secao1">
+        <section class="secao1" id="servicos">
             <div class="apresentacao2">
                 <h2>Desenvolvemos Sistema Únicos</h2>
                 <ul>
@@ -68,15 +80,16 @@
         </section>
 
         <!-- ARTIGO 2 -->
-        <section class="secao2">
+        <section class="secao2" id="sobre">
             <div>
                 <h2>Por que escolher nossos serviços?</h2>
                 <p>Nossa equipe é composta por profissionais experientes e dedicados, comprometidos em entregar soluções
                     de alta qualidade que atendam às suas expectativas. Trabalhamos em estreita colaboração com nossos
                     clientes para entender suas necessidades e garantir que cada projeto seja concluído com sucesso.
-                <br/>Além disso, oferecemos suporte contínuo e atualizações para garantir que seu sistema permaneça
+                    <br />Além disso, oferecemos suporte contínuo e atualizações para garantir que seu sistema permaneça
                     eficiente
-                    e atualizado com as últimas tecnologias.</p>
+                    e atualizado com as últimas tecnologias.
+                </p>
             </div>
             <div class="tela"></div>
         </section>
@@ -94,29 +107,89 @@
                 </ul>
             </div>
             <div class="desc2">
-                <div>
-                    <div class="foto"></div>
-                    <div>
-                        <h3>Rafael Machado</h3>
-                        <p>Co-Founder / Desenvolvedor</p>
+                <div class="cont-equipe">
+                    <div class="slider">
+                        <div class="equipe">
+                            <div>
+                                <div class="foto"></div>
+                                <div>
+                                    <h3>Rafael Machado</h3>
+                                    <p>Co-Founder / Desenvolvedor</p>
+                                </div>
+
+                            </div>
+                            <div>
+                                <p>Proin sagittis, risus ut tempus condimentum,
+                                    urna est volutpat augue,
+                                    a placerat ligula magna tincidunt sapien.
+                                    Ut tempus pulvinar ante, at euismod orci.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="equipe">
+                            <div>
+                                <div class="foto"></div>
+                                <div>
+                                    <h3>Rafael Machado</h3>
+                                    <p>Co-Founder / Desenvolvedor</p>
+                                </div>
+
+                            </div>
+                            <div>
+                                <p>Proin sagittis, risus ut tempus condimentum,
+                                    urna est volutpat augue,
+                                    a placerat ligula magna tincidunt sapien.
+                                    Ut tempus pulvinar ante, at euismod orci.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="equipe">
+                            <div>
+                                <div class="foto"></div>
+                                <div>
+                                    <h3>Rafael Machado</h3>
+                                    <p>Co-Founder / Desenvolvedor</p>
+                                </div>
+
+                            </div>
+                            <div>
+                                <p>Proin sagittis, risus ut tempus condimentum,
+                                    urna est volutpat augue,
+                                    a placerat ligula magna tincidunt sapien.
+                                    Ut tempus pulvinar ante, at euismod orci.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="equipe">
+                            <div>
+                                <div class="foto"></div>
+                                <div>
+                                    <h3>Rafael Machado</h3>
+                                    <p>Co-Founder / Desenvolvedor</p>
+                                </div>
+
+                            </div>
+                            <div>
+                                <p>Proin sagittis, risus ut tempus condimentum,
+                                    urna est volutpat augue,
+                                    a placerat ligula magna tincidunt sapien.
+                                    Ut tempus pulvinar ante, at euismod orci.
+                                </p>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+
+                <div class="cont-dot">
                     
                 </div>
-                <div>
-                    <p>Proin sagittis, risus ut tempus condimentum,
-                        urna est volutpat augue,
-                        a placerat ligula magna tincidunt sapien.
-                        Ut tempus pulvinar ante, at euismod orci.
-                    </p>
-                    <span class="selecionado"></span>
-                    <span></span>
-                    <span></span>
-                </div>
+
             </div>
         </section>
 
         <!-- ARTIGO 4 -->
-        <section class="secao4">
+        <section class="secao4" id="contato">
             <div class="contato">
                 <form action="" method="get">
                     <h2>Pronto para transformar seu negócio?</h2>
@@ -142,6 +215,12 @@
         <p>&copy; 2026 Rafael Machado. Todos os direitos reservados.</p>
     </footer>
     <script src="./js/mapsapi"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous">
+        </script>
+    <script src="./js/menu-mobile.js"></script>
+    <script src="./js/menu-scrol.js"></script>
+    <script src="./js/slider-depo.js"></script>
 </body>
 
 </html>

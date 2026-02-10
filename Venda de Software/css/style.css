@@ -30,7 +30,7 @@ header {
     background-repeat: no-repeat;
 }
 
-.cabecalho>nav ul {
+.menu ul {
     list-style: none;
     display: flex;
     gap: 30px;
@@ -43,14 +43,12 @@ a {
     font-weight: 500;
 }
 
-.botao-menu {
-    width: 30px;
-    height: 30px;
+.botao-mobile {
     display: none;
-    background-image: url(../img/menu.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+}
+
+.menu-mobile {
+    display: none;
 }
 
 .apresentacao1 {
@@ -152,7 +150,7 @@ button {
     background-repeat: no-repeat;
     background-size: contain;
     transform: translateY(50px);
-    box-shadow: 13px 17px 5px 3px rgba(0,0,0,0.75);
+    box-shadow: 13px 17px 5px 3px rgba(0, 0, 0, 0.75);
 
 }
 
@@ -170,7 +168,7 @@ button {
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 70px;
     gap: 30px;
@@ -184,14 +182,33 @@ button {
     flex-direction: column;
     justify-content: space-around;
     padding: 120px 70px;
-    gap: 30px
 }
 
-.desc2>div:first-child {
+.cont-equipe {
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;/* Coloca os depoimentos um do lado do outro */
+    justify-content: space-between;
+    transition: transform 0.5s ease-in-out;/* Faz o movimento lateral suave */
+}
+.equipe{
+    width: 100%; /* Cada depoimento ocupa a largura total da tela */
+}
+
+.equipe > div:first-child {
     width: 100%;
     max-width: 280px;
     display: flex;
     justify-content: space-between;
+    
+}
+.equipe > div:last-child{
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 0;
 }
 
 .foto {
@@ -225,149 +242,182 @@ span:hover {
 
 /*Seção 3*/
 
-/*Seção 4*/
-
-.secao4 {
-    width: 100%;
-    min-height: 400px;
-    display: flex;
-    background-color: #472563;
-    color: white;
-}
-
-.contato {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 0;
-}
-
-form {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 10px;
-}
-
-form input {
-    height: 50px;
-}
-
-form textarea {
-    height: 100px;
-    size: none;
-    resize: none;
-}
-
-form button {
-    height: 50px;
-    font-size: 16pt;
-}
-
-.mapa {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-}
-
-.localizacao {
-    width: 100%;
-    max-width: 400px;
-    height: 400px;
-    border: 5px solid white;
-}
-
-/*Seção 4*/
-
-/* Footer */
-
-footer {
-    width: 100%;
-    height: 100px;
-    background: #192123;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Footer */
-
-/* Responsivo */
-
-@media screen and (max-width: 750px) {
-
-    .cabecalho {
-        padding: 0;
-    }
-
-    .cabecalho>nav ul {
-        display: none;
-    }
-
-    .botao-menu {
-        display: flex;
-    }
-
-    .apresentacao1 {
-        padding: 0 20px;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .celular {
-        display: none;
-    }
-
-    .secao1 {
-
-        height: 600px;
-    }
-
-    .apresentacao2 {
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .secao2>div:first-child {
-        padding: 0 20px;
-    }
-
-    .tela{
-        background-size: 100% 100%;
-        transform: translateY(30px);
-        
-    }
-
-    .secao3 {
-        flex-direction: column;
-    }
-
-    .desc1,
-    .desc2 {
-        width: 100%;
-    }
-
-    .desc2 {
-        padding: 70px;
-    }
+    /*Seção 4*/
 
     .secao4 {
-        flex-direction: column;
+        width: 100%;
+        min-height: 400px;
+        display: flex;
+        background-color: #472563;
+        color: white;
     }
 
     .contato {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+    }
+
+    form {
         width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    form input {
+        height: 50px;
+    }
+
+    form textarea {
+        height: 100px;
+        size: none;
+        resize: none;
+    }
+
+    form button {
+        height: 50px;
+        font-size: 16pt;
     }
 
     .mapa {
-        width: 100%;
-        padding: 40px 10px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
     }
-}
+
+    .localizacao {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        border: 5px solid white;
+    }
+
+    /*Seção 4*/
+
+    /* Footer */
+
+    footer {
+        width: 100%;
+        height: 100px;
+        background: #192123;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Footer */
+
+    /* Responsivo */
+
+    @media screen and (max-width: 750px) {
+
+        .cabecalho {
+            padding: 0;
+        }
+
+        .menu ul {
+            display: none;
+        }
+
+        .botao-mobile {
+            display: flex;
+            width: 30px;
+            height: 30px;
+            background-image: url(../img/menu.png);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        .menu-mobile {
+            width: 100%;
+        }
+
+
+
+        .menu-mobile li {
+            list-style: none;
+            background-color: white;
+            border: 1px solid black;
+
+            text-align: center;
+        }
+
+        .menu-mobile a {
+            width: 100%;
+            padding: 10px 0;
+            display: inline-block;
+            color: black;
+        }
+
+        .menu-mobile a:hover {
+            background-color: #ccc;
+        }
+
+
+        .apresentacao1 {
+            padding: 0 20px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .celular {
+            display: none;
+        }
+
+        .secao1 {
+
+            height: 600px;
+        }
+
+        .apresentacao2 {
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .secao2>div:first-child {
+            padding: 0 20px;
+        }
+
+        .tela {
+            background-size: 100% 100%;
+            transform: translateY(30px);
+
+        }
+
+        .secao3 {
+            flex-direction: column;
+        }
+
+        .desc1,
+        .desc2 {
+            width: 100%;
+        }
+
+        .desc2 {
+            padding: 70px;
+        }
+
+        .secao4 {
+            flex-direction: column;
+        }
+
+        .contato {
+            width: 100%;
+        }
+
+        .mapa {
+            width: 100%;
+            padding: 40px 10px;
+        }
+    }
