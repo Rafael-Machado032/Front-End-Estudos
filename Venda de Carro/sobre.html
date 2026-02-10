@@ -27,19 +27,25 @@
         <div>
             <div class="logo"></div>
             <!-- NAVEGAÇÃO PRINCIPAL -->
-            <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+            <nav class="menu"><!-- <nav>: Agrupa links de navegação principal (menus). -->
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="venda.html">Venda</a></li>
                     <li><a class="selecionado" href="sobre.html">Sobre</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
                 </ul>
             </nav>
-            <div class="menu"></div>
+            <div class="botao-mobile" id="botao-mobile"></div>
         </div>
-
     </header>
-
+    <nav class="menu-mobile" id="menu-mobile"><!-- <nav>: Agrupa links de navegação principal (menus). -->
+        <ul>
+            <li><a class="selecionado" href="index.html">Home</a></li>
+            <li><a href="venda.html">Venda</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
     <!-- CONTEÚDO PRINCIPAL -->
     <main><!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
 
@@ -71,16 +77,20 @@
 
     <!-- RODAPÉ -->
     <footer><!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
-        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+        <nav class="menu"><!-- <nav>: Agrupa links de navegação principal (menus). -->
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="venda.html">Venda</a></li>
                 <li><a class="selecionado" href="sobre.html">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
             </ul>
         </nav>
         <p>&copy; 2024 - Todos os direitos reservados.</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous">
+        </script>
+    <script src="./js/menu-mobile.js"></script>
 </body>
 
 </html>

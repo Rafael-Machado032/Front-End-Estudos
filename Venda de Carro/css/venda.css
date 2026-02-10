@@ -26,25 +26,35 @@
     width: 100%;
     height: 25px;
     border-radius: 20px;
-    border: 1px solid #ccc;
 }
 
-.progreso {
-    width: 30%;
-    height: 25px;
-    border-radius: 20px;
-    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(200, 200, 200));
+.barra-filtro {
+    width: 100%;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
 }
 
-.bolinha {
-    width: 40px;
-    height: 40px;
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 20px;
     border-radius: 10px;
-    border: 2px solid #ccc;
-    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(180, 180, 180));
-    transform: translateY(-30px);
-    margin-left: 25%;
+    border: 1px solid #ccc;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(200, 200, 200));
+    background-repeat: no-repeat;
+    background-size: var(--tamanho-barra);
+}
 
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Obrigatorio para customizar no Chrome */
+    height: 30px;
+    width: 30px;
+    border-radius: 30%;
+    margin-top: -6px;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(200, 200, 200));
+    border: 2px solid #ccc;
+    /* Ajuste para alinhar ao centro do trilho (Track Height / 2 - Thumb Height / 2) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 input[type="checkbox"] {
