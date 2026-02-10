@@ -22,10 +22,10 @@
     <header><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
 
         <div class="logo"></div>
-        <div class="menu"></div>
+        <div class="botao-mobile" id="botao-mobile"></div>
 
         <!-- NAVEGAÇÃO PRINCIPAL -->
-        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+        <nav class="menu"><!-- <nav>: Agrupa links de navegação principal (menus). -->
             <ul>
                 <li><a href="#quemsou">QUEM SOU</a></li>
                 <li><a href="#depoimentos">DEPOIMENTOS</a></li>
@@ -34,6 +34,14 @@
             </ul>
         </nav>
     </header>
+    <nav class="menu-mobile" id="menu-mobile"><!-- <nav>: Agrupa links de navegação principal (menus). -->
+        <ul>
+            <li><a href="#quemsou">QUEM SOU</a></li>
+            <li><a href="#depoimentos">DEPOIMENTOS</a></li>
+            <li><a href="#sobre">SOBRE</a></li>
+            <li><a href="#contato">CONTATO</a></li>
+        </ul>
+    </nav>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main><!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
@@ -78,7 +86,7 @@
 
         </section>
 
-        <section class="apresetacao">
+        <section class="apresetacao" id="quemsou">
             <div class="foto-dentista"></div>
             <article>
                 <h2>TÍTULO DO PROFISSIONAL</h2>
@@ -114,7 +122,7 @@
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
         </section>
 
-        <section class="tratamento">
+        <section class="tratamento" id="sobre">
             <h3>Tratamentos</h3>
             <div>
                 <article>
@@ -169,7 +177,7 @@
 
         </section>
 
-        <section class="depoimentos">
+        <section class="depoimentos" id="depoimentos">
             <h3>Depoimentos</h3>
             <p>“Estrutura e atendimento excepcionais! adorei o atendimento da Dra. Fernanda, excelente profissional.”
             </p>
@@ -206,7 +214,7 @@
 
         </section>
 
-        <section class="contato">
+        <section class="contato" id="contato">
             <form>
                 <div>
                     <label for="">Nome:</label>
@@ -254,6 +262,11 @@
         </div>
 
     </footer>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous">
+        </script>
+        <script src="./js/menu-mobile.js"></script>
+        <script src="./js/menu-scrol.js"></script>
 </body>
 
 </html>
