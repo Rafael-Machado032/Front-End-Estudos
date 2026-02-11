@@ -1,0 +1,17 @@
+
+<!-- **MJML** -->
+<!-- É uma linguagem de marcação para fazer paginas de email market que facilita no desenvolvimeto em html3 -->
+
+<!-- **Site do Framework** -->
+<!-- https://mjml.io/ -->
+<!-- Documentação: https://documentation.mjml.io/#mjml-guide -->
+
+<!-- Instale a extesão do vscode MJML -->
+
+<!-- **Vizualização Previa** -->
+<!-- Para a vizualização previa do documento no vscode aperte F1 mais tem que estar dentro do documento .mjml -->
+<!-- Selecione "MJML:Open Preview to the Slide" -->
+
+<!-- **Esportar para HTML -->
+<!-- Depois de pronto esporte o documento aperte F1 -->
+<!-- Selecione "MJML:Export HTML" -->
