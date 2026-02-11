@@ -1,0 +1,43 @@
+<mjml>
+    <mj-body>
+        <!-- Header -->
+        <mj-section background-color="#f0f0f0">
+            <mj-column><!--Lembre-se de que tudo deve estar contido dentro da coluna.-->
+                <mj-text align="center" font-style="italic" font-size="20px" color="#626262">
+                    Meu Cabecalho
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <!-- Introdução -->
+        <mj-section background-color="#fafafa">
+            <mj-column><!--Lembre-se de que tudo deve estar contido dentro da coluna.-->
+                <mj-image src="./img.png" alt="pc" />
+                <mj-text align="center" font-style="italic" font-size="20px" color="#626262">
+                    Apresentação 1
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <!-- 2 Seção-->
+        <mj-section background-color="white">
+            <mj-column><!--Lembre-se de que tudo deve estar contido dentro da coluna.-->
+                <mj-image src="./img.png" alt="pc" />
+                <mj-text align="center" font-style="italic" font-size="20px" color="#626262">
+                    Apresentação 2
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <!-- Footer -->
+        <mj-section background-color="#f0f0f0">
+            <mj-column><!--Lembre-se de que tudo deve estar contido dentro da coluna.-->
+                <mj-image src="./img.png" alt="pc" />
+                <mj-text align="center" font-style="italic" font-size="20px" color="#626262">
+                    Rodapé
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+    </mj-body>
+</mjml>

@@ -1,0 +1,69 @@
+<mjml>
+    <mj-body>
+        <mj-section background-color="#2D2F3A">
+            <mj-column>
+                <mj-image src="./logo.png" alt="logo" width="100px" />
+            </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#fff">
+        <mj-column>
+            <mj-text font-size="20px" color="#888">
+                Olá Rafael,
+            </mj-text>
+            <mj-text color="#888">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur, nisi vel luctus porttitor, ligula mi dignissim justo, eleifend iaculis quam tellus ac orci. Sed ornare eu mi gravida rhoncus. Maecenas ultrices pretium neque. Nullam eleifend arcu varius, suscipit lectus non.
+            </mj-text>
+        </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#fff">
+        <mj-column>
+            <mj-divider border-width="2px" border-style="solid" border-color="lightgrey"  />
+        </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#fff">
+        <mj-column width="50%">
+            <mj-image src="./img.png" alt="pc" width="128px" />
+            <mj-text color="#666">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur, nisi vel luctus porttitor, orneque. Nullam eleifend arcu varius, suscipit lectus non.
+            </mj-text>
+            <mj-spacer height="30px" />
+            <mj-image src="./img.png" alt="pc" width="128px" />
+            <mj-text color="#666">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur, nisi vel luctus porttitor, orneque. Nullam eleifend arcu varius, suscipit lectus non.
+            </mj-text>
+        </mj-column>
+        <mj-column width="50%">
+            <mj-image src="./img.png" alt="pc" width="128px" />
+            <mj-text color="#666">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur, nisi vel luctus porttitor, orneque. Nullam eleifend arcu varius, suscipit lectus non.
+            </mj-text>
+            <mj-spacer height="30px" />
+            <mj-image src="./img.png" alt="pc" width="128px" />
+            <mj-text color="#666">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur, nisi vel luctus porttitor, orneque. Nullam eleifend arcu varius, suscipit lectus non.
+            </mj-text>
+        </mj-column>
+    </mj-section>
+
+
+    <mj-section background-color="#ccc">
+
+        <mj-column width="50%">
+        <mj-text color="#666">
+            Todos os direitos reservados.
+        </mj-text>
+        </mj-column>
+        
+        <mj-column>
+            <mj-text align="right">
+                <a href="#" style="color: #666; margin: 30px; text-decoration: none;">Link 1</a>
+                <a href="#" style="color: #666; text-decoration: none;">Website</a>
+            </mj-text>
+        </mj-column>
+    </mj-section>
+
+    </mj-body>
+</mjml>
