@@ -45,21 +45,57 @@ a {
 .mosaico {
     width: 100%;
     max-width: 1280px;
-
+    height: 420px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.mosaico>div {
-    display: flex;
+    z-index: 0;
+    overflow: hidden;
 }
 
 .foto {
     background-color: #ccc;
-    width: calc(100%/6);
-    aspect-ratio: 1/1;
-    margin: 5px;
+    background-position: center;
+    background-size: cover;
+    border: 3px solid white;
+    height: calc(100% / 2) !important; 
+}
+
+/* Fotos do Mosaico */
+
+.foto:nth-of-type(1){
+    background-image: url(../img/imgdDentista1.jpg);
+}
+.foto:nth-of-type(2){
+    background-image: url(../img/imgdDentista2.jpg);
+}
+.foto:nth-of-type(3){
+    background-image: url(../img/imgdDentista3.jpg);
+}
+.foto:nth-of-type(4){
+    background-image: url(../img/imgdDentista4.jpg);
+}
+.foto:nth-of-type(5){
+    background-image: url(../img/imgdDentista5.jpg);
+}
+.foto:nth-of-type(6){
+    background-image: url(../img/imgdDentista6.jpg);
+}
+.foto:nth-of-type(7){
+    background-image: url(../img/imgdDentista7.jpg);
+}
+.foto:nth-of-type(8){
+    background-image: url(../img/imgdDentista8.jpg);
+}
+.foto:nth-of-type(9){
+    background-image: url(../img/imgdDentista9.jpg);
+}
+.foto:nth-of-type(10){
+    background-image: url(../img/imgdDentista10.jpg);
+}
+.foto:nth-of-type(11){
+    background-image: url(../img/imgdDentista11.jpg);
+}
+.foto:nth-of-type(12){
+    background-image: url(../img/imgdDentista12.jpg);
 }
 
 /* Serviço */
@@ -156,29 +192,63 @@ a {
     color: #698293;
 }
 
-.tratamento>div {
-    display: flex;
+.tratcont{
+    overflow: hidden;
+}
+
+.tratart {
     margin: 30px 0;
+    text-align: center;
 }
 
 .tratamento h3 {
-    margin: 50px 5px 0;
+    margin: 10px 5px 0;
+    
 }
 
 .tratamento p {
     text-align: justify;
     padding: 20px;
     color: #b4b4b4;
+    
 }
+
+/* Bullet do Tratamento */
+
+/* Cor da bolinha inativa */
+.swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 1;
+}
+
+/* Cor da bolinha ativa (selecionada) */
+.swiper-pagination-bullet-active {
+    background: #007aff; /* Azul ou a cor da logo do dentista */
+    width: 20px; /* Deixa a bolinha ativa mais comprida */
+    border-radius: 5px;
+}
+
+/* Garante que a paginação não fique em cima das fotos */
+.swiper-pagination {
+    bottom: 0px !important;
+    position: relative;
+    margin-top: 20px;
+}
+
 
 /* Depoimentos */
 
 .depoimentos {
     width: 100%;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 50px auto;
     text-align: center;
     color: #b4b4b4;
+    padding: 10px;
+}
+
+.depocont{
+    overflow: hidden;
 }
 
 .depoimentos h3 {
@@ -186,10 +256,19 @@ a {
     color: #698293;
 }
 
-.depoimentos>div {
+.depo {
+    justify-content: center;
+    align-items: center;
+    
+}
+.depo > div{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.depo > div > p{
+    margin: 0 10px;
 }
 
 .foto-depo {
@@ -199,7 +278,6 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin: 30px 20px;
 }
 
 /* Rede*/
