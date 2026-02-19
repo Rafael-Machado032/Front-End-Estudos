@@ -37,16 +37,12 @@ function inicializarSwiper() {
         },
     });
 
-    if (tratamento !== undefined) tratamento.destroy(true, true);
+    if (depoimento !== undefined) depoimento.destroy(true, true);
 
-    tratamento = new Swiper('.tratcont', {
+    depoimento = new Swiper('.dopocont', {
         observer: true,
         observeParents: true,
-        grid: { rows: 3, fill: 'row' },
-        breakpoints: {
-            380: { slidesPerView: 2 },
-            780: { slidesPerView: 3 }
-        },
+        slidesPerView: 1,
         pagination: {
             el: '.swiper-pagination',
             type: 'bullets',
