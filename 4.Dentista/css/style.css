@@ -213,7 +213,7 @@ a {
     
 }
 
-/* Bullet do Tratamento */
+/* Bullet */
 
 /* Cor da bolinha inativa */
 .swiper-pagination-bullet {
@@ -223,7 +223,7 @@ a {
 
 /* Cor da bolinha ativa (selecionada) */
 .swiper-pagination-bullet-active {
-    background: #007aff; /* Azul ou a cor da logo do dentista */
+    background: #688293; /* Azul ou a cor da logo do dentista */
     width: 20px; /* Deixa a bolinha ativa mais comprida */
     border-radius: 5px;
 }
@@ -272,12 +272,23 @@ a {
 }
 
 .foto-depo {
-    width: 50px;
+    width: 40px;
     aspect-ratio: 1/1;
-    background-image: url(../img/depoimento1.png);
+    border-radius: 25px;
+    border: 2px solid #ccc;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+}
+
+.depo:nth-of-type(1) .foto-depo {
+    background-image: url(../img/depoimento1.png);
+}
+.depo:nth-of-type(2) .foto-depo {
+    background-image: url(../img/depoimento2.png);
+}
+.depo:nth-of-type(3) .foto-depo {
+    background-image: url(../img/depoimento3.png);
 }
 
 /* Rede*/
@@ -325,6 +336,62 @@ a {
     align-content: center;
 }
 
+.foto-redebox:nth-of-type(1) {
+    background-image: url(../img/imgDentistaSocial1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foto-redebox:nth-of-type(2) {
+    background-image: url(../img/imgDentistaSocial2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foto-redebox:nth-of-type(3) {
+    background-image: url(../img/imgDentistaSocial3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foto-redebox:nth-of-type(4) {
+    background-image: url(../img/imgDentistaSocial4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foto-redebox:nth-of-type(5) {
+    background-image: url(../img/imgDentistaSocial5.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foto-redebox:nth-of-type(6) {
+    background-image: url(../img/imgDentistaSocial6.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foto-redebox:nth-of-type(7) {
+    background-image: url(../img/imgDentistaSocial7.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foto-redebox:nth-of-type(8) {
+    background-image: url(../img/imgDentistaSocial8.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foto-redebox:nth-of-type(9) {
+    background-image: url(../img/imgDentistaSocial9.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .logo-face {
     width: 40px;
     aspect-ratio: 1/1;
@@ -341,20 +408,24 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 30px 10px;
+    color: #444;
 }
 
 form {
     width: 100%;
     max-width: 500px;
-    margin: 50px 10px;
     padding: 5px;
+    
 }
 
 input {
     width: 100%;
     height: 40px;
     margin: 10px 0;
-
+    padding: 0 5px;
+    border: 1px solid #dadada;
 }
 
 form>div:nth-child(1) {
@@ -382,6 +453,8 @@ textarea {
     margin: 10px 0;
     size: none;
     resize: none;
+    border: 1px solid #dadada;
+    padding: 5px;
 }
 
 button {
