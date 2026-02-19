@@ -138,14 +138,22 @@ a{
 }
 .foto-veiculo{
     aspect-ratio: 4/3;
-    background-image: url(../img/carro1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
+.destaque article:nth-child(1) .foto-veiculo{
+    background-image: url(../img/carro2.jpg);
+}
+.destaque article:nth-child(2) .foto-veiculo{
+    background-image: url(../img/carro3.jpg);
+}
+.destaque article:nth-child(3) .foto-veiculo{
+    background-image: url(../img/carro4.jpg);
+}
+
 button{
-    
     width: 150px;
     height: 50px;
     background-color: #EB2D2D;
@@ -153,6 +161,7 @@ button{
     font-style: italic;
     font-size: large;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 /* Apresentacao */

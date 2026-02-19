@@ -42,7 +42,7 @@
     </header>
     <nav class="menu-mobile" id="menu-mobile"><!-- <nav>: Agrupa links de navegação principal (menus). -->
         <ul>
-            <li><a class="selecionado" href="index.html">Home</a></li>
+            <li><a class="selecionado" href="index-nav.html">Home</a></li>
             <li><a href="venda.html">Venda</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="#contato">Contato</a></li>
@@ -50,134 +50,8 @@
     </nav>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <main><!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
-
-        <!-- SEÇÃO TEMATICA -->
-        <section class="banner"><!-- <section>: Define seções temáticas dentro de um documento -->
-            <div>
-                <article class="texto-banner">
-                    <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
-                    <div>CONSUTORIA</div>
-                    <div>COMPRA</div>
-                    <div>VENDA</div>
-                    <div>E-MAIL@HOTMAIL.COM</div>
-                </article>
-                <div></div>
-            </div>
-            <!-- ARTIGO -->
-
-        </section>
-
-        <div class="linha">
-            <div></div>
-            <h1>VEÍCULO EM DESTAQUE</h1>
-        </div>
-
-        <section class="destaque">
-
-
-            <article>
-                <div class="foto-veiculo"></div>
-                <h2>Volkswagen Karmann-ghia</h2>
-                <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
-            </article>
-            <article>
-                <div class="foto-veiculo"></div>
-                <h2>Volkswagen Karmann-ghia</h2>
-                <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
-            </article>
-            <article>
-                <div class="foto-veiculo"></div>
-                <h2>Volkswagen Karmann-ghia</h2>
-                <p>1.6 8v, Gasolina, 2P, Manual1969</p>
-                <button onclick="window.location.href='veiculo.html'">Mais Detalhes</button>
-            </article>
-        </section>
-
-        <section class="apresentacao">
-            <article>
-                <div>
-                    <h3>Serviços</h3>
-                    <ul>
-                        <li>Compra</li>
-                        <li>Venda</li>
-                        <li>Consultoria de veículos</li>
-                        <li>Indicação de Mecanicos e peças</li>
-                    </ul>
-                </div>
-                <button id="sobre">Saiba Mais</button>
-            </article>
-            <article class="cont-depo">
-                <figure class="depo">
-                    <h3>Depoimentos</h3>
-                    <blockquote>
-                        <p>“O Rafael foi muito atencioso, me buscou no aeroporto e garantiu toda comodidade e conforto
-                            no almoço, no transfer,
-                            na visita ao veículo e durante o test-drive”</p>
-                    </blockquote>
-                    <div>
-                        <div>
-                            <div class="setaesq"></div>
-                            <div class="setadir"></div>
-                        </div>
-                        <figcaption>
-                            <cite>João da silva</cite>
-                        </figcaption>
-                    </div>
-                </figure>
-                <figure class="depo">
-                    <h3>Depoimentos</h3>
-                    <blockquote>
-                        <p>“Melhor preço da região, recomendo.”</p>
-                    </blockquote>
-                    <div>
-                        <div>
-                            <div class="setaesq"></div>
-                            <div class="setadir"></div>
-                        </div>
-                        <figcaption>
-                            <cite>Maria Silvinia</cite>
-                        </figcaption>
-                    </div>
-                </figure>
-                <figure class="depo">
-                    <h3>Depoimentos</h3>
-                    <blockquote>
-                        <p>“Carro excelente, atendimento nota 10!”</p>
-                    </blockquote>
-                    <div>
-                        <div>
-                            <div class="setaesq"></div>
-                            <div class="setadir"></div>
-                        </div>
-                        <figcaption>
-                            <cite>Pedro Vasconselo</cite>
-                        </figcaption>
-                    </div>
-                </figure>
-            </article>
-        </section>
-
-        <div class="linha">
-            <div></div>
-            <h1>CONTATO</h1>
-        </div>
-
-        <section class="contato" id="contato">
-            <form>
-                <input type="text" placeholder="Nome" required>
-                <div>
-                    <input type="email" placeholder="Email" required>
-                    <input type="tel" placeholder="Telefone" required>
-                </div>
-                <textarea placeholder="Mensagem"></textarea>
-                <button>Enviar</button>
-            </form>
-        </section>
-
-
+    <main id="conteudo">
+        <!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
     </main>
 
     <!-- RODAPÉ -->
@@ -193,11 +67,12 @@
         <p>&copy; 2024 - Todos os direitos reservados.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-4.0.0.js"
-        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous">
-        </script>
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
     <script src="./js/menu-mobile.js"></script>
+    <script src="./js/navegacao.js"></script>
     <script src="./js/menu-scroll.js"></script>
-    <script src="./js/fade-depo.js"></script>
+    
+    
     <script>
         $('#sobre').on('click', function () {
             window.location.href = 'sobre.html';

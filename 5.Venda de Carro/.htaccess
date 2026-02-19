@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# 1. Remove a extensão .html da URL (amigável)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# 2. Força o redirecionamento se alguém digitar .html manualmente
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
