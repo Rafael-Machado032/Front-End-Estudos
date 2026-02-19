@@ -78,6 +78,24 @@ input[type="checkbox"] {
     width: calc(100%/3);
     border: 10px solid white;
 }
+.veiculo div:nth-child(1) article:nth-child(1) .foto-veiculo {
+    background-image: url(../img/carro1.jpg);
+}
+.veiculo div:nth-child(1) article:nth-child(2) .foto-veiculo {
+    background-image: url(../img/carro2.jpg);
+}
+.veiculo div:nth-child(1) article:nth-child(3) .foto-veiculo {
+    background-image: url(../img/carro3.jpg);
+}
+.veiculo div:nth-child(2) article:nth-child(1) .foto-veiculo {
+    background-image: url(../img/carro4.jpg);
+}
+.veiculo div:nth-child(2) article:nth-child(2) .foto-veiculo {
+    background-image: url(../img/carro5.jpg);
+}
+.veiculo div:nth-child(2) article:nth-child(3) .foto-veiculo {
+    background-image: url(../img/carro6.jpg);
+}
 
 @media (max-width: 780px) {
 
