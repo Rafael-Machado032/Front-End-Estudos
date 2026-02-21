@@ -10,10 +10,13 @@
     <!--Compatibilidade do navegador-->
     <meta name="description" content="Exemplo de descrição para o meu site.">
     <meta name="keywords" content="palavras-chaves,separados,por,virgula">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./img/IMG-20230222-WA0000.ico" type="image/x-icon">
     <!-- Inserir icone no navegador -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <!-- Fonte Open Sans 3 links -->
@@ -22,94 +25,116 @@
     <script src="https://kit.fontawesome.com/ee3bb032cd.js" crossorigin="anonymous"></script>
     <!-- Icones Social -->
     <meta name="author" content="Rafael Machado">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/reset.css">
+
+
     <title>Semântica HTML - Exemplos</title>
 </head>
 
 <body>
-
-    <div class="bg">
-        <header><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
-            <div class="social-ico">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <div class="bg flex flex-col items-center h-[800px] relative text-white gap-20">
+        <div class="bg-black/60 w-full h-full absolute"></div>
+        <header class="relative w-full max-w-7xl flex flex-col p-4 ">
+            <div class="social-ico flex justify-end gap-4">
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/home"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
-            <div>
-                <h1>Danki.Code</h1>
-                <!-- NAVEGAÇÃO PRINCIPAL -->
+            <div class="flex items-center justify-between  border-solid border-white border-b-2 p-4">
+                <h1 class="text-3xl font-bold">Danki.Code</h1>
                 <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
-                    <ul>
+                    <ul class="flex gap-6 text-xl">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        <section>
-            <h2>Bem-vindo(a) ao nosso website!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit i</p>
-            <br>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit i</p>
-            <button>Saiba Mais</button>
+
+        <section class="relative w-full max-w-7xl p-4">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl">Bem-vindo(a) ao nosso <span class="text-blue-500">website!</span></h1>
+                <br />
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                    ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
+                    dolor in hendrerit i</p>
+                <br />
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                    ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
+                    dolor in hendrerit i</p>
+                <br />
+                <button class="bg-blue-500 hover:bg-blue-700 font-bold py-3 px-10 rounded-3xl">Saiba Mais</button>
+            </div>
+
         </section>
     </div>
-    <!-- CABEÇALHO DO SITE -->
 
-
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main><!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
+    <main class="flex flex-col items-center">
+        <!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
 
         <!-- SEÇÃO TEMATICA -->
-        <section><!-- <section>: Define seções temáticas dentro de um documento -->
-            <div>
-                <h2>Confira nossos planos</h2>
+        <section class="w-full"><!-- <section>: Define seções temáticas dentro de um documento -->
+            <div class="bg-slate-300 w-full flex justify-center p-8 ">
+                <h2 class="text-blue-500 border-solid border-t-2 border-blue-500 w-fit text-2xl uppercase">Confira
+                    nossos planos</h2>
             </div>
             <!-- ARTIGO -->
             <article>
-                <div>
-                    <h3>Lorem ipsum</h3>
-                    <div>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <div>R$250,00</div>
+                <div class="w-full max-w-7xl flex justify-between p-8 my-0 mx-auto gap-4">
+                    <div class="w-72 border-solid border border-gray-200 shadow-[10px_9px_5px_-8px_#000000]">
+                        <h3 class="bg-blue-500 text-center text-white p-1">Lorem ipsum</h3>
+                        <div class="gap-y-1 p-4 flex flex-col text-gray-500">
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <div class="w-min my-5 mx-auto border-solid border-t-2 border-gray-300">R$250,00</div>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <h3>Lorem ipsum</h3>
-                    <div>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <div>R$250,00</div>
+                    <div class="w-72 border-solid border border-gray-200 shadow-[10px_9px_5px_-8px_#000000]">
+                        <h3 class="bg-blue-500 text-center text-white p-1">Lorem ipsum</h3>
+                        <div class="gap-y-1 p-4 flex flex-col text-gray-500">
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <div class="w-min my-5 mx-auto border-solid border-t-2 border-gray-300">R$250,00</div>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <h3>Lorem ipsum</h3>
-                    <div>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
-                        <div>R$250,00</div>
+                    <div class=" w-72 border-solid border border-gray-200 shadow-[10px_9px_5px_-8px_#000000]">
+                        <h3 class="bg-blue-500 text-center text-white p-1">Lorem ipsum</h3>
+                        <div class="gap-y-1 p-4 flex flex-col text-gray-500">
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <p><i class="fa fa-check-square"></i>Lorem ipsum silor domor</p>
+                            <div class="w-min my-5 mx-auto border-solid border-t-2 border-gray-300">R$250,00</div>
+                        </div>
                     </div>
                 </div>
             </article>
         </section>
 
-        <section>
+        <section class="bg-paralax">
             <article>
                 <h3>Sobre nossa <span>empresa</span></h3>
             </article>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+                in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+                vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                dolore te feugait nulla facilisi.</p>
             <br>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-            
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+                in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+                vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                dolore te feugait nulla facilisi.</p>
+
         </section>
 
         <section>
@@ -130,31 +155,40 @@
                     <div class="foto"></div>
                     <p>Guilherme Grillo</p>
                     <span>CEO / Instrutor</span>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                        tation ullamcorper suscipit</p>
                 </div>
                 <div>
                     <div class="foto"></div>
                     <p>Guilherme Grillo</p>
                     <span>CEO / Instrutor</span>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                        tation ullamcorper suscipit</p>
                 </div>
                 <div>
                     <div class="foto"></div>
                     <p>Guilherme Grillo</p>
                     <span>CEO / Instrutor</span>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                        tation ullamcorper suscipit</p>
                 </div>
                 <div>
                     <div class="foto"></div>
                     <p>Guilherme Grillo</p>
                     <span>CEO / Instrutor</span>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                        tation ullamcorper suscipit</p>
                 </div>
             </div>
         </section>
     </main>
     <!-- RODAPÉ -->
-    <footer><!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
+    <footer class="flex flex-col items-center">
+        <!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
         <p>&copy; 2026 - Todos os direitos reservados.</p>
     </footer>
 </body>
