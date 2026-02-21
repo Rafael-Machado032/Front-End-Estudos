@@ -1,0 +1,12 @@
+.bg{
+    background-image: url(../img/bg1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bg-paralax{
+    background-image: url(../img/bg_parallax.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
