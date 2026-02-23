@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Tipo de texto padrão-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Escala de tela para responsivo-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Compatibilidade do navegador-->
+    <meta name="description" content="Exemplo de descrição para o meu site.">
+    <meta name="keywords" content="palavras-chaves,separados,por,virgula">
+    <link rel="shortcut icon" href="./img/IMG-20230222-WA0000.ico" type="image/x-icon">
+    <!-- Inserir icone no navegador -->
+    <meta name="author" content="Rafael Machado">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Inserir icone no navegador -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <!-- Fonte Open Sans 3 links -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Framework Tailwind CSS -->
+    <script src="https://kit.fontawesome.com/ee3bb032cd.js" crossorigin="anonymous"></script>
+    <!-- Icones Social -->
+    <title>Viagens</title>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO DO SITE -->
+    <header class="bg-gray-800 text-white p-4"><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
+        <h1>RM.Code</h1>
+
+        <!-- NAVEGAÇÃO PRINCIPAL -->
+        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <aside>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="bg"><!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
+
+        <!-- SEÇÃO TEMATICA -->
+        <section id="email"><!-- <section>: Define seções temáticas dentro de um documento -->
+            <!-- ARTIGO -->
+            <article>
+                <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
+                <label for="email-input">Insira seu e-mail:</label>
+                <input type="email" id="email-input" name="email">
+                <button>Enviar<i></i></button>
+            </article>
+        </section>
+
+        <section id="servicos">
+            <article>
+                <h2>Sobre o autor</h2>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+                    require little markup to use effectively.</p>
+            </article>
+
+            <article>
+                <h2>Mensagem do dia</h2>
+                <div>
+                    <h2>Boas viagens!</h2>
+                    <p>Espero que você tenha uma experiência incrível em suas viagens!</p>
+                </div>
+            </article>
+
+        </section>
+
+        <section>
+            <article>
+                <h2>Lugares bacanas!</h2>
+                <div>
+                    <div id="foto"></div>
+                    <p>Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
+                </div>
+                <div>
+                    <div id="foto"></div>
+                    <p>Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
+                </div>
+                <div>
+                    <div id="foto"></div>
+                    <p>Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
+                </div>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2>Equipe!</h2>
+                <div>
+                    <Title>Title</Title>
+                    <p>First Line</p>
+                    <p>Second Line</p>
+                    <i id="icon"></i>
+                </div>
+                <div>
+                    <Title>Title</Title>
+                    <p>First Line</p>
+                    <p>Second Line</p>
+                    <i id="icon"></i>
+                </div>
+                <div>
+                    <Title>Title</Title>
+                    <p>First Line</p>
+                    <p>Second Line</p>
+                    <i id="icon"></i>
+                </div>
+                <div>
+                    <Title>Title</Title>
+                    <p>First Line</p>
+                    <p>Second Line</p>
+                    <i id="icon"></i>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h2>Entre em Contato!</h2>
+                <div>
+                    <input type="text" name="nome" id="nome-input" placeholder="Primeiro nome">
+                    <input type="text" name="sobrenome" id="sobrenome-input" placeholder="Sobrenome">
+                    <input type="email" name="email" id="email-input" placeholder="E-mail">
+                    <textarea name="" id=""></textarea>
+                    <button>Enviar<i></i></button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer><!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
+        <div>
+            <div>
+                <h2>Redes Sociais</h2>
+                <p>Siga-nos nas redes sociais para ficar por dentro das novidades e promoções!</p>
+            </div>
+            <div>
+                <h2>Links</h2>
+                <a href="">Link 1</a>
+                <a href="">Link 2</a>
+                <a href="">Link 3</a>
+                <a href="">Link 4</a>
+            </div>
+        </div>
+        <div>
+            <p>&copy; 2024 - Todos os direitos reservados.</p>
+            <a href="">More Links</a>
+        </div>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
