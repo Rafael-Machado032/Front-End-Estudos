@@ -31,137 +31,231 @@
 <body>
 
     <!-- CABEÇALHO DO SITE -->
-    <header class="bg-gray-800 text-white p-4"><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
-        <h1>RM.Code</h1>
-
-        <!-- NAVEGAÇÃO PRINCIPAL -->
-        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+    <header class="bg-blue-700 text-white flex justify-center items-center p-4">
+        <!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
+        <div class="flex justify-between items-center w-full max-w-4xl">
+            <h1 class="text-3xl font-bold">RM.Code</h1>
+            <!-- NAVEGAÇÃO PRINCIPAL -->
+            <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
+                <ul class="flex gap-4">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <!-- Botão Hamburguer (Só aparece no Mobile) -->
+            <button id="menu-btn" class="block md:hidden ">
+                <div class="w-6 h-1 bg-white mb-1" id="line1"></div>
+                <div class="w-6 h-1 bg-white mb-1" id="line2"></div>
+                <div class="w-6 h-1 bg-white" id="line3"></div>
+            </button>
+        </div>
+        <aside class="absolute left-0 h-screen hidden bg-slate-500" id="mobile-menu">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-        </nav>
+        </aside>
     </header>
-    <aside>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </aside>
-
     <!-- CONTEÚDO PRINCIPAL -->
-    <main class="bg"><!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
+    <main class="bg">
+        <!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
 
         <!-- SEÇÃO TEMATICA -->
-        <section id="email"><!-- <section>: Define seções temáticas dentro de um documento -->
+        <section id="email" class="h-96 bg-blue-800 flex justify-center items-center">
+            <!-- <section>: Define seções temáticas dentro de um documento -->
             <!-- ARTIGO -->
-            <article>
+            <article class="bg-white text-gray-500 p-6 shadow-md w-full max-w-2xl flex flex-col gap-4">
+                <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
                 <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
                 <label for="email-input">Insira seu e-mail:</label>
-                <input type="email" id="email-input" name="email">
-                <button>Enviar<i></i></button>
+                <input type="email" class="p-2 border-b-2 border-solid border-gray-400" id="email-input" name="email"
+                    placeholder="E-mail">
+                <button class=" flex items-center px-16 py-2 mx-auto w-min rounded-lg bg-blue-700 text-white">Enviar<i
+                        class="fa-regular fa-paper-plane ml-2"></i></button>
             </article>
         </section>
 
-        <section id="servicos">
-            <article>
-                <h2>Sobre o autor</h2>
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-                    require little markup to use effectively.</p>
-            </article>
+        <section id="servicos" class="flex justify-center p-10 text-2xl text-gray-700">
+            <article class="w-full max-w-5xl flex justify-center gap-4 ">
 
-            <article>
-                <h2>Mensagem do dia</h2>
-                <div>
-                    <h2>Boas viagens!</h2>
-                    <p>Espero que você tenha uma experiência incrível em suas viagens!</p>
-                </div>
+                <fieldset class="w-1/2 border-t-4 border-solid border-gray-400 ">
+                    <legend class="pr-4">Sobre o autor</legend>
+                    <p class="py-10">I am a very simple card. I am good at containing small bits of information. I am
+                        convenient
+                        because I
+                        require little markup to use effectively.</p>
+                </fieldset>
+
+                <fieldset class="w-1/2 border-t-4 border-solid border-gray-400">
+                    <legend class="pr-4">Mensagem do dia</legend>
+                    <div class="my-10 p-8 min-h-52 bg-blue-900 text-white shadow-[8px_8px_30px_rgba(0,0,0,0.8)]">
+                        <h2>Boas viagens!</h2>
+                        <p>Espero que você tenha uma experiência incrível em suas viagens!</p>
+                    </div>
+                </fieldset>
+
             </article>
 
         </section>
 
-        <section>
-            <article>
-                <h2>Lugares bacanas!</h2>
-                <div>
-                    <div id="foto"></div>
-                    <p>Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
-                </div>
-                <div>
-                    <div id="foto"></div>
-                    <p>Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
-                </div>
-                <div>
-                    <div id="foto"></div>
-                    <p>Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
-                </div>
+        <section class="text-2xl text-gray-700">
+            <article class="flex justify-center">
+                <fieldset class="py-10 flex w-full max-w-5xl border-t-4 border-solid border-gray-400">
+                    <legend class="pr-4">Lugares bacanas!</legend>
+                    <div class="w-1/3 m-2 shadow-[3px_3px_10px_rgba(0,0,0,0.8)]">
+                        <div id="foto" class="w-full h-44 flex justify-center items-end">
+                            <h1 class="text-white mb-8">Lorem ipsum silor domor</h1>
+                        </div>
+                        <p class="p-4">Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
+                    </div>
+                    <div class="w-1/3 m-2 shadow-[3px_3px_10px_rgba(0,0,0,0.8)]">
+                        <div id="foto" class="w-full h-44 flex justify-center items-end">
+                            <h1 class="text-white mb-8">Lorem ipsum silor domor</h1>
+                        </div>
+                        <p class="p-4">Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
+                    </div>
+                    <div class="w-1/3 m-2 shadow-[3px_3px_10px_rgba(0,0,0,0.8)]">
+                        <div id="foto" class="w-full h-44 flex justify-center items-end">
+                            <h1 class="text-white mb-8">Lorem ipsum silor domor</h1>
+                        </div>
+                        <p class="p-4">Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
+                    </div>
+                </fieldset>
             </article>
         </section>
 
-        <section>
-            <article>
-                <h2>Equipe!</h2>
-                <div>
-                    <Title>Title</Title>
-                    <p>First Line</p>
-                    <p>Second Line</p>
-                    <i id="icon"></i>
-                </div>
-                <div>
-                    <Title>Title</Title>
-                    <p>First Line</p>
-                    <p>Second Line</p>
-                    <i id="icon"></i>
-                </div>
-                <div>
-                    <Title>Title</Title>
-                    <p>First Line</p>
-                    <p>Second Line</p>
-                    <i id="icon"></i>
-                </div>
-                <div>
-                    <Title>Title</Title>
-                    <p>First Line</p>
-                    <p>Second Line</p>
-                    <i id="icon"></i>
-                </div>
+        <section class="text-2xl text-gray-700">
+            <article class="flex justify-center">
+                <fieldset class="py-10 grid grid-cols-2 w-full max-w-5xl border-t-4 border-solid border-gray-400">
+                    <legend class="pr-4">Equipe!</legend>
+                    <div
+                        class="w-full max-w-[500px] py-4 m-2 border-2 border-gray-400  flex justify-between items-center">
+                        <div class="m-4 w-12 h-12 border-2 rounded-full flex justify-center items-center ">
+                            <i class="fa-regular fa-id-badge"></i></i>
+                        </div>
+                        <div class="w-48 flex-auto">
+                            <h3 class="font-bold">Title</h3>
+                            <p>First Line</p>
+                            <p>Second Line</p>
+                        </div>
+                        <i class="fa-solid fa-id-badge m-4 text-cyan-700"></i>
+                    </div>
+                    <div
+                        class="w-full max-w-[500px] py-4 m-2 border-2 border-gray-400  flex justify-between items-center">
+                        <div class="m-4 w-12 h-12 border-2 rounded-full flex justify-center items-center ">
+                            <i class="fa-regular fa-id-badge"></i></i>
+                        </div>
+                        <div class="w-48 flex-auto">
+                            <h3 class="font-bold">Title</h3>
+                            <p>First Line</p>
+                            <p>Second Line</p>
+                        </div>
+                        <i class="fa-solid fa-id-badge m-4 text-cyan-700"></i>
+                    </div>
+                    <div
+                        class="w-full max-w-[500px] py-4 m-2 border-2 border-gray-400  flex justify-between items-center">
+                        <div class="m-4 w-12 h-12 border-2 rounded-full flex justify-center items-center ">
+                            <i class="fa-regular fa-id-badge"></i></i>
+                        </div>
+                        <div class="w-48 flex-auto">
+                            <h3 class="font-bold">Title</h3>
+                            <p>First Line</p>
+                            <p>Second Line</p>
+                        </div>
+                        <i class="fa-solid fa-id-badge m-4 text-cyan-700"></i>
+                    </div>
+                    <div
+                        class="w-full max-w-[500px] py-4 m-2 border-2 border-gray-400  flex justify-between items-center">
+                        <div class="m-4 w-12 h-12 border-2 rounded-full flex justify-center items-center ">
+                            <i class="fa-regular fa-id-badge"></i></i>
+                        </div>
+                        <div class="w-48 flex-auto">
+                            <h3 class="font-bold">Title</h3>
+                            <p>First Line</p>
+                            <p>Second Line</p>
+                        </div>
+                        <i class="fa-solid fa-id-badge m-4 text-cyan-700"></i>
+                    </div>
+                </fieldset>
             </article>
         </section>
-        <section>
-            <article>
-                <h2>Entre em Contato!</h2>
-                <div>
-                    <input type="text" name="nome" id="nome-input" placeholder="Primeiro nome">
-                    <input type="text" name="sobrenome" id="sobrenome-input" placeholder="Sobrenome">
-                    <input type="email" name="email" id="email-input" placeholder="E-mail">
-                    <textarea name="" id=""></textarea>
-                    <button>Enviar<i></i></button>
-                </div>
+        <section class="text-2xl text-gray-700">
+            <article class="flex justify-center">
+                <fieldset class="py-10 w-full max-w-5xl border-t-4 border-solid border-gray-400">
+                    <legend class="pr-4">Entre em Contato!</legend>
+                    <form class="w-full max-w-2xl gap-10 flex flex-col justify-center items-center mx-auto">
+                        <div class="flex w-full gap-4">
+                            <div class="relative w-1/2">
+                                <input type="text" id="nome" placeholder=" " required
+                                    class="peer p-2 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-600 placeholder-transparent" />
+                                <label for="nome"
+                                    class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-blue-600 peer-focus:text-sm">
+                                    Seu Nome
+                                </label>
+                            </div>
+
+                            <div class="relative w-1/2">
+                                <input type="text" id="sobrenome" placeholder=" " required
+                                    class="peer p-2 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-600 placeholder-transparent" />
+                                <label for="sobrenome"
+                                    class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-blue-600 peer-focus:text-sm">
+                                    Seu Sobrenome
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="relative w-full">
+                            <input type="email" id="email" placeholder=" " required
+                                class="peer p-2 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-600 placeholder-transparent" />
+                            <label for="email"
+                                class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-blue-600 peer-focus:text-sm">
+                                Seu E-mail
+                            </label>
+                        </div>
+                        <div class="relative w-full">
+                            <textarea id="mensagem" placeholder=" " required
+                                class="peer p-2 h-20 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-600 placeholder-transparent"></textarea>
+                            <label for="mensagem"
+                                class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-blue-600 peer-focus:text-sm">
+                                Sua Mensagem
+                            </label>
+                        </div>
+                        <button
+                            class=" flex items-center px-16 py-2 mx-auto w-min rounded-lg bg-blue-700 text-white">Enviar<i
+                                class="fa-regular fa-paper-plane ml-2"></i></button>
+                        </>
+                </fieldset>
             </article>
         </section>
     </main>
 
     <!-- RODAPÉ -->
-    <footer><!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
-        <div>
-            <div>
-                <h2>Redes Sociais</h2>
-                <p>Siga-nos nas redes sociais para ficar por dentro das novidades e promoções!</p>
-            </div>
-            <div>
-                <h2>Links</h2>
-                <a href="">Link 1</a>
-                <a href="">Link 2</a>
-                <a href="">Link 3</a>
-                <a href="">Link 4</a>
+    <footer class="flex flex-col items-center justify-center text-white ">
+        <!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
+        <div class="bg-sky-600 w-full flex items-center justify-center">
+            <div class=" flex justify-between items-center w-4xl p-4">
+                <div>
+                    <h2>Redes Sociais</h2>
+                    <p>Siga-nos nas redes sociais para ficar por dentro das novidades e promoções!</p>
+                </div>
+                <div class="flex flex-col">
+                    <h2>Links</h2>
+                    <a href="">Link 1</a>
+                    <a href="">Link 2</a>
+                    <a href="">Link 3</a>
+                    <a href="">Link 4</a>
+                </div>
             </div>
         </div>
-        <div>
-            <p>&copy; 2024 - Todos os direitos reservados.</p>
-            <a href="">More Links</a>
+        <div class="bg-sky-700 w-full flex items-center justify-center p-4">
+            <div class=" flex justify-between w-4xl">
+                <p>&copy; 2024 - Todos os direitos reservados.</p>
+                <a href="">More Links</a>
+            </div>
         </div>
+
 
     </footer>
     <script src="https://code.jquery.com/jquery-4.0.0.js"
