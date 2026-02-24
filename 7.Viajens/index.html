@@ -31,13 +31,15 @@
 <body>
 
     <!-- CABEÇALHO DO SITE -->
-    <header class="bg-blue-700 text-white flex justify-center items-center p-4">
+    <header id="home" class="bg-blue-700 text-white flex justify-center items-center p-4">
         <!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
-        <div class="flex justify-between items-center w-full max-w-4xl">
-            <h1 class="text-3xl font-bold">RM.Code</h1>
+        <div class="flex justify-between items-center w-full max-w-5xl flex-row-reverse md:flex-row ">
+            <div class="block md:hidden"></div>
+            <h1 class="text-3xl font-bold"><a href="#home">RM.Code</a></h1>
             <!-- NAVEGAÇÃO PRINCIPAL -->
-            <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
-                <ul class="flex gap-4">
+
+            <nav class="hidden md:flex"><!-- <nav>: Agrupa links de navegação principal (menus). -->
+                <ul class="flex gap-4 ">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#contato">Contato</a></li>
@@ -49,38 +51,48 @@
                 <div class="w-6 h-1 bg-white mb-1" id="line2"></div>
                 <div class="w-6 h-1 bg-white" id="line3"></div>
             </button>
+
         </div>
-        <aside class="absolute left-0 h-screen hidden bg-slate-500" id="mobile-menu">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
+        <aside id="mobile-menu"
+            class="fixed inset-y-0 z-50 left-0 top-0 overflow-auto will-change-transform w-full max-w-72  bg-slate-500 -translate-x-full transition-transform duration-300">
+            <ul class="flex flex-col gap-4 p-4">
+                <li class="hover:bg-slate-400"><a href="#home">Home</a></li>
+                <li class="hover:bg-slate-400"><a href="#sobre">Sobre</a></li>
+                <li class="hover:bg-slate-400"><a href="#contato">Contato</a></li>
             </ul>
         </aside>
+        <div id="overlay" class="fixed hidden inset-y-0 w-full bg-black/50 z-40 transition-opacity duration-300"></div>
     </header>
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="bg">
         <!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
 
         <!-- SEÇÃO TEMATICA -->
-        <section id="email" class="h-96 bg-blue-800 flex justify-center items-center">
+        <section id="email" class="h-96 p-6 bg-blue-800 flex justify-center items-center">
             <!-- <section>: Define seções temáticas dentro de um documento -->
             <!-- ARTIGO -->
-            <article class="bg-white text-gray-500 p-6 shadow-md w-full max-w-2xl flex flex-col gap-4">
-                <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
-                <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
-                <label for="email-input">Insira seu e-mail:</label>
-                <input type="email" class="p-2 border-b-2 border-solid border-gray-400" id="email-input" name="email"
-                    placeholder="E-mail">
-                <button class=" flex items-center px-16 py-2 mx-auto w-min rounded-lg bg-blue-700 text-white">Enviar<i
-                        class="fa-regular fa-paper-plane ml-2"></i></button>
+            <article class="bg-white text-gray-500 p-6 shadow-md w-full max-w-2xl  ">
+                <form class="flex flex-col gap-4">
+                    <div class="relative w-full">
+                        <input type="email" id="email" placeholder="Email" required
+                            class="peer p-2 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-600" />
+                        <label for="email"
+                            class="absolute left-0 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown: -top-5 peer-focus:text-blue-600">
+                            Insira seu E-mail
+                        </label>
+                    </div>
+                    <button
+                        class=" flex items-center px-16 py-2 mx-auto w-min rounded-lg bg-blue-700 text-white">Enviar<i
+                            class="fa-regular fa-paper-plane ml-2"></i></button>
+                </form>
+
             </article>
         </section>
 
-        <section id="servicos" class="flex justify-center p-10 text-2xl text-gray-700">
-            <article class="w-full max-w-5xl flex justify-center gap-4 ">
+        <section id="sobre" class="flex  justify-center p-10 text-2xl text-gray-700">
+            <article class="w-full max-w-5xl flex flex-col justify-center gap-4 md:flex-row">
 
-                <fieldset class="w-1/2 border-t-4 border-solid border-gray-400 ">
+                <fieldset class="w-full border-t-4 border-solid border-gray-400 md:w-1/2">
                     <legend class="pr-4">Sobre o autor</legend>
                     <p class="py-10">I am a very simple card. I am good at containing small bits of information. I am
                         convenient
@@ -88,8 +100,8 @@
                         require little markup to use effectively.</p>
                 </fieldset>
 
-                <fieldset class="w-1/2 border-t-4 border-solid border-gray-400">
-                    <legend class="pr-4">Mensagem do dia</legend>
+                <fieldset class="w-full border-t-4 border-solid border-gray-400 md:w-1/2">
+                    <legend class=" pr-4">Mensagem do dia</legend>
                     <div class="my-10 p-8 min-h-52 bg-blue-900 text-white shadow-[8px_8px_30px_rgba(0,0,0,0.8)]">
                         <h2>Boas viagens!</h2>
                         <p>Espero que você tenha uma experiência incrível em suas viagens!</p>
@@ -101,22 +113,23 @@
         </section>
 
         <section class="text-2xl text-gray-700">
-            <article class="flex justify-center">
-                <fieldset class="py-10 flex w-full max-w-5xl border-t-4 border-solid border-gray-400">
+            <article class="flex justify-center  p-10">
+                <fieldset id="lugares"
+                    class="py-10 flex flex-col w-full max-w-5xl border-t-4 border-solid border-gray-400 md:flex-row">
                     <legend class="pr-4">Lugares bacanas!</legend>
-                    <div class="w-1/3 m-2 shadow-[3px_3px_10px_rgba(0,0,0,0.8)]">
+                    <div class="w-full m-2 pb-6 shadow-[3px_3px_10px_rgba(0,0,0,0.8)] md:w-1/3">
                         <div id="foto" class="w-full h-44 flex justify-center items-end">
                             <h1 class="text-white mb-8">Lorem ipsum silor domor</h1>
                         </div>
                         <p class="p-4">Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
                     </div>
-                    <div class="w-1/3 m-2 shadow-[3px_3px_10px_rgba(0,0,0,0.8)]">
+                    <div class="w-full m-2 pb-6 shadow-[3px_3px_10px_rgba(0,0,0,0.8)] md:w-1/3">
                         <div id="foto" class="w-full h-44 flex justify-center items-end">
                             <h1 class="text-white mb-8">Lorem ipsum silor domor</h1>
                         </div>
                         <p class="p-4">Confira os lugares mais incríveis para visitar em suas próximas viagens!</p>
                     </div>
-                    <div class="w-1/3 m-2 shadow-[3px_3px_10px_rgba(0,0,0,0.8)]">
+                    <div class="w-full m-2 pb-6 shadow-[3px_3px_10px_rgba(0,0,0,0.8)] md:w-1/3">
                         <div id="foto" class="w-full h-44 flex justify-center items-end">
                             <h1 class="text-white mb-8">Lorem ipsum silor domor</h1>
                         </div>
@@ -127,8 +140,9 @@
         </section>
 
         <section class="text-2xl text-gray-700">
-            <article class="flex justify-center">
-                <fieldset class="py-10 grid grid-cols-2 w-full max-w-5xl border-t-4 border-solid border-gray-400">
+            <article class="flex justify-center p-10">
+                <fieldset
+                    class="py-10 flex flex-col items-center w-full max-w-5xl border-t-4 border-solid  border-gray-400 md:grid grid-cols-2">
                     <legend class="pr-4">Equipe!</legend>
                     <div
                         class="w-full max-w-[500px] py-4 m-2 border-2 border-gray-400  flex justify-between items-center">
@@ -181,13 +195,13 @@
                 </fieldset>
             </article>
         </section>
-        <section class="text-2xl text-gray-700">
-            <article class="flex justify-center">
+        <section id="contato" class="text-2xl text-gray-700">
+            <article class="flex justify-center p-10">
                 <fieldset class="py-10 w-full max-w-5xl border-t-4 border-solid border-gray-400">
                     <legend class="pr-4">Entre em Contato!</legend>
                     <form class="w-full max-w-2xl gap-10 flex flex-col justify-center items-center mx-auto">
-                        <div class="flex w-full gap-4">
-                            <div class="relative w-1/2">
+                        <div class="flex flex-col w-full gap-10 md:flex-row">
+                            <div class="relative w-full md:w-1/2">
                                 <input type="text" id="nome" placeholder=" " required
                                     class="peer p-2 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-600 placeholder-transparent" />
                                 <label for="nome"
@@ -196,7 +210,7 @@
                                 </label>
                             </div>
 
-                            <div class="relative w-1/2">
+                            <div class="relative w-full md:w-1/2">
                                 <input type="text" id="sobrenome" placeholder=" " required
                                     class="peer p-2 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-600 placeholder-transparent" />
                                 <label for="sobrenome"
@@ -225,23 +239,23 @@
                         <button
                             class=" flex items-center px-16 py-2 mx-auto w-min rounded-lg bg-blue-700 text-white">Enviar<i
                                 class="fa-regular fa-paper-plane ml-2"></i></button>
-                        </>
+                    </form>
                 </fieldset>
             </article>
         </section>
     </main>
 
     <!-- RODAPÉ -->
-    <footer class="flex flex-col items-center justify-center text-white ">
+    <footer class="flex flex-col items-center justify-center text-white bg-slate-500">
         <!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
-        <div class="bg-sky-600 w-full flex items-center justify-center">
-            <div class=" flex justify-between items-center w-4xl p-4">
+        <div class="bg-blue-800 w-full flex items-center justify-center">
+            <div class=" flex flex-col justify-between  w-full max-w-4xl p-4 md:flex-row md:items-center">
                 <div>
-                    <h2>Redes Sociais</h2>
+                    <h2 class="font-bold text-xl py-4">Redes Sociais</h2>
                     <p>Siga-nos nas redes sociais para ficar por dentro das novidades e promoções!</p>
                 </div>
                 <div class="flex flex-col">
-                    <h2>Links</h2>
+                    <h2 class="font-bold text-xl py-4">Links</h2>
                     <a href="">Link 1</a>
                     <a href="">Link 2</a>
                     <a href="">Link 3</a>
@@ -249,9 +263,9 @@
                 </div>
             </div>
         </div>
-        <div class="bg-sky-700 w-full flex items-center justify-center p-4">
-            <div class=" flex justify-between w-4xl">
-                <p>&copy; 2024 - Todos os direitos reservados.</p>
+        <div class="bg-blue-700 w-full flex items-center justify-center">
+            <div class=" flex justify-between w-full max-w-4xl p-4">
+                <p>&copy; 2026 - Todos os direitos reservados.</p>
                 <a href="">More Links</a>
             </div>
         </div>
@@ -260,8 +274,8 @@
     </footer>
     <script src="https://code.jquery.com/jquery-4.0.0.js"
         integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
-
-
+    <script src="js/menu-mobile-aside.js"></script>
+    <script src="js/menu-scroll.js"></script>
 </body>
 
 </html>

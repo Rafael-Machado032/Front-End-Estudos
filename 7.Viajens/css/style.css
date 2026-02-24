@@ -1,5 +1,14 @@
 #foto{
-    background-image: url(../img/background1.jpg);
     background-size: cover;
     background-position: center;
+}
+
+#lugares div:nth-of-type(1) #foto{
+    background-image: url(../img/background1.jpg);
+}
+#lugares div:nth-of-type(2) #foto{
+    background-image: url(../img/background2.jpg);
+}
+#lugares div:nth-of-type(3) #foto{
+    background-image: url(../img/background3.jpg);
 }
