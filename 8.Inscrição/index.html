@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Tipo de texto padrão-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Escala de tela para responsivo-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Compatibilidade do navegador-->
+    <meta name="description" content="Exemplo de descrição para o meu site.">
+    <meta name="keywords" content="palavras-chaves,separados,por,virgula">
+    <link rel="shortcut icon" href="./img/IMG-20230222-WA0000.ico" type="image/x-icon">
+    <!-- Inserir icone no navegador -->
+    <meta name="author" content="Rafael Machado">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Inserir icone no navegador -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <!-- Fonte Open Sans 3 links -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <!-- Framework Tailwind CSS -->
+    <script src="https://kit.fontawesome.com/ee3bb032cd.js" crossorigin="anonymous"></script>
+    <!-- Icones Social -->
+    <title>Inscrição</title>
+</head>
+
+<body>
+
+
+    <header class="bg-white dark:bg-gray-900 fixed w-full z-10">
+        <div class="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+            <!-- Logo -->
+            <a class="block dark:text-white" href="#">
+                <span class="sr-only">Home</span>
+                <h2 class="text-xl font-bold">RM.Code</h2>
+            </a>
+
+            <div class="flex flex-1 items-center justify-end md:justify-between">
+                <!-- Menu -->
+                <nav aria-label="Global" class="hidden md:block">
+                    <ul class="flex items-center gap-6 text-sm">
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                                href="#">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                                href="#">
+                                Sobre
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                                href="#">
+                                Contato
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Login e registrar -->
+                <div class="flex items-center gap-4">
+                    <div class="sm:flex sm:gap-4">
+                        <a class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500"
+                            href="#">
+                            Login
+                        </a>
+
+                        <a class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                            href="#">
+                            Registre-se
+                        </a>
+                    </div>
+
+                    <!-- Menu mobile -->
+                    <button popovertarget="popover-1" style="anchor-name:--anchor-1"
+                        class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                        popovertarget="popover-1" style="anchor-name:--anchor-1">
+                        <span class="sr-only">Menu-mobile</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+
+                    <!-- change popover-1 and --anchor-1 names. Use unique names for each dropdown -->
+                    <ul class="mt-3 dropdown dropdown-end menu w-full max-w-xl rounded-box bg-base-100 shadow-sm" popover id="popover-1"
+                        style="position-anchor:--anchor-1">
+                        <li><a>Home</a></li>
+                        <li><a>Sobre</a></li>
+                        <li><a>Contato</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <section
+            class="lg:grid lg:place-content-center bg-[url('./img/bg.jpg')] bg-cover bg-no-repeat bg-center bg-blend-overlay bg-fixed">
+            <div class="  flex flex-col justify-between mx-auto w-full max-w-xl py-16 md:py-32 md:flex-row md:max-w-7xl">
+                <div class="w-full p-4 md:w-1/2 md:px-6">
+                    <h1 class="  font-bold text-gray-900 text-4xl dark:text-white">
+                        Seja muito bem-vindo(a) e <strong class="text-indigo-600">junte-se a nós</strong> inscreva-se!
+                    </h1>
+
+                    <p class="mt-4 text-gray-700 dark:text-gray-200">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                        tincidunt
+                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                        tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
+                        iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+                        feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
+                        luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                    </p>
+
+                    <div class="mt-4 flex gap-4 sm:mt-6">
+                        <a class="inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700"
+                            href="#">
+                            Inscreva-se
+                        </a>
+
+                        <a class="inline-block rounded border-3 px-5 py-3 font-medium text-gray-50 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 border-gray-800"
+                            href="#">
+                            Saiba mais!
+                        </a>
+                    </div>
+                </div>
+                <div class=" w-full p-4 flex flex-col gap-6 md:w-1/2 md:px-6">
+                    <h2 class="text-4xl font-bold">Inscreva-se para nossa lista</h2>
+                    <form class="flex flex-col relative">
+                        <label class="input validator w-full">
+                            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                    stroke="currentColor">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                </g>
+                            </svg>
+                            <input type="email" placeholder="mail@site.com" required />
+                        </label>
+                        <div class="validator-hint">Entre com um email válido!</div>
+                        <button class="btn btn-primary w-min">Entrar!</button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="flex place-content-center w-full bg-slate-500">
+            <div id="seta" class="p-4"><i class="fa-solid fa-circle-down fa-2xl"></i></div>
+        </div>
+
+        <section>
+            <article>
+                <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+                    <div class="mx-auto">
+                        <h2 class="text-3xl/tight font-bold text-gray-900 sm:text-4xl dark:text-white">
+                            Sobre
+                        </h2>
+
+                        <p class="mt-4 text-lg text-pretty text-gray-700 dark:text-gray-200">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit iaculis ante vel
+                            tempor.
+                            Maecenas convallis commodo eros quis varius. Suspendisse luctus vehicula sem, a malesuada mi
+                            fringilla id. Nulla laoreet vitae sapien a dignissim. Suspendisse vitae dapibus orci. Sed
+                            vitae
+                            suscipit ipsum. Phasellus malesuada erat et erat eleifend, id faucibus sem ultrices. Proin
+                            dignissim nibh lorem, nec consectetur velit euismod non. Integer co...
+                        </p>
+                    </div>
+                    <div class="py-4 text-center">
+                        <!-- Open the modal using ID.showModal() method -->
+                        <button class="btn btn-primary" onclick="modal.showModal()">Saiba Mais!</button>
+                        <dialog id="modal" class="modal">
+                            <div class="modal-box max-w-4xl">
+                                <h3 class="text-lg font-bold">Sobre</h3>
+                                <p class="">Precione ESC ou o botão abaixo para fechar</p>
+                                <div class="modal-action">
+                                    <form method="dialog">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit
+                                            iaculis
+                                            ante vel tempor. Maecenas convallis commodo eros quis varius. Suspendisse
+                                            luctus
+                                            vehicula sem, a malesuada mi fringilla id. Nulla laoreet vitae sapien a
+                                            dignissim. Suspendisse vitae dapibus orci. Sed vitae suscipit ipsum.
+                                            Phasellus
+                                            malesuada erat et erat eleifend, id faucibus sem ultrices. Proin dignissim
+                                            nibh
+                                            lorem, nec consectetur velit euismod non. Integer consequat, purus sed
+                                            ullamcorper scelerisque, diam turpis dapibus mi, eget mattis eros massa in
+                                            quam.
+                                            Sed nec ex ac magna tempor ultricies. Curabitur ut fermentum ex. Proin nec
+                                            tempus nibh, non luctus nisi. Sed finibus aliquet ornare. Duis ullamcorper
+                                            enim
+                                            lobortis tortor sodales, vel posuere dolor fermentum. Donec sed orci eu
+                                            lacus
+                                            hendrerit fringilla.</p>
+                                        <div class="w-full flex place-content-center p-4">
+                                            <button class="btn btn-primary">Fechar</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl/tight font-bold text-gray-900 sm:text-4xl dark:text-white">
+                        Nossos diferenciais
+                    </h2>
+                    <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3 text-center">
+
+                        <div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700 ">
+                            <div
+                                class="inline-flex rounded-lg bg-gray-100 p-3 text-gray-700 dark:bg-gray-800 dark:text-gray-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"></path>
+                                </svg>
+                            </div>
+
+                            <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Confiabilidade</h3>
+
+                            <p class="mt-2 text-pretty text-gray-700 dark:text-gray-200">
+                                elerisque, diam turpis dapibus mi, eget mattis eros massa in quam. Sed nec ex ac magna
+                                tempor ultricies. Curabitur ut fermentum ex. Proin nec tempus nibh, non luctus nisi. Sed
+                                finibus aliquet ornare. Duis ullamcorper enim lobortis tortor sodales, vel pos
+                            </p>
+                        </div>
+
+                        <div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700">
+                            <div
+                                class="inline-flex rounded-lg bg-gray-100 p-3 text-gray-700 dark:bg-gray-800 dark:text-gray-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">
+                                Segurança
+                            </h3>
+
+                            <p class="mt-2 text-pretty text-gray-700 dark:text-gray-200">
+                                elerisque, diam turpis dapibus mi, eget mattis eros massa in quam. Sed nec ex ac magna
+                                tempor ultricies. Curabitur ut fermentum ex. Proin nec tempus nibh, non luctus nisi. Sed
+                                finibus aliquet ornare. Duis ullamcorper enim lobortis tortor sodales, vel pos
+                            </p>
+                        </div>
+
+                        <div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700">
+                            <div
+                                class="inline-flex rounded-lg bg-gray-100 p-3 text-gray-700 dark:bg-gray-800 dark:text-gray-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">
+                                Anonimato
+                            </h3>
+
+                            <p class="mt-2 text-pretty text-gray-700 dark:text-gray-200">
+                                elerisque, diam turpis dapibus mi, eget mattis eros massa in quam. Sed nec ex ac magna
+                                tempor ultricies. Curabitur ut fermentum ex. Proin nec tempus nibh, non luctus nisi. Sed
+                                finibus aliquet ornare. Duis ullamcorper enim lobortis tortor sodales, vel pos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+
+        <section class="bg-slate-700">
+            <article class=" flex flex-col justify-between mx-auto max-w-7xl p-4 gap-4 sm:px-6 lg:px-8 sm:flex-row">
+                <div class="flex items-center justify-center text-3xl w-full sm:w-1/2">
+                    <i class="fa-regular fa-bell"></i>
+                    <h3 class="text-center"> Participe da nossa lista!</h3>
+                </div>
+
+                <div class="join w-full sm:w-1/2">
+                    <div class="bg-green-700 w-full">
+                        <label class="input validator join-item w-full">
+                            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                    stroke="currentColor">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                </g>
+                            </svg>
+                            <input type="email" placeholder="mail@site.com" required />
+                        </label>
+                        <div class="validator-hint hidden">Entre com email valido</div>
+                    </div>
+                    <button class="btn btn-primary join-item px-10">Entrar!</button>
+                </div>
+            </article>
+        </section>
+
+        <section>
+            <article class="bg-gray-800 py-6">
+                <form action="#"
+                    class="mx-auto max-w-xl space-y-4 rounded-lg border p-6 border-gray-800">
+                    <h2 class="text-2xl">Fale conosco</h2>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 dark:text-white" for="name">
+                            Nome
+                        </label>
+
+                        <input
+                            class="mt-1 w-full p-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+                            id="name" type="text" placeholder="Seu nome">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 dark:text-white" for="email">
+                            Email
+                        </label>
+
+                        <input
+                            class="mt-1 w-full p-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+                            id="email" type="email" placeholder="Seu email">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 dark:text-white" for="message">
+                            Mensagem
+                        </label>
+
+                        <textarea
+                            class="mt-1 w-full p-4 resize-none rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+                            id="message" rows="4" placeholder="Sua mensagem"></textarea>
+                    </div>
+
+                    <button
+                        class="block w-full rounded-lg border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-indigo-600 dark:hover:bg-indigo-700 dark:hover:text-white"
+                        type="submit">
+                        Enviar
+                    </button>
+                </form>
+            </article>
+        </section>
+
+    </main>
+
+    <footer class="bg-white dark:bg-gray-900">
+        <div class="mx-auto max-w-7xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                <div>
+                    <a class="block dark:text-white" href="#">
+                        <span class="sr-only">Home</span>
+                        <h2 class="text-xl font-bold">RM.Code</h2>
+                    </a>
+
+                    <p class="mt-4 max-w-xs text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
+                        molestias.
+                    </p>
+
+                    <ul class="mt-8 flex gap-6">
+                        <li>
+                            <a href="#" rel="noreferrer" target="_blank"
+                                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                <span class="sr-only">Facebook</span>
+
+                                <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" rel="noreferrer" target="_blank"
+                                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                <span class="sr-only">Instagram</span>
+
+                                <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" rel="noreferrer" target="_blank"
+                                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                <span class="sr-only">Twitter</span>
+
+                                <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                                    </path>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" rel="noreferrer" target="_blank"
+                                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                <span class="sr-only">GitHub</span>
+
+                                <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" rel="noreferrer" target="_blank"
+                                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                <span class="sr-only">Dribbble</span>
+
+                                <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+                    <div>
+                        <p class="font-medium text-gray-900 dark:text-white">Services</p>
+
+                        <ul class="mt-6 space-y-4 text-sm">
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    1on1 Coaching
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Company Review
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Accounts Review
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    HR Consulting
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    SEO Optimisation
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="font-medium text-gray-900 dark:text-white">Company</p>
+
+                        <ul class="mt-6 space-y-4 text-sm">
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    About
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Meet the Team
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Accounts Review
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="font-medium text-gray-900 dark:text-white">Helpful Links</p>
+
+                        <ul class="mt-6 space-y-4 text-sm">
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Contact
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    FAQs
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Live Chat
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="font-medium text-gray-900 dark:text-white">Legal</p>
+
+                        <ul class="mt-6 space-y-4 text-sm">
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Accessibility
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Returns Policy
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Refund Policy
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                                    Hiring-3 Statistics
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+                © 2026. Rafael Machado. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script src="js/nav-tailwind.js"></script>
+    <script src="js/menu-scroll.js"></script>
+</body>
+
+</html>
