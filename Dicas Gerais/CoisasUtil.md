@@ -12,3 +12,6 @@ https://fontawesome.com/
 
 **Slider**
 https://swiperjs.com/
+
+**Mover Objeto**
+https://interactjs.io/
