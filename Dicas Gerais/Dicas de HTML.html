@@ -3,19 +3,66 @@
 <!--Linguagem da pagina-->
 
 <head>
-    <meta charset="UTF-8">
     <!--Tipo de texto padrão-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+
     <!--Compatibilidade do navegador-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <!--Escala de tela para responsivo-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Titulo da pagina que aparece na aba do navegador-->
+    <title>Dicas de HTML</title>
+
+    <!-- Cor da barra mobile -->
+    <!-- Cor para modo claro -->
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <!-- Cor para modo escuro (ex: cinza escuro do Tailwind) -->
+    <meta name="theme-color" content="#1f2937" media="(prefers-color-scheme: dark)">
+
+    <!-- Para buscas no google-->
     <meta name="description" content="Exemplo de descrição para o meu site.">
     <meta name="keywords" content="palavras-chaves,separados,por,virgula">
     <meta name="author" content="Rafael Machado">
-    <link rel="stylesheet" href="Dicas de CSS.css">
+    <meta name="robots" content="index, follow">
+
+    <!-- Configurações de Compartilhamento (SMO) -->
+    <!-- Meta tags para compartilhamento do link nas redes sociais -->
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com.br">
+    <meta property="og:title" content="Título Incrível do Meu Site">
+    <meta property="og:description" content="Uma descrição curta que convence a pessoa a clicar.">
+    <meta property="og:image" content="https://seusite.com.br/banner-compartilhamento.jpg">
+    <!-- 1200 x 630 pixels, 1.91:1, abaixo de 300 KB, JPG ou PNG-->
+    <!-- X (Antigo Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://seusite.com.br">
+    <meta name="twitter:title" content="Título Incrível do Meu Site">
+    <meta name="twitter:description" content="Uma descrição curta que convence a pessoa a clicar.">
+    <meta name="twitter:image" content="https://seusite.com.br/banner-compartilhamento.jpg">
+    <!-- 1200 x 630 pixels, 1.91:1, abaixo de 300 KB, JPG ou PNG-->
+    <!--Teste para verificar o link site OpenGraph.xyz ou o Social Share Preview -->
+
+    <!-- Inserir icone no navegador -->
+    <!-- 1. Para abas do navegador (PC/Laptop) -->
+    <link rel="icon" href="./favicon-32.png" sizes="32x32" type="image/png">
+    <!-- 2. Para Android e Google Chrome (Alta resolução) -->
+    <link rel="icon" href="./icon-192.png" sizes="192x192" type="image/png">
+    <!-- 3. Exclusivo para iPhone/iPad (iOS) -->
+    <link rel="apple-touch-icon" href="./apple-touch-180.png">
+
+    <!-- Pre-conexão de fontes do google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Evita que o Google te penalize se existirem duas URLs para o mesmo site (ex: com www e sem www). -->
+    <link rel="canonical" href="https://seusite.com.br">
+
     <!--Chamado de css em outro arquivo-->
-    <title>Dicas de HTML</title>
-    <!--Titulo da pagina que aparece na aba do navegador-->
+    <link rel="stylesheet" href="Dicas-de-CSS.css">
+
 </head>
 
 <body>
@@ -77,21 +124,39 @@
         <label for="vehicle3"> I have a boat</label><br><br>
         <input type="submit" value="Submit">
     </form>
-    
-        <div class="java">teste java1</div>
-        <div class="java">teste java2</div>
-        <div class="java">teste java3</div>
-    
+
+    <div class="java">teste java1</div>
+    <div class="java">teste java2</div>
+    <div class="java">teste java3</div>
+
     <div id="c1" class="cursos c1">HTML</div>
     <div id="c2" class="cursos c2">PHP</div>
     <div id="c3" class="cursos c2">Java</div>
 
     <!--Para criar um lorem com a quantidade de palavra exata basta digitar lorem + o numero de palavras exemplo lorem20 ira criar com 20 palavras -->
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia distinctio commodi vero accusamus ipsum aspernatur, dignissimos non ut nisi hic.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia distinctio commodi vero accusamus ipsum
+        aspernatur, dignissimos non ut nisi hic.</p>
     <!-- Script sempre no final para evitar erro -->
     <script src="/Dicas JQuery.js"></script>
     <script src="/Caderno_JavaScript.js"></script>
 
+
+    <!-- HTML Entis -->
+
+    &nbsp; <!-- Espaço -->
+    &lt; <!-- < -->
+    &gt; <!-- > -->
+    &amp; <!-- & -->
+    &quot; <!-- " -->
+    &apos; <!-- ' -->
+    &cent; <!-- ¢ -->
+    &pound; <!-- £ -->
+    &yen; <!-- ¥ -->
+    &euro; <!-- € -->
+    &copy; <!-- © -->
+    &reg; <!-- ® -->
+    &trade; <!-- ™ -->
+    <p>á à ã â</p>
 </body>
 
 </html>
