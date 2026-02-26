@@ -254,6 +254,36 @@ Regra de 3
 	align-self: flex-start; /*O elemento está posicionado no início do contêiner*/
 	align-self: flex-end; /*O elemento é posicionado no final do contêiner*/
 	align-self: baseline; /*O elemento está posicionado na linha de base do contêiner*/
+
+	place-content: center; /*Atalho para align-content e justify-content*/
+}
+
+.Grid{
+	display: grid; /* Torna o elemento um grid container automaticamente transformando todos os seus filhos diretos em grid itens*/
+
+	/* A grid-template-columns propriedade define o número de colunas em um grid layout e a largura de cada coluna. */
+
+	grid-template-columns: 100px 200px 300px; /*Define três colunas com larguras específicas*/
+	grid-template-columns: 100px auto 300px; /*Define três colunas, onde a segunda coluna se ajusta automaticamente para preencher o espaço restante*/
+	grid-template-columns: repeat(3, 1fr); /*Define três colunas de largura igual usando a função repeat() e a unidade fr (fração)*/
+	grid-template-columns: repeat(2, 100px) 200px; /*Define duas colunas de 100px e uma coluna de 200px*/
+	grid-template-columns: repeat(3, 100px); /*Define três colunas de 100px*/
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /*Define um número automático de colunas, onde cada coluna tem uma largura mínima de 100px e pode crescer para preencher o espaço disponível usando a função auto-fill e minmax()*/
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /*Define um número automático de colunas, onde cada coluna tem uma largura mínima de 100px e pode crescer para preencher o espaço disponível usando a função auto-fit e minmax()*/	
+
+	/* A grid-template-rows propriedade define o número de linhas em um grid layout e a altura de cada linha. */
+	grid-template-rows: 100px 200px 300px; /*Define três linhas com alturas específicas*/
+	grid-template-rows: 100px auto 300px; /*Define três linhas, onde a segunda linha se ajusta automaticamente para preencher o espaço restante*/
+	grid-template-rows: repeat(3, 1fr); /*Define três linhas de altura igual usando a função repeat() e a unidade fr (fração)*/
+	grid-template-rows: repeat(2, 100px) 200px; /*Define duas linhas de 100px e uma linha de 200px*/
+	grid-template-rows: repeat(3, 100px); /*Define três linhas de 100px*/
+	grid-template-rows: repeat(auto-fill, minmax(100px, 1fr)); /*Define um número automático de linhas, onde cada linha tem uma altura mínima de 100px e pode crescer para preencher o espaço disponível usando a função auto-fill e minmax()*/
+	grid-template-rows: repeat(auto-fit, minmax(100px, 1fr)); /*Define um número automático de linhas, onde cada linha tem uma altura mínima de 100px e pode crescer para preencher o espaço disponível usando a função auto-fit e minmax()*/	
+
+	grid-column: 1 / 3; /*O item de grade se estende da linha de grade 1 à linha de grade 3, ocupando as colunas 1 e 2*/
+	grid-row: 2 / 4; /*O item de grade se estende da linha de grade 2 à linha de grade 4, ocupando as linhas 2 e 3*/
+	grid-area: 1 / 2 / 3 / 4; /*O item de grade se estende da linha de grade 1 à linha de grade 3 e da linha de grade 2 à linha de grade 4, ocupando as colunas 2 e 3 e as linhas 1 e 2*/
+	
 }
 
 .Background{
