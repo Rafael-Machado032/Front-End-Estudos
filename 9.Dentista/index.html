@@ -1,7 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
+  <head>
     <!--Tipo de texto padrão-->
     <meta charset="UTF-8">
 
@@ -9,11 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!--Escala de tela para responsivo-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--Titulo da pagina que aparece na aba do navegador-->
-    <title>Dicas de HTML</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9-dentista</title>
     <!-- Cor da barra mobile -->
     <!-- Cor para modo claro -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -51,6 +47,7 @@
     <link rel="icon" href="./icon-192.png" sizes="192x192" type="image/png">
     <!-- 3. Exclusivo para iPhone/iPad (iOS) -->
     <link rel="apple-touch-icon" href="./apple-touch-180.png">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
     <!-- Pre-conexão de fontes do google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,68 +56,9 @@
     <!-- Evita que o Google te penalize se existirem duas URLs para o mesmo site (ex: com www e sem www). -->
     <link rel="canonical" href="https://seusite.com.br">
 
-    <!--Chamado de css em outro arquivo-->
-    <link rel="stylesheet" href="./css/style.css">
-    
-</head>
-
-<body>
-
-    <!-- CABEÇALHO DO SITE -->
-    <header><!-- <header>: Define o cabeçalho de uma página ou seção, geralmente contendo logos e títulos. -->
-
-        <h1>Logo da Minha Empresa</h1>
-        <img src="" alt="Nome da empresa">
-
-        <!-- NAVEGAÇÃO PRINCIPAL -->
-        <nav><!-- <nav>: Agrupa links de navegação principal (menus). -->
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main><!-- <main>: Identifica o conteúdo central e exclusivo da página (deve haver apenas um por página). -->
-
-        <!-- SEÇÃO TEMATICA -->
-        <section id="blog"><!-- <section>: Define seções temáticas dentro de um documento -->
-            <h2>Últimas Postagens</h2>
-
-            <!-- ARTIGO -->
-            <article>
-                <!-- <article>: Representa um conteúdo independente e autocontido (ex: um post de blog ou notícia). -->
-                <h3>Como aprender HTML Semântico</h3>
-                <p>O HTML semântico é fundamental para SEO...</p>
-            </article>
-
-            <article>
-                <h3>Dicas de CSS Moderno</h3>
-                <p>Aprenda a usar Grid e Flexbox com facilidade...</p>
-            </article>
-        </section>
-
-        <section id="servicos">
-            <h2>Nossos Serviços</h2>
-            <p>Oferecemos consultoria em acessibilidade digital.</p>
-        </section>
-
-        <!-- ASIDE (BARRA LATERAL) -->
-        <aside>
-            <!-- <aside>: Conteúdo relacionado apenas indiretamente ao conteúdo principal, como barras laterais ou anúncios. -->
-            <h4>Links Úteis</h4>
-            <p>Confira a documentação oficial na <a
-                    href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Reference/Elements">MDN Web Docs</a>.</p>
-        </aside>
-
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer><!-- <footer>: Define o rodapé com informações de copyright, contato ou links finais -->
-        <p>&copy; 2026 - Todos os direitos reservados.</p>
-    </footer>
-</body>
-
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
