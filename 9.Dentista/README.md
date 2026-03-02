@@ -22,3 +22,15 @@ Tailwind - Estilo
 
 A teg <head></head> Insere as metas tag no arquivo index.html localizado na pasta raiz
 
+## Execultar o servidor
+npm run dev
+
+## Prefixo de Estrutura basica
+
+rfc:            import React from 'react'
+
+                export default function $1() {
+                    return <div>$0</div>
+                }
+
+

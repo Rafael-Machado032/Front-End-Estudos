@@ -1,1 +1,7 @@
+@import url('https://fonts.googleapis.com');
 @import "tailwindcss";
+
+@theme {
+    /* Isso cria a classe font-roboto */
+    --font-roboto: "Roboto", sans-serif;
+}
