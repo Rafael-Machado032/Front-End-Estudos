@@ -3,7 +3,7 @@ import logo2 from "../assets/logo2.jpg"
 
 export default function Diferencas() {
   return (
-    <section className='flex justify-center gap-30 text-center text-xl w-full max-w-4xl my-10'>
+    <section className='flex flex-col justify-center items-center gap-4 text-center text-xl w-full max-w-4xl my-10 lg:flex-row lg:gap-30'>
       <div className=' text-gray-400 flex flex-col'>
         <h2 className='w-40 h-13 text-3xl'>Tradicional</h2>
         <span className=' '>Aparelho Fixo</span>
