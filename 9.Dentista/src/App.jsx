@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen font-roboto">
-      <section style={{backgroundImage:`url(${bg1})`}} className='bg-size-[100%_100%] bg-no-repeat bg-center h-175'>
+      <section style={{backgroundImage:`url(${bg1})`}} className='bg-size-[100%_100%] bg-no-repeat bg-center h-175 p-4'>
         <Header />
         <div className='w-full h-px bg-gray-400'></div>
         <Hero />

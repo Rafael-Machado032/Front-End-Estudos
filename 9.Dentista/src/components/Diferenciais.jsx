@@ -8,7 +8,7 @@ import ico6 from "../assets/ico/icone06.png"
 
 export default function Diferenciais() {
   return (
-    <section className='grid grid-cols-3 grid-rows-[repeat(2,min-content)] w-full max-w-4xl m-auto gap-6'>
+    <section className='grid grid-cols-3 grid-rows-[repeat(2,min-content)] w-full max-w-4xl m-auto gap-6 p-4'>
         <div className='flex flex-col gap-4'>
             <div style={{backgroundImage:`url(${ico1})`}} className="bg-no-repeat bg-center bg-contain w-14 h-14"></div>
             <h2 className='text-3xl'>Discreto por ser <span className='font-bold text-[#7dd5b0]'>transparente</span></h2>

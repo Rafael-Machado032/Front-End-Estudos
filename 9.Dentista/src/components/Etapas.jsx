@@ -5,7 +5,7 @@ import etapa3 from "../assets/etapas/round_etapas_03.jpg"
 
 export default function Etapas() {
   return (
-    <section className='w-full max-w-6xl'>
+    <section className='w-full max-w-6xl p-4'>
       <div className='text-center flex flex-col font-bold text-2xl p-10'>
         <h3>Sem dúvidas, serve pra você!</h3>
       <h3>Veja como funciona:</h3>
