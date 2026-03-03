@@ -6,7 +6,7 @@ import circle4 from '../assets/circle/circle04.png'
 
 export default function Hero() {
   return (
-    <div className='flex justify-between w-full max-w-4xl mx-auto py-10 gap-4'>
+    <article className='flex justify-between w-full max-w-4xl mx-auto py-10 gap-4'>
       <div className='w-1/2 gap-4 flex flex-col'>
         <h2 className='text-[#509d87] text-[37px] leading-11'>Seu sorriso perfeito através de um tratamento discreto e inovador, em Florianópolis</h2>
         <p className='leading-5 text-[15px]'>Alinhe seus dentes com conforto, praticidade e liberdade! <span className='font-bold'>Deixe seu email</span> para que a Dra. Leda possa entrar em contato e agendar uma avaliação gratuita.</p>
@@ -22,7 +22,7 @@ export default function Hero() {
         <div style={{ backgroundImage: `url(${circle3})` }} className="bg-no-repeat bg-center bg-contain w-43 aspect-square"></div>
         <div style={{ backgroundImage: `url(${circle4})` }} className="bg-no-repeat bg-center bg-contain w-43 aspect-square"></div>
       </div>
-    </div>
+    </article>
 
   )
 }
