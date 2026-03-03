@@ -11,9 +11,9 @@ export default function Etapas() {
       <h3>Veja como funciona:</h3>
       </div>
       
-      <div className='flex gap-4'>
-        <div className='w-1/2'>
-          <div className='flex items-center'>
+      <div className='flex flex-col gap-4 items-center lg:flex-row lg:items-start'>
+        <div className='flex flex-col gap-6 w-full max-w-150 lg:w-1/2'>
+          <div className='flex flex-col  lg:items-center lg:flex-row'>
             <div style={{ backgroundImage: `url(${etapa1})` }} className='w-68 aspect-square bg-center bg-no-repeat bg-contain'></div>
             <p className='text-[#509d87] px-8'>Aparelho tradicional e Invisalign</p>
           </div>
@@ -25,7 +25,7 @@ export default function Etapas() {
           </div>
         </div>
 
-        <div className='w-1/2'>
+        <div className='hidden sm:block lg:w-1/2'>
           <div className='flex'>
             <div className='flex flex-col justify-center items-center'>
               <div className='flex justify-center items-center w-28 aspect-square border-2 rounded-full border-[#ccc]'>1</div>     
