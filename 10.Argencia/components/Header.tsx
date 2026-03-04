@@ -1,4 +1,4 @@
-'use client'; // Necessário para usar o estado do menu (abrir/fechar)
+'use client'
 
 import Link from 'next/link';
 import { useState } from 'react';
@@ -9,9 +9,9 @@ export function Header() {
     return (
         <header className="w-full z-50 top-0 bg-transparent">
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-22">
+                <div className=" relative flex justify-between items-center h-22">
                     {/* Logo */}
-                    <div className="shrink-0 flex items-center">
+                    <div className={`z-10 shrink-0 flex items-center ${isOpen ? 'text-black' : 'text-white'}`}>
                         <Link href="/" className="text-2xl font-bold">
                             RM.Code
                         </Link>
@@ -28,8 +28,8 @@ export function Header() {
                     </ul>
 
                     {/* Botão Mobile (Hambúrguer) */}
-                    <div className="md:hidden flex items-center">
-                        <button onClick={() => setIsOpen(!isOpen)} className="text-white hover:text-blue-600 focus:outline-none">
+                    <div className="md:hidden flex items-center z-10">
+                        <button onClick={() => setIsOpen(!isOpen)} className={`hover:text-blue-600 focus:outline-none ${isOpen ? 'text-black' : 'text-white'}`}>
                             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 {isOpen ? (
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -43,16 +43,15 @@ export function Header() {
             </nav>
 
             {/* Menu Mobile Aberto */}
-            {isOpen && (
-                <nav className="md:hidden bg-white border-b border-gray-200 animate-in fade-in slide-in-from-top-5">
-                    <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-                        <li><Link href="/" className="block px-3 py-2 text-gray-700 hover:text-blue-600 w-full text-center">Início</Link></li>
-                        <li><Link href="#servicos" className="block px-3 py-2 text-gray-700 hover:text-blue-600 w-full text-center">Serviços</Link></li>
-                        <li><Link href="#sobre" className="block px-3 py-2 text-gray-700 hover:text-blue-600 w-full text-center">Sobre</Link></li>
-                        <li><Link href="#contato" className="block px-3 py-2 border border-black text-black rounded-full w-full text-center">Quero um orcamento</Link></li>
-                    </ul>
-                </nav>
-            )}
+            <nav className={`md:hidden absolute top-0 w-full bg-white border-b border-gray-200 overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <ul className="px-2 pt-20 pb-8 space-y-1 sm:px-3 flex flex-col items-center">
+                    <li><Link href="#sobre" className="block px-3 py-2 text-gray-700 hover:text-blue-600 w-full text-center">Sobre</Link></li>
+                    <li><Link href="#servicos" className="block px-3 py-2 text-gray-700 hover:text-blue-600 w-full text-center">Serviços</Link></li>
+                    <li><Link href="/" className="block px-3 py-2 text-gray-700 hover:text-blue-600 w-full text-center">Contato</Link></li>
+                    <li><Link href="#contato" className="block px-3 py-2 border border-black text-black rounded-full w-full text-center">Quero um orcamento</Link></li>
+                </ul>
+            </nav>
+
         </header>
     );
 }
