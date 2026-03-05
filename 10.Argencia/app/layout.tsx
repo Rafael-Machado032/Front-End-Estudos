@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {Roboto, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+
+
+const roboto = Roboto({
+  weight: ['400', '700'], // Escolha os pesos (400 é normal, 700 é negrito)
+  subsets: ["latin"],
+  variable: "--font-roboto", // Nome da variável para o CSS
+});
 
 
 const geistSans = Geist({
@@ -62,7 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${roboto.variable} ${geistSans.variable} ${geistMono.variable} font-roboto antialiased`}>
 
         <Header />
           {children}
@@ -71,3 +78,4 @@ export default function RootLayout({
     </html>
   );
 }
+

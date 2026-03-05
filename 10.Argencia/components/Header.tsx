@@ -7,7 +7,7 @@ export function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="w-full z-50 top-0 bg-transparent">
+        <header className="absolute z-50 w-full bg-transparent text-white">
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className=" relative flex justify-between items-center h-22">
                     {/* Logo */}
@@ -18,7 +18,7 @@ export function Header() {
                     </div>
 
                     {/* Links Desktop */}
-                    <ul className="hidden md:flex space-x-8">
+                    <ul className="hidden lg:flex space-x-8">
                         <li><Link href="#sobre" className="hover:text-blue-600 transition">Sobre</Link></li>
                         <li><Link href="#servicos" className="hover:text-blue-600 transition">Serviços</Link></li>
                         <li><Link href="#contato" className="hover:text-blue-600 transition">Contato</Link></li>
@@ -28,7 +28,7 @@ export function Header() {
                     </ul>
 
                     {/* Botão Mobile (Hambúrguer) */}
-                    <div className="md:hidden flex items-center z-10">
+                    <div className="lg:hidden flex items-center z-10">
                         <button onClick={() => setIsOpen(!isOpen)} className={`hover:text-blue-600 focus:outline-none ${isOpen ? 'text-black' : 'text-white'}`}>
                             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 {isOpen ? (
@@ -43,7 +43,7 @@ export function Header() {
             </nav>
 
             {/* Menu Mobile Aberto */}
-            <nav className={`md:hidden absolute top-0 w-full bg-white border-b border-gray-200 overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <nav className={`md: relative -top-22 w-full bg-white border-b border-gray-200 overflow-hidden transition-all duration-1000 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <ul className="px-2 pt-20 pb-8 space-y-1 sm:px-3 flex flex-col items-center">
                     <li><Link href="#sobre" className="block px-3 py-2 text-gray-700 hover:text-blue-600 w-full text-center">Sobre</Link></li>
                     <li><Link href="#servicos" className="block px-3 py-2 text-gray-700 hover:text-blue-600 w-full text-center">Serviços</Link></li>
