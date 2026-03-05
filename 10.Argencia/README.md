@@ -38,6 +38,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Execultar o servidor
 npm run dev
 
+## Limpar cache
+rmdir /s /q .next
+
 ## Estrutura
 layout.tsx  -> Moudura da pagina o que não muda
 page.tsx    -> Parte principal que muda sem precisar sair da pagina
