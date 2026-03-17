@@ -55,3 +55,10 @@ aspect-3/4      3/4             Vertical (Fotos de celular).
 aspect-4/3      4/3             Monitor antigo/Câmera digital.
 aspect-21/9     21/3            Monitor UltraWide (Ótimo para seções de fundo).
 aspect-[2/1]    Customizado     O dobro da largura pela altura.
+
+## Estrutura Shadow
+Use anderline para setar manual
+shadow-[10px_10px_20px_rgba(0,0,0,0.5)]
+
+## Estrutura imagem bg
+bg-[url(/images/bg.svg)]
