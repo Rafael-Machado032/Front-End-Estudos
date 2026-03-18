@@ -62,3 +62,21 @@ shadow-[10px_10px_20px_rgba(0,0,0,0.5)]
 
 ## Estrutura imagem bg
 bg-[url(/images/bg.svg)]
+
+## Animação
+transition-transform    -> Efeito de deslizar
+Anima especificamente scale (zoom), rotate (giro) e translate (movimento para os lados/cima)
+Melhor maneira de usar style={{ transform: `translateX(-${indice * 100}%)` }}
+transition-[max-height] -> Efeito de altura
+Melhor maneira de usar usando useState className={`${Aberto ? 'max-h-96' : 'max-h-0'}`}
+transition-opacity      -> Anima apenas o "sumir e aparecer" (transparência)
+transition-shadow       -> Anima a suavidade da sombra crescendo ou diminuindo
+
+duration-700            -> Duração do efeito 
+
+overflow-hidden         -> Esconde o que transborda
+
+ease-in-out             -> Começa devagar, acelera no meio e desacelera no final
+ease-linear             -> Velocidade constante do início ao fim (parece um robô)
+ease-out                -> Começa rápido e vai parando devagar
+
